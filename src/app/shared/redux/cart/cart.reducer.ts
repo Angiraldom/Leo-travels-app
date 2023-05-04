@@ -7,7 +7,6 @@ export const initialState: IProduct[] = [{ name: 'asdasd', price: 3 }];
 const _cartReducer = createReducer(initialState,
 
     on( addProduct, (state, { product }) => {
-        console.log(product);
         return [...state, product];
     })
 )
