@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { AppState } from 'src/app/app.reducer';
+import { AppState } from 'src/app/store/app.reducer';
 import { BaseService } from 'src/app/core/services/base.service';
-import * as cartActions from 'src/app/shared/redux/cart/cart.actions';
+import * as cartActions from 'src/app/store/actions/cart.actions';
 import { IProduct } from 'src/app/shopping-cart/interfaces/IProduct.interface';
 
 @Component({

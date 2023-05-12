@@ -1,6 +1,6 @@
 import { Action, createReducer, on } from "@ngrx/store";
-import { addProduct } from "./cart.actions";
-import { IProduct } from "../../../shopping-cart/interfaces/IProduct.interface";
+import { addProduct } from "../actions/cart.actions";
+import { IProduct } from "../../shopping-cart/interfaces/IProduct.interface";
 
 export const initialState: IProduct[] = [{ name: 'asdasd', price: 3 }];
 

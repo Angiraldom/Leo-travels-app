@@ -7,7 +7,7 @@ import { ShoppingCartModule } from './shopping-cart/shopping-cart.module';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { StoreModule } from '@ngrx/store';
-import { appReducers } from './app.reducer';
+import { appReducers } from './store/app.reducer';
 import { NavbarComponent } from './layout/navbar/navbar.component';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';

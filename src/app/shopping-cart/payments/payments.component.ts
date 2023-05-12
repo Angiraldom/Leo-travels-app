@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { AppState } from 'src/app/app.reducer';
+import { AppState } from 'src/app/store/app.reducer';
 import { BaseService } from 'src/app/core/services/base.service';
 import { IProduct } from '../interfaces/IProduct.interface';
-import * as cartActions from 'src/app/shared/redux/cart/cart.actions';
+import * as cartActions from 'src/app/store/actions/cart.actions';
 
 declare let WidgetCheckout: any;
 
