@@ -12,7 +12,7 @@ export class NavbarComponent implements OnInit {
   constructor(private state: Store<AppState>) {}
 
   ngOnInit(): void {
-    this.state.select('products').subscribe({
+    this.state.select('cart').subscribe({
       next: (products) => {
         console.log(products)
       }

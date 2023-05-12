@@ -2,4 +2,6 @@ import { createAction, props } from "@ngrx/store";
 import { IProduct } from "../../shopping-cart/interfaces/IProduct.interface";
 
 
-export const addProduct = createAction('Add Product', props<{product: IProduct}>());
+export const addProduct = createAction('Add Product', props<{reference: string; product: IProduct}>());
+
+export const initCart = createAction('Init Cart', props<{reference: string; products: IProduct[]}>());

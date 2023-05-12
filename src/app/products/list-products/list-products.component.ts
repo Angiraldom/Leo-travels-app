@@ -20,7 +20,7 @@ export class ListProductsComponent implements OnInit {
     private baseService: BaseService) { }
 
   ngOnInit(): void {
-    this.store.select('products').subscribe({
+    this.store.select('cart').subscribe({
       next: (products: any) => {
         console.log(products);
         this.productsCart = products;
@@ -38,7 +38,7 @@ export class ListProductsComponent implements OnInit {
    * @param product Product to add to the cart.
    */
   addProduct(product: IProduct, reference: string) {
-    this.store.dispatch(cartActions.addProduct({ product }));
+    this.store.dispatch(cartActions.addProduct({ reference, product }));
     this.saveProductsInBd(reference);
   }
 
@@ -60,15 +60,7 @@ export class ListProductsComponent implements OnInit {
     const body = { reference, products: this.productsCart };
     this.baseService.postMethod('payments/saveProduct', body).subscribe({
       next: (res: any) => {
-        this.getProductsRedis(res['reference']);
-      }
-    });
-  }
-
-  getProductsRedis(reference: string) {
-    this.baseService.getMethod('payments/getProducts/' + reference).subscribe({
-      next: (res) => {
-        console.log(res);
+        console.log('Guardo los productos en redis');
       }
     });
   }

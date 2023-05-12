@@ -1,13 +1,18 @@
 import { Action, createReducer, on } from "@ngrx/store";
-import { addProduct } from "../actions/cart.actions";
-import { IProduct } from "../../shopping-cart/interfaces/IProduct.interface";
 
-export const initialState: IProduct[] = [{ name: 'asdasd', price: 3 }];
+import * as actions from "../actions/cart.actions";
+import { ICart } from "../../shopping-cart/interfaces/IProduct.interface";
+
+export const initialState: ICart = { reference: null, products: [] };
 
 const _cartReducer = createReducer(initialState,
 
-    on( addProduct, (state, { product }) => {
-        return [...state, product];
+    on( actions.addProduct, (state, { reference, product }) => {
+        return { reference, products: [...state.products, product] }
+    }),
+
+    on( actions.initCart, (state, { reference, products }) => {
+        return { ...state, reference, products: [...products] }
     })
 )
 
