@@ -36,7 +36,11 @@ export class AppComponent implements OnInit {
   getProductsRedis(reference: string) {
     this.baseService.getMethod('payments/getProducts/' + reference).subscribe({
       next: (res: any) => {
-        this.store.dispatch(initCart({ products: res['products'], reference: res['reference'] }))
+        if (res) {
+          this.store.dispatch(initCart({ products: res['products'], reference: res['reference'] }))
+        } else {
+          localStorage.removeItem('reference');
+        }
       }
     });
   }

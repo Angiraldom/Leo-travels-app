@@ -1,16 +1,19 @@
 import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ShoppingCartModule } from './shopping-cart/shopping-cart.module';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { StoreModule } from '@ngrx/store';
-import { appReducers } from './store/app.reducer';
-import { NavbarComponent } from './layout/navbar/navbar.component';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { EffectsModule } from '@ngrx/effects';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
+import { ShoppingCartModule } from './shopping-cart/shopping-cart.module';
+import { appReducers } from './store/app.reducer';
+import { NavbarComponent } from './layout/navbar/navbar.component';
+import { effectsArray } from './store/effects';
+
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -35,7 +38,8 @@ export function createTranslateLoader(http: HttpClient) {
       }
     }),
     StoreModule.forRoot(appReducers),
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() })
+    EffectsModule.forRoot(effectsArray),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
   ],
   providers: [],
   bootstrap: [AppComponent]
