@@ -53,4 +53,8 @@ export class ListProductsComponent implements OnInit {
     }
     this.addProduct(product, reference);
   }
+
+  updateProduct(product: IProduct) {
+    this.store.dispatch(cartActions.updateProduct({ reference: 'johnatan', product }))
+  }
 }

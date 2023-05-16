@@ -11,6 +11,18 @@ const _cartReducer = createReducer(initialState,
         return { reference, products: [...state.products, product] }
     }),
 
+    on( actions.updateProduct, (state, { product }) => {
+
+        const result = state.products.map((item) => {
+            if (product.id !== item.id) {
+                return item;
+            }
+            return { ...product };
+        });
+        
+        return { ...state, products: [...result] }
+    }),
+
     on( actions.initCart, (state, { reference, products }) => {
         return { ...state, reference, products: [...products] }
     })
