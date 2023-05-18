@@ -3,7 +3,7 @@ import { Action, createReducer, on } from "@ngrx/store";
 import * as actions from "../actions/cart.actions";
 import { ICart } from "../../shopping-cart/interfaces/IProduct.interface";
 
-export const initialState: ICart = { reference: null, products: [] };
+export const initialState: ICart = { reference: null, products: []};
 
 const _cartReducer = createReducer(initialState,
 
@@ -21,6 +21,10 @@ const _cartReducer = createReducer(initialState,
         });
         
         return { ...state, products: [...result] }
+    }),
+
+    on( actions.deleteProduct, (state, { product }) => {
+        return { ...state, products: state.products.filter(item => product.id !== item.id)};
     }),
 
     on( actions.initCart, (state, { reference, products }) => {

@@ -19,16 +19,11 @@ export class EffectCart {
       ofType(cartActions.addProduct),
       mergeMap((data) =>
         this.baseService.postMethod('payments/saveProduct', data).pipe(
-          map((res: any) => {
-            return cartActions.initCart({
-              reference: res['reference'],
-              products: res['products'],
-            });
-          })
+          catchError(() => of(console.log('No registro')))
         )
       )
     );
-  });
+  }, { dispatch: false });
 
   updateProduct$ = createEffect(
     () => {
@@ -38,6 +33,21 @@ export class EffectCart {
         mergeMap(([action, state]) => {
           return this.baseService.updateMethod('payments/updateAllProducts', state).pipe(
             catchError(() => of(console.log('No edito')))
+          );
+        })
+      );
+    },
+    { dispatch: false }
+  );
+
+  deleteProduct$ = createEffect(
+    () => {
+      return this.actions$.pipe(
+        ofType(cartActions.deleteProduct),
+        withLatestFrom(this.store.pipe(select('cart'))),
+        mergeMap(([action, state]) => {
+          return this.baseService.updateMethod('payments/updateAllProducts', state).pipe(
+            catchError(() => of(console.log('No elimino')))
           );
         })
       );

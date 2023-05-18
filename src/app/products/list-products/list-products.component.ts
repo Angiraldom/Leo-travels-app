@@ -57,4 +57,8 @@ export class ListProductsComponent implements OnInit {
   updateProduct(product: IProduct) {
     this.store.dispatch(cartActions.updateProduct({ reference: 'johnatan', product }))
   }
+
+  deleteProduct(product: IProduct) {
+    this.store.dispatch(cartActions.deleteProduct({ reference: 'johnatan', product }))
+  }
 }
