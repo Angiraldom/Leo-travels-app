@@ -1,0 +1,41 @@
+<div>
+    <button class="mat-stroked-button" color="primary" (click)="addModule()"> + </button>
+
+    <form [formGroup]="form">
+
+        <input type="text" formControlName="name">
+
+        <input type="text" formControlName="description">
+
+        <div formArrayName="modules">
+
+            <ng-container *ngFor="let item of modules.controls; let moduleIndex = index">
+
+                <ng-container [formGroupName]="moduleIndex">
+                    <input type="text" formControlName="name">
+
+                    <input type="text" formControlName="description">
+
+                    <button class="mat-stroked-button" color="primary" (click)="addVideo(moduleIndex)"> Agregar video
+                    </button>
+
+                    <div formArrayName="video">
+
+                        <ng-container *ngFor="let item of moduleIndex | listVideos: modules; let videoIndex = index">
+                            <ng-container [formGroupName]="videoIndex">
+                                <input type="text" formControlName="name">
+
+                                <input type="text" formControlName="url">
+                            </ng-container>
+                        </ng-container>
+
+                    </div>
+                </ng-container>
+
+            </ng-container>
+
+        </div>
+    </form>
+
+    <pre> {{ form.value | json }} </pre>
+</div>
