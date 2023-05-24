@@ -1,5 +1,6 @@
-import { Component, inject } from '@angular/core';
+import { Component, Inject, inject } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-create-course',
@@ -9,6 +10,7 @@ import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class CreateCourseComponent {
 
   private fb = inject(FormBuilder);
+  public data: {name: string} = inject(MAT_DIALOG_DATA);
 
   form: FormGroup = this.fb.group({
     name: ["", Validators.required],
@@ -50,4 +52,14 @@ export class CreateCourseComponent {
     this.getVideos(moduleIndex).removeAt(indexVideo);
   }
   
+  validateAction() {
+    if (this.form.invalid) {
+      return;
+    }
+    if (!this.data) {
+      console.log('Guardar en la bd');
+      return
+    }
+    console.log('Editar producto');
+  }
 }
