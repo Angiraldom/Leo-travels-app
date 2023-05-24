@@ -18,11 +18,18 @@ import { effectsArray } from './store/effects';
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
+import { CreateCourseComponent } from './products/create-course/create-course.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './material/material.module';
+import { ReactiveFormsModule } from '@angular/forms';
+import { ListVideosPipe } from './products/pipes/list-videos.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent
+    CreateCourseComponent,
+    ListVideosPipe
   ],
   imports: [
     BrowserModule,
@@ -40,6 +47,9 @@ export function createTranslateLoader(http: HttpClient) {
     StoreModule.forRoot(appReducers),
     EffectsModule.forRoot(effectsArray),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
+    BrowserAnimationsModule,
+    MaterialModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
