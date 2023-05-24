@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { CreateCourseComponent } from './products/create-course/create-course.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'leo-travels-app';
+
+  private dialog = inject(MatDialog);
+
+  openModal() {
+    this.dialog.open(CreateCourseComponent, {
+    });
+  }
 }
