@@ -1,6 +1,7 @@
-import { Component, Inject, inject } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { BaseService } from 'src/app/core/services/base.service';
 
 @Component({
   selector: 'app-create-course',
@@ -11,6 +12,8 @@ export class CreateCourseComponent {
 
   private fb = inject(FormBuilder);
   public data: {name: string} = inject(MAT_DIALOG_DATA);
+  private baseService = inject(BaseService);
+  private dialogRef = inject(MatDialogRef<this>);
 
   form: FormGroup = this.fb.group({
     name: ["", Validators.required],
@@ -57,9 +60,29 @@ export class CreateCourseComponent {
       return;
     }
     if (!this.data) {
-      console.log('Guardar en la bd');
+      this.saveProduct();
       return
     }
-    console.log('Editar producto');
+    this.updateProduct();
+  }
+
+  updateProduct() {
+    const body = this.form.getRawValue();
+    this.baseService.patchMethod('', body).subscribe({
+      next: () => { 
+        this.dialogRef.close({refresh: true});
+        console.log("Actualizo correctamente") 
+      }
+    });
+  }
+
+  saveProduct() {
+    const body = this.form.getRawValue();
+    this.baseService.postMethod('product', body).subscribe({
+      next: () => { 
+        this.dialogRef.close({refresh: true});
+        console.log("Guardo correctamente") 
+      }
+    });
   }
 }

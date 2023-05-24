@@ -19,7 +19,7 @@ export class BaseService {
     return this.http.post(this.apiUrl + nameMethod, body);
   }
 
-  updateMethod(nameMethod: string, body: any) {
+  patchMethod(nameMethod: string, body: any) {
     return this.http.patch(this.apiUrl + nameMethod, body);
   }
 }

@@ -31,7 +31,7 @@ export class EffectCart {
         ofType(cartActions.updateProduct),
         withLatestFrom(this.store.pipe(select('cart'))),
         mergeMap(([action, state]) => {
-          return this.baseService.updateMethod('payments/updateAllProducts', state).pipe(
+          return this.baseService.patchMethod('payments/updateAllProducts', state).pipe(
             catchError(() => of(console.log('No edito')))
           );
         })
@@ -46,7 +46,7 @@ export class EffectCart {
         ofType(cartActions.deleteProduct),
         withLatestFrom(this.store.pipe(select('cart'))),
         mergeMap(([action, state]) => {
-          return this.baseService.updateMethod('payments/updateAllProducts', state).pipe(
+          return this.baseService.patchMethod('payments/updateAllProducts', state).pipe(
             catchError(() => of(console.log('No elimino')))
           );
         })
