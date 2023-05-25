@@ -1,3 +1,18 @@
 {
-    "test": "funciono"
+    "test": "funciono",
+
+    "products": {
+        "form": {
+            "name": "Producto",
+            "description": "Descripción",
+            "price": "Precio",
+            "discount": "Descuento",
+            "weight": "Peso",
+            "moduls": {
+                "name": "Modulo",
+                "video": "Video",
+                "url": "Url"
+            }
+        }
+    }
 }

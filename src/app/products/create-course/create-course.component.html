@@ -1,40 +1,110 @@
 <div>
-    <button class="mat-stroked-button" color="primary" (click)="addModule()"> + </button>
-
     <form [formGroup]="form">
 
-        <input type="text" formControlName="name">
+        <mat-form-field class="example-full-width">
+            <mat-label>{{ 'products.form.name' | translate }}</mat-label>
+            <input matInput type="text" formControlName="name">
+        </mat-form-field>
 
-        <input type="text" formControlName="description">
+        <mat-form-field class="example-full-width">
+            <mat-label>{{ 'products.form.description' | translate }}</mat-label>
+            <input matInput #message maxlength="256" formControlName="description"
+                placeholder="Ex. I need help with...">
+            <mat-hint align="end">{{message.value.length}} / 256</mat-hint>
+        </mat-form-field>
 
-        <div formArrayName="modules">
+        <mat-form-field class="example-full-width">
+            <mat-label>{{ 'products.form.price' | translate }}</mat-label>
+            <input matInput type="number" formControlName="price">
+        </mat-form-field>
 
-            <ng-container *ngFor="let item of modules.controls; let moduleIndex = index">
+        <mat-form-field class="example-full-width">
+            <mat-label>{{ 'products.form.discount' | translate }}</mat-label>
+            <input matInput type="number" formControlName="discount">
+        </mat-form-field>
 
-                <ng-container [formGroupName]="moduleIndex">
-                    <input type="text" formControlName="name">
+        <mat-form-field class="example-full-width">
+            <mat-label>Tipo de creación</mat-label>
+            <mat-select formControlName="isCourse" (selectionChange)="resetForm($event)">
+                <mat-option [value]="false">Producto</mat-option>
+                <mat-option [value]="true">Curso</mat-option>
+            </mat-select>
+        </mat-form-field>
 
-                    <input type="text" formControlName="description">
+        <ng-container *ngIf="!form.get('isCourse')?.value; else moduls">
+            <mat-form-field class="example-full-width">
+                <mat-label>{{ 'products.form.weight' | translate }}</mat-label>
+                <input matInput type="number" formControlName="weight">
+            </mat-form-field>
+        </ng-container>
 
-                    <button class="mat-stroked-button" color="primary" (click)="addVideo(moduleIndex)"> Agregar video
-                    </button>
+        <ng-template #moduls>
 
-                    <div formArrayName="video">
+            <div class="example-button-container">
+                <button mat-fab color="accent" aria-label="Example icon button with a bookmark icon"
+                    (click)="addModule()">
+                    <mat-icon>add</mat-icon>
+                </button>
+            </div>
 
-                        <ng-container *ngFor="let item of moduleIndex | listVideos: modules; let videoIndex = index">
-                            <ng-container [formGroupName]="videoIndex">
-                                <input type="text" formControlName="name">
+            <div formArrayName="modules">
 
-                                <input type="text" formControlName="url">
+                <ng-container *ngFor="let item of modules.controls; let moduleIndex = index">
+
+                    <div [formGroupName]="moduleIndex">
+
+                        <button mat-fab color="accent" aria-label="Example icon button with a bookmark icon"
+                            (click)="deleteModule(moduleIndex)" *ngIf="moduleIndex !== 0">
+                            <mat-icon>delete</mat-icon>
+                        </button>
+
+                        <mat-form-field class="example-full-width">
+                            <mat-label>{{ 'products.form.moduls.name' | translate }}</mat-label>
+                            <input matInput type="text" formControlName="name">
+                        </mat-form-field>
+
+                        <mat-form-field class="example-full-width">
+                            <mat-label>{{ 'products.form.description' | translate }}</mat-label>
+                            <input matInput #message maxlength="256" formControlName="description"
+                                placeholder="Ex. I need help with...">
+                            <mat-hint align="end">{{message.value.length}} / 256</mat-hint>
+                        </mat-form-field>
+
+                        <button mat-fab color="accent" (click)="addVideo(moduleIndex)">
+                            <mat-icon>movie</mat-icon>
+                        </button>
+
+                        <div formArrayName="video">
+
+                            <ng-container
+                                *ngFor="let item of moduleIndex | listVideos: modules; let videoIndex = index">
+
+                                <button mat-fab color="secondary" aria-label="Example icon button with a bookmark icon"
+                                    (click)="deleteVideo(moduleIndex, videoIndex)" *ngIf="videoIndex !== 0">
+                                    <mat-icon>delete</mat-icon>
+                                </button>
+
+                                <div [formGroupName]="videoIndex">
+                                    <mat-form-field class="example-full-width">
+                                        <mat-label>{{ 'products.form.moduls.video' | translate }}</mat-label>
+                                        <input matInput type="text" formControlName="name">
+                                    </mat-form-field>
+
+                                    <mat-form-field class="example-full-width">
+                                        <mat-label>{{ 'products.form.moduls.url' | translate }}</mat-label>
+                                        <input matInput type="url" formControlName="url">
+                                    </mat-form-field>
+                                </div>
+
                             </ng-container>
-                        </ng-container>
 
+                        </div>
                     </div>
+
                 </ng-container>
 
-            </ng-container>
-
-        </div>
+            </div>
+        </ng-template>
     </form>
 
     <button (click)="validateAction()" [disabled]="form.invalid"> Guardar </button>

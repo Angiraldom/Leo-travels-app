@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
-import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { MatSelectChange } from '@angular/material/select';
 import { BaseService } from 'src/app/core/services/base.service';
 
 @Component({
@@ -18,7 +19,10 @@ export class CreateCourseComponent {
   form: FormGroup = this.fb.group({
     name: ["", Validators.required],
     description: ["", Validators.required],
-    modules: this.fb.array([])
+    price: [0, Validators.required],
+    discount: [0, Validators.required],
+    isCourse: [false, Validators.required],
+    weight: [0, Validators.required],
   });
 
   get modules() {
@@ -33,6 +37,7 @@ export class CreateCourseComponent {
     });
 
     this.modules.push(videos);
+    this.addVideo(this.modules.length - 1)
   }
 
   deleteModule(index: number) {
@@ -84,5 +89,26 @@ export class CreateCourseComponent {
         console.log("Guardo correctamente") 
       }
     });
+  }
+
+  resetForm(event: MatSelectChange) {
+    if (event.value) {
+      this.initFormArrayModuls();
+      return;
+    }
+    this.resetFormArrayModuls();
+  }
+
+  resetFormArrayModuls() {
+    this.form.addControl('weight', new FormControl(0, Validators.required));
+    this.form.removeControl('modules');
+    this.form.updateValueAndValidity();
+  }
+
+  initFormArrayModuls() {
+    this.form.removeControl('weight');
+    this.form.addControl('modules', this.fb.array([]));
+    this.form.updateValueAndValidity();
+    this.addModule();
   }
 }
