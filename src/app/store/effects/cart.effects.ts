@@ -3,7 +3,7 @@ import { Actions, createEffect, ofType } from '@ngrx/effects';
 
 import * as cartActions from '../actions/cart.actions';
 import { BaseService } from 'src/app/core/services/base.service';
-import { catchError, map, mergeMap, withLatestFrom } from 'rxjs/operators';
+import { catchError, mergeMap, withLatestFrom } from 'rxjs/operators';
 import { Store, select } from '@ngrx/store';
 import { AppState } from '../app.reducer';
 import { of } from 'rxjs';

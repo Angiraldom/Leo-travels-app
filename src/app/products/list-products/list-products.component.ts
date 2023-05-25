@@ -5,8 +5,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { AppState } from 'src/app/store/app.reducer';
 import { BaseService } from 'src/app/core/services/base.service';
 import * as cartActions from 'src/app/store/actions/cart.actions';
-import { IProduct } from 'src/app/shopping-cart/interfaces/IProduct.interface';
 import { CreateCourseComponent } from '../create-course/create-course.component';
+import { IProduct } from '../interfaces/IProduct.interface';
 
 @Component({
   selector: 'app-list-products',
@@ -75,7 +75,7 @@ export class ListProductsComponent implements OnInit {
     );
   }
 
-  openModal(data?: any) {
+  openModal(data?: IProduct) {
     this.dialog.open(CreateCourseComponent, {
       data
     }).afterClosed().subscribe({
