@@ -7,7 +7,7 @@ import { FormArray } from '@angular/forms';
 export class ListVideosPipe implements PipeTransform {
 
   transform(moduleIndex: number, modules: FormArray<any>) {
-    const form = modules.at(moduleIndex).get('video') as FormArray;
+    const form = modules.at(moduleIndex).get('videos') as FormArray;
     return form.controls;
   }
 

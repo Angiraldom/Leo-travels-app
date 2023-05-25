@@ -3,8 +3,9 @@ import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/store/app.reducer';
 import { BaseService } from 'src/app/core/services/base.service';
-import { IProduct } from '../interfaces/IProduct.interface';
+
 import * as cartActions from 'src/app/store/actions/cart.actions';
+import { IProduct } from 'src/app/products/interfaces/IProduct.interface';
 
 declare let WidgetCheckout: any;
 
