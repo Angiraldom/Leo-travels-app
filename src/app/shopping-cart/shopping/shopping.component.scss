@@ -2,7 +2,6 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    flex-direction: column;
 }
 
 .product-card {
@@ -10,4 +9,8 @@
     margin: 10px;
     padding: 10px;
     text-align: center;
+}
+
+h3 {
+    cursor: pointer;
 }

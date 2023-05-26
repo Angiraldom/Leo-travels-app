@@ -7,13 +7,15 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { MatCardModule } from '@angular/material/card';
 
 const modules = [
   MatTableModule,
   MatInputModule,
   MatSelectModule,
   MatButtonModule,
-  MatIconModule
+  MatIconModule,
+  MatCardModule
 ];
 @NgModule({
   declarations: [],

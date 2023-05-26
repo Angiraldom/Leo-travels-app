@@ -1,11 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
+
 import { AppState } from 'src/app/store/app.reducer';
 import { BaseService } from 'src/app/core/services/base.service';
-
-import * as cartActions from 'src/app/store/actions/cart.actions';
 import { IProduct } from 'src/app/products/interfaces/IProduct.interface';
+import { ICart } from '../interfaces/ICart.interface';
 
 declare let WidgetCheckout: any;
 
@@ -14,14 +14,21 @@ declare let WidgetCheckout: any;
   templateUrl: './payments.component.html',
   styleUrls: ['./payments.component.scss']
 })
-export class PaymentsComponent {
+export class PaymentsComponent implements OnInit {
 
-  constructor(
-    private baseService: BaseService,
-    private router: Router,
-    private store: Store<AppState>,) {
-      window.addEventListener('storage', function(event) { console.log(event)});
-     }
+  private baseService = inject(BaseService);
+  private router =  inject(Router);
+  private store = inject(Store<AppState>);
+ 
+  products: IProduct[] = [];
+
+  ngOnInit(): void {
+    this.store.select('cart').subscribe({
+      next: (cart: ICart) => this.products = cart.products
+    });
+  }
+
+  // window.addEventListener('storage', function(event) { console.log(event)});
 
   buyProduct() {
 
@@ -84,9 +91,5 @@ export class PaymentsComponent {
         console.log(res)
       }
     });
-  }
-
-  addProduct(product: IProduct) {
-    this.store.dispatch(cartActions.addProduct({ reference: '456', product }))
   }
 }

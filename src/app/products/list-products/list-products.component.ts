@@ -42,27 +42,6 @@ export class ListProductsComponent implements OnInit {
     });
   }
 
-  /**
-   * Add products to the cart
-   * @param product Product to add to the cart.
-   */
-  addProduct(product: IProduct, reference: string) {
-    this.store.dispatch(cartActions.addProduct({ reference, product }));
-  }
-
-  /**
-   * This method validates, if exists a reference in localStorage.
-   * @param product Product to add to the cart.
-   */
-  validateReference(product: IProduct) {
-    let reference = localStorage.getItem('reference');
-    if (!reference) {
-      reference = new Date().getTime().toString();
-      localStorage.setItem('reference', reference);
-    }
-    this.addProduct(product, reference);
-  }
-
   updateProduct(product: IProduct) {
     this.store.dispatch(
       cartActions.updateProduct({ reference: 'johnatan', product })

@@ -1,0 +1,12 @@
+<div class="product-list">
+    <mat-card *ngFor="let product of products" class="product-card">
+        <img src="https://concepto.de/wp-content/uploads/2014/08/tecnologia-e1551386726435.jpg" alt="{{product.name}}" />
+        <h3 (click)="validateReference(product)">{{product.name}}</h3>
+        <p>{{product.description}}</p>
+    </mat-card>
+</div>
+
+<button [routerLink]="'payment'" mat-raised-button > 
+    <mat-icon> add_shopping_cart </mat-icon>
+    Ir al carrito
+</button>
