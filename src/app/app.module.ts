@@ -13,7 +13,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ShoppingCartModule } from './shopping-cart/shopping-cart.module';
 import { appReducers } from './store/app.reducer';
 import { NavbarComponent } from './layout/navbar/navbar.component';
+import { SidebarComponent } from './layout/sidebar/sidebar.component';
 import { effectsArray } from './store/effects';
+import { MaterialModule } from './material/material.module';
 
 
 export function createTranslateLoader(http: HttpClient) {
@@ -24,7 +26,8 @@ export function createTranslateLoader(http: HttpClient) {
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent
+    NavbarComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,
@@ -43,6 +46,7 @@ export function createTranslateLoader(http: HttpClient) {
     EffectsModule.forRoot(effectsArray),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
     BrowserAnimationsModule,
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent],
