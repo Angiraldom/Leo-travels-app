@@ -4,6 +4,7 @@ import { PaymentsComponent } from './payments/payments.component';
 import { ShoppingCartRoutingModule } from './shopping-cart-routing.module';
 import { ThankYouPageComponent } from './thank-you-page/thank-you-page.component';
 import { ListPaymentsComponent } from './list-payments/list-payments.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 
 
@@ -15,7 +16,8 @@ import { ListPaymentsComponent } from './list-payments/list-payments.component';
   ],
   imports: [
     CommonModule,
-    ShoppingCartRoutingModule
+    ShoppingCartRoutingModule,
+    TranslateModule
   ],
   exports: []
 })
