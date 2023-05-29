@@ -8,7 +8,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { ListProductsComponent } from './list-products/list-products.component';
 import { ProductsRoutingModule } from './products-routing.module';
 import { CreateCourseComponent } from './create-course/create-course.component';
-import { ListVideosPipe } from './pipes/list-videos.pipe';
+import { ListVideosPipe } from '../core/pipes/list-videos.pipe';
 import { MaterialModule } from '../material/material.module';
 
 
