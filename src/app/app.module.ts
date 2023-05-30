@@ -36,12 +36,11 @@ export function createTranslateLoader(http: HttpClient) {
     HttpClientModule,
     ShoppingCartModule,
     TranslateModule.forRoot({
-      defaultLanguage: 'es',
       loader: {
         provide: TranslateLoader,
         useFactory: (createTranslateLoader),
         deps: [HttpClient]
-      }
+      },
     }),
     StoreModule.forRoot(appReducers),
     EffectsModule.forRoot(effectsArray),

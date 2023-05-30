@@ -1,6 +1,4 @@
 {
-    "test": "funciono",
-
     "products": {
         "form": {
             "name": "Producto",
@@ -14,5 +12,8 @@
                 "url": "Url"
             }
         }
+    },
+    "errors": {
+        "serverError": "Ocurrio un problema con el servidor, vuelve a intentarlo mas tarde."
     }
 }
