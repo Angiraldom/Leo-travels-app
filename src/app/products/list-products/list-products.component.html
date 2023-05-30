@@ -6,8 +6,6 @@ PRODUCTS !!!
 
 <button (click)="deleteProduct({ name: 'test', price: 366, _id: '34' })"> Eliminar producto </button> -->
 
-<button (click)="openModal()"> Crear producto </button>
-
 <!-- <video oncontextmenu='return false' onkeydown='return false' width="200" src="https://mytest2000jrr.s3.amazonaws.com/Sweet+Dreams+-+Larissa+Liveir.mp4" controls controlsList="nodownload noremoteplayback"></video> -->
 
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
@@ -29,7 +27,7 @@ PRODUCTS !!!
         <th mat-header-cell *matHeaderCellDef> Actions </th>
         <td mat-cell *matCellDef="let element"> 
             
-            <mat-icon (click)="openModal(element)">edit</mat-icon>
+            <mat-icon >edit</mat-icon>
             <mat-icon > delete </mat-icon>
         </td>
     </ng-container>
