@@ -1,0 +1,90 @@
+
+@use '@angular/material' as mat;
+
+@include mat.core();
+
+$mat-blue: (
+    50 : #e8ebf2,
+    100 : #c4cce0,
+    200 : #9facca,
+    300 : #7b8bb4,
+    400 : #5e72a5,
+    500 : #425a97,
+    600 : #3c528e,
+    700 : #334883,
+    800 : #2c3f76,
+    900 : #222e5e,
+    A100 : #b2dfff,
+    A200 : #7fc9ff,
+    A400 : #4cb4ff,
+    A700 : #32a9ff,
+  contrast: (
+    50 : #ffffff,
+    100 : #fafafa,
+    200 : #f5f5f5,
+    300 : #f0f0f0,
+    400 : #dedede,
+    500 : #c2c2c2,
+    600 : #979797,
+    700 : #818181,
+    800 : #606060,
+    900 : #3c3c3c,
+    A100 : #b2dfff,
+    A200 : #7fc9ff,
+    A400 : #4cb4ff,
+    A700 : #32a9ff,
+  )
+);
+
+$mat-yellow: (
+    50 : #fffce6,
+    100 : #fef7c2,
+    200 : #fef19a,
+    300 : #fdec72,
+    400 : #fbe752,
+    500 : #f9e232,
+    600 : #fad030,
+    700 : #f8ba29,
+    800 : #f5a222,
+    900 : #f17916,
+    A100 : #FFFF8D,
+    A200 : #FFFF00,
+    A400 : #FFFF00,
+    A700 : #FFD600,
+  contrast: (
+    50 : #ffffff,
+    100 : #fafafa,
+    200 : #f5f5f5,
+    300 : #f0f0f0,
+    400 : #dedede,
+    500 : #c2c2c2,
+    600 : #979797,
+    700 : #818181,
+    800 : #606060,
+    900 : #3c3c3c,
+    A100 : #FFFF8D,
+    A200 : #FFFF00,
+    A400 : #FFFF00,
+    A700 : #FFD600,
+  )
+);
+
+$my-primary: mat.define-palette($mat-blue, 900);
+$my-accent: mat.define-palette($mat-yellow, 600);
+
+// The "warn" palette is optional and defaults to red if not specified.
+$my-warn: mat.define-palette(mat.$red-palette);
+
+$my-theme: mat.define-light-theme((
+ color: (
+   primary: $my-primary,
+   accent: $my-accent,
+   warn: $my-warn,
+ ),
+));
+
+// Aplicar el tema a la aplicación
+@include mat.all-component-themes($my-theme);
+
+
+

@@ -2,18 +2,13 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 
-import { HttpClient } from '@angular/common/http';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 
-export function createTranslateLoader(http: HttpClient) {
-  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
-}
+import { TranslateModule } from '@ngx-translate/core';
 
 import { ListProductsComponent } from './list-products/list-products.component';
 import { ProductsRoutingModule } from './products-routing.module';
 import { CreateCourseComponent } from './create-course/create-course.component';
-import { ListVideosPipe } from './pipes/list-videos.pipe';
+import { ListVideosPipe } from '../core/pipes/list-videos.pipe';
 import { MaterialModule } from '../material/material.module';
 
 
@@ -28,14 +23,7 @@ import { MaterialModule } from '../material/material.module';
     ProductsRoutingModule,
     ReactiveFormsModule,
     MaterialModule,
-    TranslateModule.forRoot({
-      defaultLanguage: 'es',
-      loader: {
-        provide: TranslateLoader,
-        useFactory: (createTranslateLoader),
-        deps: [HttpClient]
-      }
-    }),
+    TranslateModule
   ]
 })
 export class ProductsModule { }
