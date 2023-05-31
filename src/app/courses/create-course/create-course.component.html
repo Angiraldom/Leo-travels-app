@@ -18,26 +18,6 @@
             <input matInput type="number" formControlName="price">
         </mat-form-field>
 
-        <mat-form-field class="example-full-width">
-            <mat-label>{{ 'products.form.discount' | translate }}</mat-label>
-            <input matInput type="number" formControlName="discount">
-        </mat-form-field>
-
-        <mat-form-field class="example-full-width">
-            <mat-label>Tipo de creación</mat-label>
-            <mat-select formControlName="isCourse" (selectionChange)="resetForm($event)">
-                <mat-option [value]="false">Producto</mat-option>
-                <mat-option [value]="true">Curso</mat-option>
-            </mat-select>
-        </mat-form-field>
-
-        <ng-container *ngIf="!form.get('isCourse')?.value; else moduls">
-            <mat-form-field class="example-full-width">
-                <mat-label>{{ 'products.form.weight' | translate }}</mat-label>
-                <input matInput type="number" formControlName="weight">
-            </mat-form-field>
-        </ng-container>
-
         <ng-template #moduls>
 
             <div class="example-button-container">

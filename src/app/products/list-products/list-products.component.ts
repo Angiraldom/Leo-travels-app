@@ -1,11 +1,9 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { MatDialog } from '@angular/material/dialog';
 
 import { AppState } from 'src/app/store/app.reducer';
 import { BaseService } from 'src/app/core/services/base.service';
 import * as cartActions from 'src/app/store/actions/cart.actions';
-import { CreateCourseComponent } from '../create-course/create-course.component';
 import { IProduct } from '../interfaces/IProduct.interface';
 
 @Component({
@@ -16,7 +14,6 @@ import { IProduct } from '../interfaces/IProduct.interface';
 export class ListProductsComponent implements OnInit {
   private store = inject(Store<AppState>);
   private baseService = inject(BaseService);
-  private dialog = inject(MatDialog);
 
   products: IProduct[] = [];
   productsCart: IProduct[] = [];
@@ -73,17 +70,5 @@ export class ListProductsComponent implements OnInit {
     this.store.dispatch(
       cartActions.deleteProduct({ reference: 'johnatan', product })
     );
-  }
-
-  openModal(data?: IProduct) {
-    this.dialog.open(CreateCourseComponent, {
-      data
-    }).afterClosed().subscribe({
-      next: ({refresh}) => {
-        if (refresh) {
-          this.getAllProducts();
-        }
-      }
-    });
   }
 }
