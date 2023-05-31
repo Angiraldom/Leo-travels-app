@@ -18,14 +18,14 @@
             <input matInput type="number" formControlName="price">
         </mat-form-field>
 
-        <ng-template #moduls>
+        <div class="example-button-container">
+            <button mat-fab color="accent" aria-label="Example icon button with a bookmark icon"
+                (click)="addModule()">
+                <mat-icon>add</mat-icon>
+            </button>
+        </div>
 
-            <div class="example-button-container">
-                <button mat-fab color="accent" aria-label="Example icon button with a bookmark icon"
-                    (click)="addModule()">
-                    <mat-icon>add</mat-icon>
-                </button>
-            </div>
+        <ng-container *ngIf="modules.controls.length > 0">
 
             <div formArrayName="modules">
 
@@ -84,7 +84,7 @@
                 </ng-container>
 
             </div>
-        </ng-template>
+        </ng-container>
     </form>
 
     <button (click)="validateAction()" [disabled]="form.invalid"> Guardar </button>
