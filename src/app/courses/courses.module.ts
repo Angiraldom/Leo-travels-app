@@ -8,6 +8,7 @@ import { MaterialModule } from '../material/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ListVideosPipe } from '../core/pipes/list-videos.pipe';
 import { TranslateModule } from '@ngx-translate/core';
+import { PrimengModule } from '../primeng/primeng.module';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { TranslateModule } from '@ngx-translate/core';
     CoursesRoutingModule,
     MaterialModule,
     ReactiveFormsModule,
-    TranslateModule
+    TranslateModule,
+    PrimengModule
   ]
 })
 export class CoursesModule { }

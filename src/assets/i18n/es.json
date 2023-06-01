@@ -8,7 +8,7 @@
             "weight": "Peso",
             "moduls": {
                 "name": "Modulo",
-                "video": "Video",
+                "clase": "Clase",
                 "url": "Url"
             }
         }

@@ -1,91 +1,139 @@
-<div>
-    <form [formGroup]="form">
+<form [formGroup]="form">
 
-        <mat-form-field class="example-full-width">
-            <mat-label>{{ 'products.form.name' | translate }}</mat-label>
-            <input matInput type="text" formControlName="name">
-        </mat-form-field>
+    <div class="content-form">
 
-        <mat-form-field class="example-full-width">
-            <mat-label>{{ 'products.form.description' | translate }}</mat-label>
-            <input matInput #message maxlength="256" formControlName="description"
-                placeholder="Ex. I need help with...">
-            <mat-hint align="end">{{message.value.length}} / 256</mat-hint>
-        </mat-form-field>
+        <span class="p-float-label">
+            <input pInputText id="username" formControlName="name" class="input-name" />
+            <label htmlFor="username">{{ 'products.form.name' | translate }}</label>
+        </span>
 
-        <mat-form-field class="example-full-width">
-            <mat-label>{{ 'products.form.price' | translate }}</mat-label>
-            <input matInput type="number" formControlName="price">
-        </mat-form-field>
+        <span class="p-float-label">
+            <textarea id="float-input" formControlName="description" rows="5" cols="80" pInputTextarea></textarea>
+            <label for="float-input">{{ 'products.form.description' | translate }}</label>
+        </span>
 
-        <div class="example-button-container">
-            <button mat-fab color="accent" aria-label="Example icon button with a bookmark icon"
-                (click)="addModule()">
-                <mat-icon>add</mat-icon>
-            </button>
+        <div class="course-content-image">
+            <div class="card flex justify-content-center button-file">
+                <p-fileUpload mode="basic" chooseLabel="Portada del curso" name="demo[]" accept="image/*"
+                    [maxFileSize]="1000000"></p-fileUpload>
+            </div>
+
+            <span class="p-float-label">
+                <p-inputNumber id="float-input" formControlName="price" inputId="currency-us" mode="currency"
+                    currency="USD" locale="en-US"> </p-inputNumber>
+                <label for="float-input">{{ 'products.form.price' | translate }}</label>
+            </span>
+
+            <div class="example-button-container">
+                <button mat-fab color="accent" aria-label="Example icon button with a bookmark icon"
+                    (click)="addModule()">
+                    <mat-icon>add</mat-icon>
+                </button>
+            </div>
         </div>
 
-        <ng-container *ngIf="modules.controls.length > 0">
+    </div>
 
-            <div formArrayName="modules">
+    <ng-container *ngIf="modules.controls.length > 0">
 
-                <ng-container *ngFor="let item of modules.controls; let moduleIndex = index">
+        <div formArrayName="modules" class="modules">
+            <p-accordion [activeIndex]="0" *ngFor="let item of modules.controls; let moduleIndex = index">
 
-                    <div [formGroupName]="moduleIndex">
+                <div [formGroupName]="moduleIndex">
 
-                        <button mat-fab color="accent" aria-label="Example icon button with a bookmark icon"
-                            (click)="deleteModule(moduleIndex)" *ngIf="moduleIndex !== 0">
-                            <mat-icon>delete</mat-icon>
-                        </button>
+                    <p-accordionTab>
 
-                        <mat-form-field class="example-full-width">
-                            <mat-label>{{ 'products.form.moduls.name' | translate }}</mat-label>
-                            <input matInput type="text" formControlName="name">
-                        </mat-form-field>
+                        <ng-template pTemplate="header">
+                            <div class="flex align-items-center title-module">
+                                <span class="vertical-align-middle">Modulo {{ moduleIndex + 1 }}</span>
+                                <i class="pi pi-cog ml-2 ml-2">
+                                    <mat-icon (click)="deleteModule(moduleIndex)"
+                                        *ngIf="moduleIndex !== 0">delete</mat-icon>
+                                </i>
+                            </div>
+                        </ng-template>
+                        <ng-template pTemplate="content">
 
-                        <mat-form-field class="example-full-width">
-                            <mat-label>{{ 'products.form.description' | translate }}</mat-label>
-                            <input matInput #message maxlength="256" formControlName="description"
-                                placeholder="Ex. I need help with...">
-                            <mat-hint align="end">{{message.value.length}} / 256</mat-hint>
-                        </mat-form-field>
+                            <div class="content-form form-modules">
+                                <span class="p-float-label">
+                                    <input pInputText id="username" formControlName="name" class="input-name" />
+                                    <label htmlFor="username">{{ 'products.form.moduls.name' | translate }}</label>
+                                </span>
 
-                        <button mat-fab color="accent" (click)="addVideo(moduleIndex)">
-                            <mat-icon>movie</mat-icon>
-                        </button>
+                                <span class="p-float-label">
+                                    <textarea id="float-input" formControlName="description" rows="5" cols="80"
+                                        pInputTextarea></textarea>
+                                    <label for="float-input">{{ 'products.form.description' | translate }}</label>
+                                </span>
 
-                        <div formArrayName="videos">
-
-                            <ng-container
-                                *ngFor="let item of moduleIndex | listVideos: modules; let videoIndex = index">
-
-                                <button mat-fab color="secondary" aria-label="Example icon button with a bookmark icon"
-                                    (click)="deleteVideo(moduleIndex, videoIndex)" *ngIf="videoIndex !== 0">
-                                    <mat-icon>delete</mat-icon>
+                                <button mat-fab color="accent" (click)="addVideo(moduleIndex)">
+                                    <mat-icon>movie</mat-icon>
                                 </button>
+                            </div>
 
-                                <div [formGroupName]="videoIndex">
-                                    <mat-form-field class="example-full-width">
-                                        <mat-label>{{ 'products.form.moduls.video' | translate }}</mat-label>
-                                        <input matInput type="text" formControlName="name">
-                                    </mat-form-field>
+                            <div formArrayName="videos">
 
-                                    <mat-form-field class="example-full-width">
-                                        <mat-label>{{ 'products.form.moduls.url' | translate }}</mat-label>
-                                        <input matInput type="url" formControlName="url">
-                                    </mat-form-field>
-                                </div>
+                                <p-accordion
+                                    *ngFor="let item of moduleIndex | listVideos: modules; let videoIndex = index">
 
-                            </ng-container>
+                                    <div [formGroupName]="videoIndex">
 
-                        </div>
-                    </div>
+                                        <p-accordionTab>
+                                            <ng-template pTemplate="header">
+                                                <div class="flex align-items-center title-module">
+                                                    <span class="vertical-align-middle">Clase {{ videoIndex + 1
+                                                        }}</span>
+                                                    <i class="pi pi-cog ml-2 ml-2">
+                                                        <mat-icon (click)="deleteVideo(moduleIndex, videoIndex)"
+                                                            *ngIf="videoIndex !== 0">delete</mat-icon>
+                                                    </i>
+                                                </div>
+                                            </ng-template>
+                                            <ng-template pTemplate="content">
 
-                </ng-container>
+                                                <div class="content-form form-modules">
 
-            </div>
-        </ng-container>
-    </form>
+                                                    <span class="p-float-label">
+                                                        <input pInputText id="username" formControlName="name"
+                                                            class="input-name" />
+                                                        <label htmlFor="username">{{ 'products.form.moduls.clase' |
+                                                            translate }}</label>
+                                                    </span>
 
-    <button (click)="validateAction()" [disabled]="form.invalid"> Guardar </button>
-</div>
+                                                    <span class="p-float-label">
+                                                        <input pInputText id="url" formControlName="url"
+                                                            class="input-name" />
+                                                        <label htmlFor="url">{{ 'products.form.moduls.url' | translate
+                                                            }}</label>
+                                                    </span>
+
+                                                    <span class="p-float-label">
+                                                        <textarea id="float-input" formControlName="description"
+                                                            rows="5" cols="80" pInputTextarea></textarea>
+                                                        <label for="float-input">{{ 'products.form.description' |
+                                                            translate
+                                                            }}</label>
+                                                    </span>
+
+                                                </div>
+                                            </ng-template>
+
+                                        </p-accordionTab>
+
+                                    </div>
+
+                                </p-accordion>
+
+                            </div>
+
+                        </ng-template>
+
+                    </p-accordionTab>
+
+                </div>
+            </p-accordion>
+        </div>
+    </ng-container>
+</form>
+
+<!-- <button (click)="validateAction()" [disabled]="form.invalid"> Guardar </button> -->

@@ -3,7 +3,6 @@ import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { BaseService } from 'src/app/core/services/base.service';
 import { ICourse } from '../interfaces/ICourses.interface';
-
 @Component({
   selector: 'app-create-course',
   templateUrl: './create-course.component.html',
@@ -70,7 +69,8 @@ export class CreateCourseComponent implements OnInit {
     const urlRegex = /^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/;
     const fieldsVideos = this.fb.group({
       name: ["", Validators.required],
-      url: ["", [Validators.required, Validators.pattern(urlRegex)]],
+      url: ["", [Validators.pattern(urlRegex)]],
+      description: [""],
     });
     this.getVideos(indexModule).push(fieldsVideos);
   }
