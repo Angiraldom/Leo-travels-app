@@ -12,6 +12,7 @@ import { PrimengModule } from '../primeng/primeng.module';
 import { CoursesComponent } from './courses/courses.component';
 import { FormCourseComponent } from './form-course/form-course.component';
 import { FormModuleComponent } from './form-module/form-module.component';
+import { FormClassComponent } from './form-class/form-class.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { FormModuleComponent } from './form-module/form-module.component';
     ListVideosPipe,
     CoursesComponent,
     FormCourseComponent,
-    FormModuleComponent
+    FormModuleComponent,
+    FormClassComponent
   ],
   imports: [
     CommonModule,

@@ -17,7 +17,6 @@ export class FormCourseComponent {
   });
 
   sendData() {
-    console.log(this.form.value);
     this.dialogRef.close(this.form.value);
   }
 

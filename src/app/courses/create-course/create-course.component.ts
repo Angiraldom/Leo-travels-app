@@ -1,23 +1,13 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 
 import { BaseService } from 'src/app/core/services/base.service';
 import { ICourse } from '../interfaces/ICourses.interface';
-import { MatDialog } from '@angular/material/dialog';
 import { FormCourseComponent } from '../form-course/form-course.component';
 import { FormModuleComponent } from '../form-module/form-module.component';
-import { ComponentType } from '@angular/cdk/portal';
-
-interface valueObject {
-  type: 'course' | 'module',
-  component: ComponentType<unknown>,
-  create: (data: any) => void,
-  update?: (data: any, index: number) => void
-}
-interface typeObject {
-  course: valueObject,
-  module: valueObject
-}
+import { FormClassComponent } from '../form-class/form-class.component';
+import { IValueObject, IParametersObject, ITypeObject } from '../interfaces/IFormCourse.interface';
 @Component({
   selector: 'app-create-course',
   templateUrl: './create-course.component.html',
@@ -29,68 +19,49 @@ export class CreateCourseComponent implements OnInit {
   private baseService = inject(BaseService);
   private dialog = inject(MatDialog);
 
-  course = {
-    "_id": null,
-    "name": "asas",
-    "description": "",
-    "price": 0,
-    "modules": [
-      {
-        "name": "ella",
-        "description": "es",
-        "classes": [
-          {
-            "name": "test",
-            "url": "",
-            "description": ""
-          },
-          {
-            "name": "test",
-            "url": "",
-            "description": ""
-          },
-          {
-            "name": "test",
-            "url": "",
-            "description": ""
-          }
-        ]
-      },
-      {
-        "name": "ella",
-        "description": "es",
-        "classes": []
-      }
-    ]
-  };
-
   form: FormGroup = this.fb.group({
     _id: [],
-    name: ['asas', Validators.required],
+    name: ['', Validators.required],
     description: ['', Validators.required],
     price: [0, Validators.required],
     modules: this.fb.array([], Validators.required),
   });
 
-  typesObject: typeObject = {
+  typesObject: ITypeObject = {
     course: {
       component: FormCourseComponent,
       type: 'course',
-      create: (form) => {
-        this.form.patchValue(form);
-      }
+      create: ({body}: IParametersObject) => {
+        this.form.patchValue(body!);
+      },
     },
     module: {
       component: FormModuleComponent,
       type: 'module',
-      create: (form: FormGroup) => {
-        this.modules.push(form)
+      create: ({body}: IParametersObject) => {
+        this.modules.push(body);
       },
-      update: (data, index) => {
-        this.modules.at(index).patchValue(data);
-      }
-    }
-  }
+      update: ({body, indexModule}: IParametersObject) => {
+        if (indexModule !== undefined)
+          this.modules.at(indexModule).patchValue(body?.value);
+      },
+    },
+    class: {
+      component: FormClassComponent,
+      type: 'class',
+      create: ({indexModule, body}: IParametersObject) => {
+        if (indexModule !== undefined) this.getclasses(indexModule).push(body);
+      },
+      update: ({body, indexClass, indexModule}: IParametersObject) => {
+        if (indexModule !== undefined && indexClass !== undefined)
+          this.getclasses(indexModule)
+            .at(indexClass)
+            .patchValue(body?.value);
+      },
+    },
+  };
+
+  isExpanded: boolean[] = [];
 
   ngOnInit(): void {
     if (this.data) {
@@ -98,6 +69,10 @@ export class CreateCourseComponent implements OnInit {
       this.initModulesAndclasses();
       this.form.get('modules')?.patchValue(this.data.modules);
     }
+  }
+
+  toggleList(index: number): void {
+    this.isExpanded[index] = !this.isExpanded[index];
   }
 
   initModulesAndclasses() {
@@ -120,11 +95,6 @@ export class CreateCourseComponent implements OnInit {
       classes: this.fb.array([], Validators.required),
     });
     return controls;
-  }
-
-  addModule() {
-    this.modules.push(this.controlsModule());
-    this.addclass(this.modules.length - 1);
   }
 
   deleteModule(index: number) {
@@ -179,17 +149,19 @@ export class CreateCourseComponent implements OnInit {
     });
   }
 
-  openModal(object: valueObject, data?: any, index?: number) {
-    this.dialog.open(object.component, {
-      data
-    })
-    .afterClosed().subscribe((form) => {
-      if (data && index !== undefined) {
-        object.update!(form.value, index);
-      } else {
-        object.create(form);
-      }
-      console.log(this.form.value);
-    });
+  openModal(object: IValueObject, data?: IParametersObject) {
+    this.dialog
+      .open(object.component, {
+        data: data?.body,
+      })
+      .afterClosed()
+      .subscribe((form) => {
+        const obj: IParametersObject = {
+          body: form,
+          indexModule: data?.indexModule,
+          indexClass: data?.indexClass,
+        };
+        data?.body ? object.update!(obj) : object.create(obj);
+      });
   }
 }
