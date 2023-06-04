@@ -1,0 +1,22 @@
+@import '/src/styles/variables';
+
+.list-courses {
+    width: 90%;
+    margin: 40px auto;
+}
+
+::ng-deep.p-button {
+    background: $primary;
+}
+
+::ng-deep.p-card-content {
+    padding: 0px 0 !important;
+}
+
+.footer {
+    width: 100%;
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

@@ -5,9 +5,11 @@ import { InputTextModule } from 'primeng/inputtext';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { FileUploadModule } from 'primeng/fileupload';
-import { AccordionModule } from 'primeng/accordion';
+// import { AccordionModule } from 'primeng/accordion';
+import { CardModule } from 'primeng/card';
+import { TabViewModule } from 'primeng/tabview';
 
-const modules = [AccordionModule, InputTextModule, InputTextareaModule, InputNumberModule, FileUploadModule];
+const modules = [TabViewModule, CardModule, InputTextModule, InputTextareaModule, InputNumberModule, FileUploadModule];
 
 @NgModule({
   declarations: [],

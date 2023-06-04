@@ -1,139 +1,26 @@
-<form [formGroup]="form">
-
-    <div class="content-form">
-
-        <span class="p-float-label">
-            <input pInputText id="username" formControlName="name" class="input-name" />
-            <label htmlFor="username">{{ 'products.form.name' | translate }}</label>
-        </span>
-
-        <span class="p-float-label">
-            <textarea id="float-input" formControlName="description" rows="5" cols="80" pInputTextarea></textarea>
-            <label for="float-input">{{ 'products.form.description' | translate }}</label>
-        </span>
-
-        <div class="course-content-image">
-            <div class="card flex justify-content-center button-file">
-                <p-fileUpload mode="basic" chooseLabel="Portada del curso" name="demo[]" accept="image/*"
-                    [maxFileSize]="1000000"></p-fileUpload>
+<div *ngIf="form.value ?? form.value as item">
+    <p> {{ item.name }} </p>
+    <ul *ngFor="let module of item.modules; let indexModule = index">
+        <li>
+            <div class="content-title">
+                <p>{{ module.name }} </p> 
+                <span> 
+                    <mat-icon (click)="openModal(typesObject.module, module, indexModule)">
+                        edit
+                    </mat-icon> 
+                </span>
             </div>
+            <ul *ngFor="let classes of module.classes">
+                <li>
+                    {{ classes.name }}
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>
 
-            <span class="p-float-label">
-                <p-inputNumber id="float-input" formControlName="price" inputId="currency-us" mode="currency"
-                    currency="USD" locale="en-US"> </p-inputNumber>
-                <label for="float-input">{{ 'products.form.price' | translate }}</label>
-            </span>
-
-            <div class="example-button-container">
-                <button mat-fab color="accent" aria-label="Example icon button with a bookmark icon"
-                    (click)="addModule()">
-                    <mat-icon>add</mat-icon>
-                </button>
-            </div>
-        </div>
-
-    </div>
-
-    <ng-container *ngIf="modules.controls.length > 0">
-
-        <div formArrayName="modules" class="modules">
-            <p-accordion [activeIndex]="0" *ngFor="let item of modules.controls; let moduleIndex = index">
-
-                <div [formGroupName]="moduleIndex">
-
-                    <p-accordionTab>
-
-                        <ng-template pTemplate="header">
-                            <div class="flex align-items-center title-module">
-                                <span class="vertical-align-middle">Modulo {{ moduleIndex + 1 }}</span>
-                                <i class="pi pi-cog ml-2 ml-2">
-                                    <mat-icon (click)="deleteModule(moduleIndex)"
-                                        *ngIf="moduleIndex !== 0">delete</mat-icon>
-                                </i>
-                            </div>
-                        </ng-template>
-                        <ng-template pTemplate="content">
-
-                            <div class="content-form form-modules">
-                                <span class="p-float-label">
-                                    <input pInputText id="username" formControlName="name" class="input-name" />
-                                    <label htmlFor="username">{{ 'products.form.moduls.name' | translate }}</label>
-                                </span>
-
-                                <span class="p-float-label">
-                                    <textarea id="float-input" formControlName="description" rows="5" cols="80"
-                                        pInputTextarea></textarea>
-                                    <label for="float-input">{{ 'products.form.description' | translate }}</label>
-                                </span>
-
-                                <button mat-fab color="accent" (click)="addVideo(moduleIndex)">
-                                    <mat-icon>movie</mat-icon>
-                                </button>
-                            </div>
-
-                            <div formArrayName="videos">
-
-                                <p-accordion
-                                    *ngFor="let item of moduleIndex | listVideos: modules; let videoIndex = index">
-
-                                    <div [formGroupName]="videoIndex">
-
-                                        <p-accordionTab>
-                                            <ng-template pTemplate="header">
-                                                <div class="flex align-items-center title-module">
-                                                    <span class="vertical-align-middle">Clase {{ videoIndex + 1
-                                                        }}</span>
-                                                    <i class="pi pi-cog ml-2 ml-2">
-                                                        <mat-icon (click)="deleteVideo(moduleIndex, videoIndex)"
-                                                            *ngIf="videoIndex !== 0">delete</mat-icon>
-                                                    </i>
-                                                </div>
-                                            </ng-template>
-                                            <ng-template pTemplate="content">
-
-                                                <div class="content-form form-modules">
-
-                                                    <span class="p-float-label">
-                                                        <input pInputText id="username" formControlName="name"
-                                                            class="input-name" />
-                                                        <label htmlFor="username">{{ 'products.form.moduls.clase' |
-                                                            translate }}</label>
-                                                    </span>
-
-                                                    <span class="p-float-label">
-                                                        <input pInputText id="url" formControlName="url"
-                                                            class="input-name" />
-                                                        <label htmlFor="url">{{ 'products.form.moduls.url' | translate
-                                                            }}</label>
-                                                    </span>
-
-                                                    <span class="p-float-label">
-                                                        <textarea id="float-input" formControlName="description"
-                                                            rows="5" cols="80" pInputTextarea></textarea>
-                                                        <label for="float-input">{{ 'products.form.description' |
-                                                            translate
-                                                            }}</label>
-                                                    </span>
-
-                                                </div>
-                                            </ng-template>
-
-                                        </p-accordionTab>
-
-                                    </div>
-
-                                </p-accordion>
-
-                            </div>
-
-                        </ng-template>
-
-                    </p-accordionTab>
-
-                </div>
-            </p-accordion>
-        </div>
-    </ng-container>
-</form>
+<button (click)="openModal(typesObject.course)"> Crear curso </button>
+<button (click)="openModal(typesObject.module)"> Crear modulo </button>
+<button (click)="addclass(0)"> Agregar clase </button>
 
 <!-- <button (click)="validateAction()" [disabled]="form.invalid"> Guardar </button> -->
