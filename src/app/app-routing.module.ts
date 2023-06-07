@@ -1,14 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { redirectLoginGuardFn } from './core/guards/redirect-login.guard';
+import { authGuardFn } from './core/guards/auth.guard';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'login',
+    canActivate: [redirectLoginGuardFn],
     loadComponent: () => import('./login/login.component'),
     title: 'Login'
   },
   {
     path: 'layout',
+    canActivate: [authGuardFn],
     loadChildren: () =>
       import('./modules/layout/layout.module').then(
         (m) => m.LayoutModule
