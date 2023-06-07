@@ -8,6 +8,7 @@ import {
 } from '@angular/forms';
 import { BaseService } from '../core/services/base.service';
 import { Router } from '@angular/router';
+import { LoginService } from './services/login.service';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +19,7 @@ import { Router } from '@angular/router';
 })
 export default class LoginComponent {
   private fb = inject(FormBuilder);
-  private baseService = inject(BaseService);
+  private loginService = inject(LoginService);
   private router = inject(Router);
 
   form: FormGroup = this.fb.group({
@@ -26,12 +27,12 @@ export default class LoginComponent {
     password: ['', Validators.required],
   });
 
-  login() {
+  sendData() {
     if (this.form.invalid) {
       return;
     }
 
-    this.baseService.postMethod('auth/login', this.form.value).subscribe({
+    this.loginService.login(this.form.value).subscribe({
       next: () => {
         console.log('Login exitoso');
         this.form.reset();
