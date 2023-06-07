@@ -17,6 +17,11 @@ export class NavbarComponent implements OnInit {
         console.log(products)
       }
     });
+    this.state.select('profile').subscribe({
+      next: (user) => {
+        console.log(user)
+      }
+    });
   }
 
 }
