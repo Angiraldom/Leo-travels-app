@@ -20,7 +20,7 @@ export class TokenInterceptor implements HttpInterceptor {
   }
 
   private addToken(request: HttpRequest<unknown>, next: HttpHandler) {
-    const token = this.cookieService.getValue('user');
+    const token = this.cookieService.getValue('token');
     if (token) {
       const authRequest = request.clone({
         headers: request.headers.set('Authorization', `Bearer ${token}`),

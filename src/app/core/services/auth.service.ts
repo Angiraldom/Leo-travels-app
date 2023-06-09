@@ -19,12 +19,12 @@ export class AuthService extends BaseService {
 
   login(body: { email: string; password: string }) {
     return this.postMethod('auth/login', body).pipe(
-      tap((res: any) => this.cookieService.setValue('user', res.data))
+      tap((res: any) => this.cookieService.setValue('token', res.data.access_token))
     );
   }
 
   getProfile() {
-    return this.getMethod('').pipe(
+    return this.getMethod('user/getProfile').pipe(
       tap((res: any) => this.store.dispatch(getProfile({ user: res.data })))
     );
   }

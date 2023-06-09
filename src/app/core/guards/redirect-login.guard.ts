@@ -5,7 +5,7 @@ import { CookieService } from '../services/cookie.service';
 export const redirectLoginGuardFn: CanActivateFn = () => {
   const cookieService = inject(CookieService);
   const router = inject(Router);
-  const token = cookieService.getValue('user');
+  const token = cookieService.getValue('token');
   if (!token) {
     return true;
   }

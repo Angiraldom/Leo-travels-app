@@ -15,6 +15,7 @@ import { appReducers } from './store/app.reducer';
 import { effectsArray } from './store/effects';
 import { MaterialModule } from './material/material.module';
 import { ErrorInterceptor } from './core/interceptors/error.interceptor';
+import { TokenInterceptor } from './core/interceptors/token.interceptor';
 
 
 export function createTranslateLoader(http: HttpClient) {
@@ -47,6 +48,11 @@ export function createTranslateLoader(http: HttpClient) {
   providers: [{
     provide: HTTP_INTERCEPTORS,
     useClass: ErrorInterceptor,
+    multi: true
+  },
+  {
+    provide: HTTP_INTERCEPTORS,
+    useClass: TokenInterceptor,
     multi: true
   }],
   bootstrap: [AppComponent],

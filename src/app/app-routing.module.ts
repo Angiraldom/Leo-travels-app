@@ -8,15 +8,13 @@ const routes: Routes = [
     path: 'login',
     canActivate: [redirectLoginGuardFn],
     loadComponent: () => import('./login/login.component'),
-    title: 'Login'
+    title: 'Login',
   },
   {
     path: 'layout',
     canActivate: [authGuardFn],
     loadChildren: () =>
-      import('./modules/layout/layout.module').then(
-        (m) => m.LayoutModule
-      ),
+      import('./modules/layout/layout.module').then((m) => m.LayoutModule),
   },
   {
     path: 'shopping',
@@ -29,7 +27,7 @@ const routes: Routes = [
     path: 'products',
     loadChildren: () =>
       import('./products/products.module').then((m) => m.ProductsModule),
-  },
+  }
 ];
 
 @NgModule({

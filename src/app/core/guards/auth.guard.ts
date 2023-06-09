@@ -5,7 +5,7 @@ import { CookieService } from '../services/cookie.service';
 export const authGuardFn: CanActivateFn = () => {
   const cookieService = inject(CookieService);
   const router = inject(Router);
-  const token = cookieService.getValue('user');
+  const token = cookieService.getValue('token');
   if (!token) {
     router.navigate(['login']);
     return false;
