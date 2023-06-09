@@ -5,6 +5,11 @@ import { authGuardFn } from './core/guards/auth.guard';
 
 const routes: Routes = [
   {
+    path: '',
+    redirectTo: 'login',
+    pathMatch: 'full'
+  },
+  {
     path: 'login',
     canActivate: [redirectLoginGuardFn],
     loadComponent: () => import('./components/login/login.component'),
@@ -27,6 +32,11 @@ const routes: Routes = [
     path: 'products',
     loadChildren: () =>
       import('./products/products.module').then((m) => m.ProductsModule),
+  },
+  {
+    path: 'forgot-password',
+    loadComponent: () => import('./components/forgot-password/forgot-password.component'),
+    title: 'Olvidar contraseña'
   },
   {
     path: 'change-password',
