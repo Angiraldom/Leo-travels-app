@@ -31,7 +31,6 @@ export function createTranslateLoader(http: HttpClient) {
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ShoppingCartModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -43,7 +42,6 @@ export function createTranslateLoader(http: HttpClient) {
     EffectsModule.forRoot(effectsArray),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
     BrowserAnimationsModule,
-    MaterialModule,
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

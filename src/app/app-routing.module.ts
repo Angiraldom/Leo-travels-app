@@ -7,7 +7,7 @@ const routes: Routes = [
   {
     path: 'login',
     canActivate: [redirectLoginGuardFn],
-    loadComponent: () => import('./login/login.component'),
+    loadComponent: () => import('./components/login/login.component'),
     title: 'Login',
   },
   {
@@ -27,6 +27,11 @@ const routes: Routes = [
     path: 'products',
     loadChildren: () =>
       import('./products/products.module').then((m) => m.ProductsModule),
+  },
+  {
+    path: 'change-password',
+    loadComponent: () => import('./components/change-password/change-password.component'),
+    title: 'Cambiar contraseña'
   }
 ];
 
