@@ -52,7 +52,7 @@ export default class ChangePasswordComponent implements OnInit {
       return;
     }
     const { password } = this.form.getRawValue();
-    this.authService.login(password).subscribe({
+    this.authService.postMethod('user/change-password', {password, token: this.token}).subscribe({
       next: () => {
         console.log('Cambio exitoso');
         this.form.reset();

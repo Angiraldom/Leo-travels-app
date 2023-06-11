@@ -25,14 +25,14 @@ export default class ForgotPasswordComponent {
       return;
     }
 
-    this.authService.login(this.form.value).subscribe({
+    this.authService.postMethod('user/forgot-password', this.form.value).subscribe({
       next: () => {
-        console.log('Login exitoso');
+        console.log("Se envio un email a tu correo para hacer el cambio de tu contraseña.");
         this.form.reset();
-        this.router.navigateByUrl('layout');
+        this.router.navigateByUrl('login');
       },
       error: () => {
-        console.log('Contraseña o usuario invalido');
+        console.log('Ocurrio un error, vuelve a intentarlo.');
       },
     });
   }
