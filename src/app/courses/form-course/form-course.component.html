@@ -1,0 +1,31 @@
+<form [formGroup]="form">
+
+    <div class="content-form">
+
+        <span class="p-float-label">
+            <input pInputText id="username" formControlName="name" class="input-name" />
+            <label htmlFor="username">{{ 'products.form.name' | translate }}</label>
+        </span>
+
+        <span class="p-float-label">
+            <textarea id="float-input" formControlName="description" rows="5" cols="80" pInputTextarea></textarea>
+            <label for="float-input">{{ 'products.form.description' | translate }}</label>
+        </span>
+
+        <div class="course-content-image">
+            <div class="card flex justify-content-center button-file">
+                <p-fileUpload mode="basic" chooseLabel="Portada del curso" name="demo[]" accept="image/*"
+                    [maxFileSize]="1000000"></p-fileUpload>
+            </div>
+
+            <span class="p-float-label">
+                <p-inputNumber id="float-input" formControlName="price" inputId="currency-us" mode="currency"
+                    currency="USD" locale="en-US"> </p-inputNumber>
+                <label for="float-input">{{ 'products.form.price' | translate }}</label>
+            </span>
+        </div>
+
+    </div>
+</form>
+
+<button (click)="sendData()" [disabled]="form.invalid"> Guardar </button>
