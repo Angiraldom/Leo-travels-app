@@ -11,7 +11,8 @@ export class MesaggeService {
   private translateService = inject(TranslateService);
 
   errorMessage(error: HttpErrorResponse) {
-    this.optionsAlert('error', error.message ?? 'errors.serverError', 'Error!');
+    const nameError = error.error['tag'] ?? 'ErrorServer';
+    this.optionsAlert('error', `errors.${nameError}`, 'Error!');
   }
 
   succesMessage(message: string, title?: string) {

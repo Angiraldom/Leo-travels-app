@@ -36,10 +36,7 @@ export default class LoginComponent {
         console.log('Login exitoso');
         this.form.reset();
         this.router.navigateByUrl('layout');
-      },
-      error: () => {
-        console.log('Contraseña o usuario invalido');
-      },
+      }
     });
   }
 }
