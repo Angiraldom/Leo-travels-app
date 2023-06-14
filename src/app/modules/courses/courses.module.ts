@@ -9,7 +9,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ListVideosPipe } from '../../core/pipes/list-videos.pipe';
 import { TranslateModule } from '@ngx-translate/core';
 import { PrimengModule } from '../../primeng/primeng.module';
-import { CoursesComponent } from './courses/courses.component';
+import { CoursesComponent } from './courses.component';
 import { FormCourseComponent } from './form-course/form-course.component';
 import { FormModuleComponent } from './form-module/form-module.component';
 import { FormClassComponent } from './form-class/form-class.component';

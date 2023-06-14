@@ -35,7 +35,7 @@ mat-nav-list {
     }
 }
 
-.item:hover {
+.item:hover, .router-active {
     background-color: $secondary !important;
     border-radius: 6px 0px 0px 6px;
 }
