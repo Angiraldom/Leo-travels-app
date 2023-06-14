@@ -1,0 +1,13 @@
+<form [formGroup]="form">
+    <span class="p-float-label">
+        <input pInputText id="username" formControlName="name" class="input-name" />
+        <label htmlFor="username">{{ 'products.form.moduls.name' | translate }}</label>
+    </span>
+
+    <span class="p-float-label">
+        <textarea id="float-input" formControlName="description" rows="5" cols="80" pInputTextarea></textarea>
+        <label for="float-input">{{ 'products.form.description' | translate }}</label>
+    </span>
+</form>
+
+<button (click)="sendData()" > Guardar </button>

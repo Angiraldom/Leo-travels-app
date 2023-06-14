@@ -8,12 +8,14 @@
             "weight": "Peso",
             "moduls": {
                 "name": "Modulo",
-                "video": "Video",
+                "clase": "Clase",
                 "url": "Url"
             }
         }
     },
     "errors": {
-        "serverError": "Ocurrio un problema con el servidor, vuelve a intentarlo mas tarde."
+        "ErrorServer": "Ocurrio un problema con el servidor, vuelve a intentarlo mas tarde.",
+        "ErrorLogin": "Email o contraseña invalidos",
+        "ErrorEmailNotFound": "El email proporcionado no existe"
     }
 }

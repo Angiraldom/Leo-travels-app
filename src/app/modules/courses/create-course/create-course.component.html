@@ -1,0 +1,42 @@
+<div *ngIf="form.value ?? form.value as item">
+    <p> {{ item.name }} </p>
+    <ul class="list">
+        <li *ngFor="let module of item.modules; let indexModule = index" class="list-item">
+            <div class="item-header" (click)="toggleList(indexModule)">
+                <button mat-icon-button>
+                    <mat-icon class="mat-icon-rtl-mirror">
+                        {{isExpanded[indexModule] ? 'expand_more' : 'chevron_right'}}
+                    </mat-icon>
+                </button>
+                <span class="item-title">{{ module.name }}</span>
+                <span>
+                    <mat-icon (click)="openModal(typesObject.class, { indexModule })">
+                        add
+                    </mat-icon>
+                    <mat-icon (click)="openModal(typesObject.module, { body: module, indexModule })">
+                        edit
+                    </mat-icon>
+                    <mat-icon (click)="deleteModule(indexModule)">
+                        delete
+                    </mat-icon>
+                </span>
+            </div>
+            <ul class="sub-list" [hidden]="!isExpanded[indexModule]">
+                <li *ngFor="let class of module.classes; let indexClass = index" class="sub-item">
+                    <span>{{ class.name }}</span>
+                    <mat-icon (click)="openModal(typesObject.class, { body: class, indexModule, indexClass })">
+                        edit
+                    </mat-icon>
+                    <mat-icon (click)="deleteclass(indexModule, indexClass)">
+                        delete
+                    </mat-icon>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+<button (click)="openModal(typesObject.course)"> Crear curso </button>
+<button (click)="openModal(typesObject.module)"> Crear modulo </button>
+
+<button (click)="validateAction()" [disabled]="form.invalid"> Guardar </button>
