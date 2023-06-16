@@ -1,5 +1,7 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+
 import { BaseService } from 'src/app/core/services/base.service';
 import { IProduct } from '../interfaces/IProduct.interface';
 
@@ -10,9 +12,12 @@ import { IProduct } from '../interfaces/IProduct.interface';
 })
 export class CreateProductComponent implements OnInit {
   private fb = inject(FormBuilder);
-  public data!: IProduct;
+  data: IProduct = inject(MAT_DIALOG_DATA);
+  modal = inject(MatDialogRef<this>);
+
   private baseService = inject(BaseService);
   selectedFiles: File[] = [];
+  loading = false;
 
   form: FormGroup = this.fb.group({
     _id: [],
@@ -36,6 +41,7 @@ export class CreateProductComponent implements OnInit {
     if (this.form.invalid) {
       return;
     }
+    this.loading = true;
     if (!this.data) {
       this.saveProduct();
       return;
@@ -45,12 +51,23 @@ export class CreateProductComponent implements OnInit {
 
   updateProduct() {
     const body = this.form.getRawValue();
-    this.baseService.patchMethod('product/' + this.data._id, body).subscribe({
+    delete body.id;
+    const formData = new FormData();
+
+    this.selectedFiles.forEach((item, index) => {
+      formData.append('images', this.selectedFiles[index]);
+    });
+    formData.append('data', JSON.stringify(body));
+
+    this.baseService.patchMethod('product/' + this.data._id, formData).subscribe({
       next: () => {
         console.log('Actualizo correctamente');
         this.form.reset();
         this.selectedFiles = [];
+        this.loading = false;
+        this.modal.close({ refresh: true });
       },
+      error: () => this.loading = false
     });
   }
 
@@ -69,18 +86,17 @@ export class CreateProductComponent implements OnInit {
         console.log('Guardo correctamente');
         this.form.reset();
         this.selectedFiles = [];
+        this.modal.close({ refresh: true });
       },
+      error: () => this.loading = false
     });
   }
 
   onFileSelected(event: any) {
     const newFiles: FileList = event.target.files;
-    console.log(newFiles);
 
     for (let i = 0; i < newFiles.length; i++) {
       this.selectedFiles.push(newFiles[i]);
     }
-    console.log(this.selectedFiles);
-    console.log(event.target.files);
   }
 }

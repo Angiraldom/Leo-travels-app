@@ -1,10 +1,9 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { Store } from '@ngrx/store';
+import { MatDialog } from '@angular/material/dialog';
 
-import { AppState } from 'src/app/store/app.reducer';
 import { BaseService } from 'src/app/core/services/base.service';
-import * as cartActions from 'src/app/store/actions/cart.actions';
 import { IProduct } from '../interfaces/IProduct.interface';
+import { CreateProductComponent } from '../create-product/create-product.component';
 
 @Component({
   selector: 'app-list-products',
@@ -12,21 +11,16 @@ import { IProduct } from '../interfaces/IProduct.interface';
   styleUrls: ['./list-products.component.scss'],
 })
 export class ListProductsComponent implements OnInit {
-  private store = inject(Store<AppState>);
   private baseService = inject(BaseService);
+  private dialog = inject(MatDialog);
+  private createModal = CreateProductComponent;
 
   products: IProduct[] = [];
-  productsCart: IProduct[] = [];
 
-  displayedColumns: string[] = ['name', 'weight', 'symbol'];
+  displayedColumns: string[] = ['name', 'description', 'price', 'actions'];
   dataSource: any;
 
   ngOnInit(): void {
-    this.store.select('cart').subscribe({
-      next: (data: any) => {
-        this.productsCart = data.products;
-      },
-    });
     this.getAllProducts();
   }
 
@@ -39,36 +33,16 @@ export class ListProductsComponent implements OnInit {
     });
   }
 
-  /**
-   * Add products to the cart
-   * @param product Product to add to the cart.
-   */
-  addProduct(product: IProduct, reference: string) {
-    this.store.dispatch(cartActions.addProduct({ reference, product }));
-  }
-
-  /**
-   * This method validates, if exists a reference in localStorage.
-   * @param product Product to add to the cart.
-   */
-  validateReference(product: IProduct) {
-    let reference = localStorage.getItem('reference');
-    if (!reference) {
-      reference = new Date().getTime().toString();
-      localStorage.setItem('reference', reference);
-    }
-    this.addProduct(product, reference);
-  }
-
-  updateProduct(product: IProduct) {
-    this.store.dispatch(
-      cartActions.updateProduct({ reference: 'johnatan', product })
-    );
-  }
-
-  deleteProduct(product: IProduct) {
-    this.store.dispatch(
-      cartActions.deleteProduct({ reference: 'johnatan', product })
-    );
+  openModal(data: IProduct) {
+    this.dialog.open(this.createModal, {
+      hasBackdrop: false,
+      data
+    }).afterClosed().subscribe({
+      next: ({ refresh }) => {
+        if (refresh) {
+          this.getAllProducts();
+        }
+      }
+    });
   }
 }

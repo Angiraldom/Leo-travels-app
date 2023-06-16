@@ -1,3 +1,10 @@
+<mat-card-header>
+    <mat-card-title>
+        <mat-label> Crear producto </mat-label>
+    </mat-card-title>
+    <mat-icon [mat-dialog-close]="{ refresh: false }">close</mat-icon>
+</mat-card-header>
+
 <form [formGroup]="form">
 
     <div class="content-form">
@@ -39,7 +46,8 @@
             </span>
 
             <span class="p-float-label">
-                <p-inputNumber id="weight"  inputId="integeronly" formControlName="weight" class="input-name"> </p-inputNumber>
+                <p-inputNumber id="weight" inputId="integeronly" formControlName="weight" class="input-name">
+                </p-inputNumber>
                 <label htmlFor="weight">{{ 'products.form.weight' | translate }}</label>
             </span>
         </div>
@@ -49,10 +57,24 @@
                 <p-fileUpload mode="basic" name="images" (change)="onFileSelected($event)" [multiple]="true" chooseLabel="Imágenes del producto" name="demo[]" accept="image/*"
                     [maxFileSize]="1000000" formControlName="images"></p-fileUpload>
             </div> -->
-            <p-button label="Guardar" (click)="validateAction()" ></p-button>
         </div>
 
     </div>
 </form>
 
+<div class="content-buttons">
 
+    <button mat-stroked-button color="primary" [mat-dialog-close]="{ refresh: false }" *ngIf="!loading">
+        Cancelar
+    </button>
+
+    <button mat-raised-button color="primary" (click)="validateAction()" *ngIf="!loading">
+        Guardar
+    </button>
+
+    <button mat-raised-button color="primary" *ngIf="loading">
+        <mat-spinner [diameter]="30" mode="indeterminate" class="mat-spinner-color styleMargin">
+            Cargando
+        </mat-spinner>
+    </button>
+</div>
