@@ -1,5 +1,5 @@
 import { createAction, props } from "@ngrx/store";
-import { IProduct } from "src/app/products/interfaces/IProduct.interface";
+import { IProduct } from "src/app/modules/products/interfaces/IProduct.interface";
 
 
 export const addProduct = createAction('Add Product', props<{reference: string; product: IProduct}>());

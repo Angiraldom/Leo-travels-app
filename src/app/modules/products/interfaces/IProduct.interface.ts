@@ -12,4 +12,16 @@ export interface IProduct {
   discount?: number;
 
   status: boolean;
+
+  broad?: number;
+
+  height?: number;
+
+  long?: number;
+
+  images: number;
+
+  updatedAt: Date;
+
+  createdAt: Date;
 }

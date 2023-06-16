@@ -13,6 +13,12 @@ const routes: Routes = [
         loadChildren: () =>
           import('../courses/courses.module').then((m) => m.CoursesModule),
       },
+      {
+        path: 'products',
+        // canActivate: [authGuardFn],
+        loadChildren: () =>
+          import('../products/products.module').then((m) => m.ProductsModule),
+      },
     ],
   },
 ];

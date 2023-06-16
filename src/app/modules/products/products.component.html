@@ -1,0 +1,21 @@
+<div class="title">
+    <h2>Productos</h2>
+    <p>Aquí podrás crear, revisar, y editar todos tus productos</p>
+</div>
+
+<p-tabView styleClass="tabview-custom">
+    <p-tabPanel>
+        <ng-template pTemplate="header">
+            <i class="pi pi-calendar"></i>
+            <span>Todos los productos</span>
+        </ng-template>
+        <app-list-products></app-list-products>
+    </p-tabPanel>
+    <p-tabPanel header="Header II">
+        <ng-template pTemplate="header">
+            <i class="pi pi-user"></i>
+            <span>Crear nuevo producto</span>
+        </ng-template>
+        <app-create-product></app-create-product>
+    </p-tabPanel>
+</p-tabView>
