@@ -27,4 +27,16 @@ mat-toolbar {
         align-items: center;
         justify-content: center;
     }
+
+    .content-info {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 12px;
+
+        h2 {
+            font-weight: 700;
+            color: $secondary;
+        }
+    }
 }
