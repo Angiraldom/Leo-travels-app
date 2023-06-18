@@ -12,8 +12,6 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatTreeModule } from '@angular/material/tree';
-import { MatCardModule } from '@angular/material/card';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 const modules = [
   MatTableModule,
@@ -26,9 +24,7 @@ const modules = [
   MatListModule,
   MatBadgeModule,
   MatTreeModule,
-  MatCardModule,
   MatDialogModule,
-  MatProgressSpinnerModule
 ];
 @NgModule({
   declarations: [],

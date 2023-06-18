@@ -13,6 +13,8 @@ import { CoursesComponent } from './courses.component';
 import { FormCourseComponent } from './form-course/form-course.component';
 import { FormModuleComponent } from './form-module/form-module.component';
 import { FormClassComponent } from './form-class/form-class.component';
+import { TitleModalComponent } from 'src/app/shared/title-modal/title-modal.component';
+import { ButtonsModalComponent } from 'src/app/shared/buttons-modal/buttons-modal.component';
 
 
 @NgModule({
@@ -31,7 +33,9 @@ import { FormClassComponent } from './form-class/form-class.component';
     MaterialModule,
     ReactiveFormsModule,
     TranslateModule,
-    PrimengModule
+    PrimengModule,
+    TitleModalComponent,
+    ButtonsModalComponent
   ]
 })
 export class CoursesModule { }

@@ -1,7 +1,9 @@
+<app-title-modal [titleModal]="'Crear clase'"></app-title-modal>
+
 <form [formGroup]="form">
     <span class="p-float-label">
         <input pInputText id="username" formControlName="name" class="input-name" />
-        <label htmlFor="username">{{ 'products.form.moduls.name' | translate }}</label>
+        <label htmlFor="username">{{ 'Clase' | translate }}</label>
     </span>
 
     <span class="p-float-label">
@@ -15,4 +17,4 @@
     </span>
 </form>
 
-<button (click)="sendData()" > Guardar </button>
+<app-buttons-modal [disabledButton]="form.invalid" (handleSaveButton)="executeAction()" [loading]="loading"></app-buttons-modal>

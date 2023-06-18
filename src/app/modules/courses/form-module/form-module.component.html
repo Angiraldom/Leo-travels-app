@@ -1,3 +1,5 @@
+<app-title-modal [titleModal]="'Crear Modulo'"></app-title-modal>
+
 <form [formGroup]="form">
     <span class="p-float-label">
         <input pInputText id="username" formControlName="name" class="input-name" />
@@ -10,4 +12,4 @@
     </span>
 </form>
 
-<button (click)="sendData()" > Guardar </button>
+<app-buttons-modal [disabledButton]="form.invalid" (handleSaveButton)="executeAction()" [loading]="loading"></app-buttons-modal>

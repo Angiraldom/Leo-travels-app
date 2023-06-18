@@ -1,9 +1,4 @@
-<mat-card-header>
-    <mat-card-title>
-        <mat-label> Crear producto </mat-label>
-    </mat-card-title>
-    <mat-icon [mat-dialog-close]="{ refresh: false }">close</mat-icon>
-</mat-card-header>
+<app-title-modal [titleModal]="'crear producto'"></app-title-modal>
 
 <form [formGroup]="form">
 
@@ -62,19 +57,4 @@
     </div>
 </form>
 
-<div class="content-buttons">
-
-    <button mat-stroked-button color="primary" [mat-dialog-close]="{ refresh: false }" *ngIf="!loading">
-        Cancelar
-    </button>
-
-    <button mat-raised-button color="primary" (click)="validateAction()" *ngIf="!loading">
-        Guardar
-    </button>
-
-    <button mat-raised-button color="primary" *ngIf="loading">
-        <mat-spinner [diameter]="30" mode="indeterminate" class="mat-spinner-color styleMargin">
-            Cargando
-        </mat-spinner>
-    </button>
-</div>
+<app-buttons-modal [disabledButton]="form.invalid" (handleSaveButton)="validateAction()" [loading]="loading"></app-buttons-modal>

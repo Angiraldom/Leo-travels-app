@@ -13,9 +13,9 @@ import { IProduct } from '../interfaces/IProduct.interface';
 export class CreateProductComponent implements OnInit {
   private fb = inject(FormBuilder);
   data: IProduct = inject(MAT_DIALOG_DATA);
-  modal = inject(MatDialogRef<this>);
-
+  dialogRef = inject(MatDialogRef<this>);
   private baseService = inject(BaseService);
+
   selectedFiles: File[] = [];
   loading = false;
 
@@ -65,7 +65,7 @@ export class CreateProductComponent implements OnInit {
         this.form.reset();
         this.selectedFiles = [];
         this.loading = false;
-        this.modal.close({ refresh: true });
+        this.dialogRef.close({ refresh: true });
       },
       error: () => this.loading = false
     });
@@ -86,7 +86,7 @@ export class CreateProductComponent implements OnInit {
         console.log('Guardo correctamente');
         this.form.reset();
         this.selectedFiles = [];
-        this.modal.close({ refresh: true });
+        this.dialogRef.close({ refresh: true });
       },
       error: () => this.loading = false
     });

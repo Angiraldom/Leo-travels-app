@@ -9,6 +9,8 @@ import { ProductsRoutingModule } from './products-routing.module';
 import { CreateProductComponent } from './create-product/create-product.component';
 import { ProductsComponent } from './products.component';
 import { PrimengModule } from 'src/app/primeng/primeng.module';
+import { TitleModalComponent } from 'src/app/shared/title-modal/title-modal.component';
+import { ButtonsModalComponent } from 'src/app/shared/buttons-modal/buttons-modal.component';
 
 
 @NgModule({
@@ -23,7 +25,9 @@ import { PrimengModule } from 'src/app/primeng/primeng.module';
     ReactiveFormsModule,
     MaterialModule,
     TranslateModule,
-    PrimengModule
+    PrimengModule,
+    TitleModalComponent,
+    ButtonsModalComponent
   ]
 })
 export class ProductsModule { }
