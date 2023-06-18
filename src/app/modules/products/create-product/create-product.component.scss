@@ -1,0 +1,56 @@
+@import '/src/styles/variables';
+
+::ng-deep.p-button {
+    background: $primary;
+}
+
+form {
+    width: 90%;
+    margin: 30px auto 0px;
+}
+
+.content-form {
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-row-gap: 30px;
+
+    .course-content-image {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        justify-items: right;
+
+        .button-file {
+            justify-self: flex-start;
+        }
+    }
+}
+
+.modules {
+    max-height: 220px;
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    .title-module {
+        display: flex;
+        align-items: center;
+        column-gap: 8px;
+    }
+
+    .form-modules {
+        margin: 10px auto;
+    }
+}
+
+textarea,
+.input-name {
+    width: 100%;
+}
+
+.content-three {
+    width: 335px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+

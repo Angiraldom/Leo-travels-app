@@ -10,10 +10,8 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { ShoppingCartModule } from './shopping-cart/shopping-cart.module';
 import { appReducers } from './store/app.reducer';
 import { effectsArray } from './store/effects';
-import { MaterialModule } from './material/material.module';
 import { ErrorInterceptor } from './core/interceptors/error.interceptor';
 import { TokenInterceptor } from './core/interceptors/token.interceptor';
 

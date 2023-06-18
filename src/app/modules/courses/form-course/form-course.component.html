@@ -1,3 +1,5 @@
+<app-title-modal [titleModal]="'Crear curso'"></app-title-modal>
+
 <form [formGroup]="form">
 
     <div class="content-form">
@@ -14,8 +16,9 @@
 
         <div class="course-content-image">
             <div class="card flex justify-content-center button-file">
-                <p-fileUpload mode="basic" chooseLabel="Portada del curso" name="demo[]" accept="image/*"
-                    [maxFileSize]="1000000"></p-fileUpload>
+                <input type="file" name="images" (change)="onFileSelected($event)">
+                <!-- <p-fileUpload mode="basic" chooseLabel="Portada del curso" name="demo[]" accept="image/*"
+                    [maxFileSize]="1000000"></p-fileUpload> -->
             </div>
 
             <span class="p-float-label">
@@ -28,4 +31,4 @@
     </div>
 </form>
 
-<button (click)="sendData()" [disabled]="form.invalid"> Guardar </button>
+<app-buttons-modal [disabledButton]="form.invalid" (handleSaveButton)="saveCourse()" [loading]="loading"></app-buttons-modal>

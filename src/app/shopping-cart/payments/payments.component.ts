@@ -5,7 +5,7 @@ import { AppState } from 'src/app/store/app.reducer';
 import { BaseService } from 'src/app/core/services/base.service';
 
 import * as cartActions from 'src/app/store/actions/cart.actions';
-import { IProduct } from 'src/app/products/interfaces/IProduct.interface';
+import { IProduct } from 'src/app/modules/products/interfaces/IProduct.interface';
 
 declare let WidgetCheckout: any;
 

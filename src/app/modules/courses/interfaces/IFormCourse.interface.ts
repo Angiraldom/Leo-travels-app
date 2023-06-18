@@ -1,23 +1,18 @@
 import { ComponentType } from "@angular/cdk/portal";
-import { FormGroup } from "@angular/forms";
+import { IModule } from "./IModule.interface";
+import { IClass } from "./IClass.interface";;
+import { FormCourseComponent } from "../form-course/form-course.component";
+import { FormModuleComponent } from "../form-module/form-module.component";
+import { FormClassComponent } from "../form-class/form-class.component";
 
-type typeForm = 'course' | 'module' | 'class';
+export type typeForm = 'course' | 'module' | 'class';
 
 export interface IParametersObject {
-  body?: FormGroup;
+  body?: unknown;
   indexModule?: number;
   indexClass?: number;
-}
-
-export interface IValueObject {
-  type: typeForm;
-  component: ComponentType<unknown>;
-  create: (data: IParametersObject) => void;
-  update?: (data: IParametersObject) => void;
-}
-
-export interface ITypeObject {
-  course: IValueObject;
-  module: IValueObject;
-  class: IValueObject;
+  idCourse?: string;
+  idModule?: string;
+  module?: IModule;
+  class?: IClass;
 }

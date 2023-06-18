@@ -11,6 +11,8 @@ export class NavbarComponent implements OnInit {
 
   constructor(private state: Store<AppState>) {}
 
+  user!: any;
+
   ngOnInit(): void {
     this.state.select('cart').subscribe({
       next: (products) => {
@@ -20,6 +22,7 @@ export class NavbarComponent implements OnInit {
     this.state.select('profile').subscribe({
       next: (user) => {
         console.log(user)
+        this.user = user;
       }
     });
   }

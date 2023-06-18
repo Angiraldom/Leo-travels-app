@@ -22,4 +22,8 @@ export class BaseService {
   patchMethod(nameMethod: string, body: any) {
     return this.http.patch(this.apiUrl + nameMethod, body);
   }
+
+  deleteMethod(nameMethod: string) {
+    return this.http.delete(this.apiUrl + nameMethod);
+  }
 }

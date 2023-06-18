@@ -6,6 +6,9 @@
             "price": "Precio",
             "discount": "Descuento",
             "weight": "Peso",
+            "broad": "Ancho",
+            "height": "Alto",
+            "long": "Largo",
             "moduls": {
                 "name": "Modulo",
                 "clase": "Clase",
@@ -15,7 +18,9 @@
     },
     "errors": {
         "ErrorServer": "Ocurrio un problema con el servidor, vuelve a intentarlo mas tarde.",
+        "ErrorBadRequest": "Algunos datos fueron mal enviados",
         "ErrorLogin": "Email o contraseña invalidos",
-        "ErrorEmailNotFound": "El email proporcionado no existe"
+        "ErrorEmailNotFound": "El email proporcionado no existe",
+        "ErrorServerUploadImages": "Ocurrio un problema al momento de cargar las imagenes, vuelve a intentarlo"
     }
 }

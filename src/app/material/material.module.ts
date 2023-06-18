@@ -23,13 +23,13 @@ const modules = [
   MatToolbarModule,
   MatListModule,
   MatBadgeModule,
-  MatTreeModule
+  MatTreeModule,
+  MatDialogModule,
 ];
 @NgModule({
   declarations: [],
   imports: [
     CommonModule,
-    MatDialogModule,
     ...modules
   ],
   exports: [...modules]
