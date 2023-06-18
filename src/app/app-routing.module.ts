@@ -31,7 +31,7 @@ const routes: Routes = [
   {
     path: 'forgot-password',
     loadComponent: () => import('./components/forgot-password/forgot-password.component'),
-    title: 'Olvidar contraseña'
+    title: 'Recuperar contraseña'
   },
   {
     path: 'change-password',
