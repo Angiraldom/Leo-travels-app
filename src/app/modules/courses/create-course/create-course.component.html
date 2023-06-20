@@ -1,5 +1,4 @@
 <div *ngIf="form.value ?? form.value as item">
-
     <div class="title-content align-items-center">
         <h3 class="sub-title">{{ item.name }}</h3>
         <div class="align-items-center">
@@ -67,5 +66,6 @@
             </ul>
         </li>
     </ul>
-
 </div>
+
+<button (click)="changelistView()">Volver</button>

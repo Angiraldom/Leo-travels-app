@@ -10,6 +10,9 @@ import { FormModuleComponent } from '../form-module/form-module.component';
 import { FormClassComponent } from '../form-class/form-class.component';
 import { IParametersObject } from '../interfaces/IFormCourse.interface';
 import { IModule } from '../interfaces/IModule.interface';
+import { Store } from '@ngrx/store';
+import { AppState } from 'src/app/store/app.reducer';
+import { viewList } from 'src/app/store/actions/course.actions';
 
 @Component({
   selector: 'app-create-course',
@@ -21,6 +24,7 @@ export class CreateCourseComponent implements OnInit {
   public data!: ICourse;
   private baseService = inject(BaseService);
   private dialog = inject(MatDialog);
+  private store = inject(Store<AppState>);
 
   modules: IModule[] = [];
 
@@ -78,5 +82,9 @@ export class CreateCourseComponent implements OnInit {
     //       console.log('Eliminado exitosamente');
     //     },
     //   });
+  }
+
+  changelistView() {
+    this.store.dispatch(viewList());
   }
 }

@@ -1,21 +1,9 @@
-<div class="title">
-    <h2>Cursos</h2>
-    <p>Aquí podrás crear, revisar, y editar todos tus cursos</p>
-</div>
+<app-header-modules [title]="'Cursos'" (handleClick)="changeView()"
+    [description]="'Aquí podrás crear, revisar, y editar todos tus cursos'"></app-header-modules>
 
-<p-tabView styleClass="tabview-custom">
-    <p-tabPanel>
-        <ng-template pTemplate="header">
-            <i class="pi pi-calendar"></i>
-            <span>Todos los cursos</span>
-        </ng-template>
-        <app-list-courses></app-list-courses>
-    </p-tabPanel>
-    <p-tabPanel header="Header II">
-        <ng-template pTemplate="header">
-            <i class="pi pi-user"></i>
-            <span>Crear nuevo curso</span>
-        </ng-template>
-        <app-create-course></app-create-course>
-    </p-tabPanel>
-</p-tabView>
+
+<div class="component-content">
+    <app-list-courses *ngIf="!createTab"></app-list-courses>
+
+    <app-create-course *ngIf="createTab"></app-create-course>
+</div>
