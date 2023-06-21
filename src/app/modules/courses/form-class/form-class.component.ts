@@ -49,7 +49,7 @@ export class FormClassComponent {
       _id: new Date().getTime().toString(),
       ...data,
     });
-    this.dialogRef.close();
+    this.dialogRef.close({ refresh: true });
     // const body = this.form.getRawValue();
     // delete body._id;
 
@@ -77,6 +77,6 @@ export class FormClassComponent {
       _id: new Date().getTime().toString(),
       ...data,
     };
-    this.dialogRef.close();
+    this.dialogRef.close({ refresh: true });
   }
 }

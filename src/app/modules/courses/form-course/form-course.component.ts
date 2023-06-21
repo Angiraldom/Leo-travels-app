@@ -33,13 +33,16 @@ export class FormCourseComponent implements OnInit{
   }
 
   saveCourse() {
-    const data = this.form.getRawValue();
-    delete data._id;
+    if (this.form.invalid) {
+      return;
+    }
+    const form = this.form.getRawValue();
+    delete form._id;
     this.parent.form.patchValue({
       _id: new Date().getTime().toString(),
-      ...data,
+      ...form,
     });
-    this.dialogRef.close();
+    this.dialogRef.close({ refresh: true });
 
     // const body = this.form.getRawValue();
     // delete body._id;

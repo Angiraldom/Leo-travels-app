@@ -46,6 +46,8 @@ export class CreateCourseComponent implements OnInit {
   ngOnInit(): void {
     if (this.data) {
       this.form.patchValue(this.data);
+    } else {
+      this.openModal(this.modal.course);
     }
   }
 
@@ -58,6 +60,13 @@ export class CreateCourseComponent implements OnInit {
       data,
     });
     refModal.componentInstance.parent = this;
+    refModal.afterClosed().subscribe({
+      next: ({refresh}) => {
+        if (!refresh && !this.form.get('_id')?.value) {
+          this.changelistView();
+        }
+      }
+    })
   }
 
   deleteModule(idCourse: string, idModule: string, indexModule: number) {
