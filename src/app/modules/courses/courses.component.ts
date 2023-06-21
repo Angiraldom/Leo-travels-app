@@ -26,6 +26,6 @@ export class CoursesComponent implements OnInit, OnDestroy {
   }
 
   changeView() {
-    this.store.dispatch(viewCreate());
+    this.store.dispatch(viewCreate({}));
   }
 }

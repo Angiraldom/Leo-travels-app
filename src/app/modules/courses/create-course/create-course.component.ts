@@ -2,15 +2,15 @@ import { Component, OnInit, inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { ComponentType } from '@angular/cdk/portal';
+import { Subscription } from 'rxjs';
+import { Store } from '@ngrx/store';
 
 import { BaseService } from 'src/app/core/services/base.service';
-import { ICourse } from '../interfaces/ICourses.interface';
 import { FormCourseComponent } from '../form-course/form-course.component';
 import { FormModuleComponent } from '../form-module/form-module.component';
 import { FormClassComponent } from '../form-class/form-class.component';
 import { IParametersObject } from '../interfaces/IFormCourse.interface';
 import { IModule } from '../interfaces/IModule.interface';
-import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/store/app.reducer';
 import { viewList } from 'src/app/store/actions/course.actions';
 
@@ -21,12 +21,10 @@ import { viewList } from 'src/app/store/actions/course.actions';
 })
 export class CreateCourseComponent implements OnInit {
   private fb = inject(FormBuilder);
-  public data!: ICourse;
   private baseService = inject(BaseService);
   private dialog = inject(MatDialog);
   private store = inject(Store<AppState>);
-
-  modules: IModule[] = [];
+  $store!: Subscription;
 
   form: FormGroup = this.fb.group({
     _id: [],
@@ -35,20 +33,24 @@ export class CreateCourseComponent implements OnInit {
     price: [0, Validators.required],
   });
 
+  modules: IModule[] = [];
   modal = {
     course: FormCourseComponent,
     module: FormModuleComponent,
     class: FormClassComponent,
   };
-
   isExpanded: boolean[] = [];
 
   ngOnInit(): void {
-    if (this.data) {
-      this.form.patchValue(this.data);
-    } else {
-      this.openModal(this.modal.course);
-    }
+    this.$store = this.store.select('courseView').subscribe({
+      next: ({ course }) => {
+        if (course) {
+          this.form.patchValue(course);
+        } else {
+          this.openModal(this.modal.course);
+        }
+      },
+    });
   }
 
   toggleList(index: number): void {
@@ -61,16 +63,16 @@ export class CreateCourseComponent implements OnInit {
     });
     refModal.componentInstance.parent = this;
     refModal.afterClosed().subscribe({
-      next: ({refresh}) => {
-        if (!refresh && !this.form.get('_id')?.value) {
+      next: () => {
+        if (!this.form.get('_id')?.value) {
           this.changelistView();
         }
-      }
-    })
+      },
+    });
   }
 
   deleteModule(idCourse: string, idModule: string, indexModule: number) {
-        this.modules.splice(indexModule, 1);
+    this.modules.splice(indexModule, 1);
 
     // this.baseService.deleteMethod(`class/${idCourse}/${idModule}`).subscribe({
     //   next: () => {
@@ -94,6 +96,7 @@ export class CreateCourseComponent implements OnInit {
   }
 
   changelistView() {
+    this.$store.unsubscribe();
     this.store.dispatch(viewList());
   }
 }
