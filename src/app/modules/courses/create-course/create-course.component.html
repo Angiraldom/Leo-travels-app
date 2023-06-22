@@ -51,12 +51,11 @@
                         <span class="item-title">{{ class.name }}</span>
                         <span class="align-items-center actions-content">
                             <mat-icon [matTooltip]="'Editar clase'"
-                                (click)="openModal(modal.class, { body: class, indexModule, indexClass })">
+                                (click)="openModal(modal.class, { body: class, indexModule, indexClass, idCourse: item._id, idModule: module._id })">
                                 edit
                             </mat-icon>
-                            <!-- <mat-icon (click)="deleteClass(item._id, module._id, class._id)"> -->
                             <mat-icon [matTooltip]="'Eliminar clase'"
-                                (click)="deleteClass(module, indexClass)">
+                                (click)="deleteClass(module, indexClass, class._id)">
                                 delete
                             </mat-icon>
                         </span>

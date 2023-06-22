@@ -45,6 +45,7 @@ export class CreateCourseComponent implements OnInit {
     this.$store = this.store.select('courseView').subscribe({
       next: ({ course }) => {
         if (course) {
+          this.modules = JSON.parse(JSON.stringify([...course.modules]));          
           this.form.patchValue(course);
         } else {
           this.openModal(this.modal.course);
@@ -72,27 +73,23 @@ export class CreateCourseComponent implements OnInit {
   }
 
   deleteModule(idCourse: string, idModule: string, indexModule: number) {
-    this.modules.splice(indexModule, 1);
-
-    // this.baseService.deleteMethod(`class/${idCourse}/${idModule}`).subscribe({
-    //   next: () => {
-    //     this.modules.splice(indexModule, 1);
-    //     console.log('Eliminado exitosamente');
-    //   },
-    // });
+    this.baseService.deleteMethod(`course/module/${idCourse}/${idModule}`).subscribe({
+      next: () => {
+        this.modules.splice(indexModule, 1);
+        console.log('Eliminado exitosamente');
+      },
+    });
   }
 
-  // deleteClass(idCourse: string, idModule: string, idClass: string, module: IModule, inde) {
-  deleteClass(module: IModule, indexClass: number) {
-    module.classes.splice(indexClass, 1);
-    // this.baseService
-    //   .deleteMethod(`class/${idCourse}/${idModule}/${idClass}`)
-    //   .subscribe({
-    //     next: () => {
-    //       // this.modules[indexModule!].classes[indexClass!]
-    //       console.log('Eliminado exitosamente');
-    //     },
-    //   });
+  deleteClass(module: IModule, indexClass: number, idClass: string) {
+    this.baseService
+      .deleteMethod(`course/class/${this.form.get('_id')?.value}/${module._id}/${idClass}`)
+      .subscribe({
+        next: () => {
+          module.classes.splice(indexClass, 1);
+          console.log('Eliminado exitosamente');
+        },
+      });
   }
 
   changelistView() {

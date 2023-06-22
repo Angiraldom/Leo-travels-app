@@ -22,7 +22,6 @@ export class FormModuleComponent implements OnInit {
     _id: [],
     name: ['', Validators.required],
     description: ['', Validators.required],
-    classes: this.fb.array([]),
   });
 
   ngOnInit(): void {
@@ -32,7 +31,7 @@ export class FormModuleComponent implements OnInit {
   }
 
   executeAction() {
-    if (this.data?.body?._id) {
+    if (this.data?.body) {
       this.updateModule();
     } else {
       this.saveModule();
@@ -40,34 +39,43 @@ export class FormModuleComponent implements OnInit {
   }
 
   saveModule() {
-    const data = this.form.getRawValue();
-    delete data._id;
-    this.parent.modules.push({
-      _id: new Date().getTime().toString(),
-      ...data
-    });
-    this.dialogRef.close({refresh: true});
+    const body = this.form.getRawValue();
+    delete body._id;
 
-    // const body = this.form.getRawValue();
-    // delete body._id;
-
-    // this.baseService.postMethod(`course/module/${this.data.idCourse}`, body).subscribe({
-    //   next: (res: any) => {
-    //     console.log('Guardo correctamente');
-    //     this.form.reset();
-    //     this.dialogRef.close({ refresh: true, form: res.data });
-    //   },
-    //   error: () => this.loading = false
-    // });
+    this.baseService
+      .postMethod(`course/module/${this.data.idCourse}`, body)
+      .subscribe({
+        next: (res: any) => {
+          console.log('Guardo correctamente');
+          this.form.reset();
+          this.parent.modules.push({
+            ...res['data'],
+          });
+          this.dialogRef.close({ refresh: true });
+        },
+        error: () => (this.loading = false),
+      });
   }
 
   updateModule() {
-    const data = this.form.getRawValue();
-    delete data._id;
-    this.parent.modules[this.data.indexModule!] = {
-      _id: new Date().getTime().toString(),
-      ...data
-    };
-    this.dialogRef.close({refresh: true});
+    const body = this.form.getRawValue();
+    body['classes'] = this.parent.modules[this.data.indexModule].classes;
+    const idModule = body._id;
+    delete body._id;
+
+    this.baseService
+      .patchMethod(`course/module/${this.data.idCourse}/${idModule}`, body)
+      .subscribe({
+        next: () => {
+          console.log('EDitado correctamente');
+          this.form.reset();
+          this.parent.modules[this.data.indexModule!] = {
+            ...body,
+            _id: idModule,
+          };
+          this.dialogRef.close({ refresh: true });
+        },
+        error: () => (this.loading = false),
+      });
   }
 }
