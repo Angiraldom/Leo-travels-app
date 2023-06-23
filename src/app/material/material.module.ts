@@ -12,6 +12,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatTreeModule } from '@angular/material/tree';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 const modules = [
   MatTableModule,
@@ -25,6 +26,7 @@ const modules = [
   MatBadgeModule,
   MatTreeModule,
   MatDialogModule,
+  MatTooltipModule
 ];
 @NgModule({
   declarations: [],

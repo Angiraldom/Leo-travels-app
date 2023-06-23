@@ -1,80 +1,79 @@
 @import '/src/styles/variables';
 
-// ::ng-deep.p-button {
-//     background: $primary;
-// }
+mat-icon {
+    font-size: 21px;
+    cursor: pointer;
+}
 
-// form {
-//     width: 90%;
-//     margin: 40px auto;
-// }
+.align-items-center {
+    display: flex;
+    align-items: center;
+}
 
-// .content-form {
+.title-content {
 
-//     display: grid;
-//     grid-template-columns: 1fr;
-//     grid-row-gap: 30px;
+    gap: 15px;
+    width: 30%;
 
-//     .course-content-image {
-//         display: grid;
-//         grid-template-columns: repeat(3, 1fr);
-//         justify-items: right;
+    .sub-title {
+        color: $secondary;
+    }
+}
 
-//         .button-file {
-//             justify-self: flex-start;
-//         }
-//     }
-// }
-
-// .modules {
-//     max-height: 220px;
-//     overflow-x: hidden;
-//     overflow-y: auto;
-
-//     .title-module {
-//         display: flex;
-//         align-items: center;
-//         column-gap: 8px;
-//     }
-
-//     .form-modules {
-//         margin: 10px auto;
-//     }
-// }
-
-// textarea,
-// .input-name {
-//     width: 100%;
-// }
-
-// .content-title {
-//     display: flex;
-// }
-
-
-
+.modules-title {
+    margin-bottom: 16px;
+}
 
 .list {
     list-style-type: none;
     padding: 0;
 }
 
-.list-item {
-    border-bottom: 1px solid #ccc;
-}
-
-.item-header {
+.item {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     cursor: pointer;
+    border-radius: 10px;
 }
 
-.arrow {
-    width: 0;
-    height: 0;
-    border-top: 5px solid transparent;
-    border-bottom: 5px solid transparent;
-    border-left: 5px solid #333;
-    margin-left: auto;
-    transition: transform 0.3s ease;
+.list-item {
+    margin-bottom: 5px;
+
+    .item-header {
+        background-color: $background-color;
+    }
+
+    .actions-content {
+        margin-right: 15px;
+
+        .total-clases {
+            color: $gray;
+            font-size: 14px;
+            margin-right: 8px;
+        }
+    }
+
+    .arrow {
+        width: 0;
+        height: 0;
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        border-left: 5px solid #333;
+        margin-left: auto;
+        transition: transform 0.3s ease;
+    }
+}
+
+.sub-list {
+    list-style-type: none;
+    padding-left: 48px;
+
+    .sub-item {
+        padding: 5px 0px;
+    }
+}
+
+.item-sub-header {
+    background-color: white;
 }

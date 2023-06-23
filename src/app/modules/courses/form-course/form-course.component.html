@@ -6,7 +6,7 @@
 
         <span class="p-float-label">
             <input pInputText id="username" formControlName="name" class="input-name" />
-            <label htmlFor="username">{{ 'products.form.name' | translate }}</label>
+            <label htmlFor="username">{{ 'Curso' | translate }}</label>
         </span>
 
         <span class="p-float-label">
@@ -31,4 +31,4 @@
     </div>
 </form>
 
-<app-buttons-modal [disabledButton]="form.invalid" (handleSaveButton)="saveCourse()" [loading]="loading"></app-buttons-modal>
+<app-buttons-modal [disabledButton]="form.invalid" (handleSaveButton)="validateAction()" [loading]="loading"></app-buttons-modal>

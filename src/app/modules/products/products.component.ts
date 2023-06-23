@@ -14,7 +14,7 @@ export class ProductsComponent {
 
   openModal() {
     this.dialog.open(this.createModal, {
-      hasBackdrop: false,
+      disableClose: true
     });
   }
 

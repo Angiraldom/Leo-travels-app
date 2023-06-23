@@ -1,24 +1,45 @@
 <div *ngIf="form.value ?? form.value as item">
-    <p> {{ item.name }} </p>
+    <div class="title-content align-items-center">
+        <h3 class="sub-title">{{ item.name }}</h3>
+        <div class="align-items-center">
+            <mat-icon (click)="openModal(modal.module, { idCourse: item._id })" [matTooltip]="'Crear modulo'" *ngIf="form.get('name')?.value">
+                add
+            </mat-icon>
+            <mat-icon (click)="openModal(modal.course, { body: form.getRawValue()})" [matTooltip]="'Editar curso'" *ngIf="form.get('name')?.value">
+                edit
+            </mat-icon>
+        </div>
+    </div>
+    
+    <hr>
+
     <ul class="list" *ngIf="modules.length > 0">
+
+        <h4 class="modules-title">Módulos del curso</h4>
+
         <li *ngFor="let module of modules; let indexModule = index" class="list-item">
             <!-- MODULOS -->
-            <div class="item-header" (click)="toggleList(indexModule)">
-                <button mat-icon-button>
-                    <mat-icon class="mat-icon-rtl-mirror">
-                        {{isExpanded[indexModule] ? 'expand_more' : 'chevron_right'}}
-                    </mat-icon>
-                </button>
-                <span class="item-title">{{ module.name }}</span>
-                <span>
-                    <mat-icon
+            <div class="item item-header" (click)="toggleList(indexModule)">
+                <div class="align-items-center">
+                    <button mat-icon-button>
+                        <mat-icon class="mat-icon-rtl-mirror">
+                            {{isExpanded[indexModule] ? 'expand_more' : 'chevron_right'}}
+                        </mat-icon>
+                    </button>
+                    <span class="item-title">{{ module.name }}</span>
+                </div>
+                <span class="align-items-center actions-content">
+                    <span class="total-clases">{{ module.classes.length + ' clases' }}</span>
+                    <mat-icon [matTooltip]="'Crear clase'"
                         (click)="openModal(modal.class, { indexModule, idCourse: item._id, idModule: module._id })">
                         add
                     </mat-icon>
-                    <mat-icon (click)="openModal(modal.module, { body: module, indexModule, idCourse: item._id })">
+                    <mat-icon [matTooltip]="'Editar modulo'"
+                        (click)="openModal(modal.module, { body: module, indexModule, idCourse: item._id })">
                         edit
                     </mat-icon>
-                    <mat-icon (click)="deleteModule(item._id, module._id, indexModule)">
+                    <mat-icon [matTooltip]="'Eliminar modulo'"
+                        (click)="deleteModule(item._id, module._id, indexModule)">
                         delete
                     </mat-icon>
                 </span>
@@ -26,21 +47,23 @@
             <!-- CLASES -->
             <ul class="sub-list" [hidden]="!isExpanded[indexModule]">
                 <li *ngFor="let class of module?.classes; let indexClass = index" class="sub-item">
-                    <span>{{ class.name }}</span>
-                    <mat-icon (click)="openModal(modal.class, { body: class, indexModule, indexClass })">
-                        edit
-                    </mat-icon>
-                    <!-- <mat-icon (click)="deleteClass(item._id, module._id, class._id)"> -->
-                    <mat-icon (click)="deleteClass(module, indexClass)">
-                        delete
-                    </mat-icon>
+                    <div class="item item-sub-header">
+                        <span class="item-title">{{ class.name }}</span>
+                        <span class="align-items-center actions-content">
+                            <mat-icon [matTooltip]="'Editar clase'"
+                                (click)="openModal(modal.class, { body: class, indexModule, indexClass, idCourse: item._id, idModule: module._id })">
+                                edit
+                            </mat-icon>
+                            <mat-icon [matTooltip]="'Eliminar clase'"
+                                (click)="deleteClass(module, indexClass, class._id)">
+                                delete
+                            </mat-icon>
+                        </span>
+                    </div>
                 </li>
             </ul>
         </li>
     </ul>
-
-    <button (click)="openModal(modal.course)"  *ngIf="!form.get('name')?.value"> Crear curso </button>
-    <button (click)="openModal(modal.course, { body: form.getRawValue()})"  *ngIf="form.get('name')?.value"> Editar curso </button>
-    <button (click)="openModal(modal.module, { idCourse: item._id })" *ngIf="form.get('name')?.value"> Crear modulo </button>
-
 </div>
+
+<button (click)="changelistView()">Volver</button>

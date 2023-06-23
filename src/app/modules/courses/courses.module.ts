@@ -15,6 +15,7 @@ import { FormModuleComponent } from './form-module/form-module.component';
 import { FormClassComponent } from './form-class/form-class.component';
 import { TitleModalComponent } from 'src/app/shared/title-modal/title-modal.component';
 import { ButtonsModalComponent } from 'src/app/shared/buttons-modal/buttons-modal.component';
+import { HeaderModulesComponent } from 'src/app/shared/header-modules/header-modules.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { ButtonsModalComponent } from 'src/app/shared/buttons-modal/buttons-moda
     TranslateModule,
     PrimengModule,
     TitleModalComponent,
-    ButtonsModalComponent
+    ButtonsModalComponent,
+    HeaderModulesComponent
   ]
 })
 export class CoursesModule { }

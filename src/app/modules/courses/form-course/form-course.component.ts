@@ -32,30 +32,58 @@ export class FormCourseComponent implements OnInit{
     }
   }
 
+  validateAction(){
+    if (this.form.invalid) {
+      return;
+    }
+    if (this.data?.body._id) {
+      this.updateCourse();
+    } else {
+      this.saveCourse();
+    }
+  }
+
   saveCourse() {
-    const data = this.form.getRawValue();
-    delete data._id;
-    this.parent.form.patchValue({
-      _id: new Date().getTime().toString(),
-      ...data,
+    const body = this.form.getRawValue();
+    delete body._id;
+    const formData = new FormData();
+
+    formData.append('image', this.selectedFiles);
+    formData.append('data', JSON.stringify(body));
+
+    this.baseService.postMethod('course', formData).subscribe({
+      next: (res: any) => {
+        console.log('Guardo correctamente');
+        this.form.reset();
+        this.parent.form.patchValue({
+          ...res['data']
+        });
+        this.dialogRef.close({ refresh: true });
+      },
+      error: () => this.loading = false
     });
-    this.dialogRef.close();
+  }
 
-    // const body = this.form.getRawValue();
-    // delete body._id;
-    // const formData = new FormData();
+  updateCourse() {
+    const body = this.form.getRawValue();
+    const idCourse = body._id;
+    delete body._id;
+    const formData = new FormData();
 
-    // formData.append('image', this.selectedFiles);
-    // formData.append('data', JSON.stringify(body));
+    formData.append('image', this.selectedFiles);
+    formData.append('data', JSON.stringify(body));
 
-    // this.baseService.postMethod('course', formData).subscribe({
-    //   next: (res: any) => {
-    //     console.log('Guardo correctamente');
-    //     this.form.reset();
-    //     this.dialogRef.close({ refresh: true, form: res['data'] });
-    //   },
-    //   error: () => this.loading = false
-    // });
+    this.baseService.patchMethod(`course/${idCourse}`, formData).subscribe({
+      next: (res: any) => {
+        console.log('Actualizado correctamente');
+        this.form.reset();
+        this.parent.form.patchValue({
+          ...res['data']
+        });
+        this.dialogRef.close({ refresh: true });
+      },
+      error: () => this.loading = false
+    });
   }
 
   onFileSelected(event: any) {

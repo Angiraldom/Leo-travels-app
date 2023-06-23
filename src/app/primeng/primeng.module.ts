@@ -6,9 +6,8 @@ import { InputTextareaModule } from 'primeng/inputtextarea';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { FileUploadModule } from 'primeng/fileupload';
 import { CardModule } from 'primeng/card';
-import { TabViewModule } from 'primeng/tabview';
 
-const modules = [TabViewModule, CardModule, InputTextModule, InputTextareaModule, InputNumberModule, FileUploadModule];
+const modules = [CardModule, InputTextModule, InputTextareaModule, InputNumberModule, FileUploadModule];
 
 @NgModule({
   declarations: [],
