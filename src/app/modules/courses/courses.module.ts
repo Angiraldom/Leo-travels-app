@@ -6,7 +6,6 @@ import { ListCoursesComponent } from './list-courses/list-courses.component';
 import { CreateCourseComponent } from './create-course/create-course.component';
 import { MaterialModule } from '../../material/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
-import { ListVideosPipe } from '../../core/pipes/list-videos.pipe';
 import { TranslateModule } from '@ngx-translate/core';
 import { PrimengModule } from '../../primeng/primeng.module';
 import { CoursesComponent } from './courses.component';
@@ -22,7 +21,6 @@ import { HeaderModulesComponent } from 'src/app/shared/header-modules/header-mod
   declarations: [
     ListCoursesComponent,
     CreateCourseComponent,
-    ListVideosPipe,
     CoursesComponent,
     FormCourseComponent,
     FormModuleComponent,

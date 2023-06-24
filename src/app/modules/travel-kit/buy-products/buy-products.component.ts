@@ -1,7 +1,8 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnDestroy, OnInit, inject } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
+import { Subscription } from 'rxjs';
 
 import { IProduct } from '../../products/interfaces/IProduct.interface';
 import { BaseService } from 'src/app/core/services/base.service';
@@ -16,21 +17,26 @@ import * as cartActions from 'src/app/store/actions/cart.actions';
   standalone: true,
   imports: [CommonModule, GenericButtonComponent, NgOptimizedImage, MatTooltipModule],
 })
-export class BuyProductsComponent implements OnInit {
+export class BuyProductsComponent implements OnInit, OnDestroy {
   private baseService = inject(BaseService);
   private store = inject(Store<AppState>);
-  
+
+  $store!: Subscription;
+  productsInList: any[] = [];
   products: any[] = [];
   // products: IProduct[] = [];
 
   ngOnInit(): void {
     this.baseService.http.get('https://api.escuelajs.co/api/v1/products?offset=0&limit=10').subscribe({
       next: (response: any) => {
-        console.log(response);
-        
         this.products = response;
       },
     });
+    this.$store = this.store.select('cart').subscribe({
+      next: (response) => {
+        this.productsInList = response.products;
+      }
+    })
     // this.baseService.getMethod('product').subscribe({
     //   next: (response: any) => {
     //     this.products = response.data;
@@ -38,7 +44,20 @@ export class BuyProductsComponent implements OnInit {
     // });
   }
 
+  ngOnDestroy(): void {
+    this.$store.unsubscribe();
+  }
+
   addProduct(product: IProduct) {
-    this.store.dispatch(cartActions.addProduct({ reference: '456', product }))
+    const existProduct = this.productsInList.find((item) => item.id === product.id);
+    // const exist = this.productsInList.some((item) => item._id === product._id)
+    if (existProduct) {
+      const newProduct = {...existProduct};
+      newProduct.amount = existProduct.amount! + 1;
+      this.store.dispatch(cartActions.updateProduct({ reference: '456', product: newProduct }));
+    } else {
+      product.amount = 1;
+      this.store.dispatch(cartActions.addProduct({ reference: '456', product }));
+    }
   }
 }

@@ -24,4 +24,6 @@ export interface IProduct {
   updatedAt: Date;
 
   createdAt: Date;
+
+  amount?: number;
 }
