@@ -14,14 +14,8 @@ export class NavbarComponent implements OnInit {
   user!: any;
 
   ngOnInit(): void {
-    this.state.select('cart').subscribe({
-      next: (products) => {
-        console.log(products)
-      }
-    });
     this.state.select('profile').subscribe({
       next: (user) => {
-        console.log(user)
         this.user = user;
       }
     });

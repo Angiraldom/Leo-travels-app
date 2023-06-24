@@ -13,6 +13,6 @@
         <a class="item" routerLink="courses" routerLinkActive="router-active">
             <span>Iniciar sesión</span>
         </a>
-        <mat-icon>shopping_cart</mat-icon> 
+        <mat-icon [matBadge]="(store.select('cart') | async).products.length" matBadgeSize="small" matBadgeColor="warn">shopping_cart</mat-icon> 
     </div>
 </header>
