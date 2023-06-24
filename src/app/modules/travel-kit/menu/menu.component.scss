@@ -35,12 +35,54 @@ header {
     color: $white !important;
 }
 
-.item, mat-icon {
+.item,
+mat-icon {
     cursor: pointer;
     text-decoration: none;
     color: $white;
 }
 
-.item:hover, .router-active {
+.item:hover,
+.router-active {
     color: $secondary !important;
+}
+
+
+
+.invoice-summary {
+    display: flex;
+    justify-content: space-between;
+}
+
+.bold {
+    font-weight: 700;
+}
+
+.item-product {
+    display: flex;
+    width: 100%;
+    gap: 8px;
+
+    .item-description {
+        width: 50%;
+        display: grid;
+        grid-template-rows: 0.3fr 1fr 1fr;
+    }
+
+    .item-description div {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .value {
+        place-self: flex-end;
+    }
+
+    .product-name {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        width: 90px;
+        cursor: pointer;
+    }
 }

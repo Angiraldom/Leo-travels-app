@@ -11,8 +11,13 @@ import { MenuComponent } from './menu/menu.component';
   templateUrl: './travel-kit.component.html',
   styleUrls: ['./travel-kit.component.scss'],
   standalone: true,
-  imports: [CommonModule, MenuComponent, BuyProductsComponent, DiscountSessionComponent, RecommendationSessionComponent, FooterComponent],
+  imports: [
+    CommonModule,
+    MenuComponent,
+    BuyProductsComponent,
+    DiscountSessionComponent,
+    RecommendationSessionComponent,
+    FooterComponent,
+  ],
 })
-export default class TravelKitComponent {
-
-}
+export default class TravelKitComponent {}
