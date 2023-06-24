@@ -1,0 +1,21 @@
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { CommonModule } from '@angular/common';
+
+@Component({
+  selector: 'app-generic-button',
+  standalone: true,
+  imports: [CommonModule],
+  templateUrl: './generic-button.component.html',
+  styleUrls: ['./generic-button.component.scss']
+})
+export class GenericButtonComponent {
+  @Input() classButton: 'class_blue' | 'class_yellow' | 'class_blue_color_yellow' = 'class_yellow';
+  @Input() sizeButton: 'small' | 'large' = 'large';
+  @Input() nameButton = '';
+  @Input() load = false;
+  @Output() emitClick = new EventEmitter();
+
+  handelClick() {
+    this.emitClick.emit();
+  }
+}
