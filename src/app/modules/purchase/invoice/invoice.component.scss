@@ -1,0 +1,32 @@
+@import "/src/styles/variables";
+
+.content-invoice {
+    padding: 30px;
+    border: 1px solid $border;
+
+    .content-info {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .list-products {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+
+        .products {
+            display: flex;
+            justify-content: flex-start;
+            gap: 30px;
+        }
+    }
+}
+
+.align-between {
+    display: flex;
+    justify-content: space-between;
+}
+
+.text-end {
+    text-align: end;
+}
