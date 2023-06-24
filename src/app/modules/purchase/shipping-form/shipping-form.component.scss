@@ -1,0 +1,16 @@
+@import "/src/styles/variables";
+
+.content-form {
+    padding: 30px;
+    border: 1px solid $border;
+
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .input-name, ::ng-deep.p-inputnumber {
+        width: 100%;
+    }
+}
