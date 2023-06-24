@@ -1,0 +1,66 @@
+<header>
+    <span class="icon-logo"></span>
+    <div class="menu">
+        <a class="item" routerLink="courses" routerLinkActive="router-active">
+            <span>Cursos</span>
+        </a>
+        <a class="item" routerLink="kit-viajero" routerLinkActive="router-active">
+            <span>Kit viajero</span>
+        </a>
+        <a class="item" routerLink="courses" routerLinkActive="router-active">
+            <span>¿Quiénes somos?</span>
+        </a>
+        <a class="item" routerLink="courses" routerLinkActive="router-active">
+            <span>Iniciar sesión</span>
+        </a>
+        <mat-icon [matBadge]="(store.select('cart') | async).products.length" matBadgeSize="small" matBadgeColor="warn"
+            (click)="sidebarVisible = true">shopping_cart</mat-icon>
+    </div>
+</header>
+
+<p-sidebar [(visible)]="sidebarVisible" position="right">
+    <ng-template pTemplate="header">
+        Carrito de compras
+    </ng-template>
+
+    <ng-template pTemplate="content">
+        <hr>
+
+        <ng-container *ngFor="let item of (store.select('cart') | async).products">
+            <div class="item-product">
+                <div>
+                    <img src="{{item.images[0]}}" width="150px" height="150px" alt="">
+                </div>
+                <div class="item-description">
+                    <div>
+                        <span class="product-name" [matTooltipPosition]="'above'" [matTooltip]="item.title">{{item.title}}</span>
+                        <mat-icon (click)="deleteProduct(item)" [color]="'primary'">delete_outline</mat-icon>
+                    </div>
+                    <p>Cantidad: 1</p>
+                    <p class="value">{{ item.price | currency }}</p>
+                </div>
+            </div>
+        </ng-container>
+    </ng-template>
+
+    <ng-template pTemplate="footer">
+        <hr>
+        <div class="invoice-summary">
+            <p>Subtotal</p>
+            <p>$00.000</p>
+        </div>
+        <div class="invoice-summary">
+            <p>Envío</p>
+            <p>Por definir</p>
+        </div>
+        <div class="invoice-summary bold">
+            <p>Total</p>
+            <p>{{ 0 | currency }}</p>
+        </div>
+
+        <div>
+            <app-generic-button [nameButton]="'IR A PAGAR'" [sizeButton]="'large'"
+                classButton="class_blue"></app-generic-button>
+        </div>
+    </ng-template>
+</p-sidebar>

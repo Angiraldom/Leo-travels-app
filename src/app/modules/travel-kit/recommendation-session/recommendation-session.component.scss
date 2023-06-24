@@ -1,0 +1,25 @@
+@import "/src/styles/variables";
+
+.discount-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  background-color: $white;
+  color: $primary;
+  padding: 40px 0px;
+  text-align: center;
+
+  .stress {
+    color: $primary;
+    font-weight: 700;
+  }
+}
+
+p {
+  text-align: center;
+  color: $primary;
+  max-width: 570px;
+  text-align: center;
+  margin: 0 auto;
+}

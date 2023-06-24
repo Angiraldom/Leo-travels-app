@@ -1,0 +1,88 @@
+@import 'src/styles/variables';
+
+header {
+    width: 100%;
+    height: 60px;
+    padding: 0px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0px;
+    z-index: 100;
+    background: $primary;
+}
+
+.icon-logo {
+    display: block;
+    width: 115px;
+    height: 30px;
+    background-image: url('../../../../assets/images/logo.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.menu {
+    font-weight: 700;
+    display: contents;
+}
+
+.button-menu {
+    color: $white;
+}
+
+.button-menu:hover {
+    color: $white !important;
+}
+
+.item,
+mat-icon {
+    cursor: pointer;
+    text-decoration: none;
+    color: $white;
+}
+
+.item:hover,
+.router-active {
+    color: $secondary !important;
+}
+
+
+
+.invoice-summary {
+    display: flex;
+    justify-content: space-between;
+}
+
+.bold {
+    font-weight: 700;
+}
+
+.item-product {
+    display: flex;
+    width: 100%;
+    gap: 8px;
+
+    .item-description {
+        width: 50%;
+        display: grid;
+        grid-template-rows: 0.3fr 1fr 1fr;
+    }
+
+    .item-description div {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .value {
+        place-self: flex-end;
+    }
+
+    .product-name {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        width: 90px;
+        cursor: pointer;
+    }
+}
