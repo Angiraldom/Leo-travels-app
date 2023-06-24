@@ -1,0 +1,46 @@
+@import 'src/styles/variables';
+
+header {
+    width: 100%;
+    height: 60px;
+    padding: 0px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0px;
+    z-index: 100;
+    background: $primary;
+}
+
+.icon-logo {
+    display: block;
+    width: 115px;
+    height: 30px;
+    background-image: url('../../../../assets/images/logo.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.menu {
+    font-weight: 700;
+    display: contents;
+}
+
+.button-menu {
+    color: $white;
+}
+
+.button-menu:hover {
+    color: $white !important;
+}
+
+.item, mat-icon {
+    cursor: pointer;
+    text-decoration: none;
+    color: $white;
+}
+
+.item:hover, .router-active {
+    color: $secondary !important;
+}

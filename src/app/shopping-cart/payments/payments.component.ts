@@ -85,8 +85,4 @@ export class PaymentsComponent {
       }
     });
   }
-
-  addProduct(product: IProduct) {
-    this.store.dispatch(cartActions.addProduct({ reference: '456', product }))
-  }
 }
