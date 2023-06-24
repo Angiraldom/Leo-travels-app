@@ -16,6 +16,16 @@ const routes: Routes = [
     title: 'Login',
   },
   {
+    path: 'vilean',
+    loadChildren: () =>
+      import('./modules/vilean/vilean.module').then((m) => m.VileanModule),
+  },
+  {
+    path: 'purchase',
+    loadChildren: () =>
+      import('./modules/purchase/purchase.module').then((m) => m.PurchaseModule),
+  },
+  {
     path: 'layout',
     canActivate: [authGuardFn],
     loadChildren: () =>
