@@ -1,0 +1,109 @@
+@import '/src/styles/variables';
+
+.content-footer {
+    background: $primary;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.footer {
+    color: #f0f0f0;
+    text-align: center;
+}
+
+.name-social-media {
+    color: $secondary;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+p {
+    text-align: center;
+    color: #fff;
+    font-weight: 400;
+    line-height: 22px;
+}
+
+.logo-footer {
+    position: relative;
+    width: 160px;
+    height: 65px;
+    background: url('../../../../assets/images/logo_footer.png') no-repeat center center;
+    background-size: 155px 58px;
+    z-index: 10;
+    margin: 0 auto;
+}
+
+.social-bottom {
+    position: relative;
+    width: 100%;
+    z-index: 12;
+    height: 25px;
+    margin-bottom: 15px;
+}
+
+.list-social li {
+    padding: 0;
+    list-style: none;
+    text-align: center;
+    width: 25px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.list-social li.icon-soc span {
+    font-size: 12px;
+    line-height: 25px;
+    width: 25px;
+    opacity: 1;
+    margin: 0;
+    padding: 0;
+}
+
+.footer-bottom {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background: $primary;
+}
+
+.footer-bottom p {
+    letter-spacing: 1px;
+    font-size: 12px;
+    line-height: 18px;
+}
+
+.container {
+    max-width: 305px;
+    margin: 0 auto;
+}
+
+.margin {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.content-logo {
+    padding-bottom: 35px;
+}
+
+.padding-title {
+    padding-bottom: 20px;
+}
+
+.gmail {
+    margin-bottom: 15px;
+    text-align: center;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+}
+
+.msj {
+    width: 20px;
+    height: 20px;
+    margin-right: 4px;
+    background-image: url('../../../../assets/icons/envelope-solid.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
