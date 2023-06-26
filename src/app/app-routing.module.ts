@@ -7,7 +7,7 @@ const routes: Routes = [
   {
     path: '',
     redirectTo: 'login',
-    pathMatch: 'full'
+    pathMatch: 'full',
   },
   {
     path: 'login',
@@ -16,14 +16,19 @@ const routes: Routes = [
     title: 'Login',
   },
   {
-    path: 'vilean',
+    path: 'kit-viajero',
     loadChildren: () =>
-      import('./modules/vilean/vilean.module').then((m) => m.VileanModule),
+      import('./modules/travel-kit/travel-kit.module').then(
+        (m) => m.TravelKitModule
+      ),
+    title: 'Kit viajero',
   },
   {
     path: 'purchase',
     loadChildren: () =>
-      import('./modules/purchase/purchase.module').then((m) => m.PurchaseModule),
+      import('./modules/purchase/purchase.module').then(
+        (m) => m.PurchaseModule
+      ),
   },
   {
     path: 'layout',
@@ -40,14 +45,16 @@ const routes: Routes = [
   },
   {
     path: 'forgot-password',
-    loadComponent: () => import('./components/forgot-password/forgot-password.component'),
-    title: 'Recuperar contraseña'
+    loadComponent: () =>
+      import('./components/forgot-password/forgot-password.component'),
+    title: 'Recuperar contraseña',
   },
   {
     path: 'change-password',
-    loadComponent: () => import('./components/change-password/change-password.component'),
-    title: 'Cambiar contraseña'
-  }
+    loadComponent: () =>
+      import('./components/change-password/change-password.component'),
+    title: 'Cambiar contraseña',
+  },
 ];
 
 @NgModule({

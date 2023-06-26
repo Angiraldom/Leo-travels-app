@@ -4,13 +4,13 @@
         <a class="item" routerLink="courses" routerLinkActive="router-active">
             <span>Cursos</span>
         </a>
-        <a class="item" routerLink="kit-viajero" [routerLinkActive]="'router-active'">
+        <a class="item" [routerLink]="['/kit-viajero']" [routerLinkActive]="'router-active'">
             <span>Kit viajero</span>
         </a>
         <a class="item" routerLink="courses" routerLinkActive="router-active">
             <span>¿Quiénes somos?</span>
         </a>
-        <a class="item" routerLink="courses" routerLinkActive="router-active">
+        <a class="item" [routerLink]="'/login'" routerLinkActive="router-active">
             <span>Iniciar sesión</span>
         </a>
         <mat-icon [matBadge]="(store.select('cart') | async).products | totalProducts" matBadgeSize="small" matBadgeColor="warn"

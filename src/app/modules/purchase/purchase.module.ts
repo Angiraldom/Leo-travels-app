@@ -7,7 +7,7 @@ import { InvoiceFormComponent } from './invoice-form/invoice-form.component';
 import { PrimengModule } from 'src/app/primeng/primeng.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { InvoiceComponent } from './invoice/invoice.component';
-import { MenuComponent } from '../travel-kit/menu/menu.component';
+import { MenuComponent } from '../../shared/menu/menu.component';
 import { DiscountCouponComponent } from './discount-coupon/discount-coupon.component';
 import { PaymentButtonComponent } from './payment-button/payment-button.component';
 import { ShippingFormComponent } from './shipping-form/shipping-form.component';

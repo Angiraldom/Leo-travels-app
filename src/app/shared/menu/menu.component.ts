@@ -12,7 +12,7 @@ import { Subscription } from 'rxjs';
 import { AppState } from 'src/app/store/app.reducer';
 import { GenericButtonComponent } from 'src/app/shared/generic-button/generic-button.component';
 import { deleteProduct } from 'src/app/store/actions/cart.actions';
-import { IProduct } from '../../products/interfaces/IProduct.interface';
+// import { IProduct } from '../../products/interfaces/IProduct.interface';
 import { TotalValuePipe } from 'src/app/core/pipes/total-values.pipe';
 import { TotalProductsPipe } from 'src/app/core/pipes/total-products.pipe';
 

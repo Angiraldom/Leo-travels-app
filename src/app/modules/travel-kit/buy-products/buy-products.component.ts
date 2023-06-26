@@ -1,12 +1,9 @@
 import { Component, OnDestroy, OnInit, inject } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { MatTooltipModule } from '@angular/material/tooltip';
-import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { Subscription } from 'rxjs';
 
 import { IProduct } from '../../products/interfaces/IProduct.interface';
 import { BaseService } from 'src/app/core/services/base.service';
-import { GenericButtonComponent } from 'src/app/shared/generic-button/generic-button.component';
 import { AppState } from 'src/app/store/app.reducer';
 import * as cartActions from 'src/app/store/actions/cart.actions';
 
@@ -14,8 +11,6 @@ import * as cartActions from 'src/app/store/actions/cart.actions';
   selector: 'app-buy-products',
   templateUrl: './buy-products.component.html',
   styleUrls: ['./buy-products.component.scss'],
-  standalone: true,
-  imports: [CommonModule, GenericButtonComponent, NgOptimizedImage, MatTooltipModule],
 })
 export class BuyProductsComponent implements OnInit, OnDestroy {
   private baseService = inject(BaseService);
