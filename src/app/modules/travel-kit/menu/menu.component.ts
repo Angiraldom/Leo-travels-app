@@ -14,6 +14,7 @@ import { GenericButtonComponent } from 'src/app/shared/generic-button/generic-bu
 import { deleteProduct } from 'src/app/store/actions/cart.actions';
 import { IProduct } from '../../products/interfaces/IProduct.interface';
 import { TotalValuePipe } from 'src/app/core/pipes/total-values.pipe';
+import { TotalProductsPipe } from 'src/app/core/pipes/total-products.pipe';
 
 @Component({
   selector: 'app-menu',
@@ -27,7 +28,8 @@ import { TotalValuePipe } from 'src/app/core/pipes/total-values.pipe';
     MatTooltipModule,
     SidebarModule,
     GenericButtonComponent,
-    TotalValuePipe
+    TotalValuePipe,
+    TotalProductsPipe
   ],
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.scss'],
