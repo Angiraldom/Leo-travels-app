@@ -1,0 +1,28 @@
+<div class="content-invoice">
+    <h3>Tu pedido</h3>
+    <div class="content-info">
+        <div class="text-end list-products">
+            <p class="justify-self-start">Cant.</p>
+            <p class="justify-self-start">Producto</p>
+            <p>Subtotal</p>
+        </div>
+
+        <ng-container *ngFor="let item of (store.select('cart') | async).products">
+            <div class="text-end list-products">
+                <p class="justify-self-start">{{ item.amount }}</p>
+                <p class="justify-self-start text-start cut-text" [matTooltip]="item.title">{{ item.title }}</p>
+                <p>{{ item.amount * item.price | currency }}</p>
+            </div>
+        </ng-container>
+
+        <div class="text-end align-between">
+            <p>Envío</p>
+            <p>{{ 0 | currency }}</p>
+        </div>
+
+        <div class="text-end align-between">
+            <p>Total</p>
+            <p>{{ (store.select('cart') | async).products | totalValue | currency }}</p>
+        </div>
+    </div>
+</div>

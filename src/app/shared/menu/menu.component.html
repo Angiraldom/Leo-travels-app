@@ -4,17 +4,17 @@
         <a class="item" routerLink="courses" routerLinkActive="router-active">
             <span>Cursos</span>
         </a>
-        <a class="item" routerLink="kit-viajero" routerLinkActive="router-active">
+        <a class="item" [routerLink]="['/kit-viajero']" [routerLinkActive]="'router-active'">
             <span>Kit viajero</span>
         </a>
         <a class="item" routerLink="courses" routerLinkActive="router-active">
             <span>¿Quiénes somos?</span>
         </a>
-        <a class="item" routerLink="courses" routerLinkActive="router-active">
+        <a class="item" [routerLink]="'/login'" routerLinkActive="router-active">
             <span>Iniciar sesión</span>
         </a>
-        <mat-icon [matBadge]="(store.select('cart') | async).products.length" matBadgeSize="small" matBadgeColor="warn"
-            (click)="sidebarVisible = true">shopping_cart</mat-icon>
+        <mat-icon [matBadge]="(store.select('cart') | async).products | totalProducts" matBadgeSize="small" matBadgeColor="warn"
+            (click)="openCart()">shopping_cart</mat-icon>
     </div>
 </header>
 
@@ -36,7 +36,7 @@
                         <span class="product-name" [matTooltipPosition]="'above'" [matTooltip]="item.title">{{item.title}}</span>
                         <mat-icon (click)="deleteProduct(item)" [color]="'primary'">delete_outline</mat-icon>
                     </div>
-                    <p>Cantidad: 1</p>
+                    <p>Cantidad: {{ item.amount }}</p>
                     <p class="value">{{ item.price | currency }}</p>
                 </div>
             </div>
@@ -55,12 +55,12 @@
         </div>
         <div class="invoice-summary bold">
             <p>Total</p>
-            <p>{{ 0 | currency }}</p>
+            <p>{{ (store.select('cart') | async).products | totalValue | currency }}</p>
         </div>
 
         <div>
             <app-generic-button [nameButton]="'IR A PAGAR'" [sizeButton]="'large'"
-                classButton="class_blue"></app-generic-button>
+                classButton="class_blue" (emitClick)="changeRoute()"></app-generic-button>
         </div>
     </ng-template>
 </p-sidebar>

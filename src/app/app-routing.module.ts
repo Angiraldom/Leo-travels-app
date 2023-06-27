@@ -7,13 +7,22 @@ const routes: Routes = [
   {
     path: '',
     redirectTo: 'login',
-    pathMatch: 'full'
+    pathMatch: 'full',
   },
   {
-    path: 'login',
-    canActivate: [redirectLoginGuardFn],
-    loadComponent: () => import('./components/login/login.component'),
-    title: 'Login',
+    path: 'kit-viajero',
+    loadChildren: () =>
+      import('./modules/travel-kit/travel-kit.module').then(
+        (m) => m.TravelKitModule
+      ),
+    title: 'Kit viajero',
+  },
+  {
+    path: 'purchase',
+    loadChildren: () =>
+      import('./modules/purchase/purchase.module').then(
+        (m) => m.PurchaseModule
+      ),
   },
   {
     path: 'layout',
@@ -22,22 +31,34 @@ const routes: Routes = [
       import('./modules/layout/layout.module').then((m) => m.LayoutModule),
   },
   {
-    path: 'shopping',
-    loadChildren: () =>
-      import('./shopping-cart/shopping-cart.module').then(
-        (m) => m.ShoppingCartModule
-      ),
+    path: 'login',
+    canActivate: [redirectLoginGuardFn],
+    loadComponent: () => import('./components/login/login.component'),
+    title: 'Login',
   },
   {
     path: 'forgot-password',
-    loadComponent: () => import('./components/forgot-password/forgot-password.component'),
-    title: 'Recuperar contraseña'
+    loadComponent: () =>
+      import('./components/forgot-password/forgot-password.component'),
+    title: 'Recuperar contraseña',
   },
   {
     path: 'change-password',
-    loadComponent: () => import('./components/change-password/change-password.component'),
-    title: 'Cambiar contraseña'
-  }
+    loadComponent: () =>
+      import('./components/change-password/change-password.component'),
+    title: 'Cambiar contraseña',
+  },
+  {
+    path: 'response-transaction',
+    loadComponent: () =>
+      import('./components/thank-you-page/thank-you-page.component'),
+    title: 'Agradecimiento',
+  },
+  {
+    path: '**',
+    redirectTo: 'login',
+    pathMatch: 'full',
+  },
 ];
 
 @NgModule({

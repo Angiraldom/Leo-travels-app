@@ -1,0 +1,24 @@
+<div class="content-form">
+    <h3>Datos de facturación</h3>
+    <form [formGroup]="form">
+        <span class="flex flex-column gap-2">
+            <label htmlFor="name">Nombre</label>
+            <input pInputText id="name" formControlName="name" placeholder="Ingrese su nombre" class="p-inputtext-sm input-name" />
+        </span>
+
+        <span class="flex flex-column gap-2">
+            <label htmlFor="lastName">Apellidos</label>
+            <input pInputText id="lastName" formControlName="lastName" placeholder="Ingrese sus apellidos" class="p-inputtext-sm input-name" />
+        </span>
+
+        <span class="flex flex-column gap-2">
+            <label htmlFor="legalId">Cédula</label>
+            <input pInputText id="legalId" formControlName="legalId" placeholder="Ingrese su cedula" class="p-inputtext-sm input-name" />
+        </span>
+
+        <span class="flex flex-column gap-2">
+            <label htmlFor="email">Correo electrónico</label>
+            <input pInputText id="email" formControlName="email" placeholder="Ingrese su email" class="p-inputtext-sm input-name" />
+        </span>
+    </form>
+</div>

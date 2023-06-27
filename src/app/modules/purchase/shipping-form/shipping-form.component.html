@@ -1,0 +1,33 @@
+<div class="content-form">
+    <h3>Dirección de envío</h3>
+    <form [formGroup]="form">
+        <span class="flex flex-column gap-2">
+            <label htmlFor="country">País / Región</label>
+            <input pInputText id="country" formControlName="country" placeholder="Ingrese su país" class="p-inputtext-sm input-name" />
+        </span>
+
+        <span class="flex flex-column gap-2">
+            <label htmlFor="region">Departamento</label>
+            <input pInputText id="region" formControlName="region" placeholder="Ingrese el departamento" class="p-inputtext-sm input-name" />
+        </span>
+
+        <span class="flex flex-column gap-2">
+            <label htmlFor="city">Ciudad</label>
+            <input pInputText id="city" formControlName="city" placeholder="Ingrese la ciudad" class="p-inputtext-sm input-name" />
+        </span>
+
+        <span class="flex flex-column gap-2">
+            <label htmlFor="addressLine1">Dirección</label>
+            <input pInputText id="addressLine1" formControlName="addressLine1" placeholder="Ingrese la dirección" class="p-inputtext-sm input-name" />
+        </span>
+
+        <span class="flex flex-column gap-2">
+            <input pInputText id="addressLine2" formControlName="addressLine2" placeholder="Información extra (opcional)" class="p-inputtext-sm input-name" />
+        </span>
+
+        <span class="input-name">
+            <label for="withoutgrouping">Código postal (opcional)</label>
+            <p-inputNumber mode="decimal" formControlName="ZIPcode" inputId="withoutgrouping" placeholder="Número" class="p-inputtext-sm input-name" [useGrouping]="false"> </p-inputNumber>
+        </span>
+    </form>
+</div>

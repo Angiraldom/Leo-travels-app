@@ -1,0 +1,47 @@
+@import "/src/styles/variables";
+
+.content-invoice {
+    padding: 30px;
+    border: 1px solid $border;
+
+    .content-info {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .list-products {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+
+        .products {
+            display: flex;
+            justify-content: flex-start;
+            gap: 30px;
+        }
+    }
+}
+
+.align-between {
+    display: flex;
+    justify-content: space-between;
+}
+
+.justify-self-start {
+    justify-self: flex-start;
+}
+
+.text-end {
+    text-align: end;
+}
+
+.text-start {
+    text-align: start;
+}
+
+.cut-text {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 100%;
+}

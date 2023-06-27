@@ -1,6 +1,6 @@
 export interface IProduct {
   _id: string;
-
+  id: number;
   name: string;
 
   description: string;
@@ -24,4 +24,6 @@ export interface IProduct {
   updatedAt: Date;
 
   createdAt: Date;
+
+  amount?: number;
 }

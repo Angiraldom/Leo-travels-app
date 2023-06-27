@@ -9,7 +9,7 @@ export class BaseService {
   // Ponerla en las variables de entorno.
   apiUrl = 'http://localhost:3000/';
 
-  private http = inject(HttpClient);
+  http = inject(HttpClient);
 
   getMethod(nameMethod: string) {
     return this.http.get(this.apiUrl + nameMethod);
