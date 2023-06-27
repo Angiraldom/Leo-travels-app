@@ -10,12 +10,6 @@ const routes: Routes = [
     pathMatch: 'full',
   },
   {
-    path: 'login',
-    canActivate: [redirectLoginGuardFn],
-    loadComponent: () => import('./components/login/login.component'),
-    title: 'Login',
-  },
-  {
     path: 'kit-viajero',
     loadChildren: () =>
       import('./modules/travel-kit/travel-kit.module').then(
@@ -37,11 +31,10 @@ const routes: Routes = [
       import('./modules/layout/layout.module').then((m) => m.LayoutModule),
   },
   {
-    path: 'shopping',
-    loadChildren: () =>
-      import('./shopping-cart/shopping-cart.module').then(
-        (m) => m.ShoppingCartModule
-      ),
+    path: 'login',
+    canActivate: [redirectLoginGuardFn],
+    loadComponent: () => import('./components/login/login.component'),
+    title: 'Login',
   },
   {
     path: 'forgot-password',
@@ -54,6 +47,17 @@ const routes: Routes = [
     loadComponent: () =>
       import('./components/change-password/change-password.component'),
     title: 'Cambiar contraseña',
+  },
+  {
+    path: 'response-transaction',
+    loadComponent: () =>
+      import('./components/thank-you-page/thank-you-page.component'),
+    title: 'Agradecimiento',
+  },
+  {
+    path: '**',
+    redirectTo: 'login',
+    pathMatch: 'full',
   },
 ];
 

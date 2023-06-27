@@ -13,9 +13,13 @@ export class GenericButtonComponent {
   @Input() sizeButton: 'small' | 'large' = 'large';
   @Input() nameButton = '';
   @Input() load = false;
+  @Input() disabledButton = false;
   @Output() emitClick = new EventEmitter();
 
   handelClick() {
+    if (this.disabledButton) {
+      return;
+    }
     this.emitClick.emit();
   }
 }
