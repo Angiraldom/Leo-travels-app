@@ -43,16 +43,46 @@ export class BuyProductsComponent implements OnInit, OnDestroy {
     this.$store.unsubscribe();
   }
 
-  addProduct(product: IProduct) {
+  addProduct(product: IProduct, reference: string) {
     const existProduct = this.productsInList.find((item) => item.id === product.id);
     // const exist = this.productsInList.some((item) => item._id === product._id)
     if (existProduct) {
       const newProduct = {...existProduct};
       newProduct.amount = existProduct.amount! + 1;
-      this.store.dispatch(cartActions.updateProduct({ reference: '456', product: newProduct }));
+      this.store.dispatch(cartActions.updateProduct({ reference, product: newProduct }));
     } else {
       product.amount = 1;
-      this.store.dispatch(cartActions.addProduct({ reference: '456', product }));
+      this.store.dispatch(cartActions.addProduct({ reference, product }));
     }
   }
+
+  /**
+   * This method validates, if exists a reference in localStorage.
+   * @param product Product to add to the cart.
+   */
+  validateReference(product: IProduct) {
+    let reference = localStorage.getItem('reference');
+    if (!reference) {
+      reference = this.generarIdUnico();
+      localStorage.setItem('reference', reference);
+    }
+    this.addProduct(product, reference);
+  }
+
+  generarIdUnico() {
+    const caracteres = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    const caracteresLength = caracteres.length;
+    let id = '';
+  
+    for (let i = 0; i < 10; i++) {
+      const indice = Math.floor(Math.random() * caracteresLength);
+      id += caracteres.charAt(indice);
+    }
+  
+    const timestamp = Date.now().toString(36);
+    id += '-' + timestamp;
+  
+    return id;
+  }
+  
 }
