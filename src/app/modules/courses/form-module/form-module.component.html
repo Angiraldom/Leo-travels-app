@@ -6,10 +6,8 @@
         <label htmlFor="username">{{ 'products.form.moduls.name' | translate }}</label>
     </span>
 
-    <span class="p-float-label">
-        <textarea id="float-input" formControlName="description" rows="5" cols="80" pInputTextarea></textarea>
-        <label for="float-input">{{ 'products.form.description' | translate }}</label>
-    </span>
+    <p-editor formControlName="description" [style]="{ height: '320px', widht: '400px' }"></p-editor>
 </form>
 
-<app-buttons-modal [disabledButton]="form.invalid" (handleSaveButton)="executeAction()" [loading]="loading"></app-buttons-modal>
+<app-buttons-modal [disabledButton]="form.invalid" (handleSaveButton)="executeAction()"
+    [loading]="loading"></app-buttons-modal>

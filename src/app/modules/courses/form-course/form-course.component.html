@@ -9,10 +9,7 @@
             <label htmlFor="username">{{ 'Curso' | translate }}</label>
         </span>
 
-        <span class="p-float-label">
-            <textarea id="float-input" formControlName="description" rows="5" cols="80" pInputTextarea></textarea>
-            <label for="float-input">{{ 'products.form.description' | translate }}</label>
-        </span>
+        <p-editor formControlName="description" [style]="{ height: '320px' }"></p-editor>
 
         <div class="course-content-image">
             <div class="card flex justify-content-center button-file">
