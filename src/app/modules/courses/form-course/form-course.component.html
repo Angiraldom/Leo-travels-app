@@ -9,13 +9,13 @@
             <label htmlFor="username">{{ 'Curso' | translate }}</label>
         </span>
 
-        <p-editor formControlName="description" [style]="{ height: '320px' }"></p-editor>
+        <p-editor formControlName="description" [style]="{ height: '300px' }"></p-editor>
 
         <div class="course-content-image">
-            <div class="card flex justify-content-center button-file">
-                <input type="file" name="images" (change)="onFileSelected($event)">
-                <!-- <p-fileUpload mode="basic" chooseLabel="Portada del curso" name="demo[]" accept="image/*"
-                    [maxFileSize]="1000000"></p-fileUpload> -->
+            <div class="button-file">
+                <input type="file" id="images" name="images" class="custom-file-input"  (change)="onFileSelected($event)">
+                <label for="images" class="custom-file-label">Seleccionar imagen</label>
+                <p *ngIf="nameImage">{{ nameImage }}</p>
             </div>
 
             <span class="p-float-label">
@@ -28,4 +28,5 @@
     </div>
 </form>
 
-<app-buttons-modal [disabledButton]="form.invalid" (handleSaveButton)="validateAction()" [loading]="loading"></app-buttons-modal>
+<app-buttons-modal [disabledButton]="form.invalid || nameImage == ''" (handleSaveButton)="validateAction()"
+    [loading]="loading"></app-buttons-modal>

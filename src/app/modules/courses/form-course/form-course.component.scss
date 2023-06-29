@@ -17,31 +17,39 @@ form {
 
     .course-content-image {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
         justify-items: right;
 
         .button-file {
+            display: flex;
+            align-items: center;
+            gap: 12px;
             justify-self: flex-start;
+
+            p {
+                max-width: 100px;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
+            }
         }
     }
 }
 
-.modules {
-    max-height: 220px;
-    overflow-x: hidden;
-    overflow-y: auto;
-    
-    .title-module {
-        display: flex;
-        align-items: center;
-        column-gap: 8px;
-    }
-
-    .form-modules {
-        margin: 10px auto;
-    }
+textarea,
+.input-name {
+    width: 100%;
 }
 
-textarea, .input-name {
-    width: 100%;
+.custom-file-input {
+    display: none;
+}
+
+.custom-file-label {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: $primary;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
 }

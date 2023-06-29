@@ -17,6 +17,7 @@ export class FormCourseComponent implements OnInit{
 
   loading = false;
   selectedFiles!: File;
+  nameImage: string = '';
   parent!: CreateCourseComponent;
 
   form: FormGroup = this.fb.group({
@@ -28,6 +29,7 @@ export class FormCourseComponent implements OnInit{
 
   ngOnInit(): void {
     if (this.data?.body._id) {
+      this.nameImage = this.data.body.namePortada;      
       this.form.patchValue(this.data.body);
     }
   }
@@ -88,5 +90,6 @@ export class FormCourseComponent implements OnInit{
 
   onFileSelected(event: any) {
     this.selectedFiles = event.target.files[0];
+    this.nameImage = this.selectedFiles.name;
   }
 }
