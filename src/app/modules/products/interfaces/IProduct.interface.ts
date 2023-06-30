@@ -26,4 +26,6 @@ export interface IProduct {
   createdAt: Date;
 
   amount?: number;
+
+  imageProperties?: [];
 }
