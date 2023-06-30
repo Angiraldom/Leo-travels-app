@@ -7,8 +7,10 @@ import { InputNumberModule } from 'primeng/inputnumber';
 import { FileUploadModule } from 'primeng/fileupload';
 import { CardModule } from 'primeng/card';
 import { SidebarModule } from 'primeng/sidebar';
+import { EditorModule } from 'primeng/editor';
+import { ChipsModule } from 'primeng/chips';
 
-const modules = [CardModule, InputTextModule, InputTextareaModule, InputNumberModule, FileUploadModule, SidebarModule];
+const modules = [ChipsModule, EditorModule, CardModule, InputTextModule, InputTextareaModule, InputNumberModule, FileUploadModule, SidebarModule];
 
 @NgModule({
   declarations: [],
