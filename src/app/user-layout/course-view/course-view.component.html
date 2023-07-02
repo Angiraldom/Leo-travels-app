@@ -1,0 +1,49 @@
+<div class="content-course">
+    <div>
+        <h3 class="title"> Fotografía para viajes con tu celular </h3>
+        <p class="description">Aprende a tomar mejores fotos solo con tu celular, de
+            forma práctica, sencilla y en menos de una hora...</p>
+        <img alt="Card" src="https://primefaces.org/cdn/primeng/images/usercard.png" />
+    </div>
+
+    <div class="footer">
+        <h3> Contenido del curso </h3>
+        <div class="content-progress">
+            <p>Progreso</p>
+            <p-progressBar [value]="50"></p-progressBar>
+        </div>
+    </div>
+</div>
+
+<div class="content-modules">
+    <ul class="list" *ngIf="modules.length > 0">
+
+        <li *ngFor="let module of modules; let indexModule = index" class="list-item">
+            <!-- MODULOS -->
+            <div class="item item-header" (click)="toggleList(indexModule)">
+                <div class="align-items-center">
+                    <button mat-icon-button>
+                        <mat-icon class="mat-icon-rtl-mirror">
+                            {{isExpanded[indexModule] ? 'expand_more' : 'chevron_right'}}
+                        </mat-icon>
+                    </button>
+                    <span class="item-title">{{ module.name }}</span>
+                </div>
+                <span class="align-items-center actions-content">
+                    <span class="total-clases">{{ module.classes.length + ' clases' }}</span>
+                    <mat-progress-spinner class="example-margin" [diameter]="18" [mode]="'determinate'" [value]="50">
+                    </mat-progress-spinner>
+                </span>
+            </div>
+            <!-- CLASES -->
+            <ul class="sub-list" [hidden]="!isExpanded[indexModule]">
+                <li *ngFor="let class of module?.classes; let indexClass = index" class="sub-item">
+                    <div class="item item-sub-header">
+                        <span class="item-title" (click)="changeRoute('preee')">{{ class.name }}</span>
+                        <span class="total-clases">1:23</span>
+                    </div>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>
