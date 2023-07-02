@@ -1,4 +1,6 @@
 form {
+    width: 90%;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     gap: 30px;
@@ -11,4 +13,13 @@ form {
     align-items: center;
     justify-content: space-between;
     gap: 25px;
+}
+
+.input-name {
+    width: 100%;
+}
+
+::ng-deep .p-avatar.p-avatar-xl{
+    width: 5rem;
+    height: 5rem;
 }
