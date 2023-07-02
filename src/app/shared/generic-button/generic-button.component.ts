@@ -9,8 +9,8 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./generic-button.component.scss']
 })
 export class GenericButtonComponent {
-  @Input() classButton: 'class_blue' | 'class_yellow' | 'class_blue_color_yellow' = 'class_yellow';
-  @Input() sizeButton: 'small' | 'large' = 'large';
+  @Input() classButton: 'class_blue' | 'class_yellow' | 'class_blue_color_yellow' | 'class_white' = 'class_yellow';
+  @Input() sizeButton: 'small' | 'large' | 'super-large' = 'large';
   @Input() nameButton = '';
   @Input() load = false;
   @Input() disabledButton = false;

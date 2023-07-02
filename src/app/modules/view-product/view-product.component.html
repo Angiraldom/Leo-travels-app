@@ -1,0 +1,103 @@
+<app-menu></app-menu>
+<section *ngIf="this.viewProduct">
+  <div class="container">
+    <div class="container-first-section-1">
+      <!-- <div class="discount-content">
+        <p>
+          <span class="title"
+            >Los productos físicos solo están disponibles para envío en
+            Colombia</span
+          >
+        </p>
+        <mat-icon class="icon-clear"> clear </mat-icon>
+      </div> -->
+
+      <p-messages severity="warn" [(value)]="message"> </p-messages>
+
+      <div class="container product-item">
+        <div class="container-image">
+          <img [src]="this.viewProduct.images[0]"/>
+        </div>
+        <div class="container-image">
+          <img [src]="this.viewProduct.images[1]"/>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-first-section-2">
+      <p class="title">
+        <span>{{
+          viewProduct.title
+        }}</span>
+      </p>
+      <hr/>
+      <p>
+        <span>{{ viewProduct.price | currency }}</span>
+      </p>
+      <hr/>
+      <p>
+        <span>
+          {{ viewProduct.description }}
+        </span>
+      </p>
+      <hr />
+      <app-generic-button
+        [sizeButton]="'super-large'"
+        [classButton]="'class_yellow'"
+        [nameButton]="'Añadir al carrito'"
+        (emitClick)="validateReference(viewProduct)"
+      ></app-generic-button>
+    </div>
+  </div>
+  <div class="separador"></div>
+</section>
+<section>
+  <p-carousel
+    [value]="visibleProducts"
+    styleClass="custom-carousel"
+    [numVisible]="4"
+    [numScroll]="1"
+    [circular]="true"
+    [autoplayInterval]="3000"
+    [responsiveOptions]="responsiveOptions"
+  >
+    <ng-template pTemplate="header">
+      <p class="container-title-carrousel">
+        <span class="title">Productos relacionados</span
+        >
+      </p>
+    </ng-template>
+    <ng-template let-product pTemplate="item">
+      <div class="product-item" *ngIf="product.id !== id">
+        <div class="product-item-content">
+            <img
+              [src]="product.images[0]"
+              [alt]="product.title"
+              class="product-image"/>
+          <div class="container-info-carrousel">
+            <p>
+              <span class="title">{{
+                product.title | uppercase
+              }}</span>
+            </p>
+            <p>
+              <span>{{
+                product.price | currency
+              }}</span>
+            </p>
+          </div>
+          <div class="viewProduct">
+            <app-generic-button
+              (emitClick)="changeRoute(product)"
+              [sizeButton]="'large'"
+              [classButton]="'class_white'"
+              [nameButton]="'Ver producto'"
+            ></app-generic-button>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </p-carousel>
+</section>
+
+<app-footer></app-footer>

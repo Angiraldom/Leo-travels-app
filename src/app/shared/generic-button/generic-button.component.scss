@@ -3,7 +3,6 @@
 .button {
     display: flex;
     justify-content: center;
-
     a {
         justify-content: center;
         align-self: center;
@@ -31,6 +30,12 @@
     color: $secondary;
 }
 
+.class_white {
+    background-color: $white;
+    color: $primary;
+    box-shadow: 0 0 0 2px $primary;
+}
+
 .large {
     min-width: 300px;
     height: 40px;
@@ -42,4 +47,11 @@
     min-width: 140px;
     height: 30px;
     font-size: 14px;
+}
+
+.super-large {
+    min-width: 450px;
+    height: 70px;
+    letter-spacing: 1px;
+    font-size: 30px;
 }
