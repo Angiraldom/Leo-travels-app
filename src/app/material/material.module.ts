@@ -13,6 +13,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatTreeModule } from '@angular/material/tree';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 const modules = [
   MatTableModule,
@@ -26,7 +27,8 @@ const modules = [
   MatBadgeModule,
   MatTreeModule,
   MatDialogModule,
-  MatTooltipModule
+  MatTooltipModule,
+  MatProgressSpinnerModule
 ];
 @NgModule({
   declarations: [],

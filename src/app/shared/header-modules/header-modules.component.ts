@@ -12,6 +12,7 @@ import { MatButtonModule } from '@angular/material/button';
 export class HeaderModulesComponent {
   @Input() title = '';
   @Input() description = '';
+  @Input() removeButton = true;
   @Output() handleClick = new EventEmitter();
 
   onHandleClick() {
