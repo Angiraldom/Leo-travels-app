@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit, inject } from '@angular/core';
+import { Component, HostListener, OnDestroy, OnInit, inject } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/store/app.reducer';
 import * as productActions from 'src/app/store/actions/product.actions';
@@ -30,6 +30,7 @@ export class ViewProductComponent implements OnInit, OnDestroy {
   $store!: Subscription;
   productsInList: IProduct[] = [];
   message:Message[] = [{severity:'warn', summary:'Los productos físicos solo están disponibles para envío en Colombia'}]
+  isScreenWide = false;
 
 
   constructor(private changeDetectorRef: ChangeDetectorRef, private messageService: MessageService ) {
@@ -45,7 +46,7 @@ export class ViewProductComponent implements OnInit, OnDestroy {
         numScroll: 2,
       },
       {
-        breakpoint: '560px',
+        breakpoint: '600px',
         numVisible: 1,
         numScroll: 1,
       },
@@ -55,8 +56,6 @@ export class ViewProductComponent implements OnInit, OnDestroy {
     this.route.paramMap.subscribe((params: ParamMap) => {
       this.id = params.get('id') as string;
       if (this.id) {
-
-
         this.$storeViewProducts = this.baseService.http
         .get(
           'https://api.escuelajs.co/api/v1/products?offset=0&limit=10'
@@ -64,12 +63,12 @@ export class ViewProductComponent implements OnInit, OnDestroy {
         .subscribe({
           next: (response: any) => {
             this.products = response;
-            this.visibleProducts = this.products.filter(product => product.id !== this.id);
+            this.visibleProducts = this.products.filter(product => Number(product.id) !== Number(this.id));
             this.store.dispatch(
               productActions.viewAllProducts({ products: response })
             );
             if(this.products.length){
-              this.viewProduct = this.products.find(elem => elem.id == this.id)!;
+              this.viewProduct = this.products.find(elem => Number(elem.id) == Number(this.id))!;
               console.log('rampaaa',this.viewProduct);
             }
           },
@@ -77,9 +76,7 @@ export class ViewProductComponent implements OnInit, OnDestroy {
               }
     });
     this.$store = this.store.select('cart').subscribe({
-      next: (response) => {
-        console.log("viewproduct")
-  
+      next: (response) => {  
         this.productsInList = response.products;
       }
     })

@@ -9,11 +9,18 @@
 .container {
   display: flex;
   color: $primary;
+  @media screen and (max-width: 600px) {
+    flex-direction: column;
+}
 }
 
 .container-first-section-1 {
   width:75%;
   margin-top:60px;
+  @media screen and (max-width: 600px) {
+    width:100%;
+    margin-top:60px;
+}
 }
 .container-first-section-2 {
   display: flex;
@@ -21,6 +28,13 @@
   flex-direction: column;
   margin: 150px 0 10px 30px;
   font-size:20px;
+  @media screen and (max-width: 600px) {
+    width:100%;
+    padding: 20px;
+    margin:0;
+    flex-direction: column;
+    font-size:20px;
+}
 }
 
 .container-title-carrousel {
@@ -70,5 +84,30 @@
 
   .viewProduct{
     padding: 0 2rem
+  }
+}
+.container-p-messages{
+  margin-top:40px;
+  width:100%;
+  position:absolute;
+}
+
+@media (max-width: 600px) {
+  .container-view-product-carrousel {
+    display: block;
+  }
+  
+  .container.product-item {
+    display: none;
+  }
+}
+
+@media (min-width: 601px) {
+  .container.product-item {
+    display: flex;
+  }
+  
+  .container-view-product-carrousel {
+    display: none;
   }
 }

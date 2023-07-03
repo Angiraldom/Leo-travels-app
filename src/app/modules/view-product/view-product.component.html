@@ -1,5 +1,9 @@
 <app-menu></app-menu>
+
 <section *ngIf="this.viewProduct">
+  <div class="container-p-messages">
+    <p-messages severity="warn" [(value)]="message"></p-messages>
+  </div>
   <div class="container">
     <div class="container-first-section-1">
       <!-- <div class="discount-content">
@@ -11,9 +15,6 @@
         </p>
         <mat-icon class="icon-clear"> clear </mat-icon>
       </div> -->
-
-      <p-messages severity="warn" [(value)]="message"> </p-messages>
-
       <div class="container product-item">
         <div class="container-image">
           <img [src]="this.viewProduct.images[0]"/>
@@ -22,6 +23,30 @@
           <img [src]="this.viewProduct.images[1]"/>
         </div>
       </div>
+      <div class="container-view-product-carrousel">
+        <p-carousel
+      [value]="viewProduct.images"
+      styleClass="custom-carousel"
+      [numVisible]="1"
+      [numScroll]="1"
+      [circular]="true"
+      [autoplayInterval]="3000"
+      [responsiveOptions]="responsiveOptions"
+    >
+      <ng-template pTemplate="header">
+      </ng-template>
+      <ng-template let-product pTemplate="item">
+        <div class="product-item">
+          <div class="product-item-content">
+              <img
+                [src]="product"
+                class="product-image"/>
+          </div>
+        </div>
+      </ng-template>
+        </p-carousel>
+      </div>
+      
     </div>
 
     <div class="container-first-section-2">
