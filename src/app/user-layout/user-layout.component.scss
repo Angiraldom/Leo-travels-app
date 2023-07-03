@@ -26,3 +26,29 @@ a.active {
 mat-icon {
     margin-right: 10px;
 }
+
+.sidebar {
+    display: none;
+}
+
+@media only screen and (min-width: 734px) {
+
+    .container {
+        display: flex;
+        height: 100vh;
+    }
+
+    .sidebar {
+        flex-basis: 20%;
+        display: block;
+    }
+
+    .content {
+        flex-basis: 80%;
+        background-color: $white;
+    }
+
+    .vertical-menu {
+        display: none;
+    }
+}

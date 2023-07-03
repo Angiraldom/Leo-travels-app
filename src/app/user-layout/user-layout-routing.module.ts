@@ -23,11 +23,11 @@ const routes: Routes = [
         path: 'course/:id',
         component: CourseViewComponent,
       },
-      {
-        path: 'class/:id',
-        component: WatchClassComponent,
-      },
     ],
+  },
+  {
+    path: 'class/:idModule/:idCourse/:idClass',
+    component: WatchClassComponent,
   },
 ];
 

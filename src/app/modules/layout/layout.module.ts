@@ -21,5 +21,8 @@ import { LayoutComponent } from './layout.component';
     LayoutRoutingModule,
     MaterialModule
   ],
+  exports: [
+    SidebarComponent
+  ]
 })
 export class LayoutModule { }

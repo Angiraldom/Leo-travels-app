@@ -12,6 +12,7 @@ import { GenericButtonComponent } from '../shared/generic-button/generic-button.
 import { PrimengModule } from '../primeng/primeng.module';
 import { CourseViewComponent } from './course-view/course-view.component';
 import { WatchClassComponent } from './watch-class/watch-class.component';
+import { LayoutModule } from '../modules/layout/layout.module';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { WatchClassComponent } from './watch-class/watch-class.component';
     PrimengModule,
     RouterModule,
     HeaderModulesComponent,
-    GenericButtonComponent
+    GenericButtonComponent,
+    LayoutModule
   ]
 })
 export class UserLayoutModule { }
