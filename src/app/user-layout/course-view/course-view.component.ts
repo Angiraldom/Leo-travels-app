@@ -1,6 +1,8 @@
 import { Component, OnDestroy, OnInit, inject } from '@angular/core';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { BaseService } from 'src/app/core/services/base.service';
+import { ICourse } from 'src/app/modules/courses/interfaces/ICourses.interface';
 import { IModule } from 'src/app/modules/courses/interfaces/IModule.interface';
 
 @Component({
@@ -11,12 +13,13 @@ import { IModule } from 'src/app/modules/courses/interfaces/IModule.interface';
 export class CourseViewComponent implements OnInit, OnDestroy {
   private route = inject(ActivatedRoute);
   private router = inject(Router);
+  private baseSerive = inject(BaseService);
   $route!: Subscription;
 
   modules: IModule[] = [
     {
       name: 'Modulo 1',
-      _id: '',
+      _id: '1',
       classes: [
         {
           name: 'Clase 1',
@@ -38,7 +41,7 @@ export class CourseViewComponent implements OnInit, OnDestroy {
     },
     {
       name: 'Modulo 1',
-      _id: '',
+      _id: '2',
       classes: [
         {
           name: 'Clase 1',
@@ -60,7 +63,7 @@ export class CourseViewComponent implements OnInit, OnDestroy {
     },
     {
       name: 'Modulo 1',
-      _id: '',
+      _id: '3',
       classes: [
         {
           name: 'Clase 1',
@@ -82,10 +85,13 @@ export class CourseViewComponent implements OnInit, OnDestroy {
     },
   ];
   isExpanded: boolean[] = [];
+  idCourse!: string;
+  course!: ICourse;
 
   ngOnInit(): void {
     this.$route = this.route.paramMap.subscribe((params: ParamMap) => {
-      const id = params.get('id') as string;
+      this.idCourse = params.get('id') as string;
+      this.getCourse();
     });
   }
 
@@ -93,11 +99,23 @@ export class CourseViewComponent implements OnInit, OnDestroy {
     this.$route.unsubscribe();
   }
 
-  changeRoute(id: string) {
-    this.router.navigate([`student/class/${id}`]);
+  changeRoute(idModule: string, idClass: string) {
+    this.router.navigate([`student/class/${this.idCourse}/${idModule}/${idClass}`]);
   }
 
   toggleList(index: number): void {
     this.isExpanded[index] = !this.isExpanded[index];
+  }
+
+  getCourse() {
+    this.baseSerive.getMethod(`course/findOne/${this.idCourse}`).subscribe({
+      next: (res: any) => {
+        if (res.data) {
+          this.course = res.data;
+        } else {
+          console.log('No se encontro la clase');
+        }
+      }
+    });
   }
 }
