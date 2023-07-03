@@ -6,6 +6,11 @@
     margin: 25px auto 0px;
 }
 
+.content-modules {
+    max-height: 316px;
+    overflow-y: auto;
+}
+
 .content-course {
     display: flex;
     flex-direction: column;
@@ -58,9 +63,14 @@ h3 {
 
 
 
-.list, .sub-list {
+.list,
+.sub-list {
     list-style-type: none;
     padding: 0;
+}
+
+ul {
+    background: white;
 }
 
 .item {
@@ -112,4 +122,28 @@ h3 {
     color: $gray;
     font-size: 14px;
     margin-right: 8px;
+}
+
+.app-header-modules {
+    display: none;
+}
+
+@media only screen and (min-width: 734px) {
+    .content-course {
+        align-items: flex-start;
+        width: 90%;
+        margin: 25px auto 0px;
+
+        div {
+            width: 60%;
+        }
+    }
+
+    .content-image {
+        display: none;
+    }
+
+    .app-header-modules {
+        display: block;
+    }
 }

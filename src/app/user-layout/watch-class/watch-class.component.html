@@ -1,27 +1,45 @@
-<nav class="vertical-menu">
-    <a routerLink="my-courses" routerLinkActive="active">
-        <mat-icon>keyboard_arrow_left</mat-icon>
-        Clase anterior
-    </a>
-    <a routerLink="profile" routerLinkActive="active">
-        <mat-icon>person</mat-icon>
-        Marcar completa
-    </a>
-    <a routerLink="/cerrar-sesion" routerLinkActive="active">
-        Clase siguiente
-        <mat-icon>keyboard_arrow_right</mat-icon>
-    </a>
-</nav>
-
-<div class="content-class">
-    <h3 class="title"> ¡Bienvenido! </h3>
-    <hr>
-    <div class="content-video">
-        <video oncontextmenu='return false' onkeydown='return false' width="200"
-            src="https://mytest2000jrr.s3.amazonaws.com/Sweet+Dreams+-+Larissa+Liveir.mp4" controls
-            controlsList="nodownload noremoteplayback"></video>
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sapiente nihil vero similique autem corrupti,
-            impedit
-            voluptate iure unde eos minima enim ducimus quo sed, vel nemo doloribus, iste omnis reprehenderit.</p>
+<div class="container">
+    <div class="sidebar">
+        <app-sidebar-user [idCourse]="idCourse"></app-sidebar-user>
     </div>
+    <ng-container *ngTemplateOutlet="contentClass"></ng-container>
 </div>
+
+<div class="mobile">
+    <ng-container *ngTemplateOutlet="contentClass"></ng-container>
+</div>
+
+
+<ng-template #contentClass>
+    <div class="content">
+        <nav class="vertical-menu">
+            <a routerLink="my-courses" routerLinkActive="active">
+                <mat-icon>keyboard_arrow_left</mat-icon>
+                Clase anterior
+            </a>
+            <a routerLink="profile" routerLinkActive="active">
+                <mat-icon>person</mat-icon>
+                Marcar completa
+            </a>
+            <a routerLink="/cerrar-sesion" routerLinkActive="active">
+                Clase siguiente
+                <mat-icon>keyboard_arrow_right</mat-icon>
+            </a>
+        </nav>
+
+        <div class="content-class">
+            <h3 class="title"> ¡Bienvenido! </h3>
+            <hr>
+            <div class="content-video">
+                <video oncontextmenu='return false' onkeydown='return false' width="200"
+                    src="https://mytest2000jrr.s3.amazonaws.com/Sweet+Dreams+-+Larissa+Liveir.mp4" controls
+                    controlsList="nodownload noremoteplayback"></video>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sapiente nihil vero similique autem
+                    corrupti,
+                    impedit
+                    voluptate iure unde eos minima enim ducimus quo sed, vel nemo doloribus, iste omnis reprehenderit.
+                </p>
+            </div>
+        </div>
+    </div>
+</ng-template>

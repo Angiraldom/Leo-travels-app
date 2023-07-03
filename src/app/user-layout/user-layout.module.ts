@@ -13,6 +13,7 @@ import { PrimengModule } from '../primeng/primeng.module';
 import { CourseViewComponent } from './course-view/course-view.component';
 import { WatchClassComponent } from './watch-class/watch-class.component';
 import { LayoutModule } from '../modules/layout/layout.module';
+import { SidebarUserComponent } from './sidebar-user/sidebar-user.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { LayoutModule } from '../modules/layout/layout.module';
     ProfileComponent,
     MyCoursesComponent,
     CourseViewComponent,
-    WatchClassComponent
+    WatchClassComponent,
+    SidebarUserComponent
   ],
   imports: [
     CommonModule,

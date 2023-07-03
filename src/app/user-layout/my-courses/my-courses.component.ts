@@ -10,6 +10,6 @@ export class MyCoursesComponent {
   private router = inject(Router);
 
   changeRoute(id: string) {
-    this.router.navigate([`student/course/${id}`]);
+    this.router.navigate([`course/${id}`]);
   }
 }

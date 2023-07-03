@@ -13,7 +13,7 @@
     background-color: $background-color;
 }
 
-::ng-deep .p-card .p-card-content{
+::ng-deep .p-card .p-card-content {
     padding: 0px;
     display: flex;
     flex-direction: column;
@@ -27,3 +27,16 @@
     justify-content: space-between;
     align-items: center;
 }
+
+@media only screen and (min-width: 734px) {
+    .content-cards {
+        flex-direction: row;
+        max-width: 942px;
+        margin: 70px 30px 0px;
+        overflow-x: auto;
+        padding-bottom: 6px;
+        justify-content: initial;
+    }
+}
+
+// height: calc(100vh - 205px);

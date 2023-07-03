@@ -1,5 +1,19 @@
 @import "/src/styles/variables";
 
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+.sidebar {
+    flex-basis: 20%;
+}
+
+.content {
+    flex-basis: 80%;
+    background-color: $white;
+}
+
 .vertical-menu {
     display: flex;
     flex-direction: row;
@@ -43,4 +57,23 @@ mat-icon {
     align-items: center;
     gap: 15px;
     text-align: justify;
+}
+
+.container {
+    display: none;
+}
+
+@media only screen and (min-width: 734px) {
+    .content-video {
+        flex-direction: row;
+        align-items: initial;
+    }
+
+    .container {
+        display: flex;
+    }
+
+    .mobile {
+        display: none;
+    }
 }

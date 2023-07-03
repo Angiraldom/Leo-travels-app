@@ -1,17 +1,15 @@
+<app-header-modules [title]="'Fotografía para viajes con tu celular'"
+    [description]="'Aprende a tomar mejores fotos solo con tu celular, de forma práctica, sencilla y en menos de una hora'"></app-header-modules>
+
 <div class="content-course">
-    <div>
-        <h3 class="title"> Fotografía para viajes con tu celular </h3>
-        <p class="description">Aprende a tomar mejores fotos solo con tu celular, de
-            forma práctica, sencilla y en menos de una hora...</p>
+    <div class="content-image">
         <img alt="Card" src="https://primefaces.org/cdn/primeng/images/usercard.png" />
     </div>
 
     <div class="footer">
         <h3> Contenido del curso </h3>
-        <div class="content-progress">
-            <p>Progreso</p>
-            <p-progressBar [value]="50"></p-progressBar>
-        </div>
+        <ng-container [ngTemplateOutlet]="progress"></ng-container>
+
     </div>
 </div>
 
@@ -39,7 +37,7 @@
             <ul class="sub-list" [hidden]="!isExpanded[indexModule]">
                 <li *ngFor="let class of module?.classes; let indexClass = index" class="sub-item">
                     <div class="item item-sub-header">
-                        <span class="item-title" (click)="changeRoute(module._id, class._id)">{{ class.name }}</span>
+                        <span class="item-title" (click)="changeRoute('1', '2')">{{ class.name }}</span>
                         <span class="total-clases">1:23</span>
                     </div>
                 </li>
@@ -47,3 +45,11 @@
         </li>
     </ul>
 </div>
+
+
+<ng-template #progress>
+    <div class="content-progress">
+        <p>Progreso</p>
+        <p-progressBar [value]="50"></p-progressBar>
+    </div>
+</ng-template>

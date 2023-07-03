@@ -1,0 +1,79 @@
+@import 'src/styles/variables';
+
+.name-course, .content {
+    color: $gray;
+    padding: 20px;
+}
+
+.name-course {
+    display: grid;
+    grid-template-columns: 30px 1fr;
+    background-color: $secondary;
+}
+
+mat-sidenav-container {
+    height: 100%;
+}
+
+.sidebar-container {
+    background-color: #f2f2f2;
+    height: 100%;
+    width: 100%;
+}
+
+ul {
+    margin-top: 0px;
+}
+
+.list,
+.sub-list {
+    list-style-type: none;
+    padding: 0;
+    background-color: $white;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.list-item {
+    margin-bottom: 5px;
+    border-bottom: 1px solid #f2f2f2;
+
+    .item-header {
+        background-color: $white;
+    }
+
+    .actions-content {
+        margin-right: 15px;
+    }
+
+    .arrow {
+        width: 0;
+        height: 0;
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        border-left: 5px solid #333;
+        margin-left: auto;
+        transition: transform 0.3s ease;
+    }
+}
+
+.sub-item {
+    padding: 5px 0px 0px 48px;
+    margin: 1px 0px;
+    border: 1px solid $border;
+}
+
+.item-sub-header {
+    background-color: white;
+}
+
+.align-items-center {
+    display: flex;
+    align-items: center;
+}
