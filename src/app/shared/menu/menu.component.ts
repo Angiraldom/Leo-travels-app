@@ -37,7 +37,7 @@ import { TotalProductsPipe } from 'src/app/core/pipes/total-products.pipe';
 export class MenuComponent implements OnInit, OnDestroy {
   store = inject(Store<AppState>);
   router = inject(Router);
-
+  isMenuOpen = false;
   $store!: Subscription;
   sidebarVisible: boolean = false;
   // products: IProduct[] = [];
@@ -68,5 +68,9 @@ export class MenuComponent implements OnInit, OnDestroy {
 
   changeRoute() {
     this.router.navigate(['purchase']);
+  }
+
+  toggleMenu() {
+    this.isMenuOpen = !this.isMenuOpen;
   }
 }
