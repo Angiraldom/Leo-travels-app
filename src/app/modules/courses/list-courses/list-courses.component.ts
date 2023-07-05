@@ -18,7 +18,7 @@ export class ListCoursesComponent implements OnInit {
   dataSource: ICourse[] = [];
 
   ngOnInit(): void {
-    this.baseService.getMethod('course').subscribe({
+    this.baseService.getMethod('course/all-courses').subscribe({
       next: (response: any) => {
         this.dataSource = response.data;
       }

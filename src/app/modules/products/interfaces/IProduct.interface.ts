@@ -27,4 +27,6 @@ export interface IProduct {
   amount?: number;
   
   title?: string;
+
+  imageProperties?: [];
 }

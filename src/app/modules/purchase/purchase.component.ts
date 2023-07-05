@@ -35,8 +35,8 @@ export class PurchaseComponent implements OnInit {
   };
   wompiObject = {
     currency: 'COP',
-    amountInCents: 2400,
-    reference: 'sk8438k4xmxm392sn2m',
+    amountInCents: 0,
+    reference: '',
     // publicKey: 'pub_test_vF42biq1lpWCA3HJ4kTEGnougGLlUj4y',
     publicKey: 'pub_test_YHZn4Q2jPbQ5hnohVI5MpMeUtmV1y896',
     redirectUrl: 'http://localhost:4200/response-transaction',
@@ -66,7 +66,7 @@ export class PurchaseComponent implements OnInit {
       this.wompiObject.shippingAddress = { ...this.shippingAddress };
     }
     this.wompiObject.customerData = { ...this.customerData };
-    // this.wompiObject.reference = this.reference;
+    this.wompiObject.reference = this.reference;
     console.log(this.wompiObject);
     this.setAmount();
     this.openCheckout();

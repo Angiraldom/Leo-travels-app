@@ -13,6 +13,7 @@ import { IParametersObject } from '../interfaces/IFormCourse.interface';
 import { IModule } from '../interfaces/IModule.interface';
 import { AppState } from 'src/app/store/app.reducer';
 import { viewList } from 'src/app/store/actions/course.actions';
+import { ICourse } from '../interfaces/ICourses.interface';
 
 @Component({
   selector: 'app-create-course',
@@ -33,6 +34,7 @@ export class CreateCourseComponent implements OnInit {
     price: [0, Validators.required],
   });
 
+  course!: ICourse;
   modules: IModule[] = [];
   modal = {
     course: FormCourseComponent,
@@ -45,8 +47,9 @@ export class CreateCourseComponent implements OnInit {
     this.$store = this.store.select('courseView').subscribe({
       next: ({ course }) => {
         if (course) {
-          this.modules = JSON.parse(JSON.stringify([...course.modules]));          
+          if (course.modules) this.modules = JSON.parse(JSON.stringify([...course?.modules]));          
           this.form.patchValue(course);
+          this.course = course;
         } else {
           this.openModal(this.modal.course);
         }
@@ -61,6 +64,7 @@ export class CreateCourseComponent implements OnInit {
   openModal(modal: ComponentType<any>, data?: IParametersObject) {
     const refModal = this.dialog.open(modal, {
       data,
+      width: '900px'
     });
     refModal.componentInstance.parent = this;
     refModal.afterClosed().subscribe({

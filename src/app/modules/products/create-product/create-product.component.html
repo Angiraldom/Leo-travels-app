@@ -9,19 +9,14 @@
             <label htmlFor="username">{{ 'products.form.name' | translate }}</label>
         </span>
 
-        <span class="p-float-label">
-            <textarea id="float-input" formControlName="description" rows="5" cols="80" pInputTextarea></textarea>
-            <label for="float-input">{{ 'products.form.description' | translate }}</label>
-        </span>
+        <p-editor formControlName="description" [style]="{ height: '180px' }"></p-editor>
 
-        <h3>Dimensiones del producto</h3>
+        <h3>Especificaciones del producto</h3>
 
         <div class="course-content-image">
             <div class="content-three">
                 <span class="p-float-label">
                     <input pInputText id="long" formControlName="height" class="input-name" />
-                    <!-- <p-inputNumber id="float-input" mode="decimal" [useGrouping]="false" formControlName="height"
-                        suffix=" cm"> </p-inputNumber> -->
                     <label for="height">{{ 'products.form.height' | translate }}</label>
                 </span>
                 <span class="p-float-label">
@@ -35,26 +30,32 @@
             </div>
 
             <span class="p-float-label">
-                <p-inputNumber id="float-input" formControlName="price" inputId="currency-us" mode="currency"
-                    currency="USD" locale="en-US"> </p-inputNumber>
-                <label for="float-input">{{ 'products.form.price' | translate }}</label>
-            </span>
-
-            <span class="p-float-label">
                 <p-inputNumber id="weight" inputId="integeronly" formControlName="weight" class="input-name">
                 </p-inputNumber>
                 <label htmlFor="weight">{{ 'products.form.weight' | translate }}</label>
             </span>
+
+            <span class="p-float-label">
+                <p-inputNumber id="float-input" formControlName="price" inputId="currency-us" mode="currency"
+                    currency="USD" locale="en-US"> </p-inputNumber>
+                <label for="float-input">{{ 'products.form.price' | translate }}</label>
+            </span>
         </div>
-        <input type="file" name="images" [multiple]="true" (change)="onFileSelected($event)">
-        <div class="content-buttons">
-            <!-- <div class="card flex justify-content-center button-file">
-                <p-fileUpload mode="basic" name="images" (change)="onFileSelected($event)" [multiple]="true" chooseLabel="Imágenes del producto" name="demo[]" accept="image/*"
-                    [maxFileSize]="1000000" formControlName="images"></p-fileUpload>
-            </div> -->
+
+        <div class="content-images">
+            <div class="button-file">
+                <input type="file" id="images" name="images" class="custom-file-input"
+                    (change)="onFileSelected($event)">
+                <label for="images" class="custom-file-label">Seleccionar imagen</label>
+            </div>
+
+            <div class="card p-fluid">
+                <p-chips formControlName="imageProperties" field="key"></p-chips>
+            </div>
         </div>
 
     </div>
 </form>
 
-<app-buttons-modal [disabledButton]="form.invalid" (handleSaveButton)="validateAction()" [loading]="loading"></app-buttons-modal>
+<app-buttons-modal [disabledButton]="form.invalid" (handleSaveButton)="validateAction()"
+    [loading]="loading"></app-buttons-modal>

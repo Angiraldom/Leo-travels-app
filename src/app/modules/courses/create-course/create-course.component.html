@@ -5,7 +5,7 @@
             <mat-icon (click)="openModal(modal.module, { idCourse: item._id })" [matTooltip]="'Crear modulo'" *ngIf="form.get('name')?.value">
                 add
             </mat-icon>
-            <mat-icon (click)="openModal(modal.course, { body: form.getRawValue()})" [matTooltip]="'Editar curso'" *ngIf="form.get('name')?.value">
+            <mat-icon (click)="openModal(modal.course, { body: course})" [matTooltip]="'Editar curso'" *ngIf="form.get('name')?.value">
                 edit
             </mat-icon>
         </div>

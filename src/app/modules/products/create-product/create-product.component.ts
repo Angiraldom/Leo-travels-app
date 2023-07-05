@@ -28,12 +28,12 @@ export class CreateProductComponent implements OnInit {
     broad: [0],
     height: [0],
     long: [0],
-    images: [],
+    imageProperties: [],
   });
 
   ngOnInit(): void {
     if (this.data) {
-      this.form.patchValue(this.data);
+      this.form.patchValue(this.data);      
     }
   }
 
@@ -93,10 +93,23 @@ export class CreateProductComponent implements OnInit {
   }
 
   onFileSelected(event: any) {
-    const newFiles: FileList = event.target.files;
+    const file = event.target.files[0];
+    this.selectedFiles.push(file);
+    this.setNameImage(file.name)
+  }
 
-    for (let i = 0; i < newFiles.length; i++) {
-      this.selectedFiles.push(newFiles[i]);
+  setNameImage(name: string) {
+    const imagesName: {}[] = this.form.get('imageProperties')?.value;
+    const object = { key: name, url: '' };
+    if (imagesName) {
+      imagesName.push(object);
+      this.form.get('imageProperties')?.setValue(imagesName);
+    } else {
+      this.form.get('imageProperties')?.setValue([object]);
     }
+  }
+
+  removeImage(event: any) {
+    this.selectedFiles = this.selectedFiles.filter((item) => item.name !== event.value.key);
   }
 }

@@ -1,0 +1,68 @@
+@import "/src/styles/variables";
+
+.color-blue {
+    color: $primary;
+}
+
+.content-session {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    margin: 40px 0px;
+}
+
+.content-accordion {
+    display: flex;
+    justify-content: space-around;
+    padding: 30px;
+    width: 100%;
+}
+
+::ng-deep .p-accordion .p-accordion-header:not(.p-disabled).p-highlight .p-accordion-header-link {
+    background-color: $primary;
+    color: $white;
+}
+
+::ng-deep .p-accordion .p-accordion-header:not(.p-disabled).p-highlight:hover .p-accordion-header-link {
+    background-color: $primary;
+    color: $white;
+}
+
+::ng-deep .p-accordion .p-accordion-header:not(.p-highlight):not(.p-disabled):hover .p-accordion-header-link {
+    color: $primary;
+}
+
+::ng-deep .p-accordion .p-accordion-header .p-accordion-header-link {
+    color: $primary;
+}
+
+::ng-deep .p-accordion .p-accordion-header .p-accordion-header-link {
+    border: none;
+}
+
+::ng-deep .p-accordion .p-accordion-content {
+    border: none;
+    color: $primary;
+    background-color: $background-color;
+}
+
+p-accordion {
+    width: 40%;
+}
+
+.content-title {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+@media only screen and (max-width: 753px) { 
+    .content-accordion {
+        flex-direction: column;
+    }
+
+    p-accordion {
+        width: 100%;
+    }
+}

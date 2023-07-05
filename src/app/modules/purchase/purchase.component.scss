@@ -14,9 +14,47 @@
         column-gap: 40px;
     }
 
-    .flex-column{
+    .flex-column {
         display: flex;
         flex-direction: column;
         gap: 20px;
+    }
+}
+
+.footer {
+    text-align: center;
+    color: $white;
+    background-color: $primary;
+    padding: 30px;
+}
+
+@media only screen and (max-width: 768px) {
+    .content-invoice {
+        padding: 30px 15px;
+    }
+
+    .content-invoice .content-forms {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        max-width: 500px;
+        justify-content: center;
+        margin: 0 auto;
+    }
+
+    .flex-column {
+        max-width: 500px;
+        justify-content: center;
+    }
+
+    .title {
+        max-width: 500px;
+    }
+}
+
+@media only screen and (max-width: 375px) {
+    .button-wompi ::ng-deep.large {
+
+        min-width: 243px;
     }
 }
