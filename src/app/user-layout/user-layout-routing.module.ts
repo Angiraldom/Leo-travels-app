@@ -12,6 +12,10 @@ const routes: Routes = [
     component: UserLayoutComponent,
     children: [
       {
+        path: '',
+        component: ProfileComponent,
+      },
+      {
         path: 'profile',
         component: ProfileComponent,
       },
