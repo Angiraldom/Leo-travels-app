@@ -1,17 +1,16 @@
 export interface IProduct {
-  _id: string;
-  id: number;
-  name: string;
+  _id?: string;
+  id?: string;
+  name?: string;
+  description?: string;
 
-  description: string;
-
-  price: number;
+  price?: number;
 
   weight?: number;
 
   discount?: number;
 
-  status: boolean;
+  status?: boolean;
 
   broad?: number;
 
@@ -21,11 +20,13 @@ export interface IProduct {
 
   images: string[];
 
-  updatedAt: Date;
+  updatedAt?: Date;
 
-  createdAt: Date;
+  createdAt?: Date;
 
   amount?: number;
+  
+  title?: string;
 
   imageProperties?: [];
 }
