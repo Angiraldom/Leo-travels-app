@@ -1,0 +1,67 @@
+@import "/src/styles/variables";
+
+.content-session {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 0px 80px 0px 145px;
+    background-color: $primary;
+    color: $white;
+    grid-template-rows: repeat(12, 55.5px);
+}
+
+.paragraph {
+    grid-row-start: 4;
+    grid-row-end: 6;
+    grid-column-start: 2;
+    text-align: center;
+    max-width: 414px;
+    align-self: center;
+    justify-self: center;
+}
+
+
+.sub-title {
+    grid-row-start: 8;
+    grid-row-end: 10;
+    grid-column-start: 2;
+    max-width: 414px;
+    text-align: center;
+}
+
+.button {
+    grid-row-start: 10;
+    grid-row-end: 10;
+    grid-column-start: 2;
+}
+
+video {
+    grid-row-start: 1;
+    grid-row-end: 12;
+    grid-column-start: 1;
+}
+
+@media only screen and (max-width: 956px) {
+    .content-session {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        padding: 50px 0px;
+    }
+
+    video {
+        width: 40%;
+        align-self: center;
+    }
+}
+
+@media only screen and (max-width: 748px) {
+    video {
+        width: 70%;
+    }
+}
+
+@media only screen and (max-width: 425px) {
+    video {
+        width: 100%;
+    }
+}
