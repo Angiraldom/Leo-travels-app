@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { IClassButton } from './interface/IClassButton.interface';
 
 @Component({
   selector: 'app-generic-button',
@@ -9,7 +10,7 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./generic-button.component.scss']
 })
 export class GenericButtonComponent {
-  @Input() classButton: 'class_blue' | 'class_yellow' | 'class_blue_color_yellow' = 'class_yellow';
+  @Input() classButton: IClassButton = 'class_yellow';
   @Input() sizeButton: 'small' | 'large' = 'large';
   @Input() nameButton = '';
   @Input() load = false;
