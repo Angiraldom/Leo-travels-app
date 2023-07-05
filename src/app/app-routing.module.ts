@@ -26,9 +26,14 @@ const routes: Routes = [
   },
   {
     path: 'layout',
-    canActivate: [authGuardFn],
+    // canActivate: [authGuardFn],
     loadChildren: () =>
       import('./modules/layout/layout.module').then((m) => m.LayoutModule),
+  },
+  {
+    path: 'student',
+    loadChildren: () =>
+      import('./user-layout/user-layout.module').then((m) => m.UserLayoutModule),
   },
   {
     path: 'login',
@@ -70,7 +75,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { useHash: true })],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

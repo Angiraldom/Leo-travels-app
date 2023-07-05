@@ -1,0 +1,42 @@
+form {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.content-form,
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+}
+
+.content-form {
+    margin-top: 25px;
+}
+
+.input-name {
+    width: 100%;
+}
+
+::ng-deep .p-avatar.p-avatar-xl {
+    width: 6rem;
+    height: 6rem;
+}
+
+@media only screen and (min-width: 734px) {
+    .content-form {
+        flex-direction: row;
+        max-width: 730px;
+        margin: 85px auto 0px;
+        align-items: initial;
+    }
+
+    .form {
+        width: 100%;
+    }
+}

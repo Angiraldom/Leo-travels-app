@@ -9,3 +9,5 @@ export const updateProduct = createAction('update Product', props<{reference: st
 export const deleteProduct = createAction('delete Product', props<{reference: string; product: IProduct}>());
 
 export const initCart = createAction('Init Cart', props<{reference: string; products: IProduct[]}>());
+
+export const clearCart = createAction('Clear Cart');

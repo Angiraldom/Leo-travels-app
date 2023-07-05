@@ -1,0 +1,54 @@
+@import "/src/styles/variables";
+
+.vertical-menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: #f8f8f8;
+}
+
+a {
+    display: flex;
+    align-items: center;
+    color: #333;
+    text-decoration: none;
+    padding: 10px;
+}
+
+a:hover {
+    background-color: #ddd;
+}
+
+a.active {
+    background-color: $secondary;
+}
+
+mat-icon {
+    margin-right: 10px;
+}
+
+.sidebar {
+    display: none;
+}
+
+@media only screen and (min-width: 734px) {
+
+    .container {
+        display: flex;
+        height: 100vh;
+    }
+
+    .sidebar {
+        flex-basis: 20%;
+        display: block;
+    }
+
+    .content {
+        flex-basis: 80%;
+        background-color: $white;
+    }
+
+    .vertical-menu {
+        display: none;
+    }
+}

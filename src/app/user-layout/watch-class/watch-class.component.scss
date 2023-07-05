@@ -1,0 +1,79 @@
+@import "/src/styles/variables";
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+.sidebar {
+    flex-basis: 20%;
+}
+
+.content {
+    flex-basis: 80%;
+    background-color: $white;
+}
+
+.vertical-menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: #f8f8f8;
+}
+
+a {
+    display: flex;
+    align-items: center;
+    color: #333;
+    text-decoration: none;
+    padding: 10px;
+}
+
+a:hover {
+    background-color: #ddd;
+}
+
+a.active {
+    background-color: $secondary;
+}
+
+mat-icon {
+    margin-right: 10px;
+}
+
+.content-class {
+    width: 90%;
+    margin: 25px auto 0px;
+
+    .title {
+        color: $secondary;
+    }
+}
+
+.content-video {
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    text-align: justify;
+}
+
+.container {
+    display: none;
+}
+
+@media only screen and (min-width: 734px) {
+    .content-video {
+        flex-direction: row;
+        align-items: initial;
+    }
+
+    .container {
+        display: flex;
+    }
+
+    .mobile {
+        display: none;
+    }
+}

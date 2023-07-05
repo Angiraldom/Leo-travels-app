@@ -10,15 +10,26 @@ import { SidebarModule } from 'primeng/sidebar';
 import { EditorModule } from 'primeng/editor';
 import { ChipsModule } from 'primeng/chips';
 import { AccordionModule } from 'primeng/accordion';
+import { AvatarModule } from 'primeng/avatar';
+import { ProgressBarModule } from 'primeng/progressbar';
 
-const modules = [AccordionModule, ChipsModule, EditorModule, CardModule, InputTextModule, InputTextareaModule, InputNumberModule, FileUploadModule, SidebarModule];
+const modules = [
+  AccordionModule,
+  ProgressBarModule,
+  AvatarModule,
+  ChipsModule,
+  EditorModule,
+  CardModule,
+  InputTextModule,
+  InputTextareaModule,
+  InputNumberModule,
+  FileUploadModule,
+  SidebarModule,
+];
 
 @NgModule({
   declarations: [],
-  imports: [
-    CommonModule,
-    ...modules
-  ],
-  exports: modules
+  imports: [CommonModule, ...modules],
+  exports: modules,
 })
-export class PrimengModule { }
+export class PrimengModule {}

@@ -1,0 +1,149 @@
+@import "/src/styles/variables";
+
+.content-modules,
+.content-course {
+    width: 90%;
+    margin: 25px auto 0px;
+}
+
+.content-modules {
+    max-height: 316px;
+    overflow-y: auto;
+}
+
+.content-course {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+
+    .title {
+        color: $primary;
+    }
+
+    div {
+        width: 100%;
+    }
+}
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    .description {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .content-progress {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+
+        p-progressBar {
+            width: 70%;
+        }
+    }
+}
+
+img {
+    width: 100%;
+}
+
+h3 {
+    margin: 0;
+    align-self: flex-start;
+}
+
+
+
+.list,
+.sub-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul {
+    background: white;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.list-item {
+    margin-bottom: 5px;
+
+    .item-header {
+        background-color: $background-color;
+    }
+
+    .actions-content {
+        margin-right: 15px;
+    }
+
+    .arrow {
+        width: 0;
+        height: 0;
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        border-left: 5px solid #333;
+        margin-left: auto;
+        transition: transform 0.3s ease;
+    }
+}
+
+.sub-item {
+    padding: 5px 0px 0px 48px;
+    margin: 1px 0px;
+    border: 1px solid $border;
+}
+
+.item-sub-header {
+    background-color: white;
+}
+
+.align-items-center {
+    display: flex;
+    align-items: center;
+}
+
+.total-clases {
+    color: $gray;
+    font-size: 14px;
+    margin-right: 8px;
+}
+
+.app-header-modules {
+    display: none;
+}
+
+@media only screen and (min-width: 734px) {
+    .content-course {
+        align-items: flex-start;
+        width: 90%;
+        margin: 25px auto 0px;
+
+        div {
+            width: 60%;
+        }
+    }
+
+    .content-image {
+        display: none;
+    }
+
+    .app-header-modules {
+        display: block;
+    }
+}

@@ -17,13 +17,25 @@
         <mat-icon>attach_money</mat-icon>
         <span>Transacciones</span>
       </a>
-      <a class="item" routerLink="/about">
+      <!-- <a class="item" routerLink="/about">
         <mat-icon>bar_chart</mat-icon>
         <span>Analíticas</span>
       </a>
       <a class="item" routerLink="/contact">
         <mat-icon>stars</mat-icon>
         <span>Ofertas</span>
+      </a> -->
+      <a class="item" routerLink="my-courses">
+        <mat-icon>book</mat-icon>
+        <span>Mis cursos</span>
+      </a>
+      <a class="item" routerLink="profile">
+        <mat-icon>person</mat-icon>
+        <span>Mi perfil</span>
+      </a>
+      <a class="item" (click)="logout()">
+        <mat-icon>exit_to_app</mat-icon>
+        <span>Salir</span>
       </a>
     </mat-nav-list>
   </mat-sidenav>
