@@ -1,66 +1,133 @@
 <header>
+  <div class="container-desktop-menu">
     <span class="icon-logo"></span>
     <div class="menu">
-        <a class="item" routerLink="courses" routerLinkActive="router-active">
-            <span>Cursos</span>
-        </a>
-        <a class="item" [routerLink]="['/kit-viajero']" [routerLinkActive]="'router-active'">
-            <span>Kit viajero</span>
-        </a>
-        <a class="item" routerLink="courses" routerLinkActive="router-active">
-            <span>¿Quiénes somos?</span>
-        </a>
-        <a class="item" [routerLink]="'/login'" routerLinkActive="router-active">
-            <span>Iniciar sesión</span>
-        </a>
-        <mat-icon [matBadge]="(store.select('cart') | async).products | totalProducts" matBadgeSize="small" matBadgeColor="warn"
-            (click)="openCart()">shopping_cart</mat-icon>
+      <a class="item" routerLink="courses" routerLinkActive="router-active">
+        <span>Cursos</span>
+      </a>
+      <a
+        class="item"
+        [routerLink]="['/kit-viajero']"
+        [routerLinkActive]="'router-active'"
+      >
+        <span>Kit viajero</span>
+      </a>
+      <a class="item" routerLink="courses" routerLinkActive="router-active">
+        <span>¿Quiénes somos?</span>
+      </a>
+      <a class="item" [routerLink]="'/login'" routerLinkActive="router-active">
+        <span>Iniciar sesión</span>
+      </a>
+      <mat-icon
+        [matBadge]="(store.select('cart') | async).products | totalProducts"
+        matBadgeSize="small"
+        matBadgeColor="warn"
+        (click)="openCart()"
+        >shopping_cart</mat-icon
+      >
     </div>
+  </div>
+  <div class="container-mobile-menu">
+    <div>
+      <mat-icon matBadgeSize="small" matBadgeColor="warn" (click)="toggleMenu()">menu</mat-icon>
+    </div>
+    <span class="icon-logo"></span>
+    <mat-icon
+      [matBadge]="(store.select('cart') | async).products | totalProducts"
+      matBadgeSize="small"
+      matBadgeColor="warn"
+      (click)="openCart()"
+      >shopping_cart</mat-icon
+    >
+    <nav class="mobile-menu"  [class.open]="isMenuOpen">
+      <ul>
+        <li>
+          <a class="item" routerLink="courses" routerLinkActive="router-active">
+            <span>Cursos</span>
+          </a>
+        </li>
+        <li>
+          <a
+            class="item"
+            [routerLink]="['/kit-viajero']"
+            [routerLinkActive]="'router-active'"
+          >
+            <span>Kit viajero</span>
+          </a>
+        </li>
+        <li>
+          <a class="item" routerLink="courses" routerLinkActive="router-active">
+            <span>¿Quiénes somos?</span>
+          </a>
+        </li>
+        <li>
+          <a
+            class="item"
+            [routerLink]="'/login'"
+            routerLinkActive="router-active"
+          >
+            <span>Iniciar sesión</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
 </header>
 
 <p-sidebar [(visible)]="sidebarVisible" position="right">
-    <ng-template pTemplate="header">
-        Carrito de compras
-    </ng-template>
+  <ng-template pTemplate="header"> Carrito de compras </ng-template>
 
-    <ng-template pTemplate="content">
-        <hr>
+  <ng-template pTemplate="content">
+    <hr />
 
-        <ng-container *ngFor="let item of (store.select('cart') | async).products">
-            <div class="item-product">
-                <div>
-                    <img src="{{item.images[0]}}" width="150px" height="150px" alt="">
-                </div>
-                <div class="item-description">
-                    <div>
-                        <span class="product-name" [matTooltipPosition]="'above'" [matTooltip]="item.title">{{item.title}}</span>
-                        <mat-icon (click)="deleteProduct(item)" [color]="'primary'">delete_outline</mat-icon>
-                    </div>
-                    <p>Cantidad: {{ item.amount }}</p>
-                    <p class="value">{{ item.price | currency }}</p>
-                </div>
-            </div>
-        </ng-container>
-    </ng-template>
-
-    <ng-template pTemplate="footer">
-        <hr>
-        <div class="invoice-summary">
-            <p>Subtotal</p>
-            <p>$00.000</p>
-        </div>
-        <div class="invoice-summary">
-            <p>Envío</p>
-            <p>Por definir</p>
-        </div>
-        <div class="invoice-summary bold">
-            <p>Total</p>
-            <p>{{ (store.select('cart') | async).products | totalValue | currency }}</p>
-        </div>
-
+    <ng-container *ngFor="let item of (store.select('cart') | async).products">
+      <div class="item-product">
         <div>
-            <app-generic-button [nameButton]="'IR A PAGAR'" [sizeButton]="'large'"
-                classButton="class_blue" (emitClick)="changeRoute()"></app-generic-button>
+          <img src="{{ item.images[0] }}" width="150px" height="150px" alt="" />
         </div>
-    </ng-template>
+        <div class="item-description">
+          <div>
+            <span
+              class="product-name"
+              [matTooltipPosition]="'above'"
+              [matTooltip]="item.title"
+              >{{ item.title }}</span
+            >
+            <mat-icon (click)="deleteProduct(item)" [color]="'primary'"
+              >delete_outline</mat-icon
+            >
+          </div>
+          <p>Cantidad: {{ item.amount }}</p>
+          <p class="value">{{ item.price | currency }}</p>
+        </div>
+      </div>
+    </ng-container>
+  </ng-template>
+
+  <ng-template pTemplate="footer">
+    <hr />
+    <div class="invoice-summary">
+      <p>Subtotal</p>
+      <p>$00.000</p>
+    </div>
+    <div class="invoice-summary">
+      <p>Envío</p>
+      <p>Por definir</p>
+    </div>
+    <div class="invoice-summary bold">
+      <p>Total</p>
+      <p>
+        {{ (store.select("cart") | async).products | totalValue | currency }}
+      </p>
+    </div>
+
+    <div>
+      <app-generic-button
+        [nameButton]="'IR A PAGAR'"
+        [sizeButton]="'large'"
+        classButton="class_blue"
+        (emitClick)="changeRoute()"
+      ></app-generic-button>
+    </div>
+  </ng-template>
 </p-sidebar>

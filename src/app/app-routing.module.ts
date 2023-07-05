@@ -55,6 +55,14 @@ const routes: Routes = [
     title: 'Agradecimiento',
   },
   {
+    path: 'view-product',
+    loadChildren: () =>
+      import('./modules/view-product/view-product.module').then(
+        (m) => m.ViewProductModule
+      ),
+    title: 'View product',
+  },
+  {
     path: '**',
     redirectTo: 'login',
     pathMatch: 'full',

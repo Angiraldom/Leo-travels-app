@@ -86,3 +86,62 @@ mat-icon {
         cursor: pointer;
     }
 }
+
+@media (max-width: 600px) {
+    .container-mobile-menu {
+      display: contents;
+      .mobile-menu.open {
+        display: flex;
+        flex-direction: column;
+        background-color: $primary;
+        padding: 20px;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        z-index: 99;
+  
+        ul {
+          li {
+            margin: 10px 0;
+            a {
+                text-decoration: none;
+                color:$white
+            }
+          }
+        }
+      }
+    }
+    
+    .container-desktop-menu {
+      display: none;
+    }
+  }
+  
+  @media (min-width: 601px) {
+    .container-desktop-menu {
+      display: contents;
+    }
+    
+    .container-mobile-menu {
+      display: none;
+    }
+  }
+
+  .mobile-menu {
+    display: none;
+
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+
+      li {
+        margin-top: 10px;
+
+        a {
+          text-decoration: none;
+        }
+      }
+    }
+  }
