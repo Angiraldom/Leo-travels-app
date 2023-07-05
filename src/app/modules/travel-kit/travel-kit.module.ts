@@ -13,6 +13,11 @@ import { FooterComponent } from '../../shared/footer/footer.component';
 import { DiscountSessionComponent } from './discount-session/discount-session.component';
 import { BuyProductsComponent } from './buy-products/buy-products.component';
 import { RecommendationSessionComponent } from './recommendation-session/recommendation-session.component';
+import { DescriptionSessionComponent } from './description-session/description-session.component';
+import { KitPriceSessionComponent } from './kit-price-session/kit-price-session.component';
+import { GalleryComponent } from './gallery/gallery.component';
+import { SlickCarouselModule } from 'ngx-slick-carousel';
+import { VideoSessionComponent } from './video-session/video-session.component';
 
 
 @NgModule({
@@ -20,7 +25,11 @@ import { RecommendationSessionComponent } from './recommendation-session/recomme
     TravelKitComponent,
     DiscountSessionComponent,
     BuyProductsComponent,
-    RecommendationSessionComponent
+    RecommendationSessionComponent,
+    DescriptionSessionComponent,
+    KitPriceSessionComponent,
+    GalleryComponent,
+    VideoSessionComponent
   ],
   imports: [
     CommonModule,
@@ -32,7 +41,8 @@ import { RecommendationSessionComponent } from './recommendation-session/recomme
     MenuComponent,
     TotalValuePipe,
     TotalProductsPipe,
-    NgOptimizedImage
+    NgOptimizedImage,
+    SlickCarouselModule
   ]
 })
 export class TravelKitModule { }
