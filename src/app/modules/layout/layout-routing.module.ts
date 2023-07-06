@@ -19,6 +19,18 @@ const routes: Routes = [
         loadChildren: () =>
           import('../products/products.module').then((m) => m.ProductsModule),
       },
+      {
+        path: 'transactions', 
+        // canActivate: [authGuardFn],
+        loadChildren: () =>
+          import('../transaction/transaction.module').then((m) => m.TransactionModule),
+      },
+      {
+        path: 'users', 
+        // canActivate: [authGuardFn],
+        loadChildren: () =>
+          import('../user/user.module').then((m) => m.UserModule),
+      },
     ],
   },
 ];
