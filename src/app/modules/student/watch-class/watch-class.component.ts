@@ -21,6 +21,7 @@ export class WatchClassComponent implements OnInit {
   class!: IClass;
 
   ngOnInit(): void {
+    
     this.$route = this.route.paramMap.subscribe((params: ParamMap) => {
       this.idModule = params.get('idModule') as string;
       this.idCourse = params.get('idCourse') as string;
@@ -32,8 +33,9 @@ export class WatchClassComponent implements OnInit {
   getClass() {
     this.baseSerive.getMethod(`course/findClass/${this.idCourse}/${this.idModule}/${this.idClass}`).subscribe({
       next: (res: any) => {
-        if (res.data) {
+        if (Object.keys(res.data).length > 0) {
           this.class = res.data;
+          console.log(res);
         } else {
           console.log('No se encontro la clase');
         }

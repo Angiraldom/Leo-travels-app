@@ -1,14 +1,19 @@
-<div class="container">
-    <div class="sidebar">
-        <app-sidebar-user [idCourse]="idCourse"></app-sidebar-user>
+<!-- <ng-container *ngIf="class"> -->
+    <div class="container">
+        <div class="sidebar">
+            <app-sidebar-user [idCourse]="idCourse"></app-sidebar-user>
+        </div>
+        <ng-container *ngTemplateOutlet="contentClass"></ng-container>
     </div>
-    <ng-container *ngTemplateOutlet="contentClass"></ng-container>
-</div>
+    
+    <div class="mobile">
+        <ng-container *ngTemplateOutlet="contentClass"></ng-container>
+    </div>
+<!-- </ng-container> -->
 
-<div class="mobile">
-    <ng-container *ngTemplateOutlet="contentClass"></ng-container>
-</div>
-
+<ng-container *ngIf="!class">
+    <h1>No se encontro la clase</h1>
+</ng-container>
 
 <ng-template #contentClass>
     <div class="content">

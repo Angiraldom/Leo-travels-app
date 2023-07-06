@@ -8,6 +8,10 @@ import { StudentViewComponent } from './student-view.component';
 
 const routes: Routes = [
   {
+    path: 'clase/:idModule/:idCourse/:idClass',
+    component: WatchClassComponent,
+  },
+  {
     path: '',
     component: StudentViewComponent,
     children: [
@@ -28,10 +32,6 @@ const routes: Routes = [
         component: CourseViewComponent,
       },
     ],
-  },
-  {
-    path: 'class/:idModule/:idCourse/:idClass',
-    component: WatchClassComponent,
   },
 ];;
 

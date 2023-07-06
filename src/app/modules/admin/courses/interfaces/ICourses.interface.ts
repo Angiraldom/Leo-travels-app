@@ -12,4 +12,6 @@ export interface ICourse {
   status: boolean;
 
   modules: IModule[];
+
+  portada: string;
 }

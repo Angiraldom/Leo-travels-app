@@ -16,74 +16,6 @@ export class CourseViewComponent implements OnInit, OnDestroy {
   private baseSerive = inject(BaseService);
   $route!: Subscription;
 
-  modules: IModule[] = [
-    {
-      name: 'Modulo 1',
-      _id: '1',
-      classes: [
-        {
-          name: 'Clase 1',
-          _id: '',
-        },
-        {
-          name: 'Clase 2',
-          _id: '',
-        },
-        {
-          name: 'Clase 3',
-          _id: '',
-        },
-        {
-          name: 'Clase 4',
-          _id: '',
-        },
-      ],
-    },
-    {
-      name: 'Modulo 1',
-      _id: '2',
-      classes: [
-        {
-          name: 'Clase 1',
-          _id: '',
-        },
-        {
-          name: 'Clase 2',
-          _id: '',
-        },
-        {
-          name: 'Clase 3',
-          _id: '',
-        },
-        {
-          name: 'Clase 4',
-          _id: '',
-        },
-      ],
-    },
-    {
-      name: 'Modulo 1',
-      _id: '3',
-      classes: [
-        {
-          name: 'Clase 1',
-          _id: '',
-        },
-        {
-          name: 'Clase 2',
-          _id: '',
-        },
-        {
-          name: 'Clase 3',
-          _id: '',
-        },
-        {
-          name: 'Clase 4',
-          _id: '',
-        },
-      ],
-    },
-  ];
   isExpanded: boolean[] = [];
   idCourse!: string;
   course!: ICourse;
@@ -100,7 +32,7 @@ export class CourseViewComponent implements OnInit, OnDestroy {
   }
 
   changeRoute(idModule: string, idClass: string) {
-    this.router.navigate([`student/class/${this.idCourse}/${idModule}/${idClass}`]);
+    this.router.navigate([`estudiante/clase/${this.idCourse}/${idModule}/${idClass}`]);
   }
 
   toggleList(index: number): void {
@@ -113,7 +45,7 @@ export class CourseViewComponent implements OnInit, OnDestroy {
         if (res.data) {
           this.course = res.data;
         } else {
-          console.log('No se encontro la clase');
+          console.log('No se encontro el curso');
         }
       }
     });

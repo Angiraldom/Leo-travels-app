@@ -15,6 +15,7 @@ import { WatchClassComponent } from './watch-class/watch-class.component';
 import { SidebarUserComponent } from './sidebar-user/sidebar-user.component';
 import { SidebarComponent } from '../layout/sidebar/sidebar.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { NavbarComponent } from '../layout/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     HeaderModulesComponent,
     GenericButtonComponent,
     SidebarComponent,
+    NavbarComponent,
     ReactiveFormsModule
   ],
 })

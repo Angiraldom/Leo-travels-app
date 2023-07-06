@@ -1,7 +1,7 @@
 <div class="title">
     <div>
         <h2>{{title}}</h2>
-        <p>{{description}}</p>
+        <p [innerHTML]="description"></p>
     </div>
 
     <button mat-raised-button color="primary" *ngIf="!removeButton" (click)="onHandleClick()">
