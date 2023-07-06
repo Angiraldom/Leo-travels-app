@@ -1,5 +1,5 @@
 import { Action, createReducer, on } from '@ngrx/store';
-import { IUser } from 'src/app/modules/user/interfaces/IUser.interface';
+import { IUser } from 'src/app/modules/admin/user/interfaces/IUser.interface';
 import { getProfile } from '../actions/user.actions';
 
 export const initialState: IUser = {};

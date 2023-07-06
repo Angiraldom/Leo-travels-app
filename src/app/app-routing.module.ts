@@ -5,37 +5,6 @@ import { authGuardFn } from './core/guards/auth.guard';
 
 const routes: Routes = [
   {
-    path: '',
-    redirectTo: 'login',
-    pathMatch: 'full',
-  },
-  {
-    path: 'kit-viajero',
-    loadChildren: () =>
-      import('./modules/travel-kit/travel-kit.module').then(
-        (m) => m.TravelKitModule
-      ),
-    title: 'Kit viajero',
-  },
-  {
-    path: 'purchase',
-    loadChildren: () =>
-      import('./modules/purchase/purchase.module').then(
-        (m) => m.PurchaseModule
-      ),
-  },
-  {
-    path: 'layout',
-    // canActivate: [authGuardFn],
-    loadChildren: () =>
-      import('./modules/layout/layout.module').then((m) => m.LayoutModule),
-  },
-  {
-    path: 'student',
-    loadChildren: () =>
-      import('./user-layout/user-layout.module').then((m) => m.UserLayoutModule),
-  },
-  {
     path: 'login',
     canActivate: [redirectLoginGuardFn],
     loadComponent: () => import('./components/login/login.component'),
@@ -60,16 +29,23 @@ const routes: Routes = [
     title: 'Agradecimiento',
   },
   {
-    path: 'view-product',
+    path: '',
     loadChildren: () =>
-      import('./modules/view-product/view-product.module').then(
-        (m) => m.ViewProductModule
-      ),
-    title: 'View product',
+      import('./modules/page/page-routing.module').then((m) => m.PageRoutingModule),
+  },
+  {
+    path: 'admin',
+    loadChildren: () =>
+      import('./modules/admin/admin.module').then((m) => m.AdminModule),
+  },
+  {
+    path: 'estudiante',
+    loadChildren: () =>
+      import('./modules/student/student.module').then((m) => m.StudentModule),
   },
   {
     path: '**',
-    redirectTo: 'login',
+    redirectTo: '',
     pathMatch: 'full',
   },
 ];

@@ -1,0 +1,60 @@
+<ng-container *ngIf="course">
+    <app-header-modules [title]="course.name" [description]="course.description"></app-header-modules>
+
+    <div class="content-course">
+        <div class="content-image">
+            <img alt="Card" [src]="course.portada" />
+        </div>
+
+        <div class="footer">
+            <h3> Contenido del curso </h3>
+            <ng-container [ngTemplateOutlet]="progress"></ng-container>
+
+        </div>
+    </div>
+
+    <div class="content-modules">
+        <ul class="list" *ngIf="course.modules.length > 0">
+
+            <li *ngFor="let module of course.modules; let indexModule = index" class="list-item">
+                <!-- MODULOS -->
+                <div class="item item-header" (click)="toggleList(indexModule)">
+                    <div class="align-items-center">
+                        <button mat-icon-button>
+                            <mat-icon class="mat-icon-rtl-mirror">
+                                {{isExpanded[indexModule] ? 'expand_more' : 'chevron_right'}}
+                            </mat-icon>
+                        </button>
+                        <span class="item-title">{{ module.name }}</span>
+                    </div>
+                    <span class="align-items-center actions-content">
+                        <span class="total-clases">{{ module.classes.length + ' clases' }}</span>
+                        <mat-progress-spinner class="example-margin" [diameter]="18" [mode]="'determinate'"
+                            [value]="50">
+                        </mat-progress-spinner>
+                    </span>
+                </div>
+                <!-- CLASES -->
+                <ul class="sub-list" [hidden]="!isExpanded[indexModule]">
+                    <li *ngFor="let class of module?.classes; let indexClass = index" class="sub-item">
+                        <div class="item item-sub-header">
+                            <span class="item-title" (click)="changeRoute(module._id, class._id)">{{ class.name }}</span>
+                            <span class="total-clases">1:23</span>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</ng-container>
+
+<div *ngIf="!course">
+    <h1> No se encontro el curso </h1>
+</div>
+
+<ng-template #progress>
+    <div class="content-progress">
+        <p>Progreso</p>
+        <p-progressBar [value]="50"></p-progressBar>
+    </div>
+</ng-template>

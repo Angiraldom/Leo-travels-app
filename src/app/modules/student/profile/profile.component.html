@@ -1,0 +1,25 @@
+<app-header-modules [title]="'Mi perfil'" [description]="'Actualiza la información de tu perfil'"></app-header-modules>
+
+<div class="content-form">
+    <p-avatar label="P" styleClass="mr-2" size="xlarge" shape="circle"></p-avatar>
+
+    <div class="form">
+        <form [formGroup]="form">
+            <span class="p-float-label">
+                <input pInputText id="name" formControlName="name" class="input-name" />
+                <label htmlFor="name">Nombre</label>
+            </span>
+            <span class="p-float-label">
+                <input pInputText id="lastName" formControlName="lastName" class="input-name" />
+                <label htmlFor="lastName">Apellidos</label>
+            </span>
+            <span class="p-float-label">
+                <input pInputText id="email" formControlName="email" class="input-name" />
+                <label htmlFor="email">Correo electrónico</label>
+            </span>
+        </form>
+
+        <app-generic-button [sizeButton]="'large'" [classButton]="'class_blue'" [nameButton]="'Guardar'"
+            (emitClick)="updateProfile()"></app-generic-button>
+    </div>
+</div>

@@ -67,7 +67,7 @@ export class MenuComponent implements OnInit, OnDestroy {
   }
 
   changeRoute() {
-    this.router.navigate(['purchase']);
+    this.router.navigate(['pagar']);
   }
 
   toggleMenu() {

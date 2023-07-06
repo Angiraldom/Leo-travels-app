@@ -1,6 +1,6 @@
 import { Action, createReducer, on } from '@ngrx/store';
 import * as courseActions from '../actions/course.actions';
-import { ICourse } from 'src/app/modules/courses/interfaces/ICourses.interface';
+import { ICourse } from 'src/app/modules/admin/courses/interfaces/ICourses.interface';
 
 export interface IStateCourse {
   inViewCreate: boolean;

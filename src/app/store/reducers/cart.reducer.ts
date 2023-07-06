@@ -1,7 +1,7 @@
 import { Action, createReducer, on } from "@ngrx/store";
 
 import * as actions from "../actions/cart.actions";
-import { ICart } from "../../shopping-cart/interfaces/ICart.interface";
+import { ICart } from "src/app/modules/admin/products/interfaces/ICart.interface";
 
 export const initialState: ICart = { reference: '', products: []};
 
