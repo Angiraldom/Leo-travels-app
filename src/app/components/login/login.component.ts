@@ -32,9 +32,14 @@ export default class LoginComponent {
     }
 
     this.authService.login(this.form.value).subscribe({
-      next: () => {
+      next: (res) => {
+        const role = res.data.user.role;
         this.form.reset();
-        this.router.navigateByUrl('admin');
+        if (role === 'Admin') {
+          this.router.navigateByUrl('admin');
+        } else {
+          this.router.navigateByUrl('estudiante');
+        }
       }
     });
   }

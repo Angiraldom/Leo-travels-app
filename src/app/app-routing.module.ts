@@ -39,6 +39,11 @@ const routes: Routes = [
       import('./modules/admin/admin.module').then((m) => m.AdminModule),
   },
   {
+    path: 'estudiante',
+    loadChildren: () =>
+      import('./modules/student/student.module').then((m) => m.StudentModule),
+  },
+  {
     path: '**',
     redirectTo: '',
     pathMatch: 'full',

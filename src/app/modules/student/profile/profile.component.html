@@ -4,7 +4,7 @@
     <p-avatar label="P" styleClass="mr-2" size="xlarge" shape="circle"></p-avatar>
 
     <div class="form">
-        <form>
+        <form [formGroup]="form">
             <span class="p-float-label">
                 <input pInputText id="name" formControlName="name" class="input-name" />
                 <label htmlFor="name">Nombre</label>

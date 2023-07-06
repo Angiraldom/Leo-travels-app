@@ -13,6 +13,8 @@ import { MyCoursesComponent } from './my-courses/my-courses.component';
 import { CourseViewComponent } from './course-view/course-view.component';
 import { WatchClassComponent } from './watch-class/watch-class.component';
 import { SidebarUserComponent } from './sidebar-user/sidebar-user.component';
+import { SidebarComponent } from '../layout/sidebar/sidebar.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,8 @@ import { SidebarUserComponent } from './sidebar-user/sidebar-user.component';
     RouterModule,
     HeaderModulesComponent,
     GenericButtonComponent,
+    SidebarComponent,
+    ReactiveFormsModule
   ],
 })
 export class StudentModule {}

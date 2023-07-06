@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { AuthService } from 'src/app/core/services/auth.service';
 
 @Component({
   selector: 'app-student-view',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./student-view.component.scss']
 })
 export class StudentViewComponent {
+  private authService = inject(AuthService);
 
+  ngOnInit(): void {
+    this.authService.getProfile().subscribe();
+  }
 }

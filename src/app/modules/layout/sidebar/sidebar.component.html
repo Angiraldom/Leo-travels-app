@@ -28,11 +28,11 @@
         <span>Ofertas</span>
       </a> -->
       <ng-container *ngIf="user.role === 'Cliente'">
-        <a class="item" routerLink="my-courses">
+        <a class="item" routerLink="my-courses" routerLinkActive="router-active">
           <mat-icon>book</mat-icon>
           <span>Mis cursos</span>
         </a>
-        <a class="item" routerLink="profile">
+        <a class="item" routerLink="profile" routerLinkActive="router-active">
           <mat-icon>person</mat-icon>
           <span>Mi perfil</span>
         </a>
