@@ -15,7 +15,20 @@ const routes: Routes = [{
       path: 'productos',
       loadChildren: () =>
         import('./products/products.module').then((m) => m.ProductsModule),
-    }]
+    },
+    {
+      path: 'transacciones', 
+      loadChildren: () =>
+        import('./transaction/transaction.module').then((m) => m.TransactionModule),
+    },
+    {
+      path: 'usuarios', 
+      loadChildren: () =>
+        import('./user/users.module').then((m) => m.UsersModule),
+    },
+  
+  ]
+    
 }];
 
 @NgModule({

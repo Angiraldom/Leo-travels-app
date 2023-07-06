@@ -5,8 +5,8 @@ import { Subscription } from 'rxjs';
 import { MaterialModule } from 'src/app/material/material.module';
 import { clearCart } from 'src/app/store/actions/cart.actions';
 import { AppState } from 'src/app/store/app.reducer';
-import { IUser } from '../../admin/user/interfaces/IUser.interface';
 import { CommonModule } from '@angular/common';
+import { IUser } from '../../admin/user/interface/IUser.interface';
 
 @Component({
   selector: 'app-sidebar',
