@@ -4,14 +4,14 @@
 <div class="content-cards">
     <p-card [style]="{ width: '300px' }" *ngIf="course">
         <ng-template pTemplate="header">
-            <img alt="Card" [src]="course.portada" />
+            <img oncontextmenu='return false' onkeydown='return false' alt="Card" [src]="course.portada" />
         </ng-template>
         <h3>{{course.name}}</h3>
         <p>
-            <p-progressBar [value]="50"></p-progressBar>
+            <p-progressBar [value]="course.modules | classProgress" [color]="'primary'"></p-progressBar>
         </p>
         <div class="footer">
-            <p> 0/34 Clases </p>
+            <p> {{course.modules | classProgress}} /{{ course.modules | totalClasses }} Clases </p>
             <app-generic-button [sizeButton]="'small'" [classButton]="'class_blue'" [nameButton]="'Abrir'"
                (emitClick)="changeRoute(course._id)" ></app-generic-button>
         </div>

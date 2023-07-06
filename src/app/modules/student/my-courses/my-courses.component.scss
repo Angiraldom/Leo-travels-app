@@ -39,4 +39,6 @@
     }
 }
 
-// height: calc(100vh - 205px);
+::ng-deep .p-progressbar .p-progressbar-value {
+    background-color: $primary;
+}

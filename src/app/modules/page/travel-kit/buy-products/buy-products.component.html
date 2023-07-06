@@ -2,7 +2,7 @@
     <p>O si quieres comprar los productos por individual, también puedes hacerlo:</p>
     <div class="content-cards">
         <div *ngFor="let item of products" class="card">
-            <img [ngSrc]="item.images[0]" alt="{{item.name}}" [width]="'400'" [height]="'400'" priority>
+            <img oncontextmenu='return false' onkeydown='return false' [ngSrc]="item.images[0]" alt="{{item.name}}" [width]="'400'" [height]="'400'" priority>
             <div class="card-info">
                 <p class="product-name" [matTooltip]="item.title" [routerLink]="'view-product/' + item.id">{{item.title}}</p>
                 <p>{{item.price | currency }}</p>

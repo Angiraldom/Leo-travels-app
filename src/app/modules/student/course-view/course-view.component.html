@@ -3,7 +3,7 @@
 
     <div class="content-course">
         <div class="content-image">
-            <img alt="Card" [src]="course.portada" />
+            <img oncontextmenu='return false' onkeydown='return false' alt="Card" [src]="course.portada" />
         </div>
 
         <div class="footer">
@@ -55,6 +55,6 @@
 <ng-template #progress>
     <div class="content-progress">
         <p>Progreso</p>
-        <p-progressBar [value]="50"></p-progressBar>
+        <p-progressBar [value]="course.modules | classProgress"></p-progressBar>
     </div>
 </ng-template>

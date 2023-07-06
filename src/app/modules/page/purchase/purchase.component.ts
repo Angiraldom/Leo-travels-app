@@ -1,4 +1,5 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnDestroy, OnInit, inject } from '@angular/core';
+import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
 import { AppState } from 'src/app/store/app.reducer';
@@ -10,8 +11,9 @@ declare let WidgetCheckout: any;
   templateUrl: './purchase.component.html',
   styleUrls: ['./purchase.component.scss'],
 })
-export class PurchaseComponent implements OnInit {
+export class PurchaseComponent implements OnInit, OnDestroy {
   store = inject(Store<AppState>);
+  private router = inject(Router);
   $store!: Subscription;
 
   products: any[] = [];
@@ -37,7 +39,6 @@ export class PurchaseComponent implements OnInit {
     currency: 'COP',
     amountInCents: 0,
     reference: '',
-    // publicKey: 'pub_test_vF42biq1lpWCA3HJ4kTEGnougGLlUj4y',
     publicKey: 'pub_test_YHZn4Q2jPbQ5hnohVI5MpMeUtmV1y896',
     redirectUrl: 'http://localhost:4200/response-transaction',
     shippingAddress: {},
@@ -49,8 +50,15 @@ export class PurchaseComponent implements OnInit {
       next: ({ products, reference }) => {
         this.reference = reference;
         this.products = products;
+        if (this.products.length === 0) {
+            this.router.navigate(['kit-viajero']);
+        }
       },
     });
+  }
+  
+  ngOnDestroy(): void {
+    this.$store.unsubscribe();
   }
 
   setAmount() {

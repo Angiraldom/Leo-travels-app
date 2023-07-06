@@ -77,3 +77,12 @@ ul {
     display: flex;
     align-items: center;
 }
+
+.font-bold {
+    font-weight: 700;
+    color: $gray;
+}
+
+.active-class, .active-class div {
+    background-color: $secondary;
+}

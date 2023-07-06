@@ -1,6 +1,6 @@
 <header>
   <div class="container-desktop-menu">
-    <span class="icon-logo"></span>
+    <span class="icon-logo" [routerLink]="['/kit-viajero']"></span>
     <div class="menu">
       <a class="item" routerLink="courses" routerLinkActive="router-active">
         <span>Cursos</span>
@@ -8,9 +8,9 @@
       <a class="item" [routerLink]="['/kit-viajero']" [routerLinkActive]="'router-active'">
         <span>Kit viajero</span>
       </a>
-      <a class="item" routerLink="courses" routerLinkActive="router-active">
+      <!-- <a class="item" routerLink="courses" routerLinkActive="router-active">
         <span>¿Quiénes somos?</span>
-      </a>
+      </a> -->
       <a class="item" [routerLink]="'/login'" routerLinkActive="router-active">
         <span>Iniciar sesión</span>
       </a>
@@ -61,7 +61,7 @@
     <ng-container *ngFor="let item of (store.select('cart') | async).products">
       <div class="item-product">
         <div>
-          <img src="{{ item.images[0] }}" width="150px" height="150px" alt="" />
+          <img oncontextmenu='return false' onkeydown='return false' src="{{ item.images[0] }}" width="150px" height="150px" alt="" />
         </div>
         <div class="item-description">
           <div>

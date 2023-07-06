@@ -8,28 +8,33 @@ import { StudentViewComponent } from './student-view.component';
 
 const routes: Routes = [
   {
-    path: 'clase/:idModule/:idCourse/:idClass',
+    path: 'clase/:idCourse/:idModule/:idClass',
     component: WatchClassComponent,
+    title: 'Clase'
   },
   {
     path: '',
     component: StudentViewComponent,
     children: [
       {
-        path: '',
-        component: ProfileComponent,
-      },
-      {
         path: 'profile',
         component: ProfileComponent,
+        title: 'Prefil'
       },
       {
         path: 'my-courses',
         component: MyCoursesComponent,
+        title: 'Mis cursos'
       },
       {
         path: 'course/:id',
         component: CourseViewComponent,
+        title: 'Curso'
+      },
+      {
+        path: '',
+        redirectTo: 'profile',
+        pathMatch: 'full',
       },
     ],
   },

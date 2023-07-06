@@ -42,7 +42,7 @@ export class CourseViewComponent implements OnInit, OnDestroy {
   getCourse() {
     this.baseSerive.getMethod(`course/findOne/${this.idCourse}`).subscribe({
       next: (res: any) => {
-        if (res.data) {
+        if (Object.keys(res.data).length > 0) {
           this.course = res.data;
         } else {
           console.log('No se encontro el curso');
