@@ -1,9 +1,13 @@
+import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { MaterialModule } from 'src/app/material/material.module';
 import { AppState } from 'src/app/store/app.reducer';
 
 @Component({
   selector: 'app-navbar',
+  standalone: true,
+  imports: [MaterialModule, CommonModule],
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
 })

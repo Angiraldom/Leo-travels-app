@@ -33,9 +33,8 @@ export default class LoginComponent {
 
     this.authService.login(this.form.value).subscribe({
       next: () => {
-        console.log('Login exitoso');
         this.form.reset();
-        this.router.navigateByUrl('layout');
+        this.router.navigateByUrl('admin');
       }
     });
   }
