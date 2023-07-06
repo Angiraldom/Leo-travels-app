@@ -4,7 +4,7 @@ import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
 import { MaterialModule } from 'src/app/material/material.module';
 import { AppState } from 'src/app/store/app.reducer';
-import { IUser } from '../../admin/user/interfaces/IUser.interface';
+import { IUser } from '../../admin/user/interface/IUser.interface';
 
 @Component({
   selector: 'app-navbar',
