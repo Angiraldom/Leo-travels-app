@@ -23,12 +23,6 @@ const routes: Routes = [
     title: 'Cambiar contraseña',
   },
   {
-    path: 'response-transaction',
-    loadComponent: () =>
-      import('./components/thank-you-page/thank-you-page.component'),
-    title: 'Agradecimiento',
-  },
-  {
     path: '',
     loadChildren: () =>
       import('./modules/page/page-routing.module').then((m) => m.PageRoutingModule),

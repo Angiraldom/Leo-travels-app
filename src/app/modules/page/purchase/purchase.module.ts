@@ -11,12 +11,15 @@ import { DiscountCouponComponent } from './discount-coupon/discount-coupon.compo
 import { PaymentButtonComponent } from './payment-button/payment-button.component';
 import { ShippingFormComponent } from './shipping-form/shipping-form.component';
 import { MenuComponent } from 'src/app/shared/menu/menu.component';
+import { GratitudeCourseComponent } from './gratitude-course/gratitude-course.component';
+import { FooterComponent } from 'src/app/shared/footer/footer.component';
 
 
 @NgModule({
   declarations: [
     PurchaseComponent,
-    InvoiceFormComponent
+    InvoiceFormComponent,
+    GratitudeCourseComponent
   ],
   imports: [
     CommonModule,
@@ -27,7 +30,8 @@ import { MenuComponent } from 'src/app/shared/menu/menu.component';
     MenuComponent,
     DiscountCouponComponent,
     PaymentButtonComponent,
-    ShippingFormComponent
+    ShippingFormComponent,
+    FooterComponent
   ]
 })
 export class PurchaseModule { }
