@@ -4,7 +4,7 @@
     <p-avatar label="P" styleClass="mr-2" size="xlarge" shape="circle"></p-avatar>
 
     <div class="form">
-        <form [formGroup]="form">
+        <form [formGroup]="form" *ngIf="!showFormPassword">
             <span class="p-float-label">
                 <input pInputText id="name" formControlName="name" class="input-name" />
                 <label htmlFor="name">Nombre</label>
@@ -19,7 +19,27 @@
             </span>
         </form>
 
+        <form [formGroup]="formPassword" *ngIf="showFormPassword">
+            <span class="p-float-label">
+                <input type="password" pInputText id="currentPassword" formControlName="currentPassword" class="input-name" />
+                <label htmlFor="currentPassword">Contraseña anterior</label>
+            </span>
+            <span class="p-float-label">
+                <input type="password" pInputText id="newPassword" formControlName="newPassword" class="input-name" />
+                <label htmlFor="newPassword">Nueva contraseña</label>
+            </span>
+            <span class="p-float-label">
+                <input type="password" pInputText id="confirmPassword" formControlName="confirmPassword" class="input-name" />
+                <label htmlFor="confirmPassword">Confirmar nueva contraseña</label>
+            </span>
+            <div *ngIf="formPassword.getError('passwordMismatch')" class="error-message">
+                Las contraseñas no coinciden
+            </div>
+        </form>
+
+        <a (click)="changeForm()"> {{ showFormPassword ? 'Volver': 'Cambiar contraseña' }} </a>
+
         <app-generic-button [sizeButton]="'large'" [classButton]="'class_blue'" [nameButton]="'Guardar'"
-            (emitClick)="updateProfile()"></app-generic-button>
+            (emitClick)="validateAction()"></app-generic-button>
     </div>
 </div>
