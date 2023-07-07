@@ -2,7 +2,7 @@
   <mat-sidenav opened mode="side" class="sidebar-container">
     <mat-nav-list>
       <ng-container *ngIf="user.role === 'Admin'">
-        <a class="item" routerLink="/home">
+        <a class="item" routerLink="/admin/usuarios"routerLinkActive="router-active">
           <mat-icon>person</mat-icon>
           <span>Usuarios</span>
         </a>
@@ -14,7 +14,7 @@
           <mat-icon>shopping_cart</mat-icon>
           <span>Productos</span>
         </a>
-        <a class="item" routerLink="/home">
+        <a class="item" routerLink="/admin/transacciones" routerLinkActive="router-active">
           <mat-icon>attach_money</mat-icon>
           <span>Transacciones</span>
         </a>
