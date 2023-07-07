@@ -14,6 +14,7 @@ import { MenuComponent } from 'src/app/shared/menu/menu.component';
 import { GratitudeCourseComponent } from './gratitude-course/gratitude-course.component';
 import { FooterComponent } from 'src/app/shared/footer/footer.component';
 import { GratitudeKitComponent } from './gratitude-kit/gratitude-kit.component';
+import { GratitudeMenuComponent } from './gratitude-menu/gratitude-menu.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { GratitudeKitComponent } from './gratitude-kit/gratitude-kit.component';
     PurchaseComponent,
     InvoiceFormComponent,
     GratitudeCourseComponent,
-    GratitudeKitComponent
+    GratitudeKitComponent,
+    GratitudeMenuComponent
   ],
   imports: [
     CommonModule,

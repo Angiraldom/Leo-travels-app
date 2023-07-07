@@ -7,6 +7,7 @@ import { Subscription } from 'rxjs';
 import { BaseService } from 'src/app/core/services/base.service';
 import { AppState } from 'src/app/store/app.reducer';
 import { IWompiInterface } from './interface/IWompiWidget.interface';
+import { clearCart } from 'src/app/store/actions/cart.actions';
 
 declare let WidgetCheckout: any;
 
@@ -21,6 +22,7 @@ export class PurchaseComponent implements OnInit, OnDestroy {
   private baseService = inject(BaseService);
   $store!: Subscription;
 
+  succesfulTransaction: boolean = false;
   showShippingAdress: boolean = false;
   userExist: boolean = true;
   products: any[] = [];
@@ -59,6 +61,11 @@ export class PurchaseComponent implements OnInit, OnDestroy {
   
   ngOnDestroy(): void {
     this.$store.unsubscribe();
+
+    if (this.succesfulTransaction) {
+      this.store.dispatch(clearCart());
+      localStorage.removeItem('reference');
+    }
   }
 
   setAmount() {
@@ -93,12 +100,11 @@ export class PurchaseComponent implements OnInit, OnDestroy {
 
   openCheckout() {
     const checkout = new WidgetCheckout(this.wompiObject);
-    // Almacenar el result en el storage y en la bd.
     checkout.open((result: any) => {
-      const transaction = result.transaction;
-      console.log('Transaction ID: ', transaction.id);
-      console.log('Transaction object: ', transaction);
-      // this.saveTransaction();
+      const status = result.transaction.status;
+      if (status === 'APPROVED') {
+        this.succesfulTransaction = true;
+      }
     });
   }
 
@@ -107,7 +113,7 @@ export class PurchaseComponent implements OnInit, OnDestroy {
     if (this.showShippingAdress) {
       return;
     } 
-    delete this.wompiObject.customerData;
+    delete this.wompiObject.shippingAddress;
   }
 
   validateUser($event: any) {
