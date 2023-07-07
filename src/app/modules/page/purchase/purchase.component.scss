@@ -4,9 +4,16 @@
     color: $primary;
 }
 
+.remove-margin {
+    margin-top: 0px;
+}
+
+.add-margin {
+    margin-top: 60px;
+}
+
 .content-invoice {
     padding: 35px 70px;
-    margin-top: 60px;
 
     .content-forms {
         display: grid;
@@ -57,4 +64,10 @@
 
         min-width: 243px;
     }
+}
+
+.container-p-messages {
+    margin-top: 60px;
+    width: 100%;
+    z-index: 1;
 }

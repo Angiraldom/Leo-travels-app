@@ -1,8 +1,12 @@
 import { Component, OnDestroy, OnInit, inject } from '@angular/core';
+import { FormControlStatus } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
+import { Message } from 'primeng/api';
 import { Subscription } from 'rxjs';
+import { BaseService } from 'src/app/core/services/base.service';
 import { AppState } from 'src/app/store/app.reducer';
+import { IWompiInterface } from './interface/IWompiWidget.interface';
 
 declare let WidgetCheckout: any;
 
@@ -14,35 +18,29 @@ declare let WidgetCheckout: any;
 export class PurchaseComponent implements OnInit, OnDestroy {
   store = inject(Store<AppState>);
   private router = inject(Router);
+  private baseService = inject(BaseService);
   $store!: Subscription;
 
+  showShippingAdress: boolean = false;
+  userExist: boolean = true;
   products: any[] = [];
   reference = '';
-  invalidCustomerForm = false;
-  invalidFormAddress = false;
-  customerData = {
-    email: '',
-    fullName: 'Lola Flores',
-    legalId: '',
-    legalIdType: 'CC',
-  };
-  shippingAddress = {
-    // Opcional
-    addressLine1: '',
-    addressLine2: '',
-    city: '',
-    phoneNumber: '0',
-    region: '',
-    country: 'CO',
-  };
-  wompiObject = {
+  invalidCustomerForm: FormControlStatus = 'INVALID';
+  invalidFormAddress: FormControlStatus = 'INVALID';
+  message: Message[] = [
+    {
+      severity: 'warn',
+      summary:
+        'El correo ingresado, ya tiene un curso asociado',
+    },
+  ];
+
+  wompiObject: IWompiInterface = {
     currency: 'COP',
     amountInCents: 0,
     reference: '',
     publicKey: 'pub_test_YHZn4Q2jPbQ5hnohVI5MpMeUtmV1y896',
     redirectUrl: 'http://localhost:4200/response-transaction',
-    shippingAddress: {},
-    customerData: {},
   };
 
   ngOnInit(): void {
@@ -52,7 +50,9 @@ export class PurchaseComponent implements OnInit, OnDestroy {
         this.products = products;
         if (this.products.length === 0) {
             this.router.navigate(['kit-viajero']);
+            return;
         }
+        this.validateShowform();
       },
     });
   }
@@ -70,28 +70,25 @@ export class PurchaseComponent implements OnInit, OnDestroy {
   }
 
   purchase() {
-    if (this.shippingAddress.city !== '') {
-      this.wompiObject.shippingAddress = { ...this.shippingAddress };
-    }
-    this.wompiObject.customerData = { ...this.customerData };
     this.wompiObject.reference = this.reference;
-    console.log(this.wompiObject);
     this.setAmount();
     this.openCheckout();
   }
 
-  setCustomerData(form: { data: any; statusForm: boolean }) {
+  setCustomerData(form: { data: any; statusForm: FormControlStatus }) {
     form.data['fullName'] = form.data.name + ' ' + form.data.lastName;
     delete form.data.name;
     delete form.data.lastName;
     this.invalidCustomerForm = form.statusForm;
-    this.customerData = form.data;
+    this.wompiObject.customerData = form.data;
   }
 
-  setshippingAddressData(form: { data: any; statusForm: boolean }) {
+  setshippingAddressData(form: { data: any; statusForm: FormControlStatus }) {
     delete form.data.ZIPcode;
+    delete form.data.country;
     this.invalidFormAddress = form.statusForm;
-    this.shippingAddress = form.data;
+    this.wompiObject.shippingAddress = form.data;
+    this.wompiObject.shippingAddress!.country = 'CO';
   }
 
   openCheckout() {
@@ -103,5 +100,37 @@ export class PurchaseComponent implements OnInit, OnDestroy {
       console.log('Transaction object: ', transaction);
       // this.saveTransaction();
     });
+  }
+
+  validateShowform() {
+    this.showShippingAdress = this.products?.some((item) => !item.modules);
+    if (this.showShippingAdress) {
+      return;
+    } 
+    delete this.wompiObject.customerData;
+  }
+
+  validateUser($event: any) {
+    if ($event.statusForm !== 'VALID') {
+      return;
+    }
+    this.baseService.postMethod('user/findByEmail', { email: $event.data.email }).subscribe({
+      next: (res: any) => {
+        if (Object.keys(res.data).length > 0) {
+          this.userExist = true;
+        } else {
+          this.userExist = false;
+        }
+      }
+    });
+  }
+
+  disabledButton() {
+    if (!this.userExist && !this.showShippingAdress && this.invalidCustomerForm === 'VALID') {
+      this.purchase();
+    }
+    if (!this.userExist && this.invalidFormAddress === 'VALID' && this.invalidCustomerForm === 'VALID') {
+      this.purchase();
+    }
   }
 }

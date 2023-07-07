@@ -18,7 +18,7 @@ export class ShippingFormComponent implements OnInit {
   @Output() emitForm = new EventEmitter();
 
   form: FormGroup = this.fb.group({
-    country: new FormControl({ value: 'CO', disabled: true }),
+    country: new FormControl({ value: 'Colombia', disabled: true }),
     region: ['Antioquia', Validators.required],
     city: ['Medellin', Validators.required],
     addressLine1: ['Calle 34', Validators.required],

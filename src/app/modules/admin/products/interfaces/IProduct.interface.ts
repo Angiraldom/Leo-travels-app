@@ -1,3 +1,5 @@
+import { IModule } from "../../courses/interfaces/IModule.interface";
+
 export interface IProduct {
   _id?: string;
   id?: string;
@@ -29,4 +31,6 @@ export interface IProduct {
   title?: string;
 
   imageProperties?: [];
+
+  modules?: IModule[];
 }
