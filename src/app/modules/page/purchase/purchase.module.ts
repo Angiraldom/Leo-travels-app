@@ -13,13 +13,15 @@ import { ShippingFormComponent } from './shipping-form/shipping-form.component';
 import { MenuComponent } from 'src/app/shared/menu/menu.component';
 import { GratitudeCourseComponent } from './gratitude-course/gratitude-course.component';
 import { FooterComponent } from 'src/app/shared/footer/footer.component';
+import { GratitudeKitComponent } from './gratitude-kit/gratitude-kit.component';
 
 
 @NgModule({
   declarations: [
     PurchaseComponent,
     InvoiceFormComponent,
-    GratitudeCourseComponent
+    GratitudeCourseComponent,
+    GratitudeKitComponent
   ],
   imports: [
     CommonModule,
