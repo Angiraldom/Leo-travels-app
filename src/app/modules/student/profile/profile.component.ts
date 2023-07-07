@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
 import { BaseService } from 'src/app/core/services/base.service';
+import { CustomValidators } from 'src/app/core/utils/validators';
 import { AppState } from 'src/app/store/app.reducer';
 
 @Component({
@@ -16,6 +17,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
   private baseService = inject(BaseService);
 
   $store!: Subscription;
+  showFormPassword: boolean = false;
 
   form: FormGroup = this.fb.group({
     _id: [],
@@ -23,6 +25,17 @@ export class ProfileComponent implements OnInit, OnDestroy {
     lastName: ['', Validators.required],
     email: ['', [Validators.required, Validators.email]],
     numberDocument: ['']
+  });
+
+  formPassword: FormGroup = this.fb.group({
+    currentPassword: ['', Validators.required],
+    newPassword: ['', Validators.required],
+    confirmPassword: ['', [Validators.required]],
+  },
+  {
+    validators: [
+      CustomValidators.MatchValidator('newPassword', 'confirmPassword'),
+    ],
   });
 
   ngOnInit(): void {
@@ -42,6 +55,37 @@ export class ProfileComponent implements OnInit, OnDestroy {
       next: () => {
         console.log("Actualizacion exitosa");
       }
-    })
+    });
+  }
+
+  changeForm() {
+    if (this.showFormPassword) {
+      this.showFormPassword = false;
+      return;
+    }
+    this.showFormPassword = true;
+  }
+
+  changePassword() {
+    const id = this.form.get('_id')?.value;
+    const body = {
+      actualPassword: this.formPassword.get('currentPassword')?.value,
+      newPassword: this.formPassword.get('newPassword')?.value
+    }
+    this.baseService.postMethod('user/change-password/' + id, body).subscribe({
+      next: () => {
+        console.log("Actualizacion exitosa");
+        this.formPassword.reset();
+        this.showFormPassword = false;
+      }
+    });
+  }
+
+  validateAction() {
+    if (this.showFormPassword) {
+      this.changePassword();
+      return;
+    }
+    this.updateProfile();
   }
 }
