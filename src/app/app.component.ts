@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { BaseService } from './core/services/base.service';
 import { Store } from '@ngrx/store';
+import { BaseService } from './core/services/base.service';
 import { AppState } from './store/app.reducer';
 import { initCart } from './store/actions/cart.actions';
+import { AuthService } from './core/services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -12,10 +13,11 @@ import { initCart } from './store/actions/cart.actions';
 })
 export class AppComponent implements OnInit {
   title = 'leo-travels-app';
-
+  
   constructor(
     private store: Store<AppState>,
     private baseService: BaseService,
+    private authService : AuthService,
     translate: TranslateService) {
     translate.setDefaultLang('es');
     translate.use('es');
@@ -23,6 +25,15 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.validateReference();
+    this.validateUser();
+  }
+  
+  validateUser() {
+    let token = localStorage.getItem('token');
+    if (!token) {
+      return;
+    }
+    this.authService.getProfile().subscribe();
   }
 
   validateReference() {

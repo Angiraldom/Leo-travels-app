@@ -11,12 +11,19 @@ import { DiscountCouponComponent } from './discount-coupon/discount-coupon.compo
 import { PaymentButtonComponent } from './payment-button/payment-button.component';
 import { ShippingFormComponent } from './shipping-form/shipping-form.component';
 import { MenuComponent } from 'src/app/shared/menu/menu.component';
+import { GratitudeCourseComponent } from './gratitude-course/gratitude-course.component';
+import { FooterComponent } from 'src/app/shared/footer/footer.component';
+import { GratitudeKitComponent } from './gratitude-kit/gratitude-kit.component';
+import { GratitudeMenuComponent } from './gratitude-menu/gratitude-menu.component';
 
 
 @NgModule({
   declarations: [
     PurchaseComponent,
-    InvoiceFormComponent
+    InvoiceFormComponent,
+    GratitudeCourseComponent,
+    GratitudeKitComponent,
+    GratitudeMenuComponent
   ],
   imports: [
     CommonModule,
@@ -27,7 +34,8 @@ import { MenuComponent } from 'src/app/shared/menu/menu.component';
     MenuComponent,
     DiscountCouponComponent,
     PaymentButtonComponent,
-    ShippingFormComponent
+    ShippingFormComponent,
+    FooterComponent
   ]
 })
 export class PurchaseModule { }

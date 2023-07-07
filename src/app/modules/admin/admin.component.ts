@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { AuthService } from 'src/app/core/services/auth.service';
 
 @Component({
@@ -6,7 +6,7 @@ import { AuthService } from 'src/app/core/services/auth.service';
   templateUrl: './admin.component.html',
   styleUrls: ['./admin.component.scss']
 })
-export class AdminComponent {
+export class AdminComponent implements OnInit {
   private authService = inject(AuthService);
 
   ngOnInit(): void {

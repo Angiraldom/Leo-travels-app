@@ -8,10 +8,7 @@
       <a class="item" [routerLink]="['/kit-viajero']" [routerLinkActive]="'router-active'">
         <span>Kit viajero</span>
       </a>
-      <!-- <a class="item" routerLink="courses" routerLinkActive="router-active">
-        <span>¿Quiénes somos?</span>
-      </a> -->
-      <a class="item" [routerLink]="'/login'" routerLinkActive="router-active">
+      <a *ngIf="!user" class="item" [routerLink]="'/login'" routerLinkActive="router-active">
         <span>Iniciar sesión</span>
       </a>
       <mat-icon [matBadge]="(store.select('cart') | async).products | totalProducts" matBadgeSize="small"
@@ -22,7 +19,7 @@
     <div>
       <mat-icon matBadgeSize="small" matBadgeColor="warn" (click)="toggleMenu()">menu</mat-icon>
     </div>
-    <span class="icon-logo"></span>
+    <span class="icon-logo" [routerLink]="['/kit-viajero']"></span>
     <mat-icon [matBadge]="(store.select('cart') | async).products | totalProducts" matBadgeSize="small"
       matBadgeColor="warn" (click)="openCart()">shopping_cart</mat-icon>
     <nav class="mobile-menu" [class.open]="isMenuOpen">
@@ -37,12 +34,7 @@
             <span>Kit viajero</span>
           </a>
         </li>
-        <li>
-          <a class="item" routerLink="courses" routerLinkActive="router-active">
-            <span>¿Quiénes somos?</span>
-          </a>
-        </li>
-        <li>
+        <li *ngIf="!user">
           <a class="item" [routerLink]="'/login'" routerLinkActive="router-active">
             <span>Iniciar sesión</span>
           </a>
@@ -61,7 +53,8 @@
     <ng-container *ngFor="let item of (store.select('cart') | async).products">
       <div class="item-product">
         <div>
-          <img oncontextmenu='return false' onkeydown='return false' src="{{ item.images[0] }}" width="150px" height="150px" alt="" />
+          <img oncontextmenu='return false' onkeydown='return false' src="{{ item.images[0] }}" width="150px"
+            height="150px" alt="" />
         </div>
         <div class="item-description">
           <div>

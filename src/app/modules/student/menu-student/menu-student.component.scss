@@ -1,0 +1,80 @@
+@import 'src/styles/variables';
+
+.icon-logo {
+    display: block;
+    width: 115px;
+    height: 30px;
+    background-image: url('../../../../assets/images/logo.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+mat-toolbar {
+
+    font-family: 'Poppins';
+    font-size: 16px;
+    justify-content: space-between;
+
+    mat-icon {
+        color: $white;
+        font-size: 25px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .content-info {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 12px;
+
+        h2 {
+            font-weight: 700;
+            color: $secondary;
+        }
+    }
+}
+
+.menu {
+    display: none;
+}
+
+.open {
+    display: flex;
+    flex-direction: column;
+    background-color: $primary;
+    padding: 20px;
+    position: absolute;
+    top: 56px;
+    left: 0;
+    width: 100%;
+    z-index: 99;
+
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+
+        li {
+            margin: 10px 0;
+
+            a {
+                text-decoration: none;
+                color: $white
+            }
+        }
+    }
+}
+
+.item:hover,
+.router-active {
+    color: $secondary !important;
+}
+
+.item,
+mat-icon {
+    cursor: pointer;
+    text-decoration: none;
+    color: $white;
+}
