@@ -1,0 +1,40 @@
+@import '/src/styles/variables';
+
+.text-info {
+  display: none;
+}
+
+h1 {
+  color: $primary;
+}
+
+.container {
+  width: 100%;
+  overflow-x: hidden;
+
+  .video {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+
+@media screen and (min-width: 800px) {
+  .text-info {
+    display: block;
+  }
+
+  .container {
+    margin-bottom: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    align-items: flex-end;
+    padding: 0;
+
+    .video {
+      width: 415px;
+    }
+  }
+}

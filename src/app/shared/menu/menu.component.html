@@ -2,7 +2,7 @@
   <div class="container-desktop-menu">
     <span class="icon-logo" [routerLink]="['/kit-viajero']"></span>
     <div class="menu">
-      <a class="item" routerLink="courses" routerLinkActive="router-active">
+      <a class="item" [routerLink]="'/cursos'" routerLinkActive="router-active">
         <span>Cursos</span>
       </a>
       <a class="item" [routerLink]="['/kit-viajero']" [routerLinkActive]="'router-active'">
@@ -25,7 +25,7 @@
     <nav class="mobile-menu" [class.open]="isMenuOpen">
       <ul>
         <li>
-          <a class="item" routerLink="courses" routerLinkActive="router-active">
+          <a class="item" routerLink="/cursos" routerLinkActive="router-active">
             <span>Cursos</span>
           </a>
         </li>

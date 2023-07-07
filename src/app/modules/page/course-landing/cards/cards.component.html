@@ -1,0 +1,13 @@
+<section>
+  <div class="content-cards">
+
+    <ng-container *ngFor="let item of listCards">
+      <p-card [header]="item.title" [style]="{'margin': '0 auto 2em auto'}">
+        <ng-template pTemplate="header">
+          <img [alt]="item.alt" [src]="item.image" class="card">
+        </ng-template>
+      </p-card>
+    </ng-container>
+
+  </div>
+</section>
