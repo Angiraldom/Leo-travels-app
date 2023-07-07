@@ -4,19 +4,30 @@
     color: $primary;
 }
 
+// .content-session {
+//     display: flex;
+//     flex-direction: column;
+//     gap: 15px;
+//     align-items: center;
+//     margin: 40px 0px;
+// }
+
 .content-session {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    align-items: center;
+    text-align: center;
     margin: 40px 0px;
 }
+
+// .content-accordion {
+//     display: flex;
+//     justify-content: space-around;
+//     padding: 30px;
+//     width: 100%;
+// }
 
 .content-accordion {
     display: flex;
     justify-content: space-around;
-    padding: 30px;
-    width: 100%;
+    width: 53%;
 }
 
 ::ng-deep .p-accordion .p-accordion-header:not(.p-disabled).p-highlight .p-accordion-header-link {
@@ -47,8 +58,12 @@
     background-color: $background-color;
 }
 
+// p-accordion {
+//     width: 40%;
+// }
+
 p-accordion {
-    width: 40%;
+    width: 85%;
 }
 
 .content-title {
@@ -57,7 +72,7 @@ p-accordion {
     justify-content: space-between;
 }
 
-@media only screen and (max-width: 753px) { 
+@media only screen and (max-width: 753px) {
     .content-accordion {
         flex-direction: column;
     }
@@ -65,4 +80,59 @@ p-accordion {
     p-accordion {
         width: 100%;
     }
+}
+
+
+
+// .slick-slider {
+//     width: 34%;
+//     margin: 62px auto 0px;
+//     background: rgb(14, 13, 13);
+// }
+
+.slick-slider {
+    background: rgb(14, 13, 13);
+    margin-left: 62px;
+    width: 30%;
+}
+
+::ng-deep.slick-prev,
+::ng-deep .slick-next {
+    height: 45px;
+    width: 40px;
+    z-index: 100;
+}
+
+::ng-deep.slick-prev::before,
+::ng-deep .slick-next::before {
+    color: $primary;
+    font-size: 49px;
+    opacity: 1;
+}
+
+::ng-deep .slick-prev {
+    left: -53px;
+}
+
+::ng-deep .slick-next {
+    right: -45px;
+}
+
+@media only screen and (max-width: 457px) {
+    .slick-slider {
+        width: 100%;
+    }
+
+    ::ng-deep .slick-prev,
+    ::ng-deep .slick-next {
+        display: none !important;
+    }
+}
+
+.content-children {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0 auto;
+    width: 90%;
 }
