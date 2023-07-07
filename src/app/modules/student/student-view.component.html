@@ -1,4 +1,4 @@
-<app-navbar></app-navbar>
+<app-menu-student></app-menu-student>
 <nav class="vertical-menu">
     <a routerLink="my-courses" routerLinkActive="active">
         <mat-icon>book</mat-icon>
@@ -8,7 +8,7 @@
         <mat-icon>person</mat-icon>
         Mi Perfil
     </a>
-    <a routerLink="/cerrar-sesion" routerLinkActive="active">
+    <a routerLink="/cerrar-sesion" (click)="logout()">
         <mat-icon>exit_to_app</mat-icon>
         Cerrar Sesión
     </a>

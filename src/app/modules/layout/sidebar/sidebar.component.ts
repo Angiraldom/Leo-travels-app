@@ -7,6 +7,7 @@ import { clearCart } from 'src/app/store/actions/cart.actions';
 import { AppState } from 'src/app/store/app.reducer';
 import { CommonModule } from '@angular/common';
 import { IUser } from '../../admin/user/interface/IUser.interface';
+import { clearProfile } from 'src/app/store/actions/user.actions';
 
 @Component({
   selector: 'app-sidebar',
@@ -25,6 +26,7 @@ export class SidebarComponent implements OnInit, OnDestroy {
   logout() {
     localStorage.clear();
     this.store.dispatch(clearCart());
+    this.store.dispatch(clearProfile());
     this.router.navigate(['login']);
   }
 
