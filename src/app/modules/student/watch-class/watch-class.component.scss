@@ -55,7 +55,7 @@ mat-icon {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 15px;
+    gap: 30px;
     text-align: justify;
 }
 
@@ -63,10 +63,15 @@ mat-icon {
     display: none;
 }
 
+.comptleted {
+    background-color: $secondary;
+}
+
 @media only screen and (min-width: 734px) {
     .content-video {
         flex-direction: row;
         align-items: initial;
+        gap: 55px;
     }
 
     .container {

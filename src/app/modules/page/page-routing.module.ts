@@ -12,6 +12,11 @@ const routes: Routes = [
     loadChildren: () =>
       import('./purchase/purchase.module').then((m) => m.PurchaseModule),
   },
+  {
+    path: '',
+    redirectTo: 'kit-viajero',
+    pathMatch: 'full',
+  },
 ];
 
 @NgModule({

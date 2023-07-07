@@ -1,5 +1,5 @@
 <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig">
     <div ngxSlickItem *ngFor="let slide of slides; let index = index" class="slide">
-        <img src="{{ slide }}" alt="{{ 'image' +  index}}" width="100%">
+        <img oncontextmenu='return false' onkeydown='return false' src="{{ slide }}" alt="{{ 'image' +  index}}" width="100%">
     </div>
 </ngx-slick-carousel>

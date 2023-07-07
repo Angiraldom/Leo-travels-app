@@ -8,10 +8,10 @@
     <div class="container-first-section-1">
       <div class="container product-item">
         <div class="container-image">
-          <img [src]="this.viewProduct.images[0]" />
+          <img oncontextmenu='return false' onkeydown='return false' [src]="this.viewProduct.images[0]" />
         </div>
         <div class="container-image">
-          <img [src]="this.viewProduct.images[1]" />
+          <img oncontextmenu='return false' onkeydown='return false' [src]="this.viewProduct.images[1]" />
         </div>
       </div>
       <div class="container-view-product-carrousel">
@@ -22,7 +22,7 @@
           <ng-template let-product pTemplate="item">
             <div class="product-item">
               <div class="product-item-content">
-                <img [src]="product" class="product-image" />
+                <img oncontextmenu='return false' onkeydown='return false' [src]="product" class="product-image" />
               </div>
             </div>
           </ng-template>
@@ -65,7 +65,7 @@
     <ng-template let-product pTemplate="item">
       <div class="product-item" *ngIf="product.id !== id">
         <div class="product-item-content">
-          <img [src]="product.images[0]" [alt]="product.title" class="product-image" />
+          <img oncontextmenu='return false' onkeydown='return false' [src]="product.images[0]" [alt]="product.title" class="product-image" />
           <div class="container-info-carrousel">
             <p>
               <span class="title">{{

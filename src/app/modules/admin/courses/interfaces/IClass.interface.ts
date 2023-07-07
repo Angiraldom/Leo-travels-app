@@ -3,4 +3,5 @@ export interface IClass {
     name: string;
     url?: string;
     description?: string;
+    completed: boolean;
 }
