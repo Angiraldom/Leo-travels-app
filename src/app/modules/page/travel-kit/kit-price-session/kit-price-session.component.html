@@ -8,6 +8,6 @@
     <h2 class="color-blue">Kit viajero: {{ 0 | currency }}</h2>
 
     <app-generic-button [nameButton]="'COMPRAR KIT'" [sizeButton]="'large'"
-        classButton="class_blue_color_yellow"></app-generic-button>
+        classButton="class_blue_color_yellow" (emitClick)="addProduct()"></app-generic-button>
 
 </section>

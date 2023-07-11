@@ -6,7 +6,7 @@
             <div class="card-info">
                 <p class="product-name" [matTooltip]="item.title" [routerLink]="'view-product/' + item.id">{{item.title}}</p>
                 <p>{{item.price | currency }}</p>
-                <app-generic-button (emitClick)="validateReference(item)" class="component-button" [sizeButton]="'small'" [nameButton]="'Añadir al carrito'"></app-generic-button>
+                <app-generic-button (emitClick)="addProduct(item)" class="component-button" [sizeButton]="'small'" [nameButton]="'Añadir al carrito'"></app-generic-button>
             </div>
         </div>
     </div>
