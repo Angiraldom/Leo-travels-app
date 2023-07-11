@@ -1,0 +1,23 @@
+<app-header-promotions></app-header-promotions>
+<div class="content background-white color-primary">
+    <h1 class="title">¿Quieres añadir el
+        curso a tu compra?</h1>
+
+    <div class="container">
+
+        <img class="responsive-img" oncontextmenu='return false' onkeydown='return false' fill priority
+            [ngSrc]="'https://vilean.s3.us-east-2.amazonaws.com/KIT+VIAJERO/Kit+viajero+H.jpg'" alt="kit-viajero">
+    </div>
+
+
+    <div>
+        <p>Si compras el curso, el kit tendrá un</p>
+        <h2 class="color-primary">15% de descuento</h2>
+    </div>
+
+    <app-generic-button [sizeButton]="'large'" [classButton]="'class_yellow'"
+        [nameButton]="'Añadir al carrito'" (emitClick)="addCourse()" ></app-generic-button>
+    <app-generic-button [sizeButton]="'large'" [classButton]="'class_white_color_blue'"
+        [nameButton]="'No añadir'" (emitClick)="changeRoute()"></app-generic-button>
+</div>
+<app-footer></app-footer>

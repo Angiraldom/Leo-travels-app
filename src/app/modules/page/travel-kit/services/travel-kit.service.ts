@@ -3,6 +3,7 @@ import { Store } from '@ngrx/store';
 import { IProduct } from 'src/app/modules/admin/products/interfaces/IProduct.interface';
 import { AppState } from 'src/app/store/app.reducer';
 import * as cartActions from 'src/app/store/actions/cart.actions';
+import { ICourse } from 'src/app/modules/admin/courses/interfaces/ICourses.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -10,10 +11,10 @@ import * as cartActions from 'src/app/store/actions/cart.actions';
 export class TravelKitService {
   private store = inject(Store<AppState>);
 
-  addProduct(product: IProduct, reference: string, productsInCart: any[]) {
-    const existProduct = productsInCart.find((item) => item.id === product.id);
+  addProduct(product: IProduct | ICourse, reference: string, productsInCart: any[]) {
+    // const existProduct = productsInCart.find((item) => item.id === product.id);
 
-    // const exist = this.productsInCart.some((item) => item._id === product._id)
+    const existProduct = productsInCart.find((item) => item._id === product._id)
     if (existProduct) {
       const newProduct = {...existProduct};
       newProduct.amount = existProduct.amount! + 1;
@@ -31,7 +32,7 @@ export class TravelKitService {
    * @param product Product to add to the cart.
    * @param product Product to add to the cart.
    */
-  validateReference(product: IProduct, productsInCart: any[]) {
+  validateReference(product: IProduct | ICourse, productsInCart: any[]) {
     let reference = localStorage.getItem('reference');
     if (!reference) {
       reference = this.generateReference();

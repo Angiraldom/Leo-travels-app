@@ -1,8 +1,14 @@
-<app-menu></app-menu><app-gallery></app-gallery>
-<app-kit-price-session ></app-kit-price-session>
-<app-video-session [product]="product"></app-video-session>
-<app-description-session></app-description-session>
-<app-discount-session [product]="product"></app-discount-session>
-<app-buy-products></app-buy-products>
-<app-recommendation-session [product]="product"></app-recommendation-session>
-<app-footer></app-footer>
+<ng-container *ngIf="!showPromotion">
+    <app-menu></app-menu><app-gallery></app-gallery>
+    <app-kit-price-session (onAddTravelKit)="addKitViajero()" ></app-kit-price-session>
+    <app-video-session (onAddTravelKit)="addKitViajero()" ></app-video-session>
+    <app-description-session></app-description-session>
+    <app-discount-session (onAddTravelKit)="addKitViajero()"></app-discount-session>
+    <app-buy-products (onAddProduct)="addProduct($event)"></app-buy-products>
+    <app-recommendation-session (onAddTravelKit)="addKitViajero()"></app-recommendation-session>
+    <app-footer></app-footer>
+</ng-container>
+
+<ng-container *ngIf="showPromotion">
+    <app-course-promotion (onAddCourse)="addCourse()"></app-course-promotion>
+</ng-container>

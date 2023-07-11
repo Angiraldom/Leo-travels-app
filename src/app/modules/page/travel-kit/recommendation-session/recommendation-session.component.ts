@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-recommendation-session',
@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./recommendation-session.component.scss']
 })
 export class RecommendationSessionComponent {
+  @Output() onAddTravelKit = new EventEmitter();
 
+  handleClick() {
+    this.onAddTravelKit.emit();
+  }
 }

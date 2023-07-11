@@ -8,14 +8,14 @@
     <div class="container-first-section-1">
       <div class="container product-item">
         <div class="container-image">
-          <img oncontextmenu='return false' onkeydown='return false' [src]="this.viewProduct.images[0]" />
+          <img oncontextmenu='return false' onkeydown='return false' [src]="this.viewProduct.images![0]" />
         </div>
         <div class="container-image">
-          <img oncontextmenu='return false' onkeydown='return false' [src]="this.viewProduct.images[1]" />
+          <img oncontextmenu='return false' onkeydown='return false' [src]="this.viewProduct.images![1]" />
         </div>
       </div>
       <div class="container-view-product-carrousel">
-        <p-carousel [value]="viewProduct.images" styleClass="custom-carousel" [numVisible]="1" [numScroll]="1"
+        <p-carousel [value]="viewProduct.images!" styleClass="custom-carousel" [numVisible]="1" [numScroll]="1"
           [circular]="true" [autoplayInterval]="3000" [responsiveOptions]="responsiveOptions">
           <ng-template pTemplate="header">
           </ng-template>

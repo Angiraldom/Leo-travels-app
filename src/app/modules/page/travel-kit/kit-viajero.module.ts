@@ -17,6 +17,8 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { PrimengModule } from 'src/app/primeng/primeng.module';
 import { MaterialModule } from 'src/app/material/material.module';
 import { ViewProductComponent } from './view-product/view-product.component';
+import { CoursePromotionComponent } from './course-promotion/course-promotion.component';
+import { HeaderPromotionsComponent } from 'src/app/shared/header-promotions/header-promotions.component';
 
 
 @NgModule({
@@ -29,7 +31,8 @@ import { ViewProductComponent } from './view-product/view-product.component';
     KitPriceSessionComponent,
     GalleryComponent,
     VideoSessionComponent,
-    ViewProductComponent
+    ViewProductComponent,
+    CoursePromotionComponent
   ],
   imports: [
     CommonModule,
@@ -40,7 +43,8 @@ import { ViewProductComponent } from './view-product/view-product.component';
     SlickCarouselModule,
     PrimengModule,
     NgOptimizedImage,
-    MaterialModule
+    MaterialModule,
+    HeaderPromotionsComponent
   ]
 })
 export class KitViajeroModule { }

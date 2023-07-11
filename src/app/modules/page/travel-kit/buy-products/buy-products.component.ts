@@ -1,22 +1,39 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-
-import { KitViajeroComponent } from '../kit-viajero.component';
+import { Component, EventEmitter, OnInit, Output, inject } from '@angular/core';
+import { map } from 'rxjs';
+import { BaseService } from 'src/app/core/services/base.service';
+import { IProduct } from 'src/app/modules/admin/products/interfaces/IProduct.interface';
 
 @Component({
   selector: 'app-buy-products',
   templateUrl: './buy-products.component.html',
   styleUrls: ['./buy-products.component.scss'],
 })
-export class BuyProductsComponent extends KitViajeroComponent implements OnInit, OnDestroy {
+export class BuyProductsComponent implements OnInit {
+  protected baseService = inject(BaseService);
+  @Output() onAddProduct = new EventEmitter();
+
   products: any[] = [];
 
-  override ngOnInit(): void {
-    this.$store = this.store.select('cart').subscribe({
-      next: (response) => {
-        this.productsInList = response.products;
-      }
-    });
+  ngOnInit(): void {
     this.getProducts();
+  }
+
+  getProducts() {
+    this.baseService.http.get('https://api.escuelajs.co/api/v1/products?offset=0&limit=10').
+    pipe(
+      map((item: any) => {
+        console.log(item);
+        
+        item['_id'] = item['id']
+        return item;
+      })
+    )
+    .subscribe({
+      next: (response: any) => {
+        this.products = response;
+        // console.log(response);
+      },
+    });
     // this.baseService.getMethod('product').subscribe({
     //   next: (response: any) => {
     //     this.products = response.data;
@@ -24,15 +41,7 @@ export class BuyProductsComponent extends KitViajeroComponent implements OnInit,
     // });
   }
 
-  ngOnDestroy(): void {
-    this.$store.unsubscribe(); 
-  }
-
-  getProducts() {
-    this.baseService.http.get('https://api.escuelajs.co/api/v1/products?offset=0&limit=10').subscribe({
-      next: (response: any) => {
-        this.products = response;
-      },
-    });
+  handleClick(product: IProduct) {
+    this.onAddProduct.emit(product);
   }
 }

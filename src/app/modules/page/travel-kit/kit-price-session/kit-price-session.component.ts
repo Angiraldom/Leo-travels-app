@@ -1,11 +1,14 @@
-import { Component } from '@angular/core';
-import { KitViajeroComponent } from '../kit-viajero.component';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-kit-price-session',
   templateUrl: './kit-price-session.component.html',
   styleUrls: ['./kit-price-session.component.scss']
 })
-export class KitPriceSessionComponent extends KitViajeroComponent {
+export class KitPriceSessionComponent {
+  @Output() onAddTravelKit = new EventEmitter();
 
+  handleClick() {
+    this.onAddTravelKit.emit();
+  }
 }

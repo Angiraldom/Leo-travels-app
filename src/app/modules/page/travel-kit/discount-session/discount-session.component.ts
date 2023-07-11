@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-discount-session',
@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./discount-session.component.scss']
 })
 export class DiscountSessionComponent {
+  @Output() onAddTravelKit = new EventEmitter();
 
+  handleClick() {
+    this.onAddTravelKit.emit();
+  }
 }

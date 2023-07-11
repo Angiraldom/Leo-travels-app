@@ -20,7 +20,7 @@ export interface IProduct {
 
   long?: number;
 
-  images: string[];
+  images?: string[];
 
   updatedAt?: Date;
 
