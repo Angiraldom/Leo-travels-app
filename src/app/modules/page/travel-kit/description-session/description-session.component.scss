@@ -4,30 +4,20 @@
     color: $primary;
 }
 
-// .content-session {
-//     display: flex;
-//     flex-direction: column;
-//     gap: 15px;
-//     align-items: center;
-//     margin: 40px 0px;
-// }
-
 .content-session {
+    background-color: $background-color;
     text-align: center;
-    margin: 40px 0px;
+    padding: 40px 0px;
 }
 
-// .content-accordion {
-//     display: flex;
-//     justify-content: space-around;
-//     padding: 30px;
-//     width: 100%;
-// }
+
+.accordion {
+    width: 53%;
+}
 
 .content-accordion {
     display: flex;
     justify-content: space-around;
-    width: 53%;
 }
 
 ::ng-deep .p-accordion .p-accordion-header:not(.p-disabled).p-highlight .p-accordion-header-link {
@@ -55,12 +45,8 @@
 ::ng-deep .p-accordion .p-accordion-content {
     border: none;
     color: $primary;
-    background-color: $background-color;
+    background-color: $white;
 }
-
-// p-accordion {
-//     width: 40%;
-// }
 
 p-accordion {
     width: 85%;

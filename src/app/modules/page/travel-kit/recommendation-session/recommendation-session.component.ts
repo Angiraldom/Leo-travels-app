@@ -1,4 +1,5 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-recommendation-session',
@@ -6,9 +7,9 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./recommendation-session.component.scss']
 })
 export class RecommendationSessionComponent {
-  @Output() onAddTravelKit = new EventEmitter();
+  protected router = inject(Router);
 
-  handleClick() {
-    this.onAddTravelKit.emit();
+  changeRoute() {
+    this.router.navigate(['/cursos'])
   }
 }

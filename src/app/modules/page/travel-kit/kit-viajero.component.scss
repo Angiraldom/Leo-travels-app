@@ -1,0 +1,21 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 82%;
+    height: auto;
+    margin: 60px auto 0px;
+}
+
+.responsive-img {
+    position: relative !important;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.container-p-messages {
+    margin-top: 40px;
+    width: 100%;
+    position: absolute;
+    z-index: 1;
+}

@@ -8,6 +8,7 @@ import { IProduct } from '../../admin/products/interfaces/IProduct.interface';
 import { AppState } from 'src/app/store/app.reducer';
 import { TravelKitService } from './services/travel-kit.service';
 import { ICourse } from '../../admin/courses/interfaces/ICourses.interface';
+import { Message } from 'primeng/api';
 
 @Component({
   selector: 'app-kit-viajero',
@@ -27,6 +28,13 @@ export class KitViajeroComponent implements OnInit, OnDestroy {
   $store!: Subscription;
   productsInList: any[] = [];
   showPromotion = false;
+  message: Message[] = [
+    {
+      severity: 'warn',
+      summary:
+        'Los productos físicos solo están disponibles para envío en Colombia',
+    },
+  ];
 
   ngOnInit(): void {
     this.getTravelKit();

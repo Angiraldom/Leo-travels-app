@@ -1,11 +1,17 @@
 <ng-container *ngIf="!showPromotion">
-    <app-menu></app-menu><app-gallery></app-gallery>
+    <app-menu></app-menu>
+    <div class="container-p-messages">
+        <p-messages severity="warn" [(value)]="message"></p-messages>
+      </div>
+    <div class="container">
+        <img class="responsive-img" oncontextmenu='return false' onkeydown='return false' fill [ngSrc]="'https://vilean.s3.us-east-2.amazonaws.com/KIT+VIAJERO/Kit+viajero+H.jpg'" alt="portada">
+    </div>
     <app-kit-price-session (onAddTravelKit)="addKitViajero()" ></app-kit-price-session>
     <app-video-session (onAddTravelKit)="addKitViajero()" ></app-video-session>
     <app-description-session></app-description-session>
     <app-discount-session (onAddTravelKit)="addKitViajero()"></app-discount-session>
     <app-buy-products (onAddProduct)="addProduct($event)"></app-buy-products>
-    <app-recommendation-session (onAddTravelKit)="addKitViajero()"></app-recommendation-session>
+    <app-recommendation-session></app-recommendation-session>
     <app-footer></app-footer>
 </ng-container>
 
