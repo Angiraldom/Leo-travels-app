@@ -1,0 +1,29 @@
+.letter_yellow_white {}
+
+.letter_blue {}
+
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 15px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.no-bold {
+    font-weight: 100;
+}
+
+hr {
+    width: 95%;
+}
+
+span {
+    text-decoration-line: line-through;
+}
+
+.max-width {
+    max-width: 250px;
+}

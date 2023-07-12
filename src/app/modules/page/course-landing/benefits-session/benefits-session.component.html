@@ -1,0 +1,32 @@
+<div class="content">
+    <div>
+        <h2 class="color-secondary">Además:</h2>
+        <p class="color-white">Al comprar el curso, tendrás acceso a:</p>
+    </div>
+
+    <div class="content-section">
+        <p-card
+            [header]="'Sección de comentarios en cada clase para hacer preguntas, pedir tips extra o compartir tus avances'"
+            [style]="{'margin': '0 auto 2em auto'}">
+            <ng-template pTemplate="header">
+                <div class="container">
+                    <img [alt]="'image1'"
+                        [ngSrc]="'https://vilean.s3.us-east-2.amazonaws.com/IMAGENES+SITIO+WEB/IC-20.png'" fill
+                        class="responsive-img card">
+                </div>
+            </ng-template>
+        </p-card>
+        <p-card [header]="'Todas las actualizaciones futuras sin ningún costo extra.'"
+            [style]="{'margin': '0 auto 2em auto'}">
+            <ng-template pTemplate="header">
+                <div class="container">
+                    <img [alt]="'image2'"
+                        [ngSrc]="'https://vilean.s3.us-east-2.amazonaws.com/IMAGENES+SITIO+WEB/IC-21.png'" fill
+                        class="responsive-img card">
+                </div>
+            </ng-template>
+        </p-card>
+    </div>
+    <app-course-value></app-course-value>
+
+</div>

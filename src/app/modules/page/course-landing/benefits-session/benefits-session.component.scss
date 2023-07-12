@@ -1,11 +1,27 @@
 @import '/src/styles/variables';
 
-section {
-  background-color: #bdbdbd52;
+.color-secondary {
+  color: $secondary;
 }
 
-.content-cards {
-  padding: 30px 40px 1px;
+.color-white {
+  color: $white;
+}
+
+.content {
+  width: 100%;
+  background-color: $primary;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 35px 25px;
+  gap: 35px;
+}
+
+.content-section {
+  width: 100%;
 
   .card {
     width: 15% !important;
@@ -19,14 +35,10 @@ section {
   }
 
   ::ng-deep .p-card-body {
-    max-width: 140px;
+    max-width: 232px;
     margin: 0 auto;
     padding: 0px;
     text-align: center;
-  }
-
-  ::ng-deep p-card:nth-last-child(2) .p-card-body {
-    max-width: 200px;
   }
 
   ::ng-deep .p-card {
@@ -39,17 +51,21 @@ section {
     margin-top: 10px;
     margin-bottom: 0px;
     font-weight: normal;
-    font-size: 15px;
+    font-size: 16px;
     color: $primary;
   }
 }
 
 @media only screen and (min-width: 750px) and (max-width: 1065px) {
-  .content-cards {
+  .content-section {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     max-width: 750px;
     margin: 0 auto;
+
+    ::ng-deep .p-card:first-child {
+      height: 199px;
+    }
   }
 
   ::ng-deep .p-card {
@@ -57,20 +73,30 @@ section {
     max-width: 310px;
     min-height: 183px;
   }
+
 }
 
 @media only screen and (min-width: 1066px) {
-  .content-cards {
+  .content-section {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     margin: 0 auto;
-    column-gap: 10px;
+    column-gap: 40px;
+
+    p-card:first-child {
+      grid-column: 2/2;
+    }
+
+    ::ng-deep .p-card:first-child {
+      height: 199px;
+    }
   }
 
   ::ng-deep .p-card {
     display: grid;
     min-height: 170px;
   }
+
 }
 
 @media only screen and (min-width: 1234px) {
@@ -78,8 +104,10 @@ section {
     max-width: 305px !important;
   }
 
-  .content-cards {
-    grid-template-columns: repeat(4, 1fr);
+  .content-section {
+    ::ng-deep .p-card:first-child {
+      height: 199px;
+    }
   }
 }
 
