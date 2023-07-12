@@ -8,11 +8,6 @@
     padding: 30px 0px;
 }
 
-.img {
-    width: 100%;
-    max-height: 500px;
-    object-fit: cover;
-}
 
 .swiper {
     width: 80%;
@@ -41,3 +36,17 @@
 }
 
 
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 310px;
+    height: auto;
+}
+
+.responsive-img {
+    width: 100%;
+    object-fit: cover;
+    position: relative !important;
+    max-width: 100%;
+}

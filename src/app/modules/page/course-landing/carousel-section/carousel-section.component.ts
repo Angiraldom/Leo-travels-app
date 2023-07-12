@@ -8,11 +8,18 @@ import SwiperCore, {
   A11y,
   SwiperOptions,
   Autoplay,
-  EffectCoverflow
-} from "swiper";
+  EffectCoverflow,
+} from 'swiper';
 
 // install Swiper modules
-SwiperCore.use([Navigation, Pagination, Scrollbar, A11y, Autoplay, EffectCoverflow]);
+SwiperCore.use([
+  Navigation,
+  Pagination,
+  Scrollbar,
+  A11y,
+  Autoplay,
+  EffectCoverflow,
+]);
 
 @Component({
   selector: 'app-carousel-section',
@@ -28,47 +35,45 @@ export class CarouselSectionComponent {
     scrollbar: { draggable: true },
     autoplay: {
       delay: 5000,
-      disableOnInteraction: false
+      disableOnInteraction: false,
     },
     breakpoints: {
       582: {
         slidesPerView: 4,
-      }
-    }
-
-
+      },
+    },
   };
 
   nameImages = [
-    '1653826090343-01.jpeg',
-    'IMG_20220522_211436-01.jpeg',
-    'IMG_20220523_134716-01.jpeg',
-    'IMG_20220523_160559-01.jpeg',
-    'IMG_20220525_175816-01-01.jpeg',
-    'IMG_20220527_193002-01.jpeg',
-    'IMG_20220527_202408-01.jpeg',
-    'IMG_20220529_200419-01.jpeg',
-    'IMG_20220530_133739-01.jpeg',
-    'IMG_20220530_142327_773-01.jpeg',
-    'IMG_20220530_193128-01.jpeg',
-    'IMG_20220601_173802-01.jpeg',
-    'IMG_20220602_171918-01.jpeg',
-    'IMG_20220607_182234-01-01.jpeg',
-    'IMG_20220607_183200-01.jpeg',
-    'IMG_20220607_205749-01-01.jpeg',
-    'IMG_20220608_123134-02.jpeg',
-    'IMG_20220608_124359-01-01.jpeg',
-    'IMG_20220608_125640-01-01.jpeg',
-    'IMG_20220608_155906-01-01.jpeg',
-    'IMG_20220608_184717-01.jpeg',
-    'IMG_20220609_220402-01.jpeg',
-    'IMG_20220610_105748-01-01.jpeg',
-    'IMG_20220610_122754-01.jpeg',
-    'IMG_20220612_164746.jpg',
-    'IMG_20220612_210257-01.jpeg',
-    'IMG_20220613_224604-01.jpeg',
-    'IMG_20220614_161949-01.jpeg',
-    'IMG_20220614_212221-01.jpeg',
-    'IMG_20220614_233856-01.jpeg',
+    'https://vilean.s3.us-east-2.amazonaws.com/CARRUSEL+CURSO/imag1.jpeg',
+    'https://vilean.s3.us-east-2.amazonaws.com/CARRUSEL+CURSO/imag2.jpeg',
+    'https://vilean.s3.us-east-2.amazonaws.com/CARRUSEL+CURSO/imag3.jpeg',
+    'https://vilean.s3.us-east-2.amazonaws.com/CARRUSEL+CURSO/imag4.jpeg',
+    'https://vilean.s3.us-east-2.amazonaws.com/CARRUSEL+CURSO/imag5.jpeg',
+    'https://vilean.s3.us-east-2.amazonaws.com/CARRUSEL+CURSO/imag6.jpeg',
+    'https://vilean.s3.us-east-2.amazonaws.com/CARRUSEL+CURSO/imag7.jpeg',
+    'https://vilean.s3.us-east-2.amazonaws.com/CARRUSEL+CURSO/imag8.jpeg',
+    'https://vilean.s3.us-east-2.amazonaws.com/CARRUSEL+CURSO/imag9.jpeg',
+    'https://vilean.s3.us-east-2.amazonaws.com/CARRUSEL+CURSO/imag10.jpeg',
+    'https://vilean.s3.us-east-2.amazonaws.com/CARRUSEL+CURSO/imag11.jpeg',
+    'https://vilean.s3.us-east-2.amazonaws.com/CARRUSEL+CURSO/imag12.jpeg',
+    'https://vilean.s3.us-east-2.amazonaws.com/CARRUSEL+CURSO/imag13.jpeg',
+    'https://vilean.s3.us-east-2.amazonaws.com/CARRUSEL+CURSO/imag14.jpeg',
+    'https://vilean.s3.us-east-2.amazonaws.com/CARRUSEL+CURSO/imag15.jpeg',
+    'https://vilean.s3.us-east-2.amazonaws.com/CARRUSEL+CURSO/imag16.jpeg',
+    'https://vilean.s3.us-east-2.amazonaws.com/CARRUSEL+CURSO/imag17.jpeg',
+    'https://vilean.s3.us-east-2.amazonaws.com/CARRUSEL+CURSO/imag18.jpeg',
+    'https://vilean.s3.us-east-2.amazonaws.com/CARRUSEL+CURSO/imag19.jpeg',
+    'https://vilean.s3.us-east-2.amazonaws.com/CARRUSEL+CURSO/imag20.jpeg',
+    'https://vilean.s3.us-east-2.amazonaws.com/CARRUSEL+CURSO/imag21.jpeg',
+    'https://vilean.s3.us-east-2.amazonaws.com/CARRUSEL+CURSO/imag22.jpeg',
+    'https://vilean.s3.us-east-2.amazonaws.com/CARRUSEL+CURSO/imag23.jpeg',
+    'https://vilean.s3.us-east-2.amazonaws.com/CARRUSEL+CURSO/imag24.jpeg',
+    'https://vilean.s3.us-east-2.amazonaws.com/CARRUSEL+CURSO/imag25.jpg',
+    'https://vilean.s3.us-east-2.amazonaws.com/CARRUSEL+CURSO/imag26.jpeg',
+    'https://vilean.s3.us-east-2.amazonaws.com/CARRUSEL+CURSO/imag27.jpeg',
+    'https://vilean.s3.us-east-2.amazonaws.com/CARRUSEL+CURSO/imag28.jpeg',
+    'https://vilean.s3.us-east-2.amazonaws.com/CARRUSEL+CURSO/imag29.jpeg',
+    'https://vilean.s3.us-east-2.amazonaws.com/CARRUSEL+CURSO/imag30.jpeg',
   ];
 }
