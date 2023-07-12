@@ -4,7 +4,9 @@
     <ng-container *ngFor="let item of listCards">
       <p-card [header]="item.title" [style]="{'margin': '0 auto 2em auto'}">
         <ng-template pTemplate="header">
-          <img [alt]="item.alt" [src]="item.image" class="card">
+          <div class="container">
+            <img [alt]="item.alt" [ngSrc]="item.image" fill class="responsive-img card">
+          </div>
         </ng-template>
       </p-card>
     </ng-container>

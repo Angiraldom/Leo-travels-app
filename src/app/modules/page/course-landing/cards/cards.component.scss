@@ -8,7 +8,7 @@ section {
   padding: 30px 40px 0px 40px;
 
   .card {
-    width: 15%;
+    width: 15% !important;
     margin-top: 25px;
   }
 
@@ -25,7 +25,7 @@ section {
     text-align: center;
   }
 
-  ::ng-deep p-card:last-child .p-card-body {
+  ::ng-deep p-card:nth-last-child(2) .p-card-body {
     max-width: 200px;
   }
 
@@ -77,4 +77,18 @@ section {
   ::ng-deep .p-card {
     max-width: 305px !important;
   }
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 310px;
+  height: auto;
+}
+
+.responsive-img {
+  position: relative !important;
+  max-width: 100%;
+  max-height: 100%;
 }
