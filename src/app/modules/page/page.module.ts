@@ -2,13 +2,10 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { PageRoutingModule } from './page-routing.module';
-import { KitPromotionComponent } from './kit-promotion/kit-promotion.component';
 
 
 @NgModule({
-  declarations: [
-    KitPromotionComponent
-  ],
+  declarations: [],
   imports: [
     CommonModule,
     PageRoutingModule

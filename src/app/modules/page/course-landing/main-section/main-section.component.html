@@ -23,7 +23,7 @@
       </div>
 
       <div class="content-button button">
-        <app-generic-button [sizeButton]="'large'" [nameButton]="'COMPRAR CURSO'"></app-generic-button>
+        <app-generic-button [sizeButton]="'large'" (emitClick)="handleClick()" [nameButton]="'COMPRAR CURSO'"></app-generic-button>
       </div>
     </div>
   </div>

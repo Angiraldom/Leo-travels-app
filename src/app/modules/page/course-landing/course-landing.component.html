@@ -1,20 +1,26 @@
-<app-menu></app-menu>
-<app-main-section></app-main-section>
-<app-steps-section></app-steps-section>
+<ng-container *ngIf="!showPromotion">
+    <app-menu></app-menu>
+    <app-main-section (onAddCourse)="validateCourseAndAddInCart()"></app-main-section>
+    <app-steps-section></app-steps-section>
 
-<div class="container-info" id="video">
-    <app-video class="app-video"></app-video>
-    <app-info-buy-section class="movil"></app-info-buy-section>
-    <app-info-fotos class="app-info" id="benefits"></app-info-fotos>
-</div>
+    <div class="container-info" id="video">
+        <app-video class="app-video"></app-video>
+        <app-info-buy-section class="movil" (onAddCourse)="validateCourseAndAddInCart()"></app-info-buy-section>
+        <app-info-fotos class="app-info" id="benefits"></app-info-fotos>
+    </div>
 
-<app-info-buy-section class="desktop"></app-info-buy-section>
+    <app-info-buy-section class="desktop"></app-info-buy-section>
 
-<app-buy-section class="app-buy"></app-buy-section>
-<app-carousel-section class="app-carousel" id="coursel"></app-carousel-section>
+    <app-buy-section class="app-buy" (onAddCourse)="validateCourseAndAddInCart()"></app-buy-section>
+    <app-carousel-section class="app-carousel" id="coursel"></app-carousel-section>
 
-<div class="container-carousel"></div>
-<app-course-content-section id="content-course"></app-course-content-section>
-<app-cards></app-cards>
-<app-travel-kit id="travel-kit"></app-travel-kit>
-<app-footer></app-footer>
+    <div class="container-carousel"></div>
+    <app-course-content-section id="content-course"></app-course-content-section>
+    <app-cards></app-cards>
+    <app-travel-kit id="travel-kit"></app-travel-kit>
+    <app-footer></app-footer>
+</ng-container>
+
+<ng-container *ngIf="showPromotion">
+    <app-kit-promotion (onAddTravelKit)="addKit()"></app-kit-promotion>
+</ng-container>

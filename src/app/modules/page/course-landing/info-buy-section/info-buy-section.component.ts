@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-info-buy-section',
@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./info-buy-section.component.scss']
 })
 export class InfoBuySectionComponent {
+  @Output() onAddCourse = new EventEmitter();
 
+  handleClick() {
+    this.onAddCourse.emit();
+  }
 }

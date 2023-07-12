@@ -1,4 +1,4 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnDestroy, OnInit, inject } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { Router } from '@angular/router';
@@ -14,14 +14,14 @@ import { ICourse } from '../../admin/courses/interfaces/ICourses.interface';
   templateUrl: './kit-viajero.component.html',
   styleUrls: ['./kit-viajero.component.scss'],
 })
-export class KitViajeroComponent implements OnInit {
+export class KitViajeroComponent implements OnInit, OnDestroy {
   protected baseService = inject(BaseService);
   protected travelKitService = inject(TravelKitService);
   protected store = inject(Store<AppState>);
-  private router = inject(Router);
+  protected router = inject(Router);
 
-  private readonly idKitViajero = '64a75cd97a31b132537ae59a';
-  private readonly idCourse = '64a04a387a31b132537ae49d';
+  protected readonly idKitViajero = '64a75cd97a31b132537ae59a';
+  protected readonly idCourse = '64a04a387a31b132537ae49d';
   product!: IProduct;
   course!: ICourse;
   $store!: Subscription;
@@ -36,6 +36,10 @@ export class KitViajeroComponent implements OnInit {
         this.productsInList = response.products;
       },
     });
+  }
+
+  ngOnDestroy(): void {
+    this.$store.unsubscribe();
   }
 
   getTravelKit() {

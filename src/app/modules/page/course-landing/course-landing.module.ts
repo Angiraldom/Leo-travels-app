@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { SwiperModule } from 'swiper/angular';
 
 import { CourseLandingRoutingModule } from './course-landing-routing.module';
@@ -19,6 +19,8 @@ import { PrimengModule } from 'src/app/primeng/primeng.module';
 import { TravelKitComponent } from './travel-kit/travel-kit.component';
 import { MenuComponent } from 'src/app/shared/menu/menu.component';
 import { FooterComponent } from 'src/app/shared/footer/footer.component';
+import { KitPromotionComponent } from './kit-promotion/kit-promotion.component';
+import { HeaderPromotionsComponent } from 'src/app/shared/header-promotions/header-promotions.component';
 
 
 @NgModule({
@@ -34,7 +36,8 @@ import { FooterComponent } from 'src/app/shared/footer/footer.component';
     CarouselSectionComponent,
     CourseContentSectionComponent,
     CardsComponent,
-    TravelKitComponent
+    TravelKitComponent,
+    KitPromotionComponent
   ],
   imports: [
     CommonModule,
@@ -44,7 +47,9 @@ import { FooterComponent } from 'src/app/shared/footer/footer.component';
     PrimengModule,
     MenuComponent,
     FooterComponent,
-    MenuComponent
+    MenuComponent,
+    HeaderPromotionsComponent,
+    NgOptimizedImage
   ]
 })
 export class CourseLandingModule { }

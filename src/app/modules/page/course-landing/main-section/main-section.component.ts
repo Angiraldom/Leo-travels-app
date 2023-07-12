@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-main-section',
@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./main-section.component.scss']
 })
 export class MainSectionComponent {
+  @Output() onAddCourse = new EventEmitter();
 
+  handleClick() {
+    this.onAddCourse.emit();
+  }
 }
