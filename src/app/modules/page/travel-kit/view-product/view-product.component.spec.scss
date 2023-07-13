@@ -93,6 +93,20 @@
   z-index: 1;
 }
 
+::ng-deep .p-message.p-message-warn{
+  background: $secondary;
+  border: solid $secondary;
+  border-width:0 0 0 6px;
+  color: $primary;
+
+  .p-message-icon{
+    color: $primary;
+  }
+
+  .p-message-close{
+    color: $white;
+  }
+}
 @media (max-width: 600px) {
   .container-view-product-carrousel {
     display: block;
