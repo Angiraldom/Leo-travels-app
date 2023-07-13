@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { IClassButton } from 'src/app/shared/generic-button/interface/IClassButton.interface';
 
 @Component({
   selector: 'app-course-value',
@@ -6,5 +7,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./course-value.component.scss']
 })
 export class CourseValueComponent {
-
+  @Input() typeClass: 'letter_blue' | 'letter_yellow_white' = 'letter_yellow_white';
+  @Input() classButton: IClassButton = 'class_yellow';
 }

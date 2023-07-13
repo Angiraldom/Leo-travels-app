@@ -8,16 +8,24 @@
         <app-info-buy-section class="movil" (onAddCourse)="validateCourseAndAddInCart()"></app-info-buy-section>
         <app-info-fotos class="app-info" id="benefits"></app-info-fotos>
     </div>
-
-    <app-info-buy-section class="desktop"></app-info-buy-section>
+    
+    <div class="content-course-value display-none background-primary">
+        <app-course-value [typeClass]="'letter_yellow_white'"></app-course-value>
+    </div>
 
     <app-buy-section class="app-buy" (onAddCourse)="validateCourseAndAddInCart()"></app-buy-section>
+    <div class="content-course-value background-secondary movil test">
+        <app-course-value [typeClass]="'letter_blue'" [classButton]="'class_blue'"></app-course-value>
+    </div>
     <app-carousel-section class="app-carousel" id="coursel"></app-carousel-section>
 
     <div class="container-carousel"></div>
     <app-course-content-section id="content-course"></app-course-content-section>
     <app-cards></app-cards>
     <app-benefits-session></app-benefits-session>
+    <div class="content-course-value background-primary">
+        <app-course-value [typeClass]="'letter_yellow_white'"></app-course-value>
+    </div>
     <app-travel-kit id="travel-kit"></app-travel-kit>
     <app-footer></app-footer>
 </ng-container>

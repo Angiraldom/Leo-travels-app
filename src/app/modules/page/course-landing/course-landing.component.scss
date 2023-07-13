@@ -15,17 +15,25 @@
   flex-direction: column;
 }
 
-// .text-info {
-//   display: block;
-// }
+.content-course-value {
+  padding: 0px 0px 60px;
+}
 
-// @media only screen and (min-width: 840px) {
-//   .mockup-summary {
-//     display: grid;
-//     grid-template-columns: repeat(2, 50%);
-//   }
-// }
+.display-none {
+  display: none;
+}
 
+.background-primary {
+    background: $primary;
+}
+
+.background-secondary {
+  background: $secondary;
+}
+
+.test {
+  padding-bottom: 40px;
+}
 
 @media screen and (min-width: 800px) {
   .movil {
@@ -55,7 +63,7 @@
     flex-direction: column-reverse;
   }
 
-//   .text-info {
-//     display: none;
-//   }
+  .display-none {
+    display: block;
+  }
 }

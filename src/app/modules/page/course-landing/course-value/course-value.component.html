@@ -1,13 +1,13 @@
-<div class="content">
+<div [class]="'content ' + typeClass">
     <hr>
 
-    <p class="color-secondary color-primary">APROVECHA LA PROMO DE LANZAMIENTO</p>
+    <p class="first-color">APROVECHA LA PROMO DE LANZAMIENTO</p>
 
-    <h2 class="color-secondary color-primary max-width">
+    <h2 class="first-color max-width">
         20% DESCUENTO POR LANZAMIENTO
     </h2>
 
-    <div class="color-white color-primary">
+    <div class="first-color second-color">
         <h2 class="no-bold">
             <span>$237.000 COP</span>
         </h2>
@@ -17,5 +17,5 @@
         </h2>
     </div>
 
-    <app-generic-button nameButton="COMPRAR CURSO" classButton="class_yellow"></app-generic-button>
+    <app-generic-button nameButton="COMPRAR CURSO" [classButton]="classButton"></app-generic-button>
 </div>

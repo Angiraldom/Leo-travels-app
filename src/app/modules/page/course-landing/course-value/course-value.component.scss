@@ -1,6 +1,20 @@
-.letter_yellow_white {}
+@import "/src/styles/variables";
 
-.letter_blue {}
+.letter_yellow_white {
+    .first-color {
+        color: $secondary;
+    }
+
+    .second-color {
+        color: $white;
+    }
+}
+
+.letter_blue {
+    .first-color, .second-color {
+        color: $primary;
+    }
+}
 
 .content {
     display: flex;
@@ -10,6 +24,7 @@
     gap: 15px;
     width: 90%;
     margin: 0 auto;
+    text-align: center;
 }
 
 .no-bold {
@@ -17,7 +32,7 @@
 }
 
 hr {
-    width: 95%;
+    width: 80%;
 }
 
 span {
