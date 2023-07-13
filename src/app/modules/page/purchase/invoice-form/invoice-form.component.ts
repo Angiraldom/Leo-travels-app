@@ -2,6 +2,7 @@ import { Component, EventEmitter, OnDestroy, OnInit, Output, inject } from '@ang
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
+import { typeDocuments } from '../documents/type-documents';
 
 @Component({
   selector: 'app-invoice-form',
@@ -13,13 +14,16 @@ export class InvoiceFormComponent implements OnInit, OnDestroy {
 
   @Output() emitForm = new EventEmitter();
 
+  typeDocument = typeDocuments;
   $form!: Subscription;
   form: FormGroup = this.fb.group({
     name: ['johnatan', Validators.required],
     lastName: ['ramos', Validators.required],
-    legalId: ['1000884990', Validators.required],
-    legalIdType: ['CC'],
+    legalId: ['', Validators.required],
+    legalIdType: [''],
     email: ['johnatan.r1000@gmail.com', [Validators.required, Validators.email]],
+    phoneNumber: ['3218903991'],
+    phoneNumberPrefix: ['57']
   });
 
   ngOnInit(): void {

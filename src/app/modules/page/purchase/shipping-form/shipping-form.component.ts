@@ -25,7 +25,6 @@ export class ShippingFormComponent implements OnInit, OnDestroy {
     city: ['Medellin', Validators.required],
     addressLine1: ['Calle 34', Validators.required],
     addressLine2: ['apto 14'],
-    ZIPcode: [],
     phoneNumber: ['3218903991']
   });
 

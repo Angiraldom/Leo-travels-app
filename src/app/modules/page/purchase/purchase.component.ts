@@ -2,12 +2,14 @@ import { Component, OnDestroy, OnInit, inject } from '@angular/core';
 import { FormControlStatus } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { Message } from 'primeng/api';
 import { Subscription } from 'rxjs';
 import { BaseService } from 'src/app/core/services/base.service';
 import { AppState } from 'src/app/store/app.reducer';
 import { IWompiInterface } from './interface/IWompiWidget.interface';
 import { clearCart } from 'src/app/store/actions/cart.actions';
+import { IProduct } from '../../admin/products/interfaces/IProduct.interface';
+import { ICourse } from '../../admin/courses/interfaces/ICourses.interface';
+import { MesaggeService } from 'src/app/core/services/message.service';
 
 declare let WidgetCheckout: any;
 
@@ -20,22 +22,16 @@ export class PurchaseComponent implements OnInit, OnDestroy {
   store = inject(Store<AppState>);
   private router = inject(Router);
   private baseService = inject(BaseService);
+  private messageService = inject(MesaggeService);
   $store!: Subscription;
 
   succesfulTransaction: boolean = false;
   showShippingAdress: boolean = false;
   userExist: boolean = true;
-  products: any[] = [];
+  products: IProduct[] | ICourse[] = [];
   reference = '';
   invalidCustomerForm: FormControlStatus = 'INVALID';
   invalidFormAddress: FormControlStatus = 'INVALID';
-  message: Message[] = [
-    {
-      severity: 'warn',
-      summary:
-        'El correo ingresado, ya tiene un curso asociado',
-    },
-  ];
 
   wompiObject: IWompiInterface = {
     currency: 'COP',
@@ -69,7 +65,8 @@ export class PurchaseComponent implements OnInit, OnDestroy {
   }
 
   setAmount() {
-    const total = this.products?.reduce((value, item) => {
+    const arrayProducts = this.products as any[];
+    const total = arrayProducts?.reduce((value, item) => {
       const price = item.price * item.amount;
       return (value = price + value);
     }, 0);
@@ -91,7 +88,6 @@ export class PurchaseComponent implements OnInit, OnDestroy {
   }
 
   setshippingAddressData(form: { data: any; statusForm: FormControlStatus }) {
-    delete form.data.ZIPcode;
     delete form.data.country;
     this.invalidFormAddress = form.statusForm;
     this.wompiObject.shippingAddress = form.data;
@@ -124,6 +120,7 @@ export class PurchaseComponent implements OnInit, OnDestroy {
       next: (res: any) => {
         if (Object.keys(res.data).length > 0) {
           this.userExist = true;
+          this.messageService.warningMessage('', 'El email ingresado ya existe');
         } else {
           this.userExist = false;
         }
