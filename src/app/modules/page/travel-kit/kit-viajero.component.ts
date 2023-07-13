@@ -23,7 +23,8 @@ export class KitViajeroComponent implements OnInit, OnDestroy {
 
   protected readonly idKitViajero = '64a75cd97a31b132537ae59a';
   protected readonly idCourse = '64a04a387a31b132537ae49d';
-  product!: IProduct;
+  products: IProduct[] = [];
+  productKitViajero!: IProduct | undefined;
   course!: ICourse;
   $store!: Subscription;
   productsInList: any[] = [];
@@ -37,7 +38,7 @@ export class KitViajeroComponent implements OnInit, OnDestroy {
   ];
 
   ngOnInit(): void {
-    this.getTravelKit();
+    this.getAllProducts();
     this.getCourse();
     this.$store = this.store.select('cart').subscribe({
       next: (response) => {
@@ -50,10 +51,19 @@ export class KitViajeroComponent implements OnInit, OnDestroy {
     this.$store.unsubscribe();
   }
 
+  getAllProducts() {
+    this.baseService.getMethod('product').subscribe({
+      next: (response: any) => {
+        this.products = response.data;
+        this.productKitViajero = this.products.find((item) => item._id === this.idKitViajero);
+      },
+    });
+  }
+
   getTravelKit() {
     this.baseService.getMethod('product/' + this.idKitViajero).subscribe({
       next: (res: any) => {
-        this.product = res.data;
+        this.productKitViajero = res.data;
       },
     });
   }
@@ -65,7 +75,6 @@ export class KitViajeroComponent implements OnInit, OnDestroy {
       },
     });
   }
-
 
   /**
    * Add a product in the cart. One by one.
@@ -82,10 +91,10 @@ export class KitViajeroComponent implements OnInit, OnDestroy {
    * Add a travel kit to the cart.
    */
   addKitViajero() {
-    if (!this.product) {
+    if (!this.productKitViajero) {
       return;
     }
-    this.addProductsCart(this.product);
+    this.addProductsCart(this.productKitViajero);
 
     if (this.validateCourseExistInCart()) {
       this.router.navigate(['pagar']);
