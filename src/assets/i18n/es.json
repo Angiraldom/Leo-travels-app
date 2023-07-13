@@ -23,5 +23,8 @@
         "ErrorEmailNotFound": "El email proporcionado no existe",
         "ErrorServerUploadImages": "Ocurrio un problema al momento de cargar las imagenes, vuelve a intentarlo",
         "ErrorPasswordNotMatch": "La contraseña que ingresaste no es correcta"
+    },
+    "succes": {
+        "productAddsToTheCart": "Producto añadido al carrito"
     }
 }

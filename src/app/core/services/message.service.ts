@@ -29,11 +29,12 @@ export class MesaggeService {
 
   optionsAlert(typeMessage: SweetAlertIcon, message: string, title?: string) {
     Swal.fire({
-      title: title ?? 'Vilean te informa!',
-      text: this.translateService.instant(message),
+      title: title,
+      text: message ? this.translateService.instant(message) : null,
       icon: typeMessage,
       showConfirmButton: false,
-      timer: 3000
+      timer: 3000,
+      iconColor: '#222e5e'
     });
   }
 }
