@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { KitViajeroComponent } from '../travel-kit/kit-viajero.component';
 
 @Component({
@@ -8,7 +8,7 @@ import { KitViajeroComponent } from '../travel-kit/kit-viajero.component';
 })
 export class CourseLandingComponent
   extends KitViajeroComponent
-  implements OnInit
+  implements OnInit, OnDestroy
 {
   override ngOnInit(): void {
     this.getTravelKit();
@@ -18,6 +18,10 @@ export class CourseLandingComponent
         this.productsInList = response.products;
       },
     });
+  }
+
+  override ngOnDestroy(): void {
+    this.$store.unsubscribe();
   }
 
   validateCourseAndAddInCart() {

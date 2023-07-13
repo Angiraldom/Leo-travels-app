@@ -1,5 +1,6 @@
-import { Component, EventEmitter, OnInit, Output, inject } from '@angular/core';
+import { Component, EventEmitter, OnDestroy, OnInit, Output, inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Subscription } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
 
 @Component({
@@ -7,11 +8,12 @@ import { debounceTime } from 'rxjs/operators';
   templateUrl: './invoice-form.component.html',
   styleUrls: ['./invoice-form.component.scss']
 })
-export class InvoiceFormComponent implements OnInit {
+export class InvoiceFormComponent implements OnInit, OnDestroy {
   private fb = inject(FormBuilder);
 
   @Output() emitForm = new EventEmitter();
 
+  $form!: Subscription;
   form: FormGroup = this.fb.group({
     name: ['johnatan', Validators.required],
     lastName: ['ramos', Validators.required],
@@ -21,7 +23,7 @@ export class InvoiceFormComponent implements OnInit {
   });
 
   ngOnInit(): void {
-    this.form.statusChanges.pipe(
+    this.$form = this.form.statusChanges.pipe(
       debounceTime(500)
     ).subscribe({
       next: (res) => {
@@ -31,5 +33,9 @@ export class InvoiceFormComponent implements OnInit {
         });
       }
     });
+  }
+
+  ngOnDestroy(): void {
+    this.$form.unsubscribe();
   }
 }

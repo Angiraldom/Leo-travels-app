@@ -1,4 +1,4 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnDestroy, OnInit, inject } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Store } from '@ngrx/store';
@@ -13,7 +13,7 @@ import * as actionClass from 'src/app/store/actions/class.actions';
   templateUrl: './watch-class.component.html',
   styleUrls: ['./watch-class.component.scss']
 })
-export class WatchClassComponent implements OnInit {
+export class WatchClassComponent implements OnInit, OnDestroy {
   private route = inject(ActivatedRoute);
   private baseSerive = inject(BaseService);
   private store = inject(Store<AppState>);
@@ -31,6 +31,10 @@ export class WatchClassComponent implements OnInit {
       this.idClass = params.get('idClass') as string;
       this.getClass();
     });
+  }
+
+  ngOnDestroy(): void {
+    this.$route.unsubscribe();
   }
 
   getClass() {
