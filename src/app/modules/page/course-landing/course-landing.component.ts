@@ -33,10 +33,10 @@ export class CourseLandingComponent
   }
 
   addKit() {
-    if (!this.product) {
+    if (!this.productKitViajero) {
       return;
     }
-    this.addProductsCart(this.product);
+    this.addProductsCart(this.productKitViajero);
     this.router.navigate(['pagar']);
   }
 }
