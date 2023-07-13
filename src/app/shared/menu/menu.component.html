@@ -52,13 +52,16 @@
 
     <ng-container *ngFor="let item of (store.select('cart') | async).products">
       <div class="item-product">
-        <div>
-          <img oncontextmenu='return false' onkeydown='return false' src="{{ item.images[0] }}" width="150px"
-            height="150px" alt="" />
+        <div class="content-image">
+          <img oncontextmenu='return false' *ngIf="item.images" onkeydown='return false' [ngSrc]="item.images[0]" 
+          fill />
+
+          <img oncontextmenu='return false' *ngIf="!item.images" onkeydown='return false' [ngSrc]="item.imageProperties[0].url" 
+          fill />
         </div>
         <div class="item-description">
           <div>
-            <span class="product-name" [matTooltipPosition]="'above'" [matTooltip]="item.title">{{ item.title }}</span>
+            <span class="product-name" [matTooltipPosition]="'above'" [matTooltip]="item.name">{{ item.name }}</span>
             <mat-icon (click)="deleteProduct(item)" [color]="'primary'">delete_outline</mat-icon>
           </div>
           <p>Cantidad: {{ item.amount }}</p>
