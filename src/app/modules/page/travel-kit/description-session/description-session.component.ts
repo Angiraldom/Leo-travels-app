@@ -15,6 +15,6 @@ export class DescriptionSessionComponent {
     arrows: true,
     touchMove: true,
     autoplay: true,
-    autoplaySpeed: 2000,
+    autoplaySpeed: 7000,
   };
 }

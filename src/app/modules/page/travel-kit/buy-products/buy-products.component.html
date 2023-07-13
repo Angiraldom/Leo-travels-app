@@ -1,5 +1,5 @@
 <div class="content">
-    <p>O si quieres comprar los productos por individual, también puedes hacerlo:</p>
+    <p class="text-center">O si quieres comprar los productos por individual, también puedes hacerlo:</p>
     <div class="content-cards" *ngIf="products.length > 0">
         <div *ngFor="let item of products" class="card">
             <img oncontextmenu='return false' onkeydown='return false' [ngSrc]="item.imageProperties![0].url" alt="{{item.name}}" [width]="'1080'" [height]="'1350'">

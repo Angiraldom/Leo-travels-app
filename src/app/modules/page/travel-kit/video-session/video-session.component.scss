@@ -14,7 +14,7 @@
     grid-row-end: 6;
     grid-column-start: 2;
     text-align: center;
-    max-width: 414px;
+    max-width: 450px;
     align-self: center;
     justify-self: center;
 }
@@ -38,6 +38,10 @@ video {
     grid-row-start: 1;
     grid-row-end: 12;
     grid-column-start: 1;
+}
+
+p {
+    padding: 0px 20px;
 }
 
 @media only screen and (max-width: 956px) {

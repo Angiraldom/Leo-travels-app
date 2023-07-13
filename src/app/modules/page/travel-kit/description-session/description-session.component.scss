@@ -68,14 +68,6 @@ p-accordion {
     }
 }
 
-
-
-// .slick-slider {
-//     width: 34%;
-//     margin: 62px auto 0px;
-//     background: rgb(14, 13, 13);
-// }
-
 .slick-slider {
     background: rgb(14, 13, 13);
     margin-left: 62px;
@@ -104,6 +96,31 @@ p-accordion {
     right: -45px;
 }
 
+.content-children {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0 auto;
+    width: 90%;
+}
+
+@media only screen and (max-width: 768px) {
+
+    .content-children {
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    .accordion {
+        width: 100%;
+    }
+
+    .slick-slider {
+        width: 60%;
+        margin-left: 0px;
+    }
+}
+
 @media only screen and (max-width: 457px) {
     .slick-slider {
         width: 100%;
@@ -113,12 +130,4 @@ p-accordion {
     ::ng-deep .slick-next {
         display: none !important;
     }
-}
-
-.content-children {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    margin: 0 auto;
-    width: 90%;
 }
