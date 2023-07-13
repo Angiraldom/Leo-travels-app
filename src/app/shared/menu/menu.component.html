@@ -53,10 +53,10 @@
     <ng-container *ngFor="let item of (store.select('cart') | async).products">
       <div class="item-product">
         <div class="content-image">
-          <img oncontextmenu='return false' *ngIf="item.images" onkeydown='return false' [ngSrc]="item.images[0]" 
+          <img oncontextmenu='return false' *ngIf="item.portada" onkeydown='return false' [ngSrc]="item.portada" 
           fill />
 
-          <img oncontextmenu='return false' *ngIf="!item.images" onkeydown='return false' [ngSrc]="item.imageProperties[0].url" 
+          <img oncontextmenu='return false' *ngIf="!item.portada" onkeydown='return false' [ngSrc]="item.imageProperties[0].url" 
           fill />
         </div>
         <div class="item-description">

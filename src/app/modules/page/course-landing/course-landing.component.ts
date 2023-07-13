@@ -1,5 +1,6 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, inject } from '@angular/core';
 import { KitViajeroComponent } from '../travel-kit/kit-viajero.component';
+import { MesaggeService } from 'src/app/core/services/message.service';
 
 @Component({
   selector: 'app-course-landing',
@@ -10,6 +11,8 @@ export class CourseLandingComponent
   extends KitViajeroComponent
   implements OnInit, OnDestroy
 {
+  private mesaggeService = inject(MesaggeService);
+
   override ngOnInit(): void {
     this.getTravelKit();
     this.getCourse();
@@ -26,7 +29,7 @@ export class CourseLandingComponent
 
   validateCourseAndAddInCart() {
     if (this.validateCourseExistInCart()) {
-      // Mostrar alerta de que ya esta el curso agregado.
+      this.mesaggeService.warningMessage('', 'Ya fue añadido al carrito.')
       return;
     }
     if (!this.course) {

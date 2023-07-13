@@ -17,5 +17,5 @@
         </h2>
     </div>
 
-    <app-generic-button nameButton="COMPRAR CURSO" [classButton]="classButton"></app-generic-button>
+    <app-generic-button (emitClick)="handleClick()" nameButton="COMPRAR CURSO" [classButton]="classButton"></app-generic-button>
 </div>
