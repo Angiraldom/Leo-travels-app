@@ -2,20 +2,15 @@ import { Injectable, inject } from '@angular/core';
 import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-import { Store } from '@ngrx/store';
-import { Router } from '@angular/router';
 
 import { MesaggeService } from '../services/message.service';
-import { AppState } from 'src/app/store/app.reducer';
-import { clearProfile } from 'src/app/store/actions/user.actions';
-import { clearCart } from 'src/app/store/actions/cart.actions';
+import { AuthService } from '../services/auth.service';
 
 @Injectable()
 export class ErrorInterceptor implements HttpInterceptor {
 
   private mesaggeService = inject(MesaggeService);
-  private state = inject(Store<AppState>);
-  private router = inject(Router);
+  private authService = inject(AuthService);
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     return next.handle(request).pipe(
@@ -33,10 +28,7 @@ export class ErrorInterceptor implements HttpInterceptor {
    */
   validateExpiredToken(error: HttpErrorResponse) {
     if (error.status === 401 && error.error?.tag === 'ErrorTokenExpired') {
-      localStorage.clear();
-      this.state.dispatch(clearCart());
-      this.state.dispatch(clearProfile());
-      this.router.navigate(['/login']);
+      this.authService.logout();
       // Cuando apliquemos el refresh, podemos poner un return aca.
     }
     this.mesaggeService.errorMessage(error);

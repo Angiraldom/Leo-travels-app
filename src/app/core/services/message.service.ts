@@ -1,7 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import Swal, { SweetAlertIcon, } from 'sweetalert2';
+import Swal, { SweetAlertIcon } from 'sweetalert2';
 
 @Injectable({
   providedIn: 'root',
@@ -39,6 +39,17 @@ export class MesaggeService {
 
   infoMessage(message: string, title?: string) {
     this.optionsAlert('info', message, title);
+  }
+
+  logout() {
+    return Swal.fire({
+      title: '¿Estás seguro que deseas cerrar sesión?',
+      showCancelButton: true,
+      cancelButtonText: 'No, regresar',
+      showConfirmButton: true,
+      confirmButtonText: 'Sí, Salir',
+      buttonsStyling: false
+    })
   }
 
   optionsAlert(typeMessage: SweetAlertIcon, message: string, title?: string) {
