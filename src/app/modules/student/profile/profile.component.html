@@ -37,7 +37,7 @@
             </div>
         </form>
 
-        <a (click)="changeForm()"> {{ showFormPassword ? 'Volver': 'Cambiar contraseña' }} </a>
+        <a (click)="changeForm()" class="change-password"> {{ showFormPassword ? 'Volver': 'Cambiar contraseña' }} </a>
 
         <app-generic-button [sizeButton]="'large'" [classButton]="'class_blue'" [nameButton]="'Guardar'"
             (emitClick)="validateAction()"></app-generic-button>

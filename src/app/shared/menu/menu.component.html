@@ -11,6 +11,9 @@
       <a *ngIf="!user" class="item" [routerLink]="'/login'" routerLinkActive="router-active">
         <span>Iniciar sesión</span>
       </a>
+      <a *ngIf="user" class="item" [routerLink]="'/estudiante/profile'" routerLinkActive="router-active">
+          <span>Mi cuenta</span>
+      </a>
       <mat-icon [matBadge]="(store.select('cart') | async).products | totalProducts" matBadgeSize="small"
         matBadgeColor="warn" (click)="openCart()">shopping_cart</mat-icon>
     </div>
@@ -37,6 +40,11 @@
         <li *ngIf="!user">
           <a class="item" [routerLink]="'/login'" routerLinkActive="router-active">
             <span>Iniciar sesión</span>
+          </a>
+        </li>
+        <li *ngIf="user">
+          <a class="item" [routerLink]="'/estudiante/profile'" routerLinkActive="router-active">
+            <span>Mi cuenta</span>
           </a>
         </li>
       </ul>

@@ -5,3 +5,7 @@
     height: 150px;
     position: relative;
 }
+
+p-sidebar ::ng-deep .p-sidebar-right {
+    height: 80%;
+}

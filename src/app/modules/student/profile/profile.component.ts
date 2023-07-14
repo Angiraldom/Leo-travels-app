@@ -3,7 +3,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
 import { BaseService } from 'src/app/core/services/base.service';
+import { MesaggeService } from 'src/app/core/services/message.service';
 import { CustomValidators } from 'src/app/core/utils/validators';
+import { getProfile } from 'src/app/store/actions/user.actions';
 import { AppState } from 'src/app/store/app.reducer';
 
 @Component({
@@ -15,6 +17,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
   private store = inject(Store<AppState>);
   private fb = inject(FormBuilder);
   private baseService = inject(BaseService);
+  private mesaggeService = inject(MesaggeService);
 
   $store!: Subscription;
   showFormPassword: boolean = false;
@@ -52,8 +55,9 @@ export class ProfileComponent implements OnInit, OnDestroy {
 
   updateProfile() {
     this.baseService.postMethod('user/update', this.form.getRawValue()).subscribe({
-      next: () => {
-        console.log("Actualizacion exitosa");
+      next: (res: any) => {
+        this.store.dispatch(getProfile({ user: res.data}));
+        this.mesaggeService.succesMessage('succes.userUpdated');
       }
     });
   }
@@ -74,7 +78,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
     }
     this.baseService.postMethod('user/change-password/' + id, body).subscribe({
       next: () => {
-        console.log("Actualizacion exitosa");
+        this.mesaggeService.succesMessage('succes.passwordChanged');
         this.formPassword.reset();
         this.showFormPassword = false;
       }

@@ -42,4 +42,9 @@ export class InvoiceFormComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.$form.unsubscribe();
   }
+
+  formatLowerCase() {
+    const email = this.form.get('email')?.value as string;
+    this.form.get('email')?.setValue(email.toLowerCase());
+  }
 }
