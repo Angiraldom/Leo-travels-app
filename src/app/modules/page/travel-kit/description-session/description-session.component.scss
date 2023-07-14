@@ -4,30 +4,20 @@
     color: $primary;
 }
 
-// .content-session {
-//     display: flex;
-//     flex-direction: column;
-//     gap: 15px;
-//     align-items: center;
-//     margin: 40px 0px;
-// }
-
 .content-session {
+    background-color: $background-color;
     text-align: center;
-    margin: 40px 0px;
+    padding: 40px 0px;
 }
 
-// .content-accordion {
-//     display: flex;
-//     justify-content: space-around;
-//     padding: 30px;
-//     width: 100%;
-// }
+
+.accordion {
+    width: 53%;
+}
 
 .content-accordion {
     display: flex;
     justify-content: space-around;
-    width: 53%;
 }
 
 ::ng-deep .p-accordion .p-accordion-header:not(.p-disabled).p-highlight .p-accordion-header-link {
@@ -55,12 +45,8 @@
 ::ng-deep .p-accordion .p-accordion-content {
     border: none;
     color: $primary;
-    background-color: $background-color;
+    background-color: $white;
 }
-
-// p-accordion {
-//     width: 40%;
-// }
 
 p-accordion {
     width: 85%;
@@ -81,14 +67,6 @@ p-accordion {
         width: 100%;
     }
 }
-
-
-
-// .slick-slider {
-//     width: 34%;
-//     margin: 62px auto 0px;
-//     background: rgb(14, 13, 13);
-// }
 
 .slick-slider {
     background: rgb(14, 13, 13);
@@ -118,6 +96,31 @@ p-accordion {
     right: -45px;
 }
 
+.content-children {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0 auto;
+    width: 90%;
+}
+
+@media only screen and (max-width: 768px) {
+
+    .content-children {
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    .accordion {
+        width: 100%;
+    }
+
+    .slick-slider {
+        width: 60%;
+        margin-left: 0px;
+    }
+}
+
 @media only screen and (max-width: 457px) {
     .slick-slider {
         width: 100%;
@@ -127,12 +130,4 @@ p-accordion {
     ::ng-deep .slick-next {
         display: none !important;
     }
-}
-
-.content-children {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    margin: 0 auto;
-    width: 90%;
 }

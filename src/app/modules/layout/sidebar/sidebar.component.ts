@@ -1,13 +1,13 @@
 import { Component, OnDestroy, OnInit, inject } from '@angular/core';
-import { Router, RouterModule } from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
-import { MaterialModule } from 'src/app/material/material.module';
-import { clearCart } from 'src/app/store/actions/cart.actions';
-import { AppState } from 'src/app/store/app.reducer';
 import { CommonModule } from '@angular/common';
+
+import { MaterialModule } from 'src/app/material/material.module';
+import { AppState } from 'src/app/store/app.reducer';
 import { IUser } from '../../admin/user/interface/IUser.interface';
-import { clearProfile } from 'src/app/store/actions/user.actions';
+import { AuthService } from 'src/app/core/services/auth.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -18,16 +18,13 @@ import { clearProfile } from 'src/app/store/actions/user.actions';
 })
 export class SidebarComponent implements OnInit, OnDestroy {
   private store = inject(Store<AppState>);
-  private router = inject(Router);
+  private authService = inject(AuthService);
 
   user!: IUser;
   $state!: Subscription;
 
   logout() {
-    localStorage.clear();
-    this.store.dispatch(clearCart());
-    this.store.dispatch(clearProfile());
-    this.router.navigate(['login']);
+    this.authService.validateLogout();
   }
 
   ngOnInit(): void {

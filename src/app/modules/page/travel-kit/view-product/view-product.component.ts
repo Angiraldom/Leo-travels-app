@@ -1,12 +1,11 @@
 import { Component, OnDestroy, OnInit, inject } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Message, MessageService } from 'primeng/api';
+import { Message } from 'primeng/api';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { ChangeDetectorRef } from '@angular/core';
 
 import { AppState } from 'src/app/store/app.reducer';
-import * as productActions from 'src/app/store/actions/product.actions';
 import { BaseService } from 'src/app/core/services/base.service';
 import * as cartActions from 'src/app/store/actions/cart.actions';
 import { IProduct } from 'src/app/modules/admin/products/interfaces/IProduct.interface';
@@ -63,20 +62,16 @@ export class ViewProductComponent implements OnInit, OnDestroy {
     this.route.paramMap.subscribe((params: ParamMap) => {
       this.id = params.get('id') as string;
       if (this.id) {
-        this.$storeViewProducts = this.baseService.http
-          .get('https://api.escuelajs.co/api/v1/products?offset=0&limit=10')
+        this.$storeViewProducts = this.baseService.getMethod('product')
           .subscribe({
             next: (response: any) => {
               this.products = response;
               this.visibleProducts = this.products.filter(
-                (product) => Number(product.id) !== Number(this.id)
-              );
-              this.store.dispatch(
-                productActions.viewAllProducts({ products: response })
+                (product) => Number(product._id) !== Number(this.id)
               );
               if (this.products.length) {
                 this.viewProduct = this.products.find(
-                  (elem) => Number(elem.id) == Number(this.id)
+                  (elem) => Number(elem._id) == Number(this.id)
                 )!;
               }
             },
@@ -95,17 +90,17 @@ export class ViewProductComponent implements OnInit, OnDestroy {
   }
 
   changeRoute(item: IProduct) {
-    this.id = item.id!;
-    this.viewProduct = this.products.find((elem) => elem.id == item.id)!;
-    this.visibleProducts = this.products.filter((p) => p.id !== this.id);
-    this.router.navigate([`view-product/${item.id}`]);
+    this.id = item._id!;
+    this.viewProduct = this.products.find((elem) => elem._id == item._id)!;
+    this.visibleProducts = this.products.filter((p) => p._id !== this.id);
+    this.router.navigate([`view-product/${item._id}`]);
     this.changeDetectorRef.markForCheck();
     this.changeDetectorRef.detectChanges();
   }
 
   addProduct(product: IProduct, reference: string) {
     const existProduct = this.productsInList.find(
-      (item) => item.id === product.id
+      (item) => item._id === product._id
     );
 
     // const exist = this.productsInList.some((item) => item._id === product._id)

@@ -1,0 +1,44 @@
+@import "/src/styles/variables";
+
+.letter_yellow_white {
+    .first-color {
+        color: $secondary;
+    }
+
+    .second-color {
+        color: $white;
+    }
+}
+
+.letter_blue {
+    .first-color, .second-color {
+        color: $primary;
+    }
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 15px;
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.no-bold {
+    font-weight: 100;
+}
+
+hr {
+    width: 80%;
+}
+
+span {
+    text-decoration-line: line-through;
+}
+
+.max-width {
+    max-width: 250px;
+}

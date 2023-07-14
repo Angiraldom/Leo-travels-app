@@ -1,7 +1,7 @@
 <app-header-modules [title]="'Mi perfil'" [description]="'Actualiza la información de tu perfil'"></app-header-modules>
 
 <div class="content-form">
-    <p-avatar label="P" styleClass="mr-2" size="xlarge" shape="circle"></p-avatar>
+    <p-avatar [label]="iconLetterName" styleClass="mr-2" size="xlarge" shape="circle"></p-avatar>
 
     <div class="form">
         <form [formGroup]="form" *ngIf="!showFormPassword">
@@ -37,7 +37,7 @@
             </div>
         </form>
 
-        <a (click)="changeForm()"> {{ showFormPassword ? 'Volver': 'Cambiar contraseña' }} </a>
+        <a (click)="changeForm()" class="change-password"> {{ showFormPassword ? 'Volver': 'Cambiar contraseña' }} </a>
 
         <app-generic-button [sizeButton]="'large'" [classButton]="'class_blue'" [nameButton]="'Guardar'"
             (emitClick)="validateAction()"></app-generic-button>

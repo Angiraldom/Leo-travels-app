@@ -1,0 +1,69 @@
+@import "/src/styles/variables";
+
+.container-info {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+
+.desktop {
+  display: none;
+}
+
+.container-carousel {
+  display: flex;
+  flex-direction: column;
+}
+
+.content-course-value {
+  padding: 0px 0px 60px;
+}
+
+.display-none {
+  display: none;
+}
+
+.background-primary {
+    background: $primary;
+}
+
+.background-secondary {
+  background: $secondary;
+}
+
+.test {
+  padding-bottom: 40px;
+}
+
+@media screen and (min-width: 800px) {
+  .movil {
+    display: none;
+  }
+
+  .desktop {
+    display: block;
+  }
+
+  .container-info {
+    flex-direction: row;
+    background-color: $primary;
+    padding: 0 80px;
+  }
+
+  .app-video {
+    width: 50%;
+    margin-right: 30px;
+  }
+
+  .app-info {
+    width: 40%;
+  }
+
+  .container-carousel {
+    flex-direction: column-reverse;
+  }
+
+  .display-none {
+    display: block;
+  }
+}

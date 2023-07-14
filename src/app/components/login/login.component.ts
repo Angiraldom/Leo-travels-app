@@ -30,7 +30,7 @@ export default class LoginComponent {
     if (this.form.invalid) {
       return;
     }
-
+    this.formatLowerCase();
     this.authService.login(this.form.value).subscribe({
       next: (res) => {
         const role = res.data.user.role;
@@ -38,9 +38,14 @@ export default class LoginComponent {
         if (role === 'Admin') {
           this.router.navigateByUrl('admin');
         } else {
-          this.router.navigateByUrl('estudiante');
+          this.router.navigateByUrl('estudiante/my-courses');
         }
       }
     });
+  }
+
+  formatLowerCase() {
+    const email = this.form.get('email')?.value as string;
+    this.form.get('email')?.setValue(email.toLowerCase());
   }
 }

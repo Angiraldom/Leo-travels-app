@@ -108,6 +108,7 @@ export class SidebarUserComponent implements OnInit, OnDestroy {
     if (!newclass) {
       module = this.course.modules[changeModule];
       if (!module) {
+        this.router.navigate(['estudiante/course/' + this.idCourse]);
         return;
       }
       if (type === 'next') {

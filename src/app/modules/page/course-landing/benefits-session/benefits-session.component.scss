@@ -1,0 +1,126 @@
+@import '/src/styles/variables';
+
+.color-secondary {
+  color: $secondary;
+}
+
+.color-white {
+  color: $white;
+}
+
+.content {
+  width: 100%;
+  background-color: $primary;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 60px 25px 35px;
+  gap: 35px;
+}
+
+.content-section {
+  width: 100%;
+
+  .card {
+    width: 15% !important;
+    margin-top: 25px;
+  }
+
+  ::ng-deep.p-card-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  ::ng-deep .p-card-body {
+    max-width: 232px;
+    margin: 0 auto;
+    padding: 0px;
+    text-align: center;
+  }
+
+  ::ng-deep .p-card {
+    max-width: 310px;
+    box-shadow: none;
+    border-radius: 10px;
+  }
+
+  ::ng-deep .p-card-title {
+    margin-top: 10px;
+    margin-bottom: 0px;
+    font-weight: normal;
+    font-size: 16px;
+    color: $primary;
+  }
+}
+
+@media only screen and (min-width: 750px) and (max-width: 1065px) {
+  .content-section {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 750px;
+    margin: 0 auto;
+
+    ::ng-deep .p-card:first-child {
+      height: 199px;
+    }
+  }
+
+  ::ng-deep .p-card {
+    display: grid;
+    max-width: 310px;
+    min-height: 183px;
+  }
+
+}
+
+@media only screen and (min-width: 1066px) {
+  .content-section {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin: 0 auto;
+    column-gap: 40px;
+
+    p-card:first-child {
+      grid-column: 2/2;
+    }
+
+    ::ng-deep .p-card:first-child {
+      height: 199px;
+    }
+  }
+
+  ::ng-deep .p-card {
+    display: grid;
+    min-height: 170px;
+  }
+
+}
+
+@media only screen and (min-width: 1234px) {
+  ::ng-deep .p-card {
+    max-width: 305px !important;
+  }
+
+  .content-section {
+    ::ng-deep .p-card:first-child {
+      height: 199px;
+    }
+  }
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 310px;
+  height: auto;
+}
+
+.responsive-img {
+  position: relative !important;
+  max-width: 100%;
+  max-height: 100%;
+}

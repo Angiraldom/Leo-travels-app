@@ -1,157 +1,39 @@
 <div class="content-session">
     <h2 class="color-blue">¿Que contiene?</h2>
 
-    <div class="content-children">
+    <div class="content-children" *ngIf="products.length > 0">
         <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig">
-            <div ngxSlickItem *ngFor="let slide of slides; let index = index" class="slide">
-                <img src="{{ slide }}" alt="{{ 'image' +  index}}" width="100%">
+            <div ngxSlickItem *ngFor="let slide of products; let index = index" class="slide">
+                <img src="{{ slide.imageProperties![0].url }}" alt="{{ 'image' +  index}}" width="100%">
             </div>
         </ngx-slick-carousel>
 
-        <div class="content-accordion">
-            <p-accordion class="w-full">
-                <p-accordionTab>
-                    <ng-template pTemplate="header">
-                        <div class="content-title">
-                            <div class="flex align-items-center">
-                                <i class="pi pi-calendar mr-2"></i>
-                                <span class="vertical-align-middle">Trípode</span>
-                            </div>
-                            <span class="price">{{ 0 | currency }}</span>
-                        </div>
-                    </ng-template>
-                    <ng-template pTemplate="content">
-                        <p class="m-0">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                            laboris nisi ut aliquip ex ea commodo
-                            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                            fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
-                            officia
-                            deserunt mollit anim id est
-                            laborum.
-                        </p>
-                    </ng-template>
-                </p-accordionTab>
-                <p-accordionTab>
-                    <ng-template pTemplate="header">
-                        <div class="content-title">
-                            <div class="flex align-items-center">
-                                <i class="pi pi-calendar mr-2"></i>
-                                <span class="vertical-align-middle">Trípode</span>
-                            </div>
-                            <span class="price">{{ 0 | currency }}</span>
-                        </div>
-                    </ng-template>
-                    <ng-template pTemplate="content">
-                        <p class="m-0">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                            laboris nisi ut aliquip ex ea commodo
-                            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                            fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
-                            officia
-                            deserunt mollit anim id est
-                            laborum.
-                        </p>
-                    </ng-template>
-                </p-accordionTab>
-                <p-accordionTab>
-                    <ng-template pTemplate="header">
-                        <div class="content-title">
-                            <div class="flex align-items-center">
-                                <i class="pi pi-calendar mr-2"></i>
-                                <span class="vertical-align-middle">Trípode</span>
-                            </div>
-                            <span class="price">{{ 0 | currency }}</span>
-                        </div>
-                    </ng-template>
-                    <ng-template pTemplate="content">
-                        <p class="m-0">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                            laboris nisi ut aliquip ex ea commodo
-                            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                            fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
-                            officia
-                            deserunt mollit anim id est
-                            laborum.
-                        </p>
-                    </ng-template>
-                </p-accordionTab>
-                <p-accordionTab>
-                    <ng-template pTemplate="header">
-                        <div class="content-title">
-                            <div class="flex align-items-center">
-                                <i class="pi pi-calendar mr-2"></i>
-                                <span class="vertical-align-middle">Trípode</span>
-                            </div>
-                            <span class="price">{{ 0 | currency }}</span>
-                        </div>
-                    </ng-template>
-                    <ng-template pTemplate="content">
-                        <p class="m-0">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                            laboris nisi ut aliquip ex ea commodo
-                            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                            fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
-                            officia
-                            deserunt mollit anim id est
-                            laborum.
-                        </p>
-                    </ng-template>
-                </p-accordionTab>
-                <p-accordionTab>
-                    <ng-template pTemplate="header">
-                        <div class="content-title">
-                            <div class="flex align-items-center">
-                                <i class="pi pi-calendar mr-2"></i>
-                                <span class="vertical-align-middle">Trípode</span>
-                            </div>
-                            <span class="price">{{ 0 | currency }}</span>
-                        </div>
-                    </ng-template>
-                    <ng-template pTemplate="content">
-                        <p class="m-0">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                            laboris nisi ut aliquip ex ea commodo
-                            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                            fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
-                            officia
-                            deserunt mollit anim id est
-                            laborum.
-                        </p>
-                    </ng-template>
-                </p-accordionTab>
-                <p-accordionTab>
-                    <ng-template pTemplate="header">
-                        <div class="content-title">
-                            <div class="flex align-items-center">
-                                <i class="pi pi-calendar mr-2"></i>
-                                <span class="vertical-align-middle">Trípode</span>
-                            </div>
-                            <span class="price">{{ 0 | currency }}</span>
-                        </div>
-                    </ng-template>
-                    <ng-template pTemplate="content">
-                        <p class="m-0">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                            laboris nisi ut aliquip ex ea commodo
-                            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                            fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
-                            officia
-                            deserunt mollit anim id est
-                            laborum.
-                        </p>
-                    </ng-template>
-                </p-accordionTab>
-            </p-accordion>
-        </div>
+        <div class="accordion">
+            <div class="content-accordion" *ngIf="products.length > 0">
+                <p-accordion class="w-full">
 
+                    <ng-container *ngFor="let item of products">
+                        <p-accordionTab>
+                            <ng-template pTemplate="header">
+                                <div class="content-title">
+                                    <div class="flex align-items-center">
+                                        <i class="pi pi-calendar mr-2"></i>
+                                        <span class="vertical-align-middle">{{ item.name }}</span>
+                                    </div>
+                                    <span class="price">{{ item.price | currency }}</span>
+                                </div>
+                            </ng-template>
+                            <ng-template pTemplate="content">
+                                <p class="m-0" [innerHTML]="item.description">
+                                </p>
+                            </ng-template>
+                        </p-accordionTab>
+                    </ng-container>
+
+                </p-accordion>
+            </div>
+            <p class="color-blue">Valor total de los productos: $000.000</p>
+        </div>
     </div>
 
-    <p class="color-blue">Valor total de los productos: $000.000</p>
 </div>

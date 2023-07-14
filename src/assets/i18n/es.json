@@ -19,9 +19,15 @@
     "errors": {
         "ErrorServer": "Ocurrio un problema con el servidor, vuelve a intentarlo mas tarde.",
         "ErrorBadRequest": "Algunos datos fueron mal enviados",
-        "ErrorLogin": "Email o contraseña invalidos",
+        "ErrorInvalidCredentials": "Email o contraseña invalidos",
         "ErrorEmailNotFound": "El email proporcionado no existe",
         "ErrorServerUploadImages": "Ocurrio un problema al momento de cargar las imagenes, vuelve a intentarlo",
-        "ErrorPasswordNotMatch": "La contraseña que ingresaste no es correcta"
+        "ErrorPasswordNotMatch": "La contraseña que ingresaste no es correcta",
+        "ErrorTokenExpired": "Su sesión expiro, vuelva a iniciar sesión por favor"
+    },
+    "succes": {
+        "productAddsToTheCart": "Producto añadido al carrito",
+        "userUpdated": "Usuario actualizado correctamente",
+        "passwordChanged": "Contraseña modificada correctamente"
     }
 }

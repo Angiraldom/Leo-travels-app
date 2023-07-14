@@ -1,4 +1,4 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnDestroy, OnInit, inject } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Store } from '@ngrx/store';
@@ -13,7 +13,7 @@ import * as actionClass from 'src/app/store/actions/class.actions';
   templateUrl: './watch-class.component.html',
   styleUrls: ['./watch-class.component.scss']
 })
-export class WatchClassComponent implements OnInit {
+export class WatchClassComponent implements OnInit, OnDestroy {
   private route = inject(ActivatedRoute);
   private baseSerive = inject(BaseService);
   private store = inject(Store<AppState>);
@@ -23,6 +23,7 @@ export class WatchClassComponent implements OnInit {
   idModule!: string;
   idClass!: string;
   class!: IClass;
+  nameModule!: string;
 
   ngOnInit(): void {
     this.$route = this.route.paramMap.subscribe((params: ParamMap) => {
@@ -33,12 +34,16 @@ export class WatchClassComponent implements OnInit {
     });
   }
 
+  ngOnDestroy(): void {
+    this.$route.unsubscribe();
+  }
+
   getClass() {
     this.baseSerive.getMethod(`course/findClass/${this.idCourse}/${this.idModule}/${this.idClass}`).subscribe({
       next: (res: any) => {
         if (Object.keys(res.data).length > 0) {
-          this.class = res.data;
-          console.log(res);
+          this.class = res.data.class;
+          this.nameModule = res.data.nameModule;
         } else {
           console.log('No se encontro la clase');
         }

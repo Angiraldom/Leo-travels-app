@@ -14,7 +14,7 @@ const _cartReducer = createReducer(initialState,
     on( actions.updateProduct, (state, { product }) => {
 
         const result = state.products.map((item) => {
-            if (product.id !== item.id) {
+            if (product._id !== item._id) {
                 return item;
             }
             return { ...product };
@@ -24,7 +24,8 @@ const _cartReducer = createReducer(initialState,
     }),
 
     on( actions.deleteProduct, (state, { product }) => {
-        return { ...state, products: state.products.filter(item => product.id !== item.id)};
+        const newArray: any[] = [...state.products];
+        return { ...state, products: newArray.filter((item: any) => product._id !== item._id)};
     }),
 
     on( actions.initCart, (state, { reference, products }) => {

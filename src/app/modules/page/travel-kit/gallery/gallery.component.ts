@@ -20,7 +20,5 @@ export class GalleryComponent {
     slidesToScroll: 1,
     arrows: true,
     touchMove: true,
-    autoplay: true,
-    autoplaySpeed: 2000,
   };
 }

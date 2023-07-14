@@ -1,1 +1,11 @@
 @import 'src/styles/menu';
+
+.content-image {
+    width: 150px;
+    height: 150px;
+    position: relative;
+}
+
+p-sidebar ::ng-deep .p-sidebar-right {
+    height: 80%;
+}
