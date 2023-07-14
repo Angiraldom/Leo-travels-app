@@ -24,7 +24,35 @@ export class ViewProductComponent implements OnInit, OnDestroy {
   products: IProduct[] = [];
   visibleProducts: IProduct[] = [];
   viewProduct!: IProduct;
-  responsiveOptions;
+  responsiveOptions = [
+    {
+      breakpoint: '8000px',
+      numVisible: 5,
+      numScroll: 1,
+    },
+    {
+      breakpoint: '3000px',
+      numVisible: 3,
+      numScroll: 1,
+    },
+    {
+      breakpoint: '1000px',
+      numVisible: 2,
+      numScroll: 1,
+    },
+    {
+      breakpoint: '800px',
+      numVisible: 1,
+      numScroll: 1,
+    },
+  ];
+  responsiveOptionsViewProduct = [
+    {
+      breakpoint: '1200px',
+      numVisible: 1,
+      numScroll: 1,
+    },
+  ];
   id!: string;
   $storeViewProducts!: Subscription;
   $store!: Subscription;
@@ -41,23 +69,7 @@ export class ViewProductComponent implements OnInit, OnDestroy {
   constructor(
     private changeDetectorRef: ChangeDetectorRef,
   ) {
-    this.responsiveOptions = [
-      {
-        breakpoint: '1024px',
-        numVisible: 4,
-        numScroll: 1,
-      },
-      {
-        breakpoint: '768px',
-        numVisible: 2,
-        numScroll: 2,
-      },
-      {
-        breakpoint: '600px',
-        numVisible: 1,
-        numScroll: 1,
-      },
-    ];
+    
   }
   ngOnInit(): void {
     this.route.paramMap.subscribe((params: ParamMap) => {
@@ -99,8 +111,8 @@ export class ViewProductComponent implements OnInit, OnDestroy {
     this.viewProduct = this.products.find((elem) => elem.id == item.id)!;
     this.visibleProducts = this.products.filter((p) => p.id !== this.id);
     this.router.navigate([`view-product/${item.id}`]);
-    this.changeDetectorRef.markForCheck();
-    this.changeDetectorRef.detectChanges();
+    // this.changeDetectorRef.markForCheck();
+    // this.changeDetectorRef.detectChanges();
   }
 
   addProduct(product: IProduct, reference: string) {

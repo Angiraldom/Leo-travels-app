@@ -6,23 +6,14 @@
   </div>
   <div class="container">
     <div class="container-first-section-1">
-      <div class="container product-item">
-        <div class="container-image">
-          <img oncontextmenu='return false' onkeydown='return false' [src]="this.viewProduct.images[0]" />
-        </div>
-        <div class="container-image">
-          <img oncontextmenu='return false' onkeydown='return false' [src]="this.viewProduct.images[1]" />
-        </div>
-      </div>
       <div class="container-view-product-carrousel">
-        <p-carousel [value]="viewProduct.images" styleClass="custom-carousel" [numVisible]="1" [numScroll]="1"
-          [circular]="true" [autoplayInterval]="3000" [responsiveOptions]="responsiveOptions">
+        <p-carousel [value]="viewProduct.images" styleClass="custom-carousel" [circular]="true" [autoplayInterval]="3000" [numVisible]="2" [numScroll]="1" [responsiveOptions]="responsiveOptionsViewProduct">
           <ng-template pTemplate="header">
           </ng-template>
           <ng-template let-product pTemplate="item">
             <div class="product-item">
               <div class="product-item-content">
-                <img oncontextmenu='return false' onkeydown='return false' [src]="product" class="product-image" />
+                <img oncontextmenu='return false' onkeydown='return false' [src]="product" class="product-image main-carousel" />
               </div>
             </div>
           </ng-template>
@@ -54,8 +45,8 @@
   </div>
   <div class="separador"></div>
 </section>
-<section>
-  <p-carousel [value]="visibleProducts" styleClass="custom-carousel" [numVisible]="4" [numScroll]="1" [circular]="true"
+<section *ngIf="this.visibleProducts">
+  <p-carousel [value]="visibleProducts" styleClass="custom-carousel" [circular]="true"
     [autoplayInterval]="3000" [responsiveOptions]="responsiveOptions">
     <ng-template pTemplate="header">
       <p class="container-title-carrousel">

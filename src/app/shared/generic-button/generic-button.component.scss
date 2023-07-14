@@ -41,6 +41,12 @@
     height: 40px;
     letter-spacing: 1px;
     font-size: 20px;
+    @media screen and (max-width: 600px) {
+        min-width: 200px;
+        height: 30px;
+        letter-spacing: 1px;
+        font-size: 15px;
+    }
 }
 
 .small {
