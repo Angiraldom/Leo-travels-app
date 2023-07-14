@@ -26,6 +26,7 @@ export class FormClassComponent {
     name: ['', Validators.required],
     url: ['', [Validators.pattern(this.urlRegex)]],
     description: [''],
+    duration: [''],
   });
 
   ngOnInit(): void {

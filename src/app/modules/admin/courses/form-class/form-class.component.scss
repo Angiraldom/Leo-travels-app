@@ -16,3 +16,10 @@ form {
 textarea, .input-name {
     width: 100%;
 }
+
+.columns-2 {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 78% 20%;
+    column-gap: 17px;
+}

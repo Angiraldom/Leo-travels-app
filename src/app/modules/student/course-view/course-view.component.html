@@ -39,7 +39,9 @@
                     <li *ngFor="let class of module?.classes; let indexClass = index" class="sub-item">
                         <div class="item item-sub-header">
                             <span class="item-title" (click)="changeRoute(module._id, class._id)">{{ class.name }}</span>
-                            <span class="total-clases">1:23</span>
+                            <span class="total-clases" *ngIf="class.duration">
+                                {{class.duration}}
+                            </span>
                         </div>
                     </li>
                 </ul>
