@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { Router, RouterModule } from '@angular/router';
@@ -15,6 +15,8 @@ import { deleteProduct } from 'src/app/store/actions/cart.actions';
 import { TotalValuePipe } from 'src/app/core/pipes/total-values.pipe';
 import { TotalProductsPipe } from 'src/app/core/pipes/total-products.pipe';
 import { IUser } from 'src/app/modules/admin/user/interface/IUser.interface';
+import { ICourse } from 'src/app/modules/admin/courses/interfaces/ICourses.interface';
+import { IProduct } from 'src/app/modules/admin/products/interfaces/IProduct.interface';
 
 @Component({
   selector: 'app-menu',
@@ -30,6 +32,7 @@ import { IUser } from 'src/app/modules/admin/user/interface/IUser.interface';
     GenericButtonComponent,
     TotalValuePipe,
     TotalProductsPipe,
+    NgOptimizedImage
   ],
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.scss'],
@@ -43,7 +46,7 @@ export class MenuComponent implements OnInit, OnDestroy {
   isMenuOpen = false;
   sidebarVisible: boolean = false;
   user!: IUser;
-  products: any[] = [];
+  products: ICourse[] | IProduct[] = [];
 
   ngOnInit(): void {
     this.$storeUser = this.store.select('profile').subscribe({

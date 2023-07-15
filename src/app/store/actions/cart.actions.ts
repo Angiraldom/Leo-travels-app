@@ -1,13 +1,14 @@
 import { createAction, props } from "@ngrx/store";
+import { ICourse } from "src/app/modules/admin/courses/interfaces/ICourses.interface";
 import { IProduct } from "src/app/modules/admin/products/interfaces/IProduct.interface";
 
 
-export const addProduct = createAction('Add Product', props<{reference: string; product: IProduct}>());
+export const addProduct = createAction('Add Product', props<{reference: string; product: IProduct | ICourse}>());
 
-export const updateProduct = createAction('update Product', props<{reference: string; product: IProduct}>());
+export const updateProduct = createAction('update Product', props<{reference: string; product: IProduct | ICourse}>());
 
-export const deleteProduct = createAction('delete Product', props<{reference: string; product: IProduct}>());
+export const deleteProduct = createAction('delete Product', props<{reference: string; product: IProduct | ICourse}>());
 
-export const initCart = createAction('Init Cart', props<{reference: string; products: IProduct[]}>());
+export const initCart = createAction('Init Cart', props<{reference: string; products: IProduct[] | ICourse[]}>());
 
 export const clearCart = createAction('Clear Cart');

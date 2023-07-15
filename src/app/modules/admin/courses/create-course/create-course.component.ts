@@ -1,4 +1,4 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnDestroy, OnInit, inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { ComponentType } from '@angular/cdk/portal';
@@ -20,12 +20,13 @@ import { ICourse } from '../interfaces/ICourses.interface';
   templateUrl: './create-course.component.html',
   styleUrls: ['./create-course.component.scss'],
 })
-export class CreateCourseComponent implements OnInit {
+export class CreateCourseComponent implements OnInit, OnDestroy {
   private fb = inject(FormBuilder);
   private baseService = inject(BaseService);
   private dialog = inject(MatDialog);
   private store = inject(Store<AppState>);
   $store!: Subscription;
+  $refModal!: Subscription;
 
   form: FormGroup = this.fb.group({
     _id: [],
@@ -57,6 +58,11 @@ export class CreateCourseComponent implements OnInit {
     });
   }
 
+  ngOnDestroy(): void {
+    this.$refModal.unsubscribe();
+    this.$store.unsubscribe();
+  }
+
   toggleList(index: number): void {
     this.isExpanded[index] = !this.isExpanded[index];
   }
@@ -67,7 +73,7 @@ export class CreateCourseComponent implements OnInit {
       width: '900px'
     });
     refModal.componentInstance.parent = this;
-    refModal.afterClosed().subscribe({
+    this.$refModal = refModal.afterClosed().subscribe({
       next: () => {
         if (!this.form.get('_id')?.value) {
           this.changelistView();

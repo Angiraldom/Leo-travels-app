@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-recommendation-session',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./recommendation-session.component.scss']
 })
 export class RecommendationSessionComponent {
+  protected router = inject(Router);
 
+  changeRoute() {
+    this.router.navigate(['/cursos'])
+  }
 }

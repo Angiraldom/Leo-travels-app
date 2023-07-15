@@ -1,27 +1,33 @@
-import { Component, EventEmitter, OnInit, Output, inject } from '@angular/core';
+import { Component, EventEmitter, OnDestroy, OnInit, Output, inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Subscription } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
+import { typeDocuments } from '../documents/type-documents';
 
 @Component({
   selector: 'app-invoice-form',
   templateUrl: './invoice-form.component.html',
   styleUrls: ['./invoice-form.component.scss']
 })
-export class InvoiceFormComponent implements OnInit {
+export class InvoiceFormComponent implements OnInit, OnDestroy {
   private fb = inject(FormBuilder);
 
   @Output() emitForm = new EventEmitter();
 
+  typeDocument = typeDocuments;
+  $form!: Subscription;
   form: FormGroup = this.fb.group({
     name: ['johnatan', Validators.required],
     lastName: ['ramos', Validators.required],
-    legalId: ['1000884990', Validators.required],
-    legalIdType: ['CC'],
+    legalId: ['', Validators.required],
+    legalIdType: [''],
     email: ['johnatan.r1000@gmail.com', [Validators.required, Validators.email]],
+    phoneNumber: ['3218903991'],
+    phoneNumberPrefix: ['57']
   });
 
   ngOnInit(): void {
-    this.form.statusChanges.pipe(
+    this.$form = this.form.statusChanges.pipe(
       debounceTime(500)
     ).subscribe({
       next: (res) => {
@@ -31,5 +37,14 @@ export class InvoiceFormComponent implements OnInit {
         });
       }
     });
+  }
+
+  ngOnDestroy(): void {
+    this.$form.unsubscribe();
+  }
+
+  formatLowerCase() {
+    const email = this.form.get('email')?.value as string;
+    this.form.get('email')?.setValue(email.toLowerCase());
   }
 }

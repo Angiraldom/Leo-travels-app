@@ -1,10 +1,17 @@
 <app-title-modal [titleModal]="'Crear clase'"></app-title-modal>
 
 <form [formGroup]="form">
-    <span class="p-float-label">
-        <input pInputText id="username" formControlName="name" class="input-name" />
-        <label htmlFor="username">{{ 'Clase' | translate }}</label>
-    </span>
+    <div class="columns-2">
+        <span class="p-float-label">
+            <input pInputText id="username" formControlName="name" class="input-name" />
+            <label htmlFor="username">{{ 'Clase' | translate }}</label>
+        </span>
+
+        <span class="p-float-label">
+            <input pInputText id="duration" formControlName="duration" class="input-name" />
+            <label htmlFor="duration">{{ 'Duración' | translate }}</label>
+        </span>
+    </div>
 
     <span class="p-float-label">
         <input pInputText id="url" formControlName="url" class="input-name" />

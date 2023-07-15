@@ -1,0 +1,12 @@
+<div class="carousel">
+  <h3 class="h3">
+    Después de completar este curso, aprenderás a tomar fotos como estas:
+  </h3>
+  <swiper [config]="config">
+    <ng-template swiperSlide *ngFor="let item of nameImages; let index = index">
+      <div class="container">
+        <img class="responsive-img" fill [ngSrc]="item" [alt]="'Imagen' + index" />
+      </div>
+    </ng-template>
+  </swiper>
+</div>

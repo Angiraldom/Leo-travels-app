@@ -1,0 +1,31 @@
+@import 'src/styles/variables';
+
+// ESTILOS DE LA ALRTA DE LOGOUT
+::ng-deep.swal2-confirm, ::ng-deep.swal2-cancel {
+    padding: 5px 25px;
+    border-radius: 7px;
+    border: none;
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+}
+
+::ng-deep .swal2-confirm {
+    margin-right: 15px;
+    background-color: $primary;
+    color: $secondary;
+    font-weight: 700;
+}
+
+::ng-deep .swal2-confirm:focus-visible{
+    outline: none;
+}
+
+::ng-deep .swal2-cancel {
+    margin-right: 15px;
+    background-color: $background-color;
+    color: $gray;
+}
+
+::ng-deep .swal2-title {
+    font-size: 1.5em;
+}

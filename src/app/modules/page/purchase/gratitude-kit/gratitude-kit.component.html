@@ -18,7 +18,7 @@
 
         <div class="text-start content-steps">
             <p>
-                <span class="color-primary font-weight">1. Revisa tu correo electrónico</span>, allí
+                <span class="color-primary font-weight">1. Revisa tu correo electrónico</span>,
                 allí encontrarás la orden de tu pedido.
             </p>
 
@@ -35,6 +35,10 @@
         </div>
 
         <p class="color-primary font-weight">¡Y LISTO!</p>
+
+        <app-generic-button (emitClick)="changeRoute()" [nameButton]="'Página de inicio'"
+            [classButton]="'class_white_color_blue'">
+        </app-generic-button>
     </div>
 </div>
 <app-footer></app-footer>

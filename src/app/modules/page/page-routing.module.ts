@@ -3,6 +3,11 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
+    path: 'cursos',
+    loadChildren: () =>
+      import('./course-landing/course-landing.module').then((m) => m.CourseLandingModule),
+  },
+  {
     path: 'kit-viajero',
     loadChildren: () =>
       import('./travel-kit/kit-viajero.module').then((m) => m.KitViajeroModule),

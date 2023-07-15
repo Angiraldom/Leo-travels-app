@@ -1,0 +1,70 @@
+@import "/src/styles/variables";
+
+.step-icon-book {
+  background: url('../../../../../assets/icons/paso1.png') center center no-repeat;
+  background-size: 50% auto;
+}
+
+.step-icon-heart {
+  background: url('../../../../../assets/icons/paso2.png') center center no-repeat;
+  background-size: 50% auto;
+}
+
+.step-icon-hand {
+  background: url('../../../../../assets/icons/paso3.png') center center no-repeat;
+  background-size: 50% auto;
+}
+
+.section {
+  background-color: $primary;
+  color: #fff;
+}
+
+.section-steps {
+  padding: 20px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 0 auto;
+  max-width: 1055px;
+}
+
+.step {
+  display: flex;
+  align-items: center;
+  margin: 4px 0px;
+  width: 80%;
+  max-width: 291px;
+}
+
+.section-steps .step b {
+  font-weight: bold;
+}
+
+.step-icons {
+  display: block;
+  width: 50px;
+  height: 50px;
+  min-width: 51px;
+}
+
+h3 {
+  text-align: center;
+  padding: 30px;
+}
+
+hr {
+  width: 80%;
+  margin: 0 auto;
+}
+
+@media only screen and (min-width: 768px) {
+  .section-steps {
+    flex-direction: row;
+  }
+
+  .section-steps .step:first-child p, .section-steps .step:nth-child(2) p{
+    max-width: 140px;
+  }
+}

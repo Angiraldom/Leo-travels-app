@@ -2,8 +2,9 @@ import { IModule } from "../../courses/interfaces/IModule.interface";
 
 export interface IProduct {
   _id?: string;
-  id?: string;
+
   name?: string;
+
   description?: string;
 
   price?: number;
@@ -20,17 +21,16 @@ export interface IProduct {
 
   long?: number;
 
-  images: string[];
-
   updatedAt?: Date;
 
   createdAt?: Date;
 
   amount?: number;
-  
-  title?: string;
 
-  imageProperties?: [];
+  imageProperties?: [{
+    key: string;
+    url: string;
+  }];
 
   modules?: IModule[];
 }

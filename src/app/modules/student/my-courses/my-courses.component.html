@@ -7,11 +7,11 @@
             <img oncontextmenu='return false' onkeydown='return false' alt="Card" [src]="course.portada" />
         </ng-template>
         <h3>{{course.name}}</h3>
-        <p>
+        <!-- <p>
             <p-progressBar [value]="course.modules | classProgress" [color]="'primary'"></p-progressBar>
-        </p>
+        </p> -->
         <div class="footer">
-            <p> {{course.modules | classProgress}} /{{ course.modules | totalClasses }} Clases </p>
+            <!-- <p> {{course.modules | classProgress}} /{{ course.modules | totalClasses }} Clases </p> -->
             <app-generic-button [sizeButton]="'small'" [classButton]="'class_blue'" [nameButton]="'Abrir'"
                (emitClick)="changeRoute(course._id)" ></app-generic-button>
         </div>

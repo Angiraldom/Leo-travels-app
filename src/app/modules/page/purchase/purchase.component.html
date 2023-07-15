@@ -3,9 +3,6 @@
 
 <ng-container *ngIf="!succesfulTransaction">
     <app-menu></app-menu>
-    <div class="container-p-messages" *ngIf="userExist">
-        <p-messages severity="warn" [(value)]="message"></p-messages>
-    </div>
 
     <div class="content-invoice" [ngClass]="{'remove-margin': userExist, 'add-margin': !userExist}">
         <h2 class="title">Finalizar compra</h2>

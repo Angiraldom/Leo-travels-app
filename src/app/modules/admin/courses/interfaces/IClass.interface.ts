@@ -4,4 +4,5 @@ export interface IClass {
     url?: string;
     description?: string;
     completed: boolean;
+    duration?: string;
 }

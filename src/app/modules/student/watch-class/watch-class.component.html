@@ -1,3 +1,4 @@
+<app-menu-student></app-menu-student>
 <ng-container *ngIf="class">
     <div class="container">
         <div class="sidebar">
@@ -22,10 +23,10 @@
                 <mat-icon>keyboard_arrow_left</mat-icon>
                 Clase anterior
             </a>
-            <a [ngClass]="{'comptleted': class.completed}" (click)="completedClass()">
+            <!-- <a [ngClass]="{'comptleted': class.completed}" (click)="completedClass()">
                 <mat-icon>person</mat-icon>
                 Marcar completa
-            </a>
+            </a> -->
             <a (click)="nextClass()">
                 Clase siguiente
                 <mat-icon>keyboard_arrow_right</mat-icon>
@@ -33,6 +34,7 @@
         </nav>
 
         <div class="content-class">
+            <p>{{ nameModule }}</p>
             <h3 class="title"> {{class.name}} </h3>
             <hr>
             <div class="content-video">
@@ -41,6 +43,9 @@
                     controlsList="nodownload noremoteplayback"></video>
                 <p [innerHTML]="class.description"></p>
             </div>
+        </div>
+        <div>
+            <app-comments [idClass]="idClass"></app-comments>
         </div>
     </div>
 </ng-template>

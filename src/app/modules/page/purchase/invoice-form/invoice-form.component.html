@@ -3,22 +3,38 @@
     <form [formGroup]="form">
         <span class="flex flex-column gap-2">
             <label htmlFor="name">Nombre</label>
-            <input pInputText id="name" formControlName="name" placeholder="Ingrese su nombre" class="p-inputtext-sm input-name" />
+            <input pInputText id="name" formControlName="name" placeholder="Ingrese su nombre"
+                class="p-inputtext-sm input-name" />
         </span>
 
         <span class="flex flex-column gap-2">
             <label htmlFor="lastName">Apellidos</label>
-            <input pInputText id="lastName" formControlName="lastName" placeholder="Ingrese sus apellidos" class="p-inputtext-sm input-name" />
+            <input pInputText id="lastName" formControlName="lastName" placeholder="Ingrese sus apellidos"
+                class="p-inputtext-sm input-name" />
+        </span>
+
+        <span class="display flex flex-column gap-2">
+            <label htmlFor="legalIdType">Tipo de documento</label>
+            <p-dropdown formControlName="legalIdType" [options]="typeDocument" placeholder="Tipo de documento"
+                optionLabel="name" [optionValue]="'key'" class="p-inputtext-sm input-name"></p-dropdown>
         </span>
 
         <span class="flex flex-column gap-2">
-            <label htmlFor="legalId">Cédula</label>
-            <input pInputText id="legalId" formControlName="legalId" placeholder="Ingrese su cedula" class="p-inputtext-sm input-name" />
+            <label htmlFor="legalId">Documento de identidad</label>
+            <input pInputText id="legalId" formControlName="legalId" placeholder="Ingrese su cedula"
+                class="p-inputtext-sm input-name" />
         </span>
 
         <span class="flex flex-column gap-2">
             <label htmlFor="email">Correo electrónico</label>
-            <input pInputText id="email" formControlName="email" placeholder="Ingrese su email" class="p-inputtext-sm input-name" />
+            <input pInputText id="email" (keyup)="formatLowerCase()" formControlName="email"
+                placeholder="Ingrese su email" class="p-inputtext-sm input-name" />
+        </span>
+
+        <span class="flex flex-column gap-2">
+            <label htmlFor="phoneNumber">Número celular</label>
+            <input pInputText id="phoneNumber" formControlName="phoneNumber" placeholder="Ingrese su numero de celular"
+                class="p-inputtext-sm input-name" />
         </span>
     </form>
 </div>

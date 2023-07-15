@@ -13,6 +13,7 @@ import { AccordionModule } from 'primeng/accordion';
 import { AvatarModule } from 'primeng/avatar';
 import { ProgressBarModule } from 'primeng/progressbar';
 import { CarouselModule } from 'primeng/carousel';
+import { DropdownModule } from 'primeng/dropdown';
 
 const modules = [
   AccordionModule,
@@ -26,7 +27,8 @@ const modules = [
   InputNumberModule,
   FileUploadModule,
   SidebarModule,
-  CarouselModule
+  CarouselModule,
+  DropdownModule
 ];
 
 @NgModule({
