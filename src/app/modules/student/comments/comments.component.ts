@@ -1,23 +1,44 @@
-import { Component, Input, OnInit, inject } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit, inject } from '@angular/core';
+import { Subscription, delay } from 'rxjs';
+import { Store } from '@ngrx/store';
+import { FormControl, Validators } from '@angular/forms';
+
 import { BaseService } from 'src/app/core/services/base.service';
 import { IComment } from '../interface/IComments.inerface';
-import { FormControl, Validators } from '@angular/forms';
+import { AppState } from 'src/app/store/app.reducer';
+import { MesaggeService } from 'src/app/core/services/message.service';
 
 @Component({
   selector: 'app-comments',
   templateUrl: './comments.component.html',
   styleUrls: ['./comments.component.scss']
 })
-export class CommentsComponent implements OnInit {
+export class CommentsComponent implements OnInit, OnDestroy {
   private baseSerive = inject(BaseService);
+  private store = inject(Store<AppState>);
+  private messageService = inject(MesaggeService);
   
   @Input() idClass!: string;
 
+  $store!: Subscription;
   comments: IComment[] = [];
   comment = new FormControl(null, { validators: Validators.required });
 
   ngOnInit(): void {
+    this.$store = this.store.select('activeClass')
+    .pipe(
+      delay(2000)
+    )
+    .subscribe({
+      next: () => {
+        this.getComments();
+      }
+    })
     this.getComments();
+  }
+
+  ngOnDestroy(): void {
+    this.$store.unsubscribe();
   }
 
   getComments() {
@@ -39,7 +60,7 @@ export class CommentsComponent implements OnInit {
     
     this.baseSerive.postMethod('comments', payload).subscribe({
       next: () => {
-        console.log("Agregado correcatamente");
+        this.messageService.succesMessage('succes.commentAgregated')
         this.comment.reset();
         this.getComments();
       }

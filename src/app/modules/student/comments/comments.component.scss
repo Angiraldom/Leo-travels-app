@@ -21,7 +21,7 @@
     gap: 10px;
     text-align: center;
     margin: 0 auto;
-    width: 49%;
+    width: 46%;
 }
 
 .content-comment {
@@ -35,4 +35,8 @@
 
 .button {
     align-self: flex-end;
+}
+
+.min-width {
+    min-width: 447px;
 }
