@@ -21,7 +21,6 @@ export class ProfileComponent implements OnInit, OnDestroy {
 
   $store!: Subscription;
   showFormPassword: boolean = false;
-  iconLetterName = '';
 
   form: FormGroup = this.fb.group({
     _id: [],
@@ -45,7 +44,6 @@ export class ProfileComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.$store = this.store.select('profile').subscribe({
       next: (user) => {
-        this.iconLetterName = user.name[0].toUpperCase();
         this.form.patchValue(user);
       }
     });
