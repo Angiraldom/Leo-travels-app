@@ -20,7 +20,6 @@
 
 p {
     text-align: center;
-    color: #fff;
     font-weight: 400;
     line-height: 22px;
 }
@@ -62,8 +61,7 @@ p {
 }
 
 .footer-bottom {
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding: 30px 0px 50px;
     background: $primary;
 }
 
@@ -91,14 +89,6 @@ p {
     padding-bottom: 20px;
 }
 
-.gmail {
-    margin-bottom: 15px;
-    text-align: center;
-    font-size: 14px;
-    display: flex;
-    justify-content: center;
-}
-
 .msj {
     width: 20px;
     height: 20px;
@@ -106,4 +96,41 @@ p {
     background-image: url('../../../assets/icons/envelope-solid.svg');
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+hr {
+    width: 280px;
+    margin: 40px auto;
+    border-color: $secondary;
+}
+
+.content-info {
+    display: grid;
+    grid-template-columns: 50px 180px;
+    margin: 15px auto;
+    justify-content: center;
+    column-gap: 5px;
+}
+
+.content-icons {
+    display: grid;
+    justify-content: end;
+}
+
+.text-start {
+    text-align: start;
+}
+
+@media screen and (min-width: 728px) {
+    
+    .politics {
+        display: flex;
+        justify-content: center;
+        gap: 25px;
+        margin-top: 40px;
+    }
+
+    hr {
+        display: none;
+    }
 }
