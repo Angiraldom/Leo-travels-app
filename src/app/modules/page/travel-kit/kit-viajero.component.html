@@ -4,7 +4,7 @@
         <p-messages severity="warn" [(value)]="message"></p-messages>
       </div>
     <div class="container">
-        <img class="responsive-img" oncontextmenu='return false' onkeydown='return false' fill priority [ngSrc]="'https://vilean.s3.us-east-2.amazonaws.com/KIT+VIAJERO/Kit+viajero+H.jpg'" alt="portada">
+        <div oncontextmenu='return false' onkeydown='return false' class="content-image"></div>
     </div>
     <app-kit-price-session (onAddTravelKit)="addKitViajero()" ></app-kit-price-session>
     <app-video-session (onAddTravelKit)="addKitViajero()" ></app-video-session>
