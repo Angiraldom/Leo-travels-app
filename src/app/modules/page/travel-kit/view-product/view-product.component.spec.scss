@@ -66,6 +66,9 @@
       }
       .product-image.main-carousel{
         height:500px;
+        @media screen and (max-width: 600px) {
+          height:300px;
+        }
       }
   }
 
