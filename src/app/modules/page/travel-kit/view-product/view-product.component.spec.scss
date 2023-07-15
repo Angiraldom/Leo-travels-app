@@ -15,7 +15,7 @@
 }
 
 .container-first-section-1 {
-  width:75%;
+  width:60%;
   margin-top:60px;
   @media screen and (max-width: 600px) {
     width:100%;
@@ -59,6 +59,16 @@
       .product-image {
         width: 300px; 
         height: 300px;
+        @media screen and (max-width: 600px) {
+        width: 200px;
+        height: 200px;
+      }
+      }
+      .product-image.main-carousel{
+        height:500px;
+        @media screen and (max-width: 600px) {
+          height:300px;
+        }
       }
   }
 
@@ -80,6 +90,10 @@
       .title{
         font-size: 20px;
       }
+
+      @media screen and (max-width: 600px) {
+        margin: 5px auto;
+      }
   }
 
   .viewProduct{
@@ -93,22 +107,17 @@
   z-index: 1;
 }
 
-@media (max-width: 600px) {
-  .container-view-product-carrousel {
-    display: block;
-  }
-  
-  .container.product-item {
-    display: none;
-  }
-}
+::ng-deep .p-message.p-message-warn{
+  background: $secondary;
+  border: solid $secondary;
+  border-width:0 0 0 6px;
+  color: $primary;
 
-@media (min-width: 601px) {
-  .container.product-item {
-    display: flex;
+  .p-message-icon{
+    color: $primary;
   }
-  
-  .container-view-product-carrousel {
-    display: none;
+
+  .p-message-close{
+    color: $white;
   }
 }

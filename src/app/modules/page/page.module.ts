@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 
 import { PageRoutingModule } from './page-routing.module';
 
-
 @NgModule({
   declarations: [],
   imports: [
