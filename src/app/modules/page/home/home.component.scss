@@ -1,0 +1,156 @@
+@import "/src/styles/variables";
+
+.title {
+  font-weight: 700;
+  font-size: 25px;
+}
+
+.sub-title {
+  font-weight: 400;
+  font-size: 15px;
+}
+
+.first-container {
+  width: 100%;
+  height: 800px;
+  background-image: url("../../../../assets/images/home.jpg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  color: $primary;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 50px;
+}
+
+.container {
+  display: flex;
+  margin-top: 60px;
+}
+
+.second-container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  color: $primary;
+  margin: 30px 0;
+}
+.container-ver-mas {
+  .ver-mas-1 {
+    color: $white;
+    background-color: $primary;
+    padding-bottom: 20px;
+    text-align: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+
+      .separador{
+        background-color: $white;
+      }
+
+  }
+  .ver-mas-2 {
+    color: $primary;
+    background-color: $secondary;
+    padding-bottom: 20px;
+    text-align: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+
+    .separador {
+      background-color: $primary;
+    }
+  }
+  .photography-course {
+    width: 90%;
+    margin: 50px 20px;
+    height: 250px;
+    background-color: $white;
+    border-radius: 20px;
+  }
+
+  .title {
+    font-weight: 700;
+    font-size: 25px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    span {
+      color: $secondary;
+    }
+  }
+
+  .separador {
+    width: 90%;
+    height: 1px;
+    margin: 10px;
+  }
+
+  .sub-title {
+    text-align: center;
+    margin: 0 10px 40px;
+  }
+}
+
+.container-quienes-somos {
+  width: 100%;
+  height: 600px;
+  background-image: url("../../../../assets/images/quienes_somos_mobile.jpg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  color: $white;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+    
+    .title{
+      margin:50px 0 20px;
+    }
+    .sub-title {
+      text-align: center;
+      margin: 0 50px;
+    }
+
+    .boton-leer-mas{
+      display:flex;
+      flex-direction: column;
+      margin-top: auto;
+      margin-bottom: 40px;
+    }
+}
+
+.container-redes-sociales {
+  display:flex;
+  flex-direction: column;
+  color:$primary;
+  align-items: center;
+  padding:40px;
+  .sub-title {
+    text-align: center;
+  }
+  .separador {
+    width: 90%;
+    height: 1px;
+    background-color: $primary;
+    margin: 40px;
+  }
+
+}
+
+@media screen and (max-width: 600px) {
+  .container {
+    flex-direction: column;
+  }
+}
+
+.icon-logo {
+  display: block;
+  width: 50px;
+  height: 30px;
+  background-image: url("../../../../assets/images/avion_azul.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+}

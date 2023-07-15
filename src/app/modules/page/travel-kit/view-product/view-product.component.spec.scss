@@ -59,10 +59,10 @@
       .product-image {
         width: 300px; 
         height: 300px;
-      //   @media screen and (max-width: 600px) {
-      //   width: 200px;
-      //   height: 200px;
-      // }
+        @media screen and (max-width: 600px) {
+        width: 200px;
+        height: 200px;
+      }
       }
       .product-image.main-carousel{
         height:500px;

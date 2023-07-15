@@ -13,8 +13,13 @@ const routes: Routes = [
       import('./purchase/purchase.module').then((m) => m.PurchaseModule),
   },
   {
+    path:'home',
+    loadChildren:() =>
+    import('./home/home.module').then((m)=> m.HomeModule)
+  },
+  {
     path: '',
-    redirectTo: 'kit-viajero',
+    redirectTo: 'home',
     pathMatch: 'full',
   },
 ];
