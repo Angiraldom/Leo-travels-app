@@ -1,7 +1,7 @@
 <app-header-modules [title]="'Mi perfil'" [description]="'Actualiza la información de tu perfil'"></app-header-modules>
 
 <div class="content-form">
-    <p-avatar [label]="iconLetterName" styleClass="mr-2" size="xlarge" shape="circle"></p-avatar>
+    <p-avatar [label]="form.get('name')?.value | letterAvatar" styleClass="mr-2" size="xlarge" shape="circle"></p-avatar>
 
     <div class="form">
         <form [formGroup]="form" *ngIf="!showFormPassword">

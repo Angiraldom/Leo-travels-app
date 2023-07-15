@@ -28,6 +28,7 @@
     "succes": {
         "productAddsToTheCart": "Producto añadido al carrito",
         "userUpdated": "Usuario actualizado correctamente",
-        "passwordChanged": "Contraseña modificada correctamente"
+        "passwordChanged": "Contraseña modificada correctamente",
+        "commentAgregated": "Gracias por dejar tu comentario"
     }
 }

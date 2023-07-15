@@ -19,6 +19,8 @@ import { NavbarComponent } from '../layout/navbar/navbar.component';
 import { TotalClassesPipe } from 'src/app/core/pipes/total-classes.pipe';
 import { ClassProgressPipe } from 'src/app/core/pipes/class-progress.pipe';
 import { MenuStudentComponent } from './menu-student/menu-student.component';
+import { CommentsComponent } from './comments/comments.component';
+import { LetterAvatarPipe } from 'src/app/core/pipes/letter-avatar.pipe';
 
 @NgModule({
   declarations: [
@@ -29,6 +31,7 @@ import { MenuStudentComponent } from './menu-student/menu-student.component';
     WatchClassComponent,
     SidebarUserComponent,
     MenuStudentComponent,
+    CommentsComponent,
   ],
   imports: [
     CommonModule,
@@ -42,7 +45,8 @@ import { MenuStudentComponent } from './menu-student/menu-student.component';
     NavbarComponent,
     ReactiveFormsModule,
     TotalClassesPipe,
-    ClassProgressPipe
+    ClassProgressPipe,
+    LetterAvatarPipe
   ],
 })
 export class StudentModule {}

@@ -1,0 +1,42 @@
+@import "/src/styles/variables";
+
+.bold {
+    font-weight: 700;
+}
+
+.color-black {
+    color: black;
+}
+
+.date {
+    color: $gray;
+    font-size: 14px;
+}
+
+.comment-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    text-align: center;
+    margin: 0 auto;
+    width: 46%;
+}
+
+.content-comment {
+    display: flex;
+    gap: 20px;
+}
+
+.max-width {
+    max-width: 435px;
+}
+
+.button {
+    align-self: flex-end;
+}
+
+.min-width {
+    min-width: 447px;
+}
