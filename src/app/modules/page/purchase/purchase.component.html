@@ -4,12 +4,12 @@
 <ng-container *ngIf="!succesfulTransaction">
     <app-menu></app-menu>
 
-    <div class="content-invoice" [ngClass]="{'remove-margin': userExist, 'add-margin': !userExist}">
+    <div class="content-invoice">
         <h2 class="title">Finalizar compra</h2>
         <div class="content-forms">
             <div class="flex-column">
                 <app-invoice-form (emitForm)="setCustomerData($event); validateUser($event)"></app-invoice-form>
-                <app-shipping-form *ngIf="showShippingAdress"
+                <app-shipping-form *ngIf="showShippingAdress" (emitShippingPrice)="setShippingPrice($event)"
                     (emitForm)="setshippingAddressData($event)"></app-shipping-form>
             </div>
             <div class="flex-column">

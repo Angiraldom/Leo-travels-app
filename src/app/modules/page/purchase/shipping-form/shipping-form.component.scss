@@ -10,7 +10,12 @@
         gap: 15px;
     }
 
-    .input-name, ::ng-deep.p-inputnumber {
+    .input-name, ::ng-deep.p-inputnumber, ::ng-deep .p-dropdown {
         width: 100%;
+    }
+
+    .display {
+        display: flex;
+        flex-direction: column;
     }
 }

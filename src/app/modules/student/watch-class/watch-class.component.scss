@@ -2,7 +2,7 @@
 
 .container {
     display: flex;
-    height: 100vh;
+    height: calc(100vh - 64px);
 }
 
 .sidebar {
@@ -10,16 +10,22 @@
 }
 
 .content {
+    height: calc(100vh - 64px);
+    overflow: auto;
     flex-basis: 80%;
     background-color: $white;
+
+    .vertical-menu {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        background-color: #f8f8f8;
+        position: sticky;
+        top: 0px;
+        z-index: 1;
+    }
 }
 
-.vertical-menu {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    background-color: #f8f8f8;
-}
 
 a {
     display: flex;
@@ -81,4 +87,8 @@ mat-icon {
     .mobile {
         display: none;
     }
+}
+
+.center-content {
+    justify-content: center;
 }

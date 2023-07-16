@@ -21,7 +21,8 @@
     gap: 10px;
     text-align: center;
     margin: 0 auto;
-    width: 46%;
+    width: 92%;
+    max-width: 700px;
 }
 
 .content-comment {
@@ -29,14 +30,21 @@
     gap: 20px;
 }
 
-.max-width {
-    max-width: 435px;
-}
-
 .button {
     align-self: flex-end;
 }
 
 .min-width {
-    min-width: 447px;
+    width: 100%;
+    min-width: 258px;
+}
+
+textarea {
+    width: 100%;
+}
+
+.comments {
+    max-width: 700px;
+    width: 91%;
+    margin: 20px auto 0px;
 }

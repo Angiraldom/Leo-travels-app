@@ -37,11 +37,11 @@
             <p>{{ nameModule }}</p>
             <h3 class="title"> {{class.name}} </h3>
             <hr>
-            <div class="content-video">
+            <div [class.center-content]="!class.description" class="content-video">
                 <video oncontextmenu='return false' onkeydown='return false' width="300"
                     src="{{class.url}}" controls
                     controlsList="nodownload noremoteplayback"></video>
-                <p [innerHTML]="class.description"></p>
+                <p *ngIf="class.description && class.description !== ''" [innerHTML]="class.description"></p>
             </div>
         </div>
         <div>

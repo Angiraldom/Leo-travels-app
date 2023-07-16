@@ -31,10 +31,20 @@
                 placeholder="Ingrese su email" class="p-inputtext-sm input-name" />
         </span>
 
-        <span class="flex flex-column gap-2">
+        <div>
             <label htmlFor="phoneNumber">Número celular</label>
-            <input pInputText id="phoneNumber" formControlName="phoneNumber" placeholder="Ingrese su numero de celular"
-                class="p-inputtext-sm input-name" />
-        </span>
+            <div class="content-phone">
+                <span class="display flex flex-column gap-2">
+                    <p-dropdown [options]="prefixes" placeholder="Prefijo" formControlName="phoneNumberPrefix"
+                        [emptyMessage]="'Seleccione un prefijo'" optionLabel="prefix" optionValue="prefix"
+                        class="p-inputtext-sm input-name"></p-dropdown>
+                </span>
+
+                <span class="flex flex-column gap-2 phone">
+                    <input pInputText id="phoneNumber" formControlName="phoneNumber"
+                        placeholder="Ingrese su numero de celular" class="p-inputtext-sm input-name" />
+                </span>
+            </div>
+        </div>
     </form>
 </div>

@@ -6,10 +6,11 @@ import { Subscription } from 'rxjs';
 import { BaseService } from 'src/app/core/services/base.service';
 import { AppState } from 'src/app/store/app.reducer';
 import { IWompiInterface } from './interface/IWompiWidget.interface';
-import { clearCart } from 'src/app/store/actions/cart.actions';
+import { clearCart, setShippingPrice } from 'src/app/store/actions/cart.actions';
 import { IProduct } from '../../admin/products/interfaces/IProduct.interface';
 import { ICourse } from '../../admin/courses/interfaces/ICourses.interface';
 import { MesaggeService } from 'src/app/core/services/message.service';
+import { ICities } from './interface/ICities.interface';
 
 declare let WidgetCheckout: any;
 
@@ -32,6 +33,7 @@ export class PurchaseComponent implements OnInit, OnDestroy {
   reference = '';
   invalidCustomerForm: FormControlStatus = 'INVALID';
   invalidFormAddress: FormControlStatus = 'INVALID';
+  protected readonly idKitViajero = '64a75cd97a31b132537ae59a';
 
   wompiObject: IWompiInterface = {
     currency: 'COP',
@@ -96,6 +98,7 @@ export class PurchaseComponent implements OnInit, OnDestroy {
 
   openCheckout() {
     const checkout = new WidgetCheckout(this.wompiObject);
+    
     checkout.open((result: any) => {
       const status = result.transaction.status;
       if (status === 'APPROVED') {
@@ -135,5 +138,29 @@ export class PurchaseComponent implements OnInit, OnDestroy {
     if (!this.userExist && this.invalidFormAddress === 'VALID' && this.invalidCustomerForm === 'VALID') {
       this.purchase();
     }
+  }
+
+  setShippingPrice(value: ICities | null) {
+    if (!value) {
+      this.store.dispatch(setShippingPrice({ shippingPrice: 0 }));
+      return;
+    }
+    this.validateShippingPrice(value);
+  }
+  
+  validateShippingPrice(value: ICities) {
+    const existTravelKitProduct = this.products.some((item) => item._id === this.idKitViajero);
+    
+    if (existTravelKitProduct) {
+      this.store.dispatch(setShippingPrice({ shippingPrice: value.shippingPrice.valor1 }));
+      return;
+    }
+
+    const existAnotherProduct = this.products.some((item) => item._id !== this.idKitViajero && !item.modules);
+    if (existAnotherProduct) {
+      this.store.dispatch(setShippingPrice({ shippingPrice: value.shippingPrice.valor2 }));
+      return;
+    }
+    this.store.dispatch(setShippingPrice({ shippingPrice: 0 }));
   }
 }
