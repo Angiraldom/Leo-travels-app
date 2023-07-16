@@ -6,14 +6,16 @@
             <input pInputText id="country" formControlName="country" placeholder="Ingrese su país" class="p-inputtext-sm input-name" />
         </span>
 
-        <span class="flex flex-column gap-2">
+        <span class="display flex flex-column gap-2">
             <label htmlFor="region">Departamento</label>
-            <input pInputText id="region" formControlName="region" placeholder="Ingrese el departamento" class="p-inputtext-sm input-name" />
+            <p-dropdown formControlName="region" [options]="cities" placeholder="Departamento"
+                optionLabel="_id" [optionValue]="'_id'" (onChange)="setMunicipalities($event)" class="p-inputtext-sm input-name"></p-dropdown>
         </span>
 
-        <span class="flex flex-column gap-2">
+        <span class="display flex flex-column gap-2">
             <label htmlFor="city">Ciudad</label>
-            <input pInputText id="city" formControlName="city" placeholder="Ingrese la ciudad" class="p-inputtext-sm input-name" />
+            <p-dropdown  [options]="municipalities" placeholder="Ciudad" [emptyMessage]="'Seleccione un departamento'"
+                optionLabel="nombreMunicipio" (onChange)="setCityValue($event)" class="p-inputtext-sm input-name"></p-dropdown>
         </span>
 
         <span class="flex flex-column gap-2">
