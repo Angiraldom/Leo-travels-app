@@ -8,7 +8,7 @@
             aquí tu comentario:
         </p>
 
-        <textarea rows="5" cols="50" placeholder="Escribe aquí..." [formControl]="comment" pInputTextarea [autoResize]="true"></textarea>
+        <textarea rows="5" placeholder="Escribe aquí..." [formControl]="comment" pInputTextarea [autoResize]="true"></textarea>
 
         <div class="button">
             <app-generic-button classButton="class_yellow" (emitClick)="sendComment()"
@@ -27,19 +27,6 @@
 
                     <p class="color-black">
                         {{ item.comment }}
-                    </p>
-                    <hr>
-                </div>
-            </div>
-            <div class="content-comment">
-                <p-avatar [label]="'J'" styleClass="mr-2" size="xlarge" shape="circle"></p-avatar>
-                <div>
-                    <p class="bold color-black"> Luis Ramirez Toro </p>
-                    <p class="date">12/07/2023</p>
-
-                    <p class="color-black">
-                        Me encantó la clase, muchas gracias
-                        por lo compartido
                     </p>
                     <hr>
                 </div>
