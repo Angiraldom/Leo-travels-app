@@ -3,7 +3,7 @@ import { Action, createReducer, on } from "@ngrx/store";
 import * as actions from "../actions/cart.actions";
 import { ICart } from "src/app/modules/admin/products/interfaces/ICart.interface";
 
-export const initialState: ICart = { reference: '', products: []};
+export const initialState: ICart = { reference: '', products: [], shippingPrice: 0 };
 
 const _cartReducer = createReducer(initialState,
 
@@ -34,6 +34,10 @@ const _cartReducer = createReducer(initialState,
 
     on( actions.clearCart, () => {
         return { reference: '', products: []}
+    }),
+
+    on( actions.setShippingPrice, (state, { shippingPrice }) => {
+        return { ...state, shippingPrice: shippingPrice }
     })
 )
 

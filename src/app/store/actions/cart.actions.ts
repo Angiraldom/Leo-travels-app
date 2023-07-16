@@ -12,3 +12,5 @@ export const deleteProduct = createAction('delete Product', props<{reference: st
 export const initCart = createAction('Init Cart', props<{reference: string; products: IProduct[] | ICourse[]}>());
 
 export const clearCart = createAction('Clear Cart');
+
+export const setShippingPrice = createAction('set Shipping Price', props<{ shippingPrice: number }>());
