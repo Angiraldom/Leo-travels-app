@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
 import { typeDocuments } from '../documents/type-documents';
+import { BaseService } from 'src/app/core/services/base.service';
+import { IPrefix } from '../interface/IPrefixes.interface';
 
 @Component({
   selector: 'app-invoice-form',
@@ -11,19 +13,22 @@ import { typeDocuments } from '../documents/type-documents';
 })
 export class InvoiceFormComponent implements OnInit, OnDestroy {
   private fb = inject(FormBuilder);
+  private baseService = inject(BaseService);
 
   @Output() emitForm = new EventEmitter();
 
   typeDocument = typeDocuments;
   $form!: Subscription;
+  prefixes : IPrefix[] = [];
+
   form: FormGroup = this.fb.group({
-    name: ['johnatan', Validators.required],
-    lastName: ['ramos', Validators.required],
+    name: ['', Validators.required],
+    lastName: ['', Validators.required],
     legalId: ['', Validators.required],
-    legalIdType: [''],
-    email: ['johnatan.r1000@gmail.com', [Validators.required, Validators.email]],
-    phoneNumber: ['3218903991'],
-    phoneNumberPrefix: ['57']
+    legalIdType: ['', Validators.required],
+    email: ['', [Validators.required, Validators.email]],
+    phoneNumber: [],
+    phoneNumberPrefix: []
   });
 
   ngOnInit(): void {
@@ -37,6 +42,7 @@ export class InvoiceFormComponent implements OnInit, OnDestroy {
         });
       }
     });
+    this.getPrefixes();
   }
 
   ngOnDestroy(): void {
@@ -46,5 +52,13 @@ export class InvoiceFormComponent implements OnInit, OnDestroy {
   formatLowerCase() {
     const email = this.form.get('email')?.value as string;
     this.form.get('email')?.setValue(email.toLowerCase());
+  }
+
+  getPrefixes() {
+    this.baseService.getMethod('prefixes').subscribe({
+      next: (res: any) => {
+        this.prefixes = res.data;
+      }
+    });
   }
 }
