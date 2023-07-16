@@ -3,7 +3,7 @@
 @import 'swiper/css/pagination';
 @import '/src/styles/variables';
 
-.carousel {
+.carousel-course {
     width: 100%;
     padding: 30px 0px;
 }
@@ -22,7 +22,7 @@
 }
 
 @media screen and (max-width: 582px) {
-    .carousel {
+    .carousel-course {
         padding: 40px 30px;
     }
 
@@ -36,7 +36,7 @@
 }
 
 
-.container {
+.container-image-coursel {
     display: flex;
     align-items: center;
     justify-content: center;

@@ -1,0 +1,16 @@
+@import "/src/styles/variables";
+
+::ng-deep .p-message.p-message-warn {
+    background: $secondary;
+    border: solid $secondary;
+    border-width: 0 0 0 6px;
+    color: $primary;
+
+    .p-message-icon {
+        color: $primary;
+    }
+
+    .p-message-close {
+        color: $white;
+    }
+}
