@@ -27,6 +27,7 @@
           práctica, sencilla y en menos de una hora...
         </p>
         <app-generic-button
+        (emitClick)="changeRoute('cursos')"
         [sizeButton]="'large'"
         [classButton]="'class_yellow'"
         [nameButton]="'Ver más >>'"
@@ -48,6 +49,7 @@
         tus viajes sin depender de nadie...
       </p>
       <app-generic-button
+        (emitClick)="changeRoute('kit-viajero')"
         [sizeButton]="'large'"
         [classButton]="'class_blue'"
         [nameButton]="'Ver más >>'"
@@ -75,6 +77,7 @@
       [sizeButton]="'large'"
       [classButton]="'class_white_color_blue'"
       [nameButton]="'@vilean__'"
+      (emitClick)="changeExternalRoute('https://www.instagram.com/vilean__/')"
     ></app-generic-button>
 
     <div class="separador"></div>

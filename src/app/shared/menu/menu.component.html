@@ -1,6 +1,6 @@
 <header>
   <div class="container-desktop-menu">
-    <span class="icon-logo" [routerLink]="['/kit-viajero']"></span>
+    <span class="icon-logo" [routerLink]="['/home']"></span>
     <div class="menu">
       <a class="item" [routerLink]="'/cursos'" routerLinkActive="router-active">
         <span>Cursos</span>
@@ -22,7 +22,7 @@
     <div>
       <mat-icon matBadgeSize="small" matBadgeColor="warn" (click)="toggleMenu()">menu</mat-icon>
     </div>
-    <span class="icon-logo" [routerLink]="['/kit-viajero']"></span>
+    <span class="icon-logo" [routerLink]="['/home']"></span>
     <mat-icon [matBadge]="(store.select('cart') | async).products | totalProducts" matBadgeSize="small"
       matBadgeColor="warn" (click)="openCart()">shopping_cart</mat-icon>
     <nav class="mobile-menu" [class.open]="isMenuOpen">

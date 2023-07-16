@@ -65,29 +65,12 @@ export class ViewProductComponent implements OnInit, OnDestroy {
   ];
   isScreenWide = false;
 
-  constructor(
-    private changeDetectorRef: ChangeDetectorRef,
-  ) {
-    
-  }
+  constructor(private changeDetectorRef: ChangeDetectorRef) {}
   ngOnInit(): void {
     this.route.paramMap.subscribe((params: ParamMap) => {
       this.id = params.get('id') as string;
       if (this.id) {
-        this.$storeViewProducts = this.baseService.getMethod('product')
-          .subscribe({
-            next: (response: any) => {
-              this.products = response;
-              this.visibleProducts = this.products.filter(
-                (product) => Number(product._id) !== Number(this.id)
-              );
-              if (this.products.length) {
-                this.viewProduct = this.products.find(
-                  (elem) => Number(elem._id) == Number(this.id)
-                )!;
-              }
-            },
-          });
+        this.getAllProducts();
       }
     });
     this.$store = this.store.select('cart').subscribe({
@@ -101,13 +84,27 @@ export class ViewProductComponent implements OnInit, OnDestroy {
     this.$store.unsubscribe();
   }
 
+  getAllProducts() {
+    this.$storeViewProducts = this.baseService.getMethod('product').subscribe({
+      next: (response: any) => {
+        this.products = response.data;
+        this.visibleProducts = this.products.filter(
+          (product) => product._id !== this.id
+        );
+        if (this.products.length > 0) {
+          this.viewProduct = this.products.find(
+            (elem) => elem._id === this.id
+          )!;
+        }
+      },
+    });
+  }
+
   changeRoute(item: IProduct) {
     this.id = item._id!;
     this.viewProduct = this.products.find((elem) => elem._id == item._id)!;
     this.visibleProducts = this.products.filter((p) => p._id !== this.id);
-    this.router.navigate([`view-product/${item._id}`]);
-    // this.changeDetectorRef.markForCheck();
-    // this.changeDetectorRef.detectChanges();
+    this.router.navigate([`kit-viajero/view-product/${item._id}`]);
   }
 
   addProduct(product: IProduct, reference: string) {
@@ -115,7 +112,6 @@ export class ViewProductComponent implements OnInit, OnDestroy {
       (item) => item._id === product._id
     );
 
-    // const exist = this.productsInList.some((item) => item._id === product._id)
     if (existProduct) {
       const newProduct = { ...existProduct };
       newProduct.amount = existProduct.amount! + 1;

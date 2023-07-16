@@ -7,13 +7,16 @@
   <div class="container">
     <div class="container-first-section-1">
       <div class="container-view-product-carrousel">
-        <p-carousel [value]="viewProduct.images" styleClass="custom-carousel" [circular]="true" [autoplayInterval]="3000" [numVisible]="2" [numScroll]="1" [responsiveOptions]="responsiveOptionsViewProduct">
+        <p-carousel [value]="viewProduct.imageProperties | flatImageProperties" styleClass="custom-carousel"
+          [circular]="true" [autoplayInterval]="3000" [numVisible]="2" [numScroll]="1"
+          [responsiveOptions]="responsiveOptionsViewProduct">
           <ng-template pTemplate="header">
           </ng-template>
           <ng-template let-product pTemplate="item">
             <div class="product-item">
               <div class="product-item-content">
-                <img oncontextmenu='return false' onkeydown='return false' [src]="product" class="product-image main-carousel" />
+                <img oncontextmenu='return false' onkeydown='return false' [src]="product"
+                  class="product-image main-carousel" />
               </div>
             </div>
           </ng-template>
@@ -25,7 +28,7 @@
     <div class="container-first-section-2">
       <p class="title">
         <span>{{
-          viewProduct.title
+          viewProduct.name
           }}</span>
       </p>
       <hr />
@@ -34,8 +37,7 @@
       </p>
       <hr />
       <p>
-        <span>
-          {{ viewProduct.description }}
+        <span [innerHTML]="viewProduct.description">
         </span>
       </p>
       <hr />
@@ -46,8 +48,8 @@
   <div class="separador"></div>
 </section>
 <section *ngIf="this.visibleProducts">
-  <p-carousel [value]="visibleProducts" styleClass="custom-carousel" [circular]="true"
-    [autoplayInterval]="3000" [responsiveOptions]="responsiveOptions">
+  <p-carousel [value]="visibleProducts" styleClass="custom-carousel" [circular]="true" [autoplayInterval]="3000"
+    [responsiveOptions]="responsiveOptions">
     <ng-template pTemplate="header">
       <p class="container-title-carrousel">
         <span class="title">Productos relacionados</span>
@@ -56,7 +58,8 @@
     <ng-template let-product pTemplate="item">
       <div class="product-item" *ngIf="product.id !== id">
         <div class="product-item-content">
-          <img oncontextmenu='return false' onkeydown='return false' [src]="product.images[0]" [alt]="product.title" class="product-image" />
+          <img oncontextmenu='return false' onkeydown='return false' [src]="product.imageProperties[0].url"
+            [alt]="product.title" class="product-image" />
           <div class="container-info-carrousel">
             <p>
               <span class="title">{{
@@ -70,8 +73,8 @@
             </p>
           </div>
           <div class="viewProduct">
-            <app-generic-button (emitClick)="changeRoute(product)" [sizeButton]="'large'" [classButton]="'class_white_color_blue'"
-              [nameButton]="'Ver producto'"></app-generic-button>
+            <app-generic-button (emitClick)="changeRoute(product)" [sizeButton]="'large'"
+              [classButton]="'class_white_color_blue'" [nameButton]="'Ver producto'"></app-generic-button>
           </div>
         </div>
       </div>

@@ -19,6 +19,7 @@ import { MaterialModule } from 'src/app/material/material.module';
 import { ViewProductComponent } from './view-product/view-product.component';
 import { CoursePromotionComponent } from './course-promotion/course-promotion.component';
 import { HeaderPromotionsComponent } from 'src/app/shared/header-promotions/header-promotions.component';
+import { FlatImagePropertiesPipe } from 'src/app/core/pipes/flat-image-properties.pipe';
 
 
 @NgModule({
@@ -44,7 +45,8 @@ import { HeaderPromotionsComponent } from 'src/app/shared/header-promotions/head
     PrimengModule,
     NgOptimizedImage,
     MaterialModule,
-    HeaderPromotionsComponent
+    HeaderPromotionsComponent,
+    FlatImagePropertiesPipe
   ]
 })
 export class KitViajeroModule { }
