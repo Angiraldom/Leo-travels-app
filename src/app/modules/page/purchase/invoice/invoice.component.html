@@ -2,27 +2,38 @@
     <h3>Tu pedido</h3>
     <div class="content-info">
         <div class="text-end list-products">
-            <p class="justify-self-start">Cant.</p>
-            <p class="justify-self-start">Producto</p>
-            <p>Subtotal</p>
+            <p class="justify-self-start font-bold">Cant.</p>
+            <p class="justify-self-start font-bold">Producto</p>
+            <p class="font-bold">Subtotal</p>
         </div>
 
         <ng-container *ngFor="let item of (store.select('cart') | async).products">
             <div class="text-end list-products">
                 <p class="justify-self-start">{{ item.amount }}</p>
-                <p class="justify-self-start text-start cut-text" [matTooltip]="item.title">{{ item.title }}</p>
+                <p class="justify-self-start text-start cut-text" [matTooltip]="item.name">{{ item.name }}</p>
                 <p>{{ item.amount * item.price | currency }}</p>
             </div>
         </ng-container>
+        <hr style="width: 100%;">
+        <div class="text-end align-between">
+            <p class="font-bold">Subtotal</p>
+            <p class="font-bold">{{ (store.select('cart') | async).products | totalValue | currency }}</p>
+        </div>
 
         <div class="text-end align-between">
-            <p>Envío</p>
+            <p class="font-bold">Descuentos</p>
+            <p>-20% Lanzamiento</p>
             <p>{{ 0 | currency }}</p>
         </div>
 
         <div class="text-end align-between">
-            <p>Total</p>
-            <p>{{ (store.select('cart') | async).products | totalValue | currency }}</p>
+            <p class="font-bold">Envío</p>
+            <p>{{ (store.select('cart') | async).shippingPrice | currency }}</p>
+        </div>
+
+        <div class="text-end align-between">
+            <p class="font-bold">Total</p>
+            <p class="font-bold">{{ (store.select('cart') | async).products | finalPrice: (store.select('cart') | async).shippingPrice | currency }}</p>
         </div>
     </div>
 </div>
