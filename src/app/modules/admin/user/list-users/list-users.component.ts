@@ -23,7 +23,6 @@ export class ListUsersComponent {
   getAllUsers() {
     this.baseService.getMethod('user/all').subscribe({
       next: (response: any) => {
-        console.log("user",response.data);
         this.user = response.data;
         this.dataSource = response.data;
       },
