@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit, inject } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit, inject } from '@angular/core';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -40,6 +40,7 @@ import { IProduct } from 'src/app/modules/admin/products/interfaces/IProduct.int
 export class MenuComponent implements OnInit, OnDestroy {
   store = inject(Store<AppState>);
   router = inject(Router);
+  @Input() displayMenu = true;
 
   $store!: Subscription;
   $storeUser!: Subscription;

@@ -2,7 +2,7 @@
 <app-gratitude-course *ngIf="succesfulTransaction && !showShippingAdress"></app-gratitude-course>
 
 <ng-container *ngIf="!succesfulTransaction">
-    <app-menu></app-menu>
+    <app-menu [displayMenu]="false"></app-menu>
 
     <div class="content-invoice">
         <h2 class="title">Finalizar compra</h2>
@@ -20,7 +20,6 @@
         </div>
     </div>
     <div class="footer">
-        ©TODOS LOS DERECHOS RESERVADOS.
-        VILEAN 2022
+        © 2023 GRUPO LEAN S.A.S.
     </div>
 </ng-container>

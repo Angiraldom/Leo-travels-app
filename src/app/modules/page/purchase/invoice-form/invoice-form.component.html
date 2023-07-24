@@ -13,17 +13,19 @@
                 class="p-inputtext-sm input-name" />
         </span>
 
-        <span class="display flex flex-column gap-2">
-            <label htmlFor="legalIdType">Tipo de documento</label>
-            <p-dropdown formControlName="legalIdType" [options]="typeDocument" placeholder="Tipo de documento"
-                optionLabel="name" [optionValue]="'key'" class="p-inputtext-sm input-name"></p-dropdown>
-        </span>
-
-        <span class="flex flex-column gap-2">
-            <label htmlFor="legalId">Documento de identidad</label>
-            <input pInputText id="legalId" formControlName="legalId" placeholder="Ingrese su cedula"
-                class="p-inputtext-sm input-name" />
-        </span>
+        <div class="columns-2">
+            <span class="display flex flex-column gap-2">
+                <label htmlFor="legalIdType">Tipo de documento</label>
+                <p-dropdown formControlName="legalIdType" [options]="typeDocument" placeholder="Tipo de documento"
+                    optionLabel="name" [optionValue]="'key'" class="p-inputtext-sm input-name"></p-dropdown>
+            </span>
+    
+            <span class="flex flex-column gap-2">
+                <label htmlFor="legalId">Documento de identidad</label>
+                <input pInputText id="legalId" formControlName="legalId" placeholder="Ingrese su documento"
+                    class="p-inputtext-sm input-name" />
+            </span>
+        </div>
 
         <span class="flex flex-column gap-2">
             <label htmlFor="email">Correo electrónico</label>

@@ -1,30 +1,30 @@
 export const typeDocuments = [{
     key: 'CC',
-    name: 'Cédula de Ciudadanía'
+    name: 'CC - Cédula de Ciudadanía'
 },
 {
     key: 'CE',
-    name: 'Cédula de Extranjería'
+    name: 'CE - Cédula de Extranjería'
 },
 {
     key: 'NIT',
-    name: 'Número de Identificación Tributaria'
+    name: 'NIT - Número de Identificación Tributaria'
 },
 {
     key: 'PP',
-    name: 'Pasaporte'
+    name: 'PP - Pasaporte'
 },
 {
     key: 'TI',
-    name: 'Tarjeta de Identidad'
+    name: 'TI - Tarjeta de Identidad'
 },
 {
     key: 'DNI',
-    name: 'Documento Nacional de Identidad'
+    name: 'DNI - Documento Nacional de Identidad'
 },
 {
     key: 'RG',
-    name: 'Carteira de Identidade / Registro Geral'
+    name: 'RG - Carteira de Identidade / Registro Geral'
 },
 {
     key: 'OTHER',

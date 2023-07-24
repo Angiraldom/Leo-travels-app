@@ -2,24 +2,28 @@
   <div class="container-desktop-menu">
     <span class="icon-logo" [routerLink]="['/home']"></span>
     <div class="menu">
-      <a class="item" [routerLink]="'/cursos'" routerLinkActive="router-active">
-        <span>Cursos</span>
-      </a>
-      <a class="item" [routerLink]="['/kit-viajero']" [routerLinkActive]="'router-active'">
-        <span>Kit viajero</span>
-      </a>
-      <a *ngIf="!user" class="item" [routerLink]="'/login'" routerLinkActive="router-active">
-        <span>Iniciar sesión</span>
-      </a>
-      <a *ngIf="user" class="item" [routerLink]="'/estudiante/profile'" routerLinkActive="router-active">
-          <span>Mi cuenta</span>
-      </a>
+
+      <ng-container *ngIf="displayMenu">
+        <a class="item" [routerLink]="'/cursos'" routerLinkActive="router-active">
+          <span>Cursos</span>
+        </a>
+        <a class="item" [routerLink]="['/kit-viajero']" [routerLinkActive]="'router-active'">
+          <span>Kit viajero</span>
+        </a>
+        <a *ngIf="!user" class="item" [routerLink]="'/login'" routerLinkActive="router-active">
+          <span>Iniciar sesión</span>
+        </a>
+        <a *ngIf="user" class="item" [routerLink]="'/estudiante/profile'" routerLinkActive="router-active">
+            <span>Mi cuenta</span>
+        </a>
+      </ng-container>
+      
       <mat-icon [matBadge]="(store.select('cart') | async).products | totalProducts" matBadgeSize="small"
         matBadgeColor="warn" (click)="openCart()">shopping_cart</mat-icon>
     </div>
   </div>
   <div class="container-mobile-menu">
-    <div>
+    <div *ngIf="displayMenu" >
       <mat-icon matBadgeSize="small" matBadgeColor="warn" (click)="toggleMenu()">menu</mat-icon>
     </div>
     <span class="icon-logo" [routerLink]="['/home']"></span>

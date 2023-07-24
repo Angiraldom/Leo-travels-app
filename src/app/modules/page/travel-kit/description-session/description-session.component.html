@@ -1,5 +1,5 @@
 <div class="content-session">
-    <h2 class="color-blue">¿Que contiene?</h2>
+    <h2 class="color-blue text-center">¿Qué contiene?</h2>
 
     <div class="content-children" *ngIf="products.length > 0">
         <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig">
@@ -32,7 +32,7 @@
 
                 </p-accordion>
             </div>
-            <p class="color-blue">Valor total de los productos: $000.000</p>
+            <p class="color-blue text-center">Valor total de los productos: {{279000 | currency}}</p>
         </div>
     </div>
 

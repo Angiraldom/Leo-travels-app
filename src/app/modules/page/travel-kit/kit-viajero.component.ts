@@ -54,8 +54,8 @@ export class KitViajeroComponent implements OnInit, OnDestroy {
   getAllProducts() {
     this.baseService.getMethod('product').subscribe({
       next: (response: any) => {
-        this.products = response.data;
-        this.productKitViajero = this.products.find((item) => item._id === this.idKitViajero);
+        this.products = response.data.filter((item: any) => item._id !== this.idKitViajero);
+        this.productKitViajero = response.data.find((item: any) => item._id === this.idKitViajero);
       },
     });
   }

@@ -24,3 +24,16 @@
     display: flex;
     gap: 10px;
 }
+
+.columns-2 {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(162px, 1fr));
+    column-gap: 10px;
+}
+
+@media screen and (max-width: 507px) {
+    .columns-2 {
+        grid-template-columns: 1fr;
+        row-gap: 15px;
+    }
+}
