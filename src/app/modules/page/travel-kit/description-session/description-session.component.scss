@@ -74,6 +74,7 @@ p-accordion {
     background: rgb(14, 13, 13);
     margin-left: 62px;
     width: 30%;
+    align-self: flex-start;
 }
 
 ::ng-deep.slick-prev,
@@ -120,6 +121,7 @@ p-accordion {
     .slick-slider {
         width: 60%;
         margin-left: 0px;
+        align-self: center;
     }
 }
 
