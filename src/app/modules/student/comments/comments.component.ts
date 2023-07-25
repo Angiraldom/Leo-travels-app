@@ -60,7 +60,7 @@ export class CommentsComponent implements OnInit, OnDestroy {
     
     this.baseSerive.postMethod('comments', payload).subscribe({
       next: () => {
-        this.messageService.succesMessage('succes.commentAgregated')
+        this.messageService.commentAlert('succes.commentAgregated')
         this.comment.reset();
         this.getComments();
       }

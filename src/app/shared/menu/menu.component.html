@@ -13,7 +13,7 @@
         <a *ngIf="!user" class="item" [routerLink]="'/login'" routerLinkActive="router-active">
           <span>Iniciar sesión</span>
         </a>
-        <a *ngIf="user" class="item" [routerLink]="'/estudiante/profile'" routerLinkActive="router-active">
+        <a *ngIf="user" class="item" [routerLink]="'/estudiante/my-courses'" routerLinkActive="router-active">
             <span>Mi cuenta</span>
         </a>
       </ng-container>
@@ -47,7 +47,7 @@
           </a>
         </li>
         <li *ngIf="user">
-          <a class="item" [routerLink]="'/estudiante/profile'" routerLinkActive="router-active">
+          <a class="item" [routerLink]="'/estudiante/my-courses'" routerLinkActive="router-active">
             <span>Mi cuenta</span>
           </a>
         </li>
@@ -88,10 +88,6 @@
     <div class="invoice-summary">
       <p>Subtotal</p>
       <p>$00.000</p>
-    </div>
-    <div class="invoice-summary">
-      <p>Envío</p>
-      <p>Por definir</p>
     </div>
     <div class="invoice-summary bold">
       <p>Total</p>

@@ -7,7 +7,6 @@ import Swal, { SweetAlertIcon } from 'sweetalert2';
   providedIn: 'root',
 })
 export class MesaggeService {
-
   private translateService = inject(TranslateService);
 
   errorMessage(error: HttpErrorResponse) {
@@ -22,7 +21,7 @@ export class MesaggeService {
       icon: 'success',
       showConfirmButton: false,
       timer: 3000,
-      iconColor: '#222e5e'
+      iconColor: '#222e5e',
     });
   }
 
@@ -33,7 +32,7 @@ export class MesaggeService {
       icon: 'warning',
       showConfirmButton: false,
       iconColor: '#FAD030',
-      showCloseButton: true
+      showCloseButton: true,
     });
   }
 
@@ -48,8 +47,8 @@ export class MesaggeService {
       cancelButtonText: 'No, regresar',
       showConfirmButton: true,
       confirmButtonText: 'Sí, Salir',
-      buttonsStyling: false
-    })
+      buttonsStyling: false,
+    });
   }
 
   optionsAlert(typeMessage: SweetAlertIcon, message: string, title?: string) {
@@ -58,7 +57,16 @@ export class MesaggeService {
       text: this.translateService.instant(message),
       icon: typeMessage,
       showConfirmButton: false,
-      timer: 3000
+      timer: 3000,
+    });
+  }
+
+  commentAlert(message: string) {
+    Swal.fire({
+      title: '<h1>💙</h1>',
+      text: message ? this.translateService.instant(message) : null,
+      showConfirmButton: false,
+      timer: 3000,
     });
   }
 }
