@@ -2,7 +2,6 @@ import { Component, OnDestroy, OnInit, inject } from '@angular/core';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { BaseService } from 'src/app/core/services/base.service';
-import { IModule } from '../../admin/courses/interfaces/IModule.interface';
 import { ICourse } from '../../admin/courses/interfaces/ICourses.interface';
 
 @Component({
@@ -19,6 +18,7 @@ export class CourseViewComponent implements OnInit, OnDestroy {
   isExpanded: boolean[] = [];
   idCourse!: string;
   course!: ICourse;
+  showSpinner = false;
 
   ngOnInit(): void {
     this.$route = this.route.paramMap.subscribe((params: ParamMap) => {
@@ -40,14 +40,16 @@ export class CourseViewComponent implements OnInit, OnDestroy {
   }
 
   getCourse() {
+    this.showSpinner = true;
     this.baseSerive.getMethod(`course/findOne/${this.idCourse}`).subscribe({
       next: (res: any) => {
+        this.showSpinner = false;
         if (Object.keys(res.data).length > 0) {
           this.course = res.data;
         } else {
           console.log('No se encontro el curso');
         }
-      }
+      }, error: () => this.showSpinner = false
     });
   }
 }

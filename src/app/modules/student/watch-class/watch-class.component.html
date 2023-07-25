@@ -1,5 +1,9 @@
+<div class="spinner" *ngIf="showSpinner">
+    <mat-spinner [color]="'primary'"></mat-spinner>
+</div>
+
 <app-menu-student></app-menu-student>
-<ng-container *ngIf="class">
+<ng-container *ngIf="!showSpinner && class">
     <div class="container">
         <div class="sidebar">
             <app-sidebar-user [idCourse]="idCourse" [activeClass]="class"></app-sidebar-user>
@@ -12,7 +16,7 @@
     </div>
 </ng-container>
 
-<ng-container *ngIf="!class">
+<ng-container *ngIf="!showSpinner && !class">
     <h1>No se encontro la clase</h1>
 </ng-container>
 

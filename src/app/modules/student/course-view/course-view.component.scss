@@ -1,5 +1,12 @@
 @import "/src/styles/variables";
 
+.spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
 .content-modules,
 .content-course {
     width: 90%;

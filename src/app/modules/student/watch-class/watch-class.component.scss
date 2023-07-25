@@ -1,5 +1,16 @@
 @import "/src/styles/variables";
 
+video {
+    align-self: center;
+}
+
+.spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
 .container {
     display: flex;
     height: calc(100vh - 64px);
@@ -86,6 +97,10 @@ mat-icon {
 
     .mobile {
         display: none;
+    }
+
+    video {
+        align-self: flex-start;
     }
 }
 
