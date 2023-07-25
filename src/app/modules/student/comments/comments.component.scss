@@ -1,5 +1,10 @@
 @import "/src/styles/variables";
 
+mat-icon {
+    font-size: 21px;
+    cursor: pointer;
+}
+
 .bold {
     font-weight: 700;
 }
@@ -49,6 +54,11 @@ textarea {
 
 .content-comments {
     margin: 45px 0px 30px;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
 }
 
 @media screen and (max-width: 425px) {

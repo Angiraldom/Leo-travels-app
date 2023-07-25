@@ -7,6 +7,7 @@ import { BaseService } from 'src/app/core/services/base.service';
 import { IComment } from '../interface/IComments.inerface';
 import { AppState } from 'src/app/store/app.reducer';
 import { MesaggeService } from 'src/app/core/services/message.service';
+import { IUser } from '../../admin/user/interface/IUser.interface';
 
 @Component({
   selector: 'app-comments',
@@ -21,6 +22,8 @@ export class CommentsComponent implements OnInit, OnDestroy {
   @Input() idClass!: string;
 
   $store!: Subscription;
+  user!: IUser;
+  $profile!: Subscription;
   comments: IComment[] = [];
   comment = new FormControl(null, { validators: Validators.required });
 
@@ -33,12 +36,18 @@ export class CommentsComponent implements OnInit, OnDestroy {
       next: () => {
         this.getComments();
       }
-    })
+    });
+    this.$profile = this.store.select('profile').subscribe({
+      next: (user) => {
+        this.user = user;
+      }
+    });
     this.getComments();
   }
 
   ngOnDestroy(): void {
     this.$store.unsubscribe();
+    this.$profile.unsubscribe();
   }
 
   getComments() {
@@ -62,6 +71,15 @@ export class CommentsComponent implements OnInit, OnDestroy {
       next: () => {
         this.messageService.commentAlert('succes.commentAgregated')
         this.comment.reset();
+        this.getComments();
+      }
+    });
+  }
+
+  removeComment(idComment: string) {
+    this.baseSerive.deleteMethod('comments/' + idComment).subscribe({
+      next: () => {
+        this.messageService.commentAlert('succes.commentRemoved')
         this.getComments();
       }
     });

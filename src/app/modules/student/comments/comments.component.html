@@ -21,7 +21,10 @@
             <div class="content-comment" *ngIf="item">
                 <p-avatar [label]="item.user.name! | letterAvatar" styleClass="mr-2" size="xlarge" shape="circle"></p-avatar>
                 <div class="min-width">
-                    <p class="bold color-black"> {{ item.user.name }} </p>
+                    <div class="flex">
+                        <p class="bold color-black"> {{ item.user.name }} </p>
+                        <mat-icon *ngIf="user._id === item.user._id" matTooltip="Eliminar" (click)="removeComment(item._id)">delete</mat-icon>
+                    </div>
                     <p class="date">{{ item.createdAt | date }}</p>
 
                     <p class="color-black">
