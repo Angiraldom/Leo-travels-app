@@ -22,6 +22,12 @@
 
 <ng-template #contentClass>
     <div class="content">
+        <div class="name-course" [routerLink]="'/estudiante/course/' + idCourse">
+            <mat-icon>school</mat-icon>
+            <h4>
+                {{nameCourse}}
+            </h4>
+        </div>
         <nav class="vertical-menu">
             <a (click)="previousClass()">
                 <mat-icon>keyboard_arrow_left</mat-icon>

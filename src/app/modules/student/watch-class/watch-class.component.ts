@@ -24,6 +24,7 @@ export class WatchClassComponent implements OnInit, OnDestroy {
   idClass!: string;
   class!: IClass;
   nameModule!: string;
+  nameCourse!: string;
   showSpinner = false;
 
   ngOnInit(): void {
@@ -47,8 +48,7 @@ export class WatchClassComponent implements OnInit, OnDestroy {
         if (Object.keys(res.data).length > 0) {
           this.class = res.data.class;
           this.nameModule = res.data.nameModule;
-        } else {
-          console.log('No se encontro la clase');
+          this.nameCourse = res.data.nameCourse;
         }
       }, error: () => this.showSpinner = false
     });

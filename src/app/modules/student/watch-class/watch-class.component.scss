@@ -1,5 +1,20 @@
 @import "/src/styles/variables";
 
+.name-course {
+    display: flex;
+    justify-content: center;
+    background-color: $secondary;
+    color: $gray;
+    padding: 20px;
+    position: sticky;
+    top: 0px;
+    z-index: 1;
+
+    h4 {
+        margin: 0px;
+    }
+}
+
 video {
     align-self: center;
 }
@@ -32,7 +47,7 @@ video {
         justify-content: space-around;
         background-color: #f8f8f8;
         position: sticky;
-        top: 0px;
+        top: 65px;
         z-index: 1;
     }
 }
@@ -101,6 +116,16 @@ mat-icon {
 
     video {
         align-self: flex-start;
+    }
+
+    .name-course {
+        display: none;
+    }
+
+    .content {
+        .vertical-menu {
+            top: 0px;
+        }
     }
 }
 
