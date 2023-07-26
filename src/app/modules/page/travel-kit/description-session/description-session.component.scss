@@ -60,6 +60,11 @@ p-accordion {
     justify-content: space-between;
 }
 
+p-carousel {
+    width: 35%;
+    align-self: flex-start;
+}
+
 @media only screen and (max-width: 753px) {
     .content-accordion {
         flex-direction: column;
@@ -123,10 +128,19 @@ p-accordion {
         margin-left: 0px;
         align-self: center;
     }
+
+    p-carousel {
+        width: 60%;
+        align-self: center;
+    }
 }
 
 @media only screen and (max-width: 457px) {
     .slick-slider {
+        width: 100%;
+    }
+
+    p-carousel {
         width: 100%;
     }
 

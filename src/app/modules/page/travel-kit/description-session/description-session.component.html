@@ -2,11 +2,19 @@
     <h2 class="color-blue text-center">¿Qué contiene?</h2>
 
     <div class="content-children" *ngIf="products.length > 0">
-        <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig">
+        <p-carousel [value]="products" [numVisible]="1" [numScroll]="1" [circular]="true" [showIndicators]="false">
+            <ng-template let-product pTemplate="item">
+                <div class="slide">
+                    <img src="{{ product.imageProperties![0].url }}" alt="{{ 'image' +  0}}" width="100%">
+                </div> 
+            </ng-template>
+        </p-carousel>
+        
+        <!-- <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig">
             <div ngxSlickItem *ngFor="let slide of products; let index = index" class="slide">
                 <img src="{{ slide.imageProperties![0].url }}" alt="{{ 'image' +  index}}" width="100%">
             </div>
-        </ngx-slick-carousel>
+        </ngx-slick-carousel> -->
 
         <div class="accordion">
             <div class="content-accordion" *ngIf="products.length > 0">
