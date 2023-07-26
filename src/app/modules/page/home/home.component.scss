@@ -1,5 +1,9 @@
 @import "/src/styles/variables";
 
+.second-container {
+  background-color: $background-color;
+}
+
 .title {
   font-weight: 700;
   font-size: 25px;
@@ -65,7 +69,6 @@
 
   .second-container{
     color:$primary;
-    background-color: #e9ecef;
     padding:60px;
     display:flex;
     align-items: center;
@@ -185,7 +188,7 @@
 
   .first-container {
     width: 100%;
-    height: 800px;
+    height: calc(100vh - 60px);
     background-image: url("../../../../assets/images/home.jpg");
     background-position: center;
     background-repeat: no-repeat;
@@ -195,7 +198,7 @@
     align-items: center;
     text-align: center;
     flex-direction: column;
-    margin-top: 30px;
+    margin-top: 60px;
   }
 
   .second-container {
@@ -203,7 +206,7 @@
     display: flex;
     flex-direction: column;
     color: $primary;
-    margin: 30px 0;
+    padding: 30px 0;
   }
   .container-ver-mas {
     .ver-mas-1 {
