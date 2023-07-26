@@ -23,6 +23,11 @@ const routes: Routes = [
     import('./home/home.module').then((m)=> m.HomeModule)
   },
   {
+    path:'quienes-somos',
+    loadChildren:() =>
+    import('./who-are-we/who-are-we.module').then((m) => m.WhoAreWeModule)
+  },
+  {
     path: '',
     redirectTo: 'home',
     pathMatch: 'full',
