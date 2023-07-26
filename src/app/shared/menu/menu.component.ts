@@ -14,6 +14,7 @@ import { GenericButtonComponent } from 'src/app/shared/generic-button/generic-bu
 import { deleteProduct } from 'src/app/store/actions/cart.actions';
 import { TotalValuePipe } from 'src/app/core/pipes/total-values.pipe';
 import { TotalProductsPipe } from 'src/app/core/pipes/total-products.pipe';
+import { FinalPricePipe } from 'src/app/core/pipes/final-price.pipe';
 import { IUser } from 'src/app/modules/admin/user/interface/IUser.interface';
 import { ICourse } from 'src/app/modules/admin/courses/interfaces/ICourses.interface';
 import { IProduct } from 'src/app/modules/admin/products/interfaces/IProduct.interface';
@@ -32,6 +33,7 @@ import { IProduct } from 'src/app/modules/admin/products/interfaces/IProduct.int
     GenericButtonComponent,
     TotalValuePipe,
     TotalProductsPipe,
+    FinalPricePipe,
     NgOptimizedImage
   ],
   templateUrl: './menu.component.html',

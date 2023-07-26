@@ -5,11 +5,12 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { AppState } from 'src/app/store/app.reducer';
 import { TotalValuePipe } from 'src/app/core/pipes/total-values.pipe';
 import { FinalPricePipe } from 'src/app/core/pipes/final-price.pipe';
+import { CalculateDiscountPipe } from 'src/app/core/pipes/calculate-discount.pipe';
 
 @Component({
   selector: 'app-invoice',
   standalone: true,
-  imports: [CommonModule, TotalValuePipe, FinalPricePipe, MatTooltipModule],
+  imports: [CommonModule, TotalValuePipe, FinalPricePipe, CalculateDiscountPipe, MatTooltipModule],
   templateUrl: './invoice.component.html',
   styleUrls: ['./invoice.component.scss'],
 })

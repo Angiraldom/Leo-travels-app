@@ -26,3 +26,17 @@
         </div>
     </div>
 </mat-toolbar>
+
+<p-sidebar [(visible)]="isMenuOpen" position="right" class="mobile-menu-s">
+    <ng-template pTemplate="header"> Volver al sitio web: </ng-template>
+    <ng-template pTemplate="content">
+      <div class="second-menu">
+        <h2 routerLink="/cursos" routerLinkActive="router-active">
+          < Cursos</h2>
+            <h2 [routerLink]="['/kit-viajero']" [routerLinkActive]="'router-active'">
+              < Kit viajero</h2>
+                    <h2 *ngIf="user" [routerLink]="'/estudiante/my-courses'" routerLinkActive="router-active">
+                      < Mi cuenta</h2>
+      </div>
+    </ng-template>
+  </p-sidebar>
