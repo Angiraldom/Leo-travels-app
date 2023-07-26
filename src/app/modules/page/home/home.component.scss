@@ -24,6 +24,16 @@
   margin: 10px;
 }
 
+.kit-viajero {
+  background: url('https://vilean.s3.us-east-2.amazonaws.com/KIT+VIAJERO/Kit+viajero+H.jpg') no-repeat center center;
+  background-size: cover;
+}
+
+.curso-fotografia {
+  background: url('https://vilean.s3.us-east-2.amazonaws.com/PORTADAS/Portada+H.jpg') no-repeat;
+  background-size: cover;
+}
+
 @media screen and (min-width:601px) {
   .first-container{
     display: flex;
@@ -55,7 +65,8 @@
 
   .second-container{
     color:$primary;
-    margin:60px;
+    background-color: #e9ecef;
+    padding:60px;
     display:flex;
     align-items: center;
     justify-content: center;
@@ -97,7 +108,6 @@
       background-color: $white;
       border-radius: 20px;
     }
-
     .container-paragraph {
       display:flex;
       flex-direction:column;
@@ -157,6 +167,10 @@
       width: 300px;
       margin-bottom: 60px;
     }
+
+    .canal-youtube-margin {
+      width: 450px
+    }
   }
 }
 
@@ -173,13 +187,15 @@
     width: 100%;
     height: 800px;
     background-image: url("../../../../assets/images/home.jpg");
+    background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     color: $primary;
     display: flex;
     align-items: center;
+    text-align: center;
     flex-direction: column;
-    margin-top: 50px;
+    margin-top: 30px;
   }
 
   .second-container {
@@ -245,7 +261,7 @@
   
     .sub-title {
       text-align: center;
-      margin: 0 10px 40px;
+      margin: 0 25px 40px;
     }
   }
 

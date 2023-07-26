@@ -1,83 +1,61 @@
 <app-menu></app-menu>
 
-<section *ngIf="this.viewProduct">
-  <div class="container-p-messages">
-    <p-messages severity="warn" [(value)]="message"></p-messages>
-  </div>
+<div class="container-p-messages">
+  <p-messages severity="warn" [(value)]="message"></p-messages>
+</div>
+<section *ngIf="this.viewProduct" class="background-gray" style="padding-bottom: 25px;">
   <div class="container">
-    <div class="container-first-section-1">
-      <div class="container-view-product-carrousel">
-        <p-carousel [value]="viewProduct.imageProperties | flatImageProperties" styleClass="custom-carousel"
-          [circular]="true" [autoplayInterval]="3000" [numVisible]="2" [numScroll]="1"
-          [responsiveOptions]="responsiveOptionsViewProduct">
-          <ng-template pTemplate="header">
-          </ng-template>
-          <ng-template let-product pTemplate="item">
-            <div class="product-item">
-              <div class="product-item-content">
-                <img oncontextmenu='return false' onkeydown='return false' [src]="product"
-                  class="product-image main-carousel" />
-              </div>
-            </div>
-          </ng-template>
-        </p-carousel>
-      </div>
-
-    </div>
+    <p-carousel [value]="viewProduct.imageProperties | flatImageProperties" styleClass="custom-carousel"
+      [circular]="true" [numVisible]="2" [numScroll]="1" [showIndicators]="false"
+      [responsiveOptions]="responsiveOptionsViewProduct">
+      <ng-template let-product pTemplate="item">
+        <div  style="width: 100%; padding-right: 4px;">
+          <img oncontextmenu='return false' onkeydown='return false' [src]="product" class="product-image main-carousel"
+            fill width="100%" height="100%" />
+        </div>
+      </ng-template>
+    </p-carousel>
 
     <div class="container-first-section-2">
-      <p class="title">
-        <span>{{
-          viewProduct.name
-          }}</span>
-      </p>
-      <hr />
+      <h2 class="bold color-primary text-start margin-center">
+        <span>{{viewProduct.name}}</span>
+      </h2>
       <p>
         <span>{{ viewProduct.price | currency }}</span>
       </p>
-      <hr />
-      <p>
-        <span [innerHTML]="viewProduct.description">
-        </span>
+      <p [innerHTML]="viewProduct.description">
       </p>
-      <hr />
       <app-generic-button [sizeButton]="'large'" [classButton]="'class_yellow'" [nameButton]="'Añadir al carrito'"
-        (emitClick)="validateReference(viewProduct)"></app-generic-button>
+        (emitClick)="addProduct(viewProduct)"></app-generic-button>
     </div>
   </div>
-  <div class="separador"></div>
+  <hr>
 </section>
-<section *ngIf="this.visibleProducts">
-  <p-carousel [value]="visibleProducts" styleClass="custom-carousel" [circular]="true" [autoplayInterval]="3000"
-    [responsiveOptions]="responsiveOptions">
-    <ng-template pTemplate="header">
-      <p class="container-title-carrousel">
-        <span class="title">Productos relacionados</span>
-      </p>
-    </ng-template>
+
+
+<section *ngIf="this.visibleProducts" class="background-gray related-products">
+  <h2 class="color-primary text-center">Productos relacionados</h2>
+  <p-carousel [value]="visibleProducts" styleClass="custom-carousel second-coursel" [circular]="true" [numVisible]="1" [numScroll]="1"
+    [responsiveOptions]="responsiveOptions" [showIndicators]="false" class="second-coursel">
     <ng-template let-product pTemplate="item">
-      <div class="product-item" *ngIf="product.id !== id">
-        <div class="product-item-content">
+      <ng-container *ngIf="product.id !== id">
+        <div class="content-image-coursel">
           <img oncontextmenu='return false' onkeydown='return false' [src]="product.imageProperties[0].url"
-            [alt]="product.title" class="product-image" />
+            [alt]="product.name" class="product-image" width="100%" height="100%" />
           <div class="container-info-carrousel">
-            <p>
-              <span class="title">{{
-                product.title | uppercase
-                }}</span>
+            <p class="color-primary text-center">
+              {{ product.name | uppercase }}
             </p>
-            <p>
-              <span>{{
-                product.price | currency
-                }}</span>
+            <p class="color-primary text-center">
+              {{ product.price | currency }}
             </p>
           </div>
           <div class="viewProduct">
-            <app-generic-button (emitClick)="changeRoute(product)" [sizeButton]="'large'"
-              [classButton]="'class_white_color_blue'" [nameButton]="'Ver producto'"></app-generic-button>
+            <app-generic-button (emitClick)="changeRoute(product)" [sizeButton]="'medium'"
+              [classButton]="'class_gray_color_blue'" [nameButton]="'Ver producto'"></app-generic-button>
           </div>
         </div>
-      </div>
+      </ng-container>
     </ng-template>
   </p-carousel>
 </section>

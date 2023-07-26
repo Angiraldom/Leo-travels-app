@@ -36,17 +36,17 @@
     border: 1px solid $primary !important;
 }
 
+.class_gray_color_blue {
+    background: $background-color;
+    color: $primary;
+    border: 1px solid $primary !important;
+}
+
 .large {
     min-width: 300px;
     height: 40px;
     letter-spacing: 1px;
     font-size: 20px;
-    // @media screen and (max-width: 600px) {
-    //     min-width: 200px;
-    //     height: 30px;
-    //     letter-spacing: 1px;
-    //     font-size: 15px;
-    // }
 }
 
 .small {
@@ -55,15 +55,8 @@
     font-size: 14px;
 }
 
-.super-large {
-    min-width: 450px;
-    height: 70px;
-    letter-spacing: 1px;
-    font-size: 30px;
-    @media screen and (max-width: 600px) {
-        min-width: 200px;
-        height: 50px;
-        letter-spacing: 1px;
-        font-size: 20px;
-    }
+.medium {
+    min-width: 220px;
+    height: 40px;
+    font-size: 20px;
 }
