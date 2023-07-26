@@ -42,9 +42,14 @@
   }
 }
 
+.container-second-section {
+  width:100%;
+}
+
 .container-title-carrousel {
   display: flex;
   justify-content: center;
+  text-align: center;
 
   .title {
     margin-bottom: 30px;
@@ -74,10 +79,15 @@
         width: 200px;
         height: 200px;
       }
+
+      @media screen and (max-width: 300px) {
+        width: 100px;
+        height: 100px;
+      }
     }
 
     .product-image.main-carousel {
-      height: 500px;
+      height: 400px;
 
       @media screen and (max-width: 600px) {
         height: 300px;
@@ -112,7 +122,11 @@
   }
 
   .viewProduct {
-    padding: 0 2rem
+    padding: 0 2rem;
+
+    @media screen and (max-width: 300px) {
+      padding: 0;
+    }
   }
 }
 
@@ -125,4 +139,8 @@
 
 ::ng-deep .p-carousel .p-carousel-indicators .p-carousel-indicator.p-highlight button {
   background-color: $primary;
+}
+
+.p-description {
+  padding-right: 20px;
 }

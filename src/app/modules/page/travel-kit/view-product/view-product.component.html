@@ -6,7 +6,6 @@
   </div>
   <div class="container">
     <div class="container-first-section-1">
-      <div class="container-view-product-carrousel">
         <p-carousel [value]="viewProduct.imageProperties | flatImageProperties" styleClass="custom-carousel"
           [circular]="true" [autoplayInterval]="3000" [numVisible]="2" [numScroll]="1"
           [responsiveOptions]="responsiveOptionsViewProduct">
@@ -21,7 +20,6 @@
             </div>
           </ng-template>
         </p-carousel>
-      </div>
 
     </div>
 
@@ -36,7 +34,7 @@
         <span>{{ viewProduct.price | currency }}</span>
       </p>
       <hr />
-      <p>
+      <p class="p-description">
         <span [innerHTML]="viewProduct.description">
         </span>
       </p>
@@ -48,38 +46,43 @@
   <div class="separador"></div>
 </section>
 <section *ngIf="this.visibleProducts">
-  <p-carousel [value]="visibleProducts" styleClass="custom-carousel" [circular]="true" [autoplayInterval]="3000"
-    [responsiveOptions]="responsiveOptions">
-    <ng-template pTemplate="header">
-      <p class="container-title-carrousel">
-        <span class="title">Productos relacionados</span>
-      </p>
-    </ng-template>
-    <ng-template let-product pTemplate="item">
-      <div class="product-item" *ngIf="product.id !== id">
-        <div class="product-item-content">
-          <img oncontextmenu='return false' onkeydown='return false' [src]="product.imageProperties[0].url"
-            [alt]="product.title" class="product-image" />
-          <div class="container-info-carrousel">
-            <p>
-              <span class="title">{{
-                product.title | uppercase
-                }}</span>
-            </p>
-            <p>
-              <span>{{
-                product.price | currency
-                }}</span>
-            </p>
-          </div>
-          <div class="viewProduct">
-            <app-generic-button (emitClick)="changeRoute(product)" [sizeButton]="'large'"
-              [classButton]="'class_white_color_blue'" [nameButton]="'Ver producto'"></app-generic-button>
+  <div class="container">
+    <div class="container-second-section">
+      <p-carousel [value]="visibleProducts" styleClass="custom-carousel" [circular]="true" [autoplayInterval]="3000"
+      [responsiveOptions]="responsiveOptions">
+      <ng-template pTemplate="header">
+        <p class="container-title-carrousel">
+          <span class="title">Productos relacionados</span>
+        </p>
+      </ng-template>
+      <ng-template let-product pTemplate="item">
+        <div class="product-item" *ngIf="product.id !== id">
+          <div class="product-item-content">
+            <img oncontextmenu='return false' onkeydown='return false' [src]="product.imageProperties[0].url"
+              [alt]="product.title" class="product-image" />
+            <div class="container-info-carrousel">
+              <p>
+                <span class="title">{{
+                  product.title | uppercase
+                  }}</span>
+              </p>
+              <p>
+                <span>{{
+                  product.price | currency
+                  }}</span>
+              </p>
+            </div>
+            <div class="viewProduct">
+              <app-generic-button (emitClick)="changeRoute(product)" [sizeButton]="'large'"
+                [classButton]="'class_white_color_blue'" [nameButton]="'Ver producto'"></app-generic-button>
+            </div>
           </div>
         </div>
-      </div>
-    </ng-template>
-  </p-carousel>
+      </ng-template>
+    </p-carousel>
+    </div>
+  </div>
+
 </section>
 
 <app-footer></app-footer>
