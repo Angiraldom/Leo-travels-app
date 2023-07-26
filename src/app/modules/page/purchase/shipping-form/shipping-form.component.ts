@@ -32,8 +32,8 @@ export class ShippingFormComponent implements OnInit, OnDestroy {
     region: ['', Validators.required],
     city: ['', Validators.required],
     addressLine1: ['', Validators.required],
-    addressLine2: [''],
-    phoneNumber: ['']
+    addressLine2: ['', Validators.required],
+    phoneNumber: ['', Validators.required]
   });
 
   ngOnInit(): void {

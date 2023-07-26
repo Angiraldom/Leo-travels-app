@@ -7,6 +7,7 @@ import { HttpClient } from '@angular/common/http';
 export class BaseService {
 
   // Ponerla en las variables de entorno.
+  // apiUrl = 'https://leo-travels-api-production.up.railway.app/';
   apiUrl = 'http://localhost:3000/';
 
   http = inject(HttpClient);

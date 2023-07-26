@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, ElementRef, ViewChild, inject } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,7 +8,14 @@ import { Router } from '@angular/router';
 })
 export class GratitudeKitComponent {
   private router = inject(Router);
+  @ViewChild('mainContent') mainContent!: ElementRef<HTMLElement>;
 
+  ngAfterViewInit() {
+    setTimeout(() => {
+      this.mainContent.nativeElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 0);
+  }
+  
   changeRoute() {
     this.router.navigate(['kit-viajero']);
   }

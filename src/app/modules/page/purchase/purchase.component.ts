@@ -26,6 +26,7 @@ export class PurchaseComponent implements OnInit, OnDestroy {
   private messageService = inject(MesaggeService);
   $store!: Subscription;
 
+  totalValue = 0;
   succesfulTransaction: boolean = false;
   showShippingAdress: boolean = false;
   userExist: boolean = true;
@@ -66,18 +67,9 @@ export class PurchaseComponent implements OnInit, OnDestroy {
     }
   }
 
-  setAmount() {
-    const arrayProducts = this.products as any[];
-    const total = arrayProducts?.reduce((value, item) => {
-      const price = item.price * item.amount;
-      return (value = price + value);
-    }, 0);
-    this.wompiObject.amountInCents = Number(total + '00');
-  }
-
   purchase() {
     this.wompiObject.reference = this.reference;
-    this.setAmount();
+    this.wompiObject.amountInCents = Number(this.totalValue + '00');
     this.openCheckout();
   }
 

@@ -38,7 +38,8 @@
 
         <div class="text-end align-between">
             <p class="font-bold">Total</p>
-            <p class="font-bold">{{ (store.select('cart') | async).products | finalPrice: (store.select('cart') | async).shippingPrice | currency }}</p>
+            {{ totalValue.setValue((store.select('cart') | async).products | finalPrice: (store.select('cart') | async).shippingPrice) }}
+            <p class="font-bold">{{ totalValue.value | currency }}</p>
         </div>
     </div>
 </div>

@@ -1,4 +1,14 @@
 @import '/src/styles/variables';
+@import "/src/styles/copyrightFooter";
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+a:active {
+    color: white;
+}
 
 .content-footer {
     background: $primary;
@@ -140,6 +150,11 @@ hr {
     text-align: start;
 }
 
+
+.punto {
+    display: none;
+}
+
 @media screen and (min-width: 728px) {
     
     .politics {
@@ -152,8 +167,10 @@ hr {
     hr {
         display: none;
     }
+
+    .punto {
+        display: block;
+        font-size:30px;
+    }
 }
 
-.punto {
-    font-size:30px;
-}

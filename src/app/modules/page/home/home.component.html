@@ -1,5 +1,6 @@
 <app-menu></app-menu>
 <div class="container">
+  
   <div class="first-container">
     <div class="first-content">
       <span class="icon-logo-vilean"></span>
@@ -7,8 +8,8 @@
       <p class="sub-title">Tres palabras que nos encantan</p>
     </div>
     <div class="second-content"></div>
-
   </div>
+
   <div class="second-container">
     <span class="icon-logo"></span>
     <p class="title">Si te gusta viajar,</p>
@@ -16,7 +17,7 @@
   </div>
   <div class="container-ver-mas">
     <div class="ver-mas-1">
-        <div class="photography-course curso-fotografia"></div>
+      <div class="photography-course curso-fotografia"></div>
       <div class="container-paragraph">
         <div class="title">
           <p>Curso de fotografía <span>para viajes</span> con tu celular</p>
@@ -26,12 +27,8 @@
           Te enseñamos a tomar mejores fotos solo con tu celular, de forma
           práctica, sencilla y en menos de una hora...
         </p>
-        <app-generic-button
-        (emitClick)="changeRoute('cursos')"
-        [sizeButton]="'large'"
-        [classButton]="'class_yellow'"
-        [nameButton]="'Ver más >>'"
-      ></app-generic-button>
+        <app-generic-button (emitClick)="changeRoute('cursos')" [sizeButton]="'large'" [classButton]="'class_yellow'"
+          [nameButton]="'Ver más >>'"></app-generic-button>
       </div>
     </div>
   </div>
@@ -40,60 +37,45 @@
       <div class="photography-course kit-viajero"></div>
       <div class="container-paragraph">
 
-      <div class="title">
-        <p>Kit viajero</p>
-      </div>
-      <div class="separador"></div>
-      <p class="sub-title">
-        Estas son las herramientas que necesitas para tomar fotos admirables en
-        tus viajes sin depender de nadie...
-      </p>
-      <app-generic-button
-        (emitClick)="changeRoute('kit-viajero')"
-        [sizeButton]="'large'"
-        [classButton]="'class_blue'"
-        [nameButton]="'Ver más >>'"
-      ></app-generic-button>
+        <div class="title">
+          <p>Kit viajero</p>
+        </div>
+        <div class="separador"></div>
+        <p class="sub-title">
+          Estas son las herramientas que necesitas para tomar fotos admirables en
+          tus viajes sin depender de nadie...
+        </p>
+        <app-generic-button (emitClick)="changeRoute('kit-viajero')" [sizeButton]="'large'" [classButton]="'class_blue'"
+          [nameButton]="'Ver más >>'"></app-generic-button>
       </div>
     </div>
   </div>
   <div class="container-quienes-somos">
     <p class="title">¿Quiénes somos?</p>
     <p class="sub-title">Aquí te contamos un poco sobre
-        nosotros y cómo nació VILEAN...</p>
-        <div class="boton-leer-mas">        <app-generic-button
-            [sizeButton]="'large'"
-            [classButton]="'class_white_color_blue'"
-            [nameButton]="'Leer más >>'"
-          ></app-generic-button></div>
+      nosotros y cómo nació VILEAN...</p>
+    <div class="boton-leer-mas"> <app-generic-button [sizeButton]="'large'" [classButton]="'class_white_color_blue'"
+        [nameButton]="'Leer más >>'"></app-generic-button></div>
 
   </div>
-<div class="container-redes-sociales">
+  <div class="container-redes-sociales">
     <p class="sub-title">
-        Si quieres inspirarte y antojarte a viajar,
-        síguenos en Instagram:
-      </p>
-      <app-generic-button
-      [sizeButton]="'large'"
-      [classButton]="'class_white_color_blue'"
-      [nameButton]="'@vilean__'"
-      (emitClick)="changeExternalRoute('https://www.instagram.com/vilean__/')"
-    ></app-generic-button>
+      Si quieres inspirarte y antojarte a viajar,
+      síguenos en Instagram:
+    </p>
+    <app-generic-button [sizeButton]="'large'" [classButton]="'class_white_color_blue'" [nameButton]="'@vilean__'"
+      (emitClick)="changeExternalRoute('https://www.instagram.com/vilean__/')"></app-generic-button>
 
     <div class="separador"></div>
 
     <p class="sub-title canal-youtube-margin">
-        Si quieres aprender cómo viajar y
-desbloquear tu mente para cumplir tus
-sueños, suscríbete:
-      </p>
-      <app-generic-button
-      [sizeButton]="'large'"
-      [classButton]="'class_white_color_blue'"
-      [nameButton]="'Canal YouTube'"
-      (emitClick)="changeExternalRoute('https://www.youtube.com/@leoramostorres?sub_confirmation=1')"
-      ></app-generic-button>
-</div>
+      Si quieres aprender cómo viajar y
+      desbloquear tu mente para cumplir tus
+      sueños, suscríbete:
+    </p>
+    <app-generic-button [sizeButton]="'large'" [classButton]="'class_white_color_blue'" [nameButton]="'Canal YouTube'"
+      (emitClick)="changeExternalRoute('https://www.youtube.com/@leoramostorres?sub_confirmation=1')"></app-generic-button>
+  </div>
 
 
 </div>
