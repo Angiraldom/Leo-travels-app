@@ -1,19 +1,39 @@
 @import "/src/styles/variables";
 @import "/src/styles/primeNgMessage";
 
-.title {
-  color: $primary;
-  font-weight: 700;
-  font-size: 32px;
-}
-
 .container {
   display: flex;
   color: $primary;
+  width: 100%;
+  gap: 30px;
+  margin-top: 60px;
+  padding-top: 50px;
+}
 
-  @media screen and (max-width: 600px) {
-    flex-direction: column;
-  }
+.background-gray {
+  background-color: $background-color;
+}
+
+.text-start {
+  text-align: start;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.margin-center {
+  margin: 0;
+}
+
+hr {
+  width: 85%;
+  border-color: $primary;
+  margin: 25px auto 0px;
+}
+
+p-carousel {
+  width: 60%;
 }
 
 .container-first-section-1 {
@@ -28,39 +48,32 @@
 
 .container-first-section-2 {
   display: flex;
-  width: 55%;
+  // width: 55%;
+  width: 40%;
+  max-width: 440px;
   flex-direction: column;
-  margin: 150px 0 10px 30px;
-  font-size: 20px;
+  gap: 14px;
 
   @media screen and (max-width: 600px) {
     width: 100%;
     padding: 20px;
     margin: 0;
     flex-direction: column;
-    font-size: 20px;
   }
 }
 
-.container-title-carrousel {
-  display: flex;
-  justify-content: center;
+// .container-title-carrousel {
+//   display: flex;
+//   justify-content: center;
 
-  .title {
-    margin-bottom: 30px;
-    font-family:'Poppins';
-  }
-}
-
-.separador {
-  height: 2px;
-  background-color: $primary;
-  margin: 30px 60px;
-}
+//   .title {
+//     margin-bottom: 30px;
+//     font-family:'Poppins';
+//   }
+// }
 
 .product-item {
   .product-item-content {
-    border: 1px solid var(--surface-d);
     border-radius: 3px;
     margin: .3rem;
     text-align: center;
@@ -99,12 +112,7 @@
 
   .container-info-carrousel {
     margin: 10px auto;
-    font-size: 20px;
     color: $primary;
-
-    .title {
-      font-size: 20px;
-    }
 
     @media screen and (max-width: 600px) {
       margin: 5px auto;
@@ -117,7 +125,7 @@
 }
 
 .container-p-messages {
-  margin-top: 40px;
+  top: 44px;
   width: 100%;
   position: absolute;
   z-index: 1;
@@ -125,4 +133,40 @@
 
 ::ng-deep .p-carousel .p-carousel-indicators .p-carousel-indicator.p-highlight button {
   background-color: $primary;
+}
+
+.related-products {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  padding-bottom: 50px;
+}
+
+.container-info-carrousel {
+  margin: 10px auto;
+}
+
+.content-image-coursel {
+  width: 100%;
+  padding-right: 25px;
+}
+
+@media screen and (max-width: 600px) {
+  .container {
+    flex-direction: column;
+  }
+
+  p-carousel {
+    width: 100%;
+  }
+
+  .content-image-coursel {
+    padding-right: 0px;
+  }
+}
+
+.second-coursel {
+  width: 100%;
 }

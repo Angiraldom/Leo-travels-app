@@ -3,32 +3,29 @@ import { Store } from '@ngrx/store';
 import { Message } from 'primeng/api';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { ChangeDetectorRef } from '@angular/core';
 
 import { AppState } from 'src/app/store/app.reducer';
 import { BaseService } from 'src/app/core/services/base.service';
-import * as cartActions from 'src/app/store/actions/cart.actions';
 import { IProduct } from 'src/app/modules/admin/products/interfaces/IProduct.interface';
+import { TravelKitService } from '../services/travel-kit.service';
 
 @Component({
   selector: 'app-view-product',
   templateUrl: './view-product.component.html',
-  styleUrls: ['./view-product.component.spec.scss'],
+  styleUrls: ['./view-product.component.scss'],
 })
 export class ViewProductComponent implements OnInit, OnDestroy {
   store = inject(Store<AppState>);
   router = inject(Router);
   private route = inject(ActivatedRoute);
   private baseService = inject(BaseService);
+  private travelKitService = inject(TravelKitService);
+  protected readonly idKitViajero = '64a75cd97a31b132537ae59a';
+  
   products: IProduct[] = [];
   visibleProducts: IProduct[] = [];
   viewProduct!: IProduct;
   responsiveOptions = [
-    {
-      breakpoint: '8000px',
-      numVisible: 5,
-      numScroll: 1,
-    },
     {
       breakpoint: '3000px',
       numVisible: 3,
@@ -63,9 +60,7 @@ export class ViewProductComponent implements OnInit, OnDestroy {
         'Los productos físicos solo están disponibles para envío en Colombia',
     },
   ];
-  isScreenWide = false;
 
-  constructor(private changeDetectorRef: ChangeDetectorRef) {}
   ngOnInit(): void {
     this.route.paramMap.subscribe((params: ParamMap) => {
       this.id = params.get('id') as string;
@@ -87,7 +82,7 @@ export class ViewProductComponent implements OnInit, OnDestroy {
   getAllProducts() {
     this.$storeViewProducts = this.baseService.getMethod('product').subscribe({
       next: (response: any) => {
-        this.products = response.data;
+        this.products = response.data?.filter((product: IProduct) => product._id !== this.idKitViajero);
         this.visibleProducts = this.products.filter(
           (product) => product._id !== this.id
         );
@@ -107,52 +102,22 @@ export class ViewProductComponent implements OnInit, OnDestroy {
     this.router.navigate([`kit-viajero/view-product/${item._id}`]);
   }
 
-  addProduct(product: IProduct, reference: string) {
-    const existProduct = this.productsInList.find(
-      (item) => item._id === product._id
-    );
-
-    if (existProduct) {
-      const newProduct = { ...existProduct };
-      newProduct.amount = existProduct.amount! + 1;
-      this.store.dispatch(
-        cartActions.updateProduct({ reference, product: newProduct })
-      );
-    } else {
-      if (!product.hasOwnProperty('amount')) {
-        product = Object.assign({}, product, { amount: 1 });
-      }
-      this.store.dispatch(cartActions.addProduct({ reference, product }));
+  /**
+   * Add a product in the cart. One by one.
+   * @param product Product that will be to add the cart.
+   */
+  addProduct(product: IProduct) {
+    if (!product) {
+      return;
     }
+    this.addProductsCart(product);
   }
 
   /**
-   * This method validates, if exists a reference in localStorage.
-   * @param product Product to add to the cart.
+   * This method goes to the service and to add a product to the cart.
+   * @param product Value to add to the cart.
    */
-  validateReference(product: IProduct) {
-    let reference = localStorage.getItem('reference');
-    if (!reference) {
-      reference = this.generarIdUnico();
-      localStorage.setItem('reference', reference);
-    }
-    this.addProduct(product, reference);
-  }
-
-  generarIdUnico() {
-    const caracteres =
-      'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    const caracteresLength = caracteres.length;
-    let id = '';
-
-    for (let i = 0; i < 10; i++) {
-      const indice = Math.floor(Math.random() * caracteresLength);
-      id += caracteres.charAt(indice);
-    }
-
-    const timestamp = Date.now().toString(36);
-    id += '-' + timestamp;
-
-    return id;
+  addProductsCart(product: IProduct) {
+    this.travelKitService.validateReference(product, this.productsInList);
   }
 }

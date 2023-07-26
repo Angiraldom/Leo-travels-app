@@ -11,7 +11,7 @@ import { IClassButton } from './interface/IClassButton.interface';
 })
 export class GenericButtonComponent {
   @Input() classButton: IClassButton = 'class_yellow';
-  @Input() sizeButton: 'small' | 'large' | 'super-large' = 'large';
+  @Input() sizeButton: 'small' | 'large' | 'medium' = 'large';
   @Input() nameButton = '';
   @Input() load = false;
   @Input() disabledButton = false;
