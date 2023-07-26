@@ -24,6 +24,8 @@ export class WatchClassComponent implements OnInit, OnDestroy {
   idClass!: string;
   class!: IClass;
   nameModule!: string;
+  nameCourse!: string;
+  showSpinner = false;
 
   ngOnInit(): void {
     this.$route = this.route.paramMap.subscribe((params: ParamMap) => {
@@ -39,15 +41,16 @@ export class WatchClassComponent implements OnInit, OnDestroy {
   }
 
   getClass() {
+    this.showSpinner = true;
     this.baseSerive.getMethod(`course/findClass/${this.idCourse}/${this.idModule}/${this.idClass}`).subscribe({
       next: (res: any) => {
+        this.showSpinner = false;
         if (Object.keys(res.data).length > 0) {
           this.class = res.data.class;
           this.nameModule = res.data.nameModule;
-        } else {
-          console.log('No se encontro la clase');
+          this.nameCourse = res.data.nameCourse;
         }
-      }
+      }, error: () => this.showSpinner = false
     });
   }
 

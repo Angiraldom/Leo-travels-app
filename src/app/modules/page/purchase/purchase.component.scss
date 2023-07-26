@@ -1,4 +1,5 @@
 @import "/src/styles/variables";
+@import "/src/styles/copyrightFooter";
 
 .title {
     color: $primary;
@@ -20,16 +21,9 @@
     }
 }
 
-.footer {
-    text-align: center;
-    color: $white;
-    background-color: $primary;
-    padding: 30px;
-}
-
 @media only screen and (max-width: 768px) {
     .content-invoice {
-        padding: 30px 15px;
+        padding: 95px 15px 35px;
     }
 
     .content-invoice .content-forms {

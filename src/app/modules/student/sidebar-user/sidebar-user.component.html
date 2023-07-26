@@ -2,7 +2,7 @@
     <mat-sidenav-container>
         <mat-sidenav opened mode="side" class="sidebar-container">
             <div class="title">
-                <div class="name-course">
+                <div class="name-course" [routerLink]="'/estudiante/course/' + idCourse">
                     <mat-icon>school</mat-icon>
                     <h4>
                         {{ course.name }}

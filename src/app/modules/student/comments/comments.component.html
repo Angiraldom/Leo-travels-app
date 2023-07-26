@@ -1,11 +1,10 @@
-<div>
+<div class="content-comments">
     <div class="comment-box">
         <h2 class="color-primary">
             Sección de comentarios
         </h2>
         <p class="color-primary max-width">
-            Si tienes alguna duda o quieres un tip extra, déjanos
-            aquí tu comentario:
+            Si tienes alguna duda, quieres un tip extra o compartir tus avances, déjanos aquí tu comentario
         </p>
 
         <textarea rows="5" placeholder="Escribe aquí..." [formControl]="comment" pInputTextarea [autoResize]="true"></textarea>
@@ -22,7 +21,10 @@
             <div class="content-comment" *ngIf="item">
                 <p-avatar [label]="item.user.name! | letterAvatar" styleClass="mr-2" size="xlarge" shape="circle"></p-avatar>
                 <div class="min-width">
-                    <p class="bold color-black"> {{ item.user.name }} </p>
+                    <div class="flex">
+                        <p class="bold color-black"> {{ item.user.name }} </p>
+                        <mat-icon *ngIf="user._id === item.user._id" matTooltip="Eliminar" (click)="removeComment(item._id)">delete</mat-icon>
+                    </div>
                     <p class="date">{{ item.createdAt | date }}</p>
 
                     <p class="color-black">

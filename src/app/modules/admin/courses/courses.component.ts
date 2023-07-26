@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit, inject } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
-import { viewCreate } from 'src/app/store/actions/course.actions';
+import { viewCreate, viewList } from 'src/app/store/actions/course.actions';
 import { AppState } from 'src/app/store/app.reducer';
 
 @Component({
@@ -19,6 +19,7 @@ export class CoursesComponent implements OnInit, OnDestroy {
     this.$store = this.store.select('courseView').subscribe({
       next: ({ inViewCreate }) => this.createTab = inViewCreate
     });
+    this.store.dispatch(viewList());
   }
 
   ngOnDestroy(): void {

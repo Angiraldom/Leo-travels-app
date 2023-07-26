@@ -1,5 +1,10 @@
 @import "/src/styles/variables";
 
+mat-icon {
+    font-size: 21px;
+    cursor: pointer;
+}
+
 .bold {
     font-weight: 700;
 }
@@ -21,8 +26,7 @@
     gap: 10px;
     text-align: center;
     margin: 0 auto;
-    width: 92%;
-    max-width: 700px;
+    width: 90%;
 }
 
 .content-comment {
@@ -36,7 +40,7 @@
 
 .min-width {
     width: 100%;
-    min-width: 258px;
+    min-width: 200px;
 }
 
 textarea {
@@ -44,7 +48,25 @@ textarea {
 }
 
 .comments {
-    max-width: 700px;
-    width: 91%;
+    width: 90%;
     margin: 20px auto 0px;
+}
+
+.content-comments {
+    margin: 45px 0px 30px;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+}
+
+@media screen and (max-width: 425px) {
+    .comments {
+        width: 91%;
+    }
+
+    .comment-box {
+        width: 92%;
+    }
 }

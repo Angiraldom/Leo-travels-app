@@ -5,4 +5,5 @@ export interface IComment {
     user: IUser;
     createdAt: Date;
     idClass: string;
+    _id: string;
 }

@@ -17,7 +17,6 @@ SwiperCore.use([
   Pagination,
   Scrollbar,
   A11y,
-  Autoplay,
   EffectCoverflow,
 ]);
 

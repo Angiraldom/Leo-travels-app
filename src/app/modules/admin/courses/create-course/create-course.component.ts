@@ -59,7 +59,9 @@ export class CreateCourseComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.$refModal.unsubscribe();
+    if (this.$refModal) {
+      this.$refModal.unsubscribe();
+    }
     this.$store.unsubscribe();
   }
 

@@ -27,6 +27,9 @@ export class ListProductsComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
+    if (!this.$dialog) {
+      return;
+    }
     this.$dialog.unsubscribe();
   }
 

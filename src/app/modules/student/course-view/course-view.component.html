@@ -1,4 +1,8 @@
-<ng-container *ngIf="course">
+<div class="spinner" *ngIf="showSpinner">
+    <mat-spinner [color]="'primary'"></mat-spinner>
+</div>
+
+<ng-container *ngIf="!showSpinner && course">
     <app-header-modules [title]="course.name" [description]="course.description"></app-header-modules>
 
     <div class="content-course">
@@ -50,7 +54,7 @@
     </div>
 </ng-container>
 
-<div *ngIf="!course">
+<div *ngIf="!showSpinner && !course">
     <h1> No se encontro el curso </h1>
 </div>
 

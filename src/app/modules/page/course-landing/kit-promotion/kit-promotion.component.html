@@ -1,7 +1,8 @@
+<div #mainContent></div>
 <app-header-promotions></app-header-promotions>
-<div class="content background-primary color-white">
-    <h1 class="title">¿Quieres añadir el
-        Kit viajero a tu compra?</h1>
+<div class="content background-primary color-primary">
+    <h2 class="title">¿Quieres añadir el
+        Kit viajero a tu compra?</h2>
 
     <div class="container">
 
@@ -10,7 +11,7 @@
 
     <div>
         <p>Por comprar el curso, tienes un</p>
-        <h2 class="color-secondary">15% de descuento</h2>
+        <h2 class="color-primary">15% de descuento</h2>
         <p>en el kit viajero</p>
     </div>
 
@@ -19,4 +20,7 @@
     <app-generic-button [sizeButton]="'large'" [classButton]="'class_white_color_blue'"
         [nameButton]="'No añadir'" (emitClick)="changeRoute()"></app-generic-button>
 </div>
-<app-footer></app-footer>
+<div class="footer">
+    ©TODOS LOS DERECHOS RESERVADOS.
+    VILEAN 2022
+</div>

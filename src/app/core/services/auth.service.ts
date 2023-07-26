@@ -48,6 +48,6 @@ export class AuthService extends BaseService {
     localStorage.clear();
     this.store.dispatch(clearCart());
     this.store.dispatch(clearProfile());
-    this.router.navigate(['login']);
+    this.router.navigate(['home']);
   }
 }

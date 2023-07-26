@@ -49,7 +49,7 @@ export class PurchaseComponent implements OnInit, OnDestroy {
         this.reference = reference;
         this.products = products;
         if (this.products.length === 0) {
-            this.router.navigate(['kit-viajero']);
+            this.router.navigate(['cursos']);
             return;
         }
         this.validateShowform();

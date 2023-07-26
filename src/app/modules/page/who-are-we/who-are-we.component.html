@@ -1,0 +1,126 @@
+<app-menu></app-menu>
+<section class="first-section">
+    <div class="align-center margin-center">
+        <h3 class="color-white">¡Hola amigo viajero!</h3>
+        <p class="color-white margin-center">Nosotros somos Leo y Angy, una pareja
+            de esposos amantes de los viajes y muy
+            soñadores...</p>
+    </div>
+</section>
+<section class="second-section padding flex-column gap-20">
+    <div class="flex-column gap-20">
+        <p>
+            <span class="bold">Esta historia comenzó con Leo</span> quien nació y
+            creció en la pobreza, a sus 20 años ya era
+            padre lo que agravó la situación económica.
+            Creció pensando que al no tener estudios
+            secundarios, ni experiencia laboral, “la
+            pobreza era la vida que le había tocado”.
+        </p>
+        <p>
+            Aún así, <span class="bold">siempre tuvo el sueño de recorrer el
+                mundo</span> y aunque por muchos años creyó
+            que ese sueño jamás se cumpliría, a través
+            de un gran proceso de aprendizaje,
+            sumersión y una gran determinación que lo
+            movió a salir de donde estaba para cumplir
+            sus sueños: ¡Hoy puede disfrutar de una vida
+            maravillosa!
+        </p>
+        <p>
+            Sus viajes comenzaron siendo salidas a
+            pueblos cercanos a Medellín, pero a medida
+            que fue mejorando sus habilidades para
+            crecer en los negocios, el dinero le permitió
+            expandirse a conocer otras ciudades y
+            actualmente otros países, junto a su esposa
+            Angy.
+        </p>
+        <p>
+            <span class="bold">Angy,</span> diseñadora de profesión, amante de
+            la fotografía y escritora del libro VIVE CON
+            PROPÓSITOS (un libro que construyó a raíz
+            de la muerte de su hermano), siempre fue
+            una mujer emprendedora pero en sus
+            principales sueños jamás estuvo viajar.
+        </p>
+    </div>
+
+    <div class="flex-column gap-20">
+        <p>
+            En una salida a bailar (pasión que los unió
+            en ese entonces) se fue formando una
+            amistad que poco a poco se convirtió en un
+            compromiso. <span class="bold">Una vez conoció a Leo,
+                comenzó a sentirse atraída por los viajes</span> y
+            los aprovecha no solo para deleitarse de la
+            hermosa creación, sino además para
+            capturar momentos inolvidables en cada
+            partecita del mundo ya que su pasión por la
+            fotografía no se quedó atrás. De ahí surge el
+            <span class="line-down">curso de <span class="bold color-primary">Fotografía para Viajes con tu
+                </span></span>
+            <span class="bold color-primary">Celular</span>
+        </p>
+        <p class="bold">
+            Ahora, uno de los principales sueños de
+            esta pareja es inspirar a las personas a
+            soñar, a viajar y a crecer.
+        </p>
+        <p>
+            Como ves, Leo pasó de vivir en la extrema
+            pobreza a tener ahora una vida feliz llena de
+            salud, dinero y mucho amor. Angy aún
+            después de haber perdido a su hermano en
+            un accidente de tránsito no se quedó
+            estancada sino que salió más motivada y
+            con un propósito claro. Es decir que sin
+            importar las situaciones difíciles que
+            atraviesa el ser humano en su vida, siempre
+            será posible construir un futuro diferente (y
+            si hay viajes de por medio, mucho mejor).
+        </p>
+        <p>
+            Ambos después de varios viajes
+            compartidos por diferentes ciudades del
+            mundo, han logrado concluir que no hay
+            nada mejor que aprovechar el tiempo que
+            se tiene en vida para disfrutar la creación
+            del mundo, para conocer otras culturas,
+            dejar un aporte o granito de arena en cada
+            lugar que se visite y a través de ello, crecer y
+            desarrollarse como persona.
+        </p>
+        <p class="bold">Ahí está el verdadero propósito de viajar.</p>
+    </div>
+
+</section>
+<section class="background-primary padding color-white align-center flex-column gap-20">
+    <h3 class="bold margin-center max-width-499">
+        Para nosotros siempre será un
+        placer y parte de nuestro
+        propósito de vida lograr inspirar a
+        personas como tú a <span class="color-secondary">SOÑAR,
+            VIAJAR Y CRECER.</span>
+    </h3>
+    <p class="margin-center max-width-560">
+        Así que si leíste todo hasta aquí, de seguro
+        es porque te llamó la atención esta historia,
+        y por ende, déjanos darte la bienvenida:
+        ¡estás en el lugar indicado!
+    </p>
+</section>
+<section class="padding align-center color-primary flex-column gap-20">
+    <p>Dale una miradita a esto:</p>
+    <div class="flex-column gap-12 margin-buttons">
+        <app-generic-button (emitClick)="navigateRoute('cursos')" [nameButton]="'Cursos'"
+            classButton="class_white_color_blue"></app-generic-button>
+        <app-generic-button (emitClick)="navigateRoute('kit-viajero')" [nameButton]="'Kit viajero'"
+            classButton="class_white_color_blue"></app-generic-button>
+    </div>
+    <h3 class="color-primary">
+        ¡¡Te deseamos muchos
+        éxitos y muchos viajes!!
+    </h3>
+</section>
+<app-footer></app-footer>
