@@ -4,25 +4,6 @@
         <h2 *ngIf="user"> {{ user.name }} </h2>
         <div>
             <mat-icon matBadgeSize="small" matBadgeColor="warn" (click)="toggleMenu()">menu</mat-icon>
-            <nav class="menu" [class.open]="isMenuOpen">
-                <ul>
-                    <li>
-                        <a class="item" routerLink="courses" routerLinkActive="router-active">
-                            <span>Cursos</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="item" [routerLink]="['/kit-viajero']" [routerLinkActive]="'router-active'">
-                            <span>Kit viajero</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="item" [routerLink]="['/estudiante/my-courses']" [routerLinkActive]="'router-active'">
-                            <span>Mi cuenta</span>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
         </div>
     </div>
 </mat-toolbar>
@@ -35,8 +16,10 @@
           < Cursos</h2>
             <h2 [routerLink]="['/kit-viajero']" [routerLinkActive]="'router-active'">
               < Kit viajero</h2>
+              <h2 [routerLink]="['/quienes-somos']" [routerLinkActive]="'router-active'">
+                < ¿Quiénes somos?</h2>
                     <h2 *ngIf="user" [routerLink]="'/estudiante/my-courses'" routerLinkActive="router-active">
                       < Mi cuenta</h2>
       </div>
     </ng-template>
-  </p-sidebar>
+</p-sidebar>
