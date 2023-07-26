@@ -62,12 +62,12 @@
     <hr />
     <div class="invoice-summary">
       <p>Subtotal</p>
-      <p>$00.000</p>
+      <p>{{ (store.select("cart") | async).products | totalValue | currency }}</p>
     </div>
     <div class="invoice-summary bold">
       <p>Total</p>
       <p>
-        {{ (store.select("cart") | async).products | totalValue | currency }}
+        {{ (store.select('cart') | async).products | finalPrice: (store.select('cart') | async).shippingPrice | currency }}
       </p>
     </div>
 
@@ -86,9 +86,9 @@
         < Cursos</h2>
           <h2 [routerLink]="['/kit-viajero']" [routerLinkActive]="'router-active'">
             < Kit viajero</h2>
-              <h2 [routerLink]="'/login'" routerLinkActive="router-active">
+              <h2 *ngIf="!user" [routerLink]="'/login'" routerLinkActive="router-active">
                 < Iniciar sesión</h2>
-                  <h2 [routerLink]="'/estudiante/my-courses'" routerLinkActive="router-active">
+                  <h2 *ngIf="user" [routerLink]="'/estudiante/my-courses'" routerLinkActive="router-active">
                     < Mi cuenta</h2>
     </div>
   </ng-template>

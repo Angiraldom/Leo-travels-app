@@ -78,3 +78,12 @@ mat-icon {
     text-decoration: none;
     color: $white;
 }
+
+
+p-sidebar .second-menu {
+    padding-left: 20px;
+}
+
+.mobile-menu-s ::ng-deep .p-sidebar-right {
+    height: 38%;
+}
