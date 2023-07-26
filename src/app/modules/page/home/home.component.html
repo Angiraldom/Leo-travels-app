@@ -16,7 +16,7 @@
   </div>
   <div class="container-ver-mas">
     <div class="ver-mas-1">
-        <div class="photography-course"></div>
+        <div class="photography-course curso-fotografia"></div>
       <div class="container-paragraph">
         <div class="title">
           <p>Curso de fotografía <span>para viajes</span> con tu celular</p>
@@ -37,7 +37,7 @@
   </div>
   <div class="container-ver-mas">
     <div class="ver-mas-2">
-      <div class="photography-course"></div>
+      <div class="photography-course kit-viajero"></div>
       <div class="container-paragraph">
 
       <div class="title">
@@ -82,7 +82,7 @@
 
     <div class="separador"></div>
 
-    <p class="sub-title">
+    <p class="sub-title canal-youtube-margin">
         Si quieres aprender cómo viajar y
 desbloquear tu mente para cumplir tus
 sueños, suscríbete:
@@ -91,7 +91,8 @@ sueños, suscríbete:
       [sizeButton]="'large'"
       [classButton]="'class_white_color_blue'"
       [nameButton]="'Canal YouTube'"
-    ></app-generic-button>
+      (emitClick)="changeExternalRoute('https://www.youtube.com/@leoramostorres?sub_confirmation=1')"
+      ></app-generic-button>
 </div>
 
 

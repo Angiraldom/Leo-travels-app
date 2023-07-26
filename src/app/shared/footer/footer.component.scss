@@ -67,7 +67,7 @@ p {
 
 .footer-bottom p {
     letter-spacing: 1px;
-    font-size: 12px;
+    font-size: 20px;
     line-height: 18px;
 }
 
@@ -93,10 +93,29 @@ p {
     width: 20px;
     height: 20px;
     margin-right: 4px;
-    background-image: url('../../../assets/icons/envelope-solid.svg');
+}
+
+.wpp {
+    background-image: url('https://vilean.s3.us-east-2.amazonaws.com/IMAGENES+SITIO+WEB/CO-23.png');
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+.ig {
+    background-image: url('https://vilean.s3.us-east-2.amazonaws.com/IMAGENES+SITIO+WEB/CO-24.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.gmail {
+    background-image: url('https://vilean.s3.us-east-2.amazonaws.com/IMAGENES+SITIO+WEB/CO-25.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+
+
 
 hr {
     width: 280px;
@@ -133,4 +152,8 @@ hr {
     hr {
         display: none;
     }
+}
+
+.punto {
+    font-size:30px;
 }
