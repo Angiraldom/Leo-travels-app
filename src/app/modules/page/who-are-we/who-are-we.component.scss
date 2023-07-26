@@ -1,11 +1,19 @@
 @import "/src/styles/variables";
 
 .first-section {
-    background: url(https://vilean.s3.us-east-2.amazonaws.com/IMAGENES+SITIO+WEB/IC-081.jpg) no-repeat center center;
+    background: url(https://vilean.s3.us-east-2.amazonaws.com/IMAGENES+SITIO+WEB/II-06.jpg) no-repeat center center;
     background-size: cover;
     width: 100%;
     height: calc(100vh - 60px);
     margin-top: 60px;
+
+    div {
+        position: absolute;
+        top: 150px;
+        max-width: 450px;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
 }
 
 .bold {
@@ -63,7 +71,7 @@
         width: 85%;
         margin: 0 auto;
         gap: 50px;
-        
+
         div {
             width: 50%;
         }
@@ -71,5 +79,18 @@
 
     .line-down {
         text-decoration-line: none;
+    }
+}
+
+@media screen and (max-width: 561px) {
+    .first-section {
+        background: url(https://vilean.s3.us-east-2.amazonaws.com/IMAGENES+SITIO+WEB/II-04.jpg) no-repeat center center;
+        background-size: cover;
+
+        div {
+            min-width: 330px;
+            left: 50%;
+            transform: translate(-50%, 0%);
+        }
     }
 }
