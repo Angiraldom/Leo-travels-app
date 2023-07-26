@@ -20,12 +20,17 @@
             <p class="font-bold">{{ (store.select('cart') | async).products | totalValue | currency }}</p>
         </div>
 
-        <div class="text-end align-between">
+        <div class="text-end discounts">
             <p class="font-bold">Descuentos</p>
-            <p>-20% Lanzamiento</p>
-            <p>{{ 0 | currency }}</p>
+            <div class="full-width">
+                <ng-container *ngFor="let item of (store.select('cart') | async).products">
+                    <div class="align-between" *ngIf="item.discount">
+                        <p>{{ item.discountDescription }}</p>
+                        <p>{{ item.price | calculateDiscount:item.discount:item.amount | currency }}</p>
+                    </div>
+                </ng-container>
+            </div>
         </div>
-
         <div class="text-end align-between">
             <p class="font-bold">Envío</p>
             <p>{{ (store.select('cart') | async).shippingPrice | currency }}</p>

@@ -45,3 +45,13 @@
     overflow: hidden;
     width: 100%;
 }
+
+.discounts {
+    display: grid;
+    grid-template-columns: 135px 1fr;
+    justify-items: flex-start;
+}
+
+.full-width {
+    width: 100%;
+}
