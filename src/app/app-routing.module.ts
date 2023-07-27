@@ -23,6 +23,30 @@ const routes: Routes = [
     title: 'Cambiar contraseña',
   },
   {
+    path: 'politicas-privacidad',
+    loadComponent: () =>
+      import('./components/privacy-policy/privacy-policy.component'),
+    title: 'Políticas de privacidad',
+  },
+  {
+    path: 'politicas-cookies',
+    loadComponent: () =>
+      import('./components/cookies-policy/cookies-policy.component'),
+    title: 'Políticas de cookies',
+  },
+  {
+    path: 'aviso-legal',
+    loadComponent: () =>
+      import('./components/legal-warning/legal-warning.component'),
+    title: 'Aviso legal',
+  },
+  {
+    path: 'terminos-condiciones',
+    loadComponent: () =>
+      import('./components/terms-and-conditions/terms-and-conditions.component'),
+    title: 'Términos y condiciones',
+  },
+  {
     path: '',
     loadChildren: () =>
       import('./modules/page/page-routing.module').then((m) => m.PageRoutingModule),
