@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { redirectLoginGuardFn } from './core/guards/redirect-login.guard';
-import { authGuardFn } from './core/guards/auth.guard';
+import { adminGuardFn } from './core/guards/admin.guard';
+import { studientGuardFn } from './core/guards/studient.guard';
 
 const routes: Routes = [
   {
@@ -53,11 +54,13 @@ const routes: Routes = [
   },
   {
     path: 'admin',
+    canActivate: [adminGuardFn],
     loadChildren: () =>
       import('./modules/admin/admin.module').then((m) => m.AdminModule),
   },
   {
     path: 'estudiante',
+    canActivate: [studientGuardFn],
     loadChildren: () =>
       import('./modules/student/student.module').then((m) => m.StudentModule),
   },

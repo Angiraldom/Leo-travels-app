@@ -7,7 +7,10 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
+import { Store } from '@ngrx/store';
 import { AuthService } from '../../core/services/auth.service';
+import { getProfile } from 'src/app/store/actions/user.actions';
+import { AppState } from 'src/app/store/app.reducer';
 
 @Component({
   selector: 'app-login',
@@ -20,6 +23,7 @@ export default class LoginComponent {
   private fb = inject(FormBuilder);
   private authService = inject(AuthService);
   private router = inject(Router);
+  private store = inject(Store<AppState>);
 
   form: FormGroup = this.fb.group({
     email: ['', Validators.required],
@@ -33,6 +37,7 @@ export default class LoginComponent {
     this.formatLowerCase();
     this.authService.login(this.form.value).subscribe({
       next: (res) => {
+        this.store.dispatch(getProfile({ user: res.data.user }))
         const role = res.data.user.role;
         this.form.reset();
         if (role === 'Admin') {
