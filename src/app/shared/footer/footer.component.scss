@@ -1,6 +1,10 @@
 @import '/src/styles/variables';
 @import "/src/styles/copyrightFooter";
 
+.pointer {
+    cursor: pointer;
+}
+
 a {
     text-decoration: none;
     color: white;
