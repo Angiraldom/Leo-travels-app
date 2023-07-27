@@ -1,4 +1,4 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { AuthService } from 'src/app/core/services/auth.service';
 
 @Component({
@@ -6,12 +6,8 @@ import { AuthService } from 'src/app/core/services/auth.service';
   templateUrl: './student-view.component.html',
   styleUrls: ['./student-view.component.scss']
 })
-export class StudentViewComponent implements OnInit {
+export class StudentViewComponent {
   private authService = inject(AuthService);
-
-  ngOnInit(): void {
-    this.authService.getProfile().subscribe();
-  }
 
   logout() {
     this.authService.validateLogout();
