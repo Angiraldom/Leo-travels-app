@@ -10,6 +10,9 @@
         <a class="item" [routerLink]="['/kit-viajero']" [routerLinkActive]="'router-active'">
           <span>Kit viajero</span>
         </a>
+        <a class="item" [routerLink]="['/quienes-somos']" [routerLinkActive]="'router-active'">
+          <span>¿Quiénes somos?</span>
+        </a>
         <a *ngIf="!user" class="item" [routerLink]="'/login'" routerLinkActive="router-active">
           <span>Iniciar sesión</span>
         </a>
@@ -25,6 +28,35 @@
   <div class="container-mobile-menu">
     <div *ngIf="displayMenu">
       <mat-icon matBadgeSize="small" matBadgeColor="warn" (click)="toggleMenu()">menu</mat-icon>
+      <nav class="mobile-menu" [class.open]="isMenuOpen">
+      <ul>
+        <li>
+          <a class="item" routerLink="/cursos" routerLinkActive="router-active">
+            <span>Cursos</span>
+          </a>
+        </li>
+        <li>
+          <a class="item" [routerLink]="['/kit-viajero']" [routerLinkActive]="'router-active'">
+            <span>Kit viajero</span>
+          </a>
+        </li>
+        <li>
+          <a class="item" [routerLink]="['/quienes-somos']" [routerLinkActive]="'router-active'">
+            <span>¿Quiénes somos?</span>
+          </a>
+        </li>
+        <li *ngIf="!user">
+          <a class="item" [routerLink]="'/login'" routerLinkActive="router-active">
+            <span>Iniciar sesión</span>
+          </a>
+        </li>
+        <li *ngIf="user">
+          <a class="item" [routerLink]="'/estudiante/my-courses'" routerLinkActive="router-active">
+            <span>Mi cuenta</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
     </div>
     <span class="icon-logo" [routerLink]="['/home']"></span>
     <mat-icon [matBadge]="(store.select('cart') | async).products | totalProducts" matBadgeSize="small"
@@ -67,29 +99,14 @@
     <div class="invoice-summary bold">
       <p>Total</p>
       <p>
-        {{ (store.select('cart') | async).products | finalPrice: (store.select('cart') | async).shippingPrice | currency }}
+        {{ (store.select('cart') | async).products | finalPrice: (store.select('cart') | async).shippingPrice | currency
+        }}
       </p>
     </div>
 
     <div>
       <app-generic-button [nameButton]="'IR A PAGAR'" [sizeButton]="'large'" classButton="class_blue"
         (emitClick)="changeRoute()"></app-generic-button>
-    </div>
-  </ng-template>
-</p-sidebar>
-
-<p-sidebar [(visible)]="isMenuOpen" position="right" class="mobile-menu-s">
-  <ng-template pTemplate="header"> Volver al sitio web: </ng-template>
-  <ng-template pTemplate="content">
-    <div class="second-menu">
-      <h2 routerLink="/cursos" routerLinkActive="router-active">
-        < Cursos</h2>
-          <h2 [routerLink]="['/kit-viajero']" [routerLinkActive]="'router-active'">
-            < Kit viajero</h2>
-              <h2 *ngIf="!user" [routerLink]="'/login'" routerLinkActive="router-active">
-                < Iniciar sesión</h2>
-                  <h2 *ngIf="user" [routerLink]="'/estudiante/my-courses'" routerLinkActive="router-active">
-                    < Mi cuenta</h2>
     </div>
   </ng-template>
 </p-sidebar>
