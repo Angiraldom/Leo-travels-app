@@ -111,16 +111,18 @@ export class PurchaseComponent implements OnInit, OnDestroy {
     if ($event.statusForm !== 'VALID') {
       return;
     }
-    this.baseService.postMethod('user/findByEmail', { email: $event.data.email }).subscribe({
-      next: (res: any) => {
-        if (Object.keys(res.data).length > 0) {
-          this.userExist = true;
-          this.messageService.warningMessage('', 'El email ingresado ya existe');
-        } else {
-          this.userExist = false;
+    if (this.products?.some((item) => item.modules)) {
+      this.baseService.postMethod('user/findByEmail', { email: $event.data.email }).subscribe({
+        next: (res: any) => {
+          if (Object.keys(res.data).length > 0) {
+            this.userExist = true;
+            this.messageService.warningMessage('', 'El email ingresado ya existe');
+          } else {
+            this.userExist = false;
+          }
         }
-      }
-    });
+      });
+    }
   }
 
   disabledButton() {
