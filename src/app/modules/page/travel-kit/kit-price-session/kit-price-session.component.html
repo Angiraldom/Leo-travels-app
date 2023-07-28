@@ -1,11 +1,11 @@
 <section class="discount-content">
 
     <p>
-        Valor de los productos: <span class="line-through">{{ 279000 | currency }} </span><br>
+        Valor de los productos: <span class="line-through">{{ 279000 | currency: "$":"symbol":"1.0-0" }} </span><br>
         Llévalos todos en kit y ahorra 10%
     </p>
 
-    <h2 class="color-blue">Kit viajero: {{ 251100 | currency }}</h2>
+    <h2 class="color-blue">Kit viajero: {{ 251100 | currency: "$":"symbol":"1.0-0" }}</h2>
 
     <app-generic-button [nameButton]="'COMPRAR KIT'" [sizeButton]="'large'"
         classButton="class_blue_color_yellow" (emitClick)="handleClick()"></app-generic-button>
