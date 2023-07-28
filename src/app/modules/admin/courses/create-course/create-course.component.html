@@ -39,7 +39,7 @@
                         edit
                     </mat-icon>
                     <mat-icon [matTooltip]="'Eliminar modulo'"
-                        (click)="deleteModule(item._id, module._id, indexModule)">
+                        (click)="confirmRemoveModule(item._id, module._id, indexModule)">
                         delete
                     </mat-icon>
                 </span>
@@ -55,7 +55,7 @@
                                 edit
                             </mat-icon>
                             <mat-icon [matTooltip]="'Eliminar clase'"
-                                (click)="deleteClass(module, indexClass, class._id)">
+                                (click)="confirmRemoveClass(module, indexClass, class._id)">
                                 delete
                             </mat-icon>
                         </span>
@@ -66,4 +66,6 @@
     </ul>
 </div>
 
-<button (click)="changelistView()">Volver</button>
+<button mat-raised-button color="primary" (click)="changelistView()">
+    Volver
+</button>

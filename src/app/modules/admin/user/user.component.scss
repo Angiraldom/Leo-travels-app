@@ -11,3 +11,20 @@
 .content-component {
     padding: 30px;
 }
+
+table {
+    width: 100%;
+}
+
+.table-users{
+
+    max-height:400px;
+    overflow: auto;
+}
+
+td {
+    max-width: 100px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}

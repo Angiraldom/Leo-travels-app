@@ -3,12 +3,14 @@
         "form": {
             "name": "Producto",
             "description": "Descripción",
-            "price": "Valor",
+            "price": "Precio",
             "discount": "Descuento",
             "weight": "Peso",
             "broad": "Ancho",
             "height": "Alto",
             "long": "Largo",
+            "priceWithoutTaxes": "Valor",
+            "taxes": "IVA",
             "moduls": {
                 "name": "Modulo",
                 "clase": "Clase",
@@ -26,10 +28,16 @@
         "ErrorTokenExpired": "Su sesión expiro, vuelva a iniciar sesión por favor"
     },
     "succes": {
+        "succesUpdate": "Actualizado correctamente",
+        "succesCreate": "Creado correctamente",
+        "succesRemove": "Eliminado correctamente",
         "productAddsToTheCart": "Producto añadido al carrito",
         "userUpdated": "Usuario actualizado correctamente",
         "passwordChanged": "Contraseña modificada correctamente",
         "commentAgregated": "Gracias por dejar tu comentario",
         "commentRemoved": "Comentario eliminado exitosamente"
+    },
+    "info": {
+        "confirmRemove": "¿Esta seguro que desea eliminar?"
     }
 }

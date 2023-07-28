@@ -1,5 +1,6 @@
 @import '/src/styles/variables';
 @import '/src/styles/buttonFile';
+@import '/src/styles/materialModal';
 
 ::ng-deep.p-button {
     background: $primary;
@@ -19,12 +20,7 @@ form {
     .course-content-image {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        justify-items: right;
-
-        .button-file {
-            width: 25%;
-            justify-self: flex-start;
-        }
+        justify-items: flex-start;
     }
 }
 
@@ -60,8 +56,23 @@ textarea,
     display: flex;
     width: 100%;
     justify-content: space-between;
+    max-height: 45px;
 
     .p-fluid {
         width: 75%;
     }
+}
+
+::ng-deep.p-fluid .p-chips {
+    max-height: 45px
+}
+
+.button-file {
+    width: 25%;
+    min-width: 195px;
+    justify-self: flex-start;
+}
+
+::ng-deep .cdk-overlay-pane {
+    min-width: 70%;
 }

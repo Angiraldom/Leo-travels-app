@@ -18,7 +18,7 @@
               < Kit viajero</h2>
               <h2 [routerLink]="['/quienes-somos']" [routerLinkActive]="'router-active'">
                 < ¿Quiénes somos?</h2>
-                    <h2 *ngIf="user" [routerLink]="'/estudiante/my-courses'" routerLinkActive="router-active">
+                    <h2 *ngIf="user" [routerLink]="user.role === 'Cliente' ? '/estudiante/my-courses': '/admin/usuarios'" routerLinkActive="router-active">
                       < Mi cuenta</h2>
       </div>
     </ng-template>

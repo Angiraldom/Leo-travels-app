@@ -1,19 +1,17 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { BaseService } from 'src/app/core/services/base.service';
 import { CreateCourseComponent } from '../create-course/create-course.component';
+import { BaseClass } from 'src/app/core/base.class';
 
 @Component({
   selector: 'app-form-course',
   templateUrl: './form-course.component.html',
   styleUrls: ['./form-course.component.scss'],
 })
-export class FormCourseComponent implements OnInit{
-  private fb = inject(FormBuilder);
+export class FormCourseComponent extends BaseClass implements OnInit{
   private dialogRef = inject(MatDialogRef<this>);
   data: any = inject(MAT_DIALOG_DATA);
-  private baseService = inject(BaseService);
 
   loading = false;
   selectedFiles!: File;
@@ -55,7 +53,7 @@ export class FormCourseComponent implements OnInit{
 
     this.baseService.postMethod('course', formData).subscribe({
       next: (res: any) => {
-        console.log('Guardo correctamente');
+        this.messageService.succesMessage('succes.succesCreate');
         this.form.reset();
         this.parent.form.patchValue({
           ...res['data']
@@ -77,7 +75,7 @@ export class FormCourseComponent implements OnInit{
 
     this.baseService.patchMethod(`course/${idCourse}`, formData).subscribe({
       next: (res: any) => {
-        console.log('Actualizado correctamente');
+        this.messageService.succesMessage('succes.succesUpdate');
         this.form.reset();
         this.parent.form.patchValue({
           ...res['data']

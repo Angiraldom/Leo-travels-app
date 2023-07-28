@@ -41,7 +41,7 @@ export class AuthService extends BaseService {
       if (response.isConfirmed) {
         this.logout();
       }
-    })
+    });
   }
 
   logout() {

@@ -1,19 +1,17 @@
 import { Component, inject } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { BaseService } from 'src/app/core/services/base.service';
 import { CreateCourseComponent } from '../create-course/create-course.component';
+import { BaseClass } from 'src/app/core/base.class';
 
 @Component({
   selector: 'app-form-class',
   templateUrl: './form-class.component.html',
   styleUrls: ['./form-class.component.scss'],
 })
-export class FormClassComponent {
-  private fb = inject(FormBuilder);
+export class FormClassComponent extends BaseClass {
   private dialogRef = inject(MatDialogRef<this>);
   public data: any = inject(MAT_DIALOG_DATA);
-  private baseService = inject(BaseService);
 
   loading = false;
   parent!: CreateCourseComponent;
@@ -54,7 +52,7 @@ export class FormClassComponent {
       )
       .subscribe({
         next: (res: any) => {
-          console.log('Guardo correctamente');
+          this.messageService.succesMessage('succes.succesCreate');
           this.form.reset();
           this.parent.modules[this.data.indexModule!].classes.push({
             ...res['data'],
@@ -77,7 +75,7 @@ export class FormClassComponent {
       )
       .subscribe({
         next: () => {
-          console.log('actualizado correctamente');
+          this.messageService.succesMessage('succes.succesUpdate');
           this.form.reset();
           this.parent.modules[this.data.indexModule!].classes[
             this.data.indexClass!
