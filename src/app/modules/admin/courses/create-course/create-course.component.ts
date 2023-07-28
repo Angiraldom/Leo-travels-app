@@ -1,11 +1,10 @@
 import { Component, OnDestroy, OnInit, inject } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatDialog } from '@angular/material/dialog';
+import { FormGroup, Validators } from '@angular/forms';
 import { ComponentType } from '@angular/cdk/portal';
 import { Subscription } from 'rxjs';
 import { Store } from '@ngrx/store';
+import { SweetAlertResult } from 'sweetalert2';
 
-import { BaseService } from 'src/app/core/services/base.service';
 import { FormCourseComponent } from '../form-course/form-course.component';
 import { FormModuleComponent } from '../form-module/form-module.component';
 import { FormClassComponent } from '../form-class/form-class.component';
@@ -14,16 +13,14 @@ import { IModule } from '../interfaces/IModule.interface';
 import { AppState } from 'src/app/store/app.reducer';
 import { viewList } from 'src/app/store/actions/course.actions';
 import { ICourse } from '../interfaces/ICourses.interface';
+import { BaseClass } from 'src/app/core/base.class';
 
 @Component({
   selector: 'app-create-course',
   templateUrl: './create-course.component.html',
   styleUrls: ['./create-course.component.scss'],
 })
-export class CreateCourseComponent implements OnInit, OnDestroy {
-  private fb = inject(FormBuilder);
-  private baseService = inject(BaseService);
-  private dialog = inject(MatDialog);
+export class CreateCourseComponent extends BaseClass implements OnInit, OnDestroy {
   private store = inject(Store<AppState>);
   $store!: Subscription;
   $refModal!: Subscription;
@@ -84,12 +81,28 @@ export class CreateCourseComponent implements OnInit, OnDestroy {
     });
   }
 
+  confirmRemoveModule(idCourse: string, idModule: string, indexModule: number) {
+    this.messageService.confirmRevomeMessage('info.confirmRemove').then((response: SweetAlertResult) => {
+      if (response.isConfirmed) {
+        this.deleteModule(idCourse, idModule, indexModule);
+      }
+    });
+  }
+
   deleteModule(idCourse: string, idModule: string, indexModule: number) {
     this.baseService.deleteMethod(`course/module/${idCourse}/${idModule}`).subscribe({
-      next: () => {
+        next: () => {
         this.modules.splice(indexModule, 1);
-        console.log('Eliminado exitosamente');
+        this.messageService.succesMessage('succes.succesRemove');
       },
+    });
+  }
+
+  confirmRemoveClass(module: IModule, indexClass: number, idClass: string) {
+    this.messageService.confirmRevomeMessage('info.confirmRemove').then((response: SweetAlertResult) => {
+      if (response.isConfirmed) {
+        this.deleteClass(module, indexClass, idClass);
+      }
     });
   }
 
@@ -99,7 +112,7 @@ export class CreateCourseComponent implements OnInit, OnDestroy {
       .subscribe({
         next: () => {
           module.classes.splice(indexClass, 1);
-          console.log('Eliminado exitosamente');
+          this.messageService.succesMessage('succes.succesRemove');
         },
       });
   }
