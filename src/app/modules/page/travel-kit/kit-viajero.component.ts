@@ -9,6 +9,7 @@ import { AppState } from 'src/app/store/app.reducer';
 import { TravelKitService } from './services/travel-kit.service';
 import { ICourse } from '../../admin/courses/interfaces/ICourses.interface';
 import { Message } from 'primeng/api';
+import { KIT_VIAJERO_ID } from 'src/app/shared/constants';
 
 @Component({
   selector: 'app-kit-viajero',
@@ -21,7 +22,7 @@ export class KitViajeroComponent implements OnInit, OnDestroy {
   protected store = inject(Store<AppState>);
   protected router = inject(Router);
 
-  protected readonly idKitViajero = '64a75cd97a31b132537ae59a';
+  protected readonly idKitViajero = KIT_VIAJERO_ID;
   protected readonly idCourse = '64a04a387a31b132537ae49d';
   products: IProduct[] = [];
   productKitViajero!: IProduct | undefined;

@@ -8,6 +8,7 @@ import { AppState } from 'src/app/store/app.reducer';
 import { BaseService } from 'src/app/core/services/base.service';
 import { IProduct } from 'src/app/modules/admin/products/interfaces/IProduct.interface';
 import { TravelKitService } from '../services/travel-kit.service';
+import { KIT_VIAJERO_ID } from 'src/app/shared/constants';
 
 @Component({
   selector: 'app-view-product',
@@ -20,7 +21,7 @@ export class ViewProductComponent implements OnInit, OnDestroy {
   private route = inject(ActivatedRoute);
   private baseService = inject(BaseService);
   private travelKitService = inject(TravelKitService);
-  protected readonly idKitViajero = '64a75cd97a31b132537ae59a';
+  protected readonly idKitViajero = KIT_VIAJERO_ID;
   
   products: IProduct[] = [];
   visibleProducts: IProduct[] = [];

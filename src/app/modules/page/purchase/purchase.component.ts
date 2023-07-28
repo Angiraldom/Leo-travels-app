@@ -11,6 +11,7 @@ import { IProduct } from '../../admin/products/interfaces/IProduct.interface';
 import { ICourse } from '../../admin/courses/interfaces/ICourses.interface';
 import { MesaggeService } from 'src/app/core/services/message.service';
 import { ICities } from './interface/ICities.interface';
+import { KIT_VIAJERO_ID } from 'src/app/shared/constants';
 
 declare let WidgetCheckout: any;
 
@@ -34,7 +35,7 @@ export class PurchaseComponent implements OnInit, OnDestroy {
   reference = '';
   invalidCustomerForm: FormControlStatus = 'INVALID';
   invalidFormAddress: FormControlStatus = 'INVALID';
-  protected readonly idKitViajero = '64a75cd97a31b132537ae59a';
+  protected readonly idKitViajero = KIT_VIAJERO_ID;
 
   wompiObject: IWompiInterface = {
     currency: 'COP',
@@ -95,6 +96,7 @@ export class PurchaseComponent implements OnInit, OnDestroy {
       const status = result.transaction.status;
       if (status === 'APPROVED') {
         this.succesfulTransaction = true;
+        localStorage.removeItem('reference');
       }
     });
   }

@@ -16,7 +16,6 @@ export class MesaggeService {
 
   succesMessage(message: string, title?: string) {
     Swal.fire({
-      title: title,
       text: message ? this.translateService.instant(message) : null,
       icon: 'success',
       showConfirmButton: false,
@@ -67,6 +66,20 @@ export class MesaggeService {
       text: message ? this.translateService.instant(message) : null,
       showConfirmButton: false,
       timer: 3000,
+    });
+  }
+
+  /**
+   * This function validates the user confirm for doing an action.
+   */
+  confirmRevomeMessage(message: string) {
+    return Swal.fire({
+      text: this.translateService.instant(message),
+      showCancelButton: true,
+      cancelButtonText: 'No, regresar',
+      showConfirmButton: true,
+      confirmButtonText: 'Sí, eliminar',
+      buttonsStyling: false,
     });
   }
 }
