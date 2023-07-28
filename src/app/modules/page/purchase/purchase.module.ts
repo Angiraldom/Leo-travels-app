@@ -14,8 +14,8 @@ import { MenuComponent } from 'src/app/shared/menu/menu.component';
 import { GratitudeCourseComponent } from './gratitude-course/gratitude-course.component';
 import { FooterComponent } from 'src/app/shared/footer/footer.component';
 import { GratitudeKitComponent } from './gratitude-kit/gratitude-kit.component';
-import { GratitudeMenuComponent } from './gratitude-menu/gratitude-menu.component';
 import { GenericButtonComponent } from 'src/app/shared/generic-button/generic-button.component';
+import { HeaderPromotionsComponent } from 'src/app/shared/header-promotions/header-promotions.component';
 
 
 @NgModule({
@@ -24,7 +24,6 @@ import { GenericButtonComponent } from 'src/app/shared/generic-button/generic-bu
     InvoiceFormComponent,
     GratitudeCourseComponent,
     GratitudeKitComponent,
-    GratitudeMenuComponent
   ],
   imports: [
     CommonModule,
@@ -37,7 +36,8 @@ import { GenericButtonComponent } from 'src/app/shared/generic-button/generic-bu
     PaymentButtonComponent,
     ShippingFormComponent,
     FooterComponent,
-    GenericButtonComponent
+    GenericButtonComponent,
+    HeaderPromotionsComponent
   ]
 })
 export class PurchaseModule { }

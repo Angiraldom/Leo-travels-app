@@ -25,7 +25,7 @@ export class TravelKitService {
       }
       this.store.dispatch(cartActions.addProduct({ reference, product }));
     }
-    this.mesaggeService.succesMessage('', 'Producto añadido al carrito')
+    this.mesaggeService.succesMessage('Producto añadido al carrito')
   }
 
   /**
