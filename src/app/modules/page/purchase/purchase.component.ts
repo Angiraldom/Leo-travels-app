@@ -30,7 +30,7 @@ export class PurchaseComponent implements OnInit, OnDestroy {
   totalValue = 0;
   succesfulTransaction: boolean = false;
   showShippingAdress: boolean = false;
-  userExist: boolean = true;
+  userExist: boolean = false;
   products: IProduct[] | ICourse[] = [];
   reference = '';
   invalidCustomerForm: FormControlStatus = 'INVALID';
@@ -69,9 +69,17 @@ export class PurchaseComponent implements OnInit, OnDestroy {
   }
 
   purchase() {
+    this.addShippingPhoneNumber();
     this.wompiObject.reference = this.reference;
     this.wompiObject.amountInCents = Number(this.totalValue + '00');
     this.openCheckout();
+  }
+
+  addShippingPhoneNumber() {
+    if (!this.showShippingAdress) {
+      return;
+    }
+    this.wompiObject.shippingAddress!.phoneNumber = this.wompiObject.customerData!.phoneNumber;
   }
 
   setCustomerData(form: { data: any; statusForm: FormControlStatus }) {
@@ -118,7 +126,7 @@ export class PurchaseComponent implements OnInit, OnDestroy {
         next: (res: any) => {
           if (Object.keys(res.data).length > 0) {
             this.userExist = true;
-            this.messageService.warningMessage('', 'El email ingresado ya existe');
+            this.messageService.warningMessage('info.theEmailExists');
           } else {
             this.userExist = false;
           }
@@ -126,14 +134,21 @@ export class PurchaseComponent implements OnInit, OnDestroy {
       });
     }
   }
-
+  
   disabledButton() {
+    if (this.userExist) {
+      this.messageService.warningMessage('info.theEmailExists');
+      return;
+    }
     if (!this.userExist && !this.showShippingAdress && this.invalidCustomerForm === 'VALID') {
       this.purchase();
+      return;
     }
     if (!this.userExist && this.invalidFormAddress === 'VALID' && this.invalidCustomerForm === 'VALID') {
       this.purchase();
+      return;
     }
+    this.messageService.warningMessage('info.completeForm');
   }
 
   setShippingPrice(value: ICities | null) {

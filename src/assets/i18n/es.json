@@ -38,6 +38,10 @@
         "commentRemoved": "Comentario eliminado exitosamente"
     },
     "info": {
-        "confirmRemove": "¿Esta seguro que desea eliminar?"
+        "confirmRemove": "¿Esta seguro que desea eliminar?",
+        "confirmEmailPassword": "Se envio un email a tu correo para hacer el cambio de tu contraseña",
+        "completeForm": "Tiene campos sin diligenciar",
+        "theEmailExists": "El email ingresado ya existe",
+        "dataNotFound": "Dato no encontrado"
     }
 }

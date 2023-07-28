@@ -10,7 +10,7 @@ export class CalculateDiscountPipe implements PipeTransform {
     precioOriginal *= amount;
     porcentajeDescuento *= amount;
     let descuento = (precioOriginal * porcentajeDescuento) / 100;
-    return precioOriginal - descuento;
+    return descuento;
   }
 
 }

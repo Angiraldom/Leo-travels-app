@@ -6,7 +6,7 @@
             [ngSrc]="item.imageProperties![0].url" alt="{{item.name}}" [width]="'1080'" [height]="'1350'">
             <div class="card-info">
                 <p class="product-name" [matTooltip]="item.name!" [routerLink]="'view-product/' + item._id">{{item.name}}</p>
-                <p [routerLink]="'view-product/' + item._id">{{item.price | currency }}</p>
+                <p [routerLink]="'view-product/' + item._id">{{item.price | currency: "$":"symbol":"1.0-0" }}</p>
                 <app-generic-button (emitClick)="handleClick(item)" class="component-button" [sizeButton]="'small'" [nameButton]="'Añadir al carrito'"></app-generic-button>
             </div>
         </div>

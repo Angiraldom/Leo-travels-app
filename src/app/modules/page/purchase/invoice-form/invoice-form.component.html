@@ -4,47 +4,47 @@
         <span class="flex flex-column gap-2">
             <label htmlFor="name">Nombre</label>
             <input pInputText id="name" formControlName="name" placeholder="Ingrese su nombre"
-                class="p-inputtext-sm input-name" />
+                class="p-inputtext-sm input-name" [ngClass]="{'invalid': form.get('name')?.touched && !form.get('name')?.valid }" />
         </span>
-
         <span class="flex flex-column gap-2">
             <label htmlFor="lastName">Apellidos</label>
             <input pInputText id="lastName" formControlName="lastName" placeholder="Ingrese sus apellidos"
-                class="p-inputtext-sm input-name" />
+                class="p-inputtext-sm input-name" [ngClass]="{'invalid': form.get('lastName')?.touched && !form.get('lastName')?.valid }"/>
         </span>
 
         <div class="columns-2">
             <span class="display flex flex-column gap-2">
                 <label htmlFor="legalIdType">Tipo de documento</label>
                 <p-dropdown formControlName="legalIdType" [options]="typeDocument" placeholder="Tipo de documento"
-                    optionLabel="name" [optionValue]="'key'" class="p-inputtext-sm input-name"></p-dropdown>
+                    optionLabel="name" [optionValue]="'key'" class="p-inputtext-sm input-name"
+                    [ngClass]="{'invalid': form.get('legalIdType')?.touched && !form.get('legalIdType')?.valid }"></p-dropdown>
             </span>
     
             <span class="flex flex-column gap-2">
                 <label htmlFor="legalId">Documento de identidad</label>
                 <input pInputText id="legalId" formControlName="legalId" placeholder="Ingrese su documento"
-                    class="p-inputtext-sm input-name" />
+                    class="p-inputtext-sm input-name" [ngClass]="{'invalid': form.get('legalId')?.touched && !form.get('legalId')?.valid }"/>
             </span>
         </div>
 
         <span class="flex flex-column gap-2">
             <label htmlFor="email">Correo electrónico</label>
-            <input pInputText id="email" (keyup)="formatLowerCase()" formControlName="email"
-                placeholder="Ingrese su email" class="p-inputtext-sm input-name" />
+            <input pInputText id="email" (keyup)="formatLowerCase()" formControlName="email" placeholder="Ingrese su email"
+                class="p-inputtext-sm input-name" [ngClass]="{'invalid': form.get('email')?.touched && !form.get('email')?.valid }"/>
         </span>
 
         <div>
             <label htmlFor="phoneNumber">Número celular</label>
             <div class="content-phone">
                 <span class="display flex flex-column gap-2">
-                    <p-dropdown [options]="prefixes" placeholder="Prefijo" formControlName="phoneNumberPrefix"
-                        [emptyMessage]="'Seleccione un prefijo'" optionLabel="prefix" optionValue="prefix"
-                        class="p-inputtext-sm input-name"></p-dropdown>
+                    <p-dropdown [options]="prefixes" placeholder="Prefijo" formControlName="phoneNumberPrefix" [emptyFilterMessage]="'Dato no encontrado'"
+                        [emptyMessage]="'Seleccione un prefijo'" optionLabel="prefix" optionValue="prefix" class="p-inputtext-sm input-name" [resetFilterOnHide]="true"
+                        [filter]="true" [ngClass]="{'invalid': form.get('phoneNumberPrefix')?.touched && !form.get('phoneNumberPrefix')?.valid }"></p-dropdown>
                 </span>
 
                 <span class="flex flex-column gap-2 phone">
-                    <input pInputText id="phoneNumber" formControlName="phoneNumber"
-                        placeholder="Ingrese su numero de celular" class="p-inputtext-sm input-name" />
+                    <input pInputText id="phoneNumber" formControlName="phoneNumber" placeholder="Ingrese su numero de celular"
+                        [ngClass]="{'invalid': form.get('phoneNumber')?.touched && !form.get('phoneNumber')?.valid }" class="p-inputtext-sm input-name" />
                 </span>
             </div>
         </div>

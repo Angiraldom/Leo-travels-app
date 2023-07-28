@@ -17,6 +17,6 @@ export class GratitudeCourseComponent {
   }
   
   changeRoute() {
-    this.router.navigate(['kit-viajero']);
+    this.router.navigate(['home']);
   }
 }

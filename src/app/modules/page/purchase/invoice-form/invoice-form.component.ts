@@ -27,8 +27,8 @@ export class InvoiceFormComponent implements OnInit, OnDestroy {
     legalId: ['', Validators.required],
     legalIdType: ['', Validators.required],
     email: ['', [Validators.required, Validators.email]],
-    phoneNumber: [],
-    phoneNumberPrefix: []
+    phoneNumber: ['', Validators.required],
+    phoneNumberPrefix: ['', Validators.required]
   });
 
   ngOnInit(): void {
