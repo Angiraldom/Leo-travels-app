@@ -1,7 +1,12 @@
 @import "/src/styles/variables";
 
+.separador {
+  border-color: $gray;
+}
+
 .second-container {
-  background-color: $background-color;
+  background-color: $primary;
+  color: $white;
 }
 
 .title {
@@ -68,7 +73,6 @@
   }
 
   .second-container{
-    color:$primary;
     padding:60px;
     display:flex;
     align-items: center;
@@ -86,13 +90,13 @@
 
   .container-ver-mas {
     .ver-mas-1{
-      background-color: $primary;
+      background-color: $white;
       padding:40px;
       color:$white;
       display: flex;
         
       .separador{
-        background-color: $white;
+        background-color: $gray;
       }
     }
 
@@ -117,11 +121,8 @@
       align-items: center;
       text-align: center;
       margin: 40px;
-        span {
-          color:$secondary;
-        }
 
-        .sub-title{
+        .sub-title{ 
           margin:30px;
         }
     }
@@ -161,7 +162,7 @@
     .separador {
       width: 100%;
       height: 1px;
-      background-color: $primary;
+      background-color: $gray;
       margin: 60px;
     }
 
@@ -205,13 +206,12 @@
     align-items: center;
     display: flex;
     flex-direction: column;
-    color: $primary;
     padding: 30px 0;
   }
   .container-ver-mas {
     .ver-mas-1 {
+      background-color: $white;
       color: $white;
-      background-color: $primary;
       padding-bottom: 20px;
       text-align: center;
       align-items: center;
@@ -219,7 +219,7 @@
       flex-direction: column;
   
         .separador{
-          background-color: $white;
+          background-color: $gray;
         }
   
     }
@@ -233,7 +233,7 @@
       flex-direction: column;
   
       .separador {
-        background-color: $primary;
+        background-color: $gray;
       }
     }
     .photography-course {
@@ -250,10 +250,6 @@
       display: flex;
       align-items: center;
       flex-direction: column;
-  
-      span {
-        color: $secondary;
-      }
     }
   
     .separador {
@@ -308,7 +304,7 @@
     .separador {
       width: 90%;
       height: 1px;
-      background-color: $primary;
+      background-color: $gray;
       margin: 40px;
     }
   

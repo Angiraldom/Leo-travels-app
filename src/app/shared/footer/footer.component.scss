@@ -104,8 +104,8 @@ p {
 }
 
 .msj {
-    width: 20px;
-    height: 20px;
+    width: 17px;
+    height: 17px;
     margin-right: 4px;
 }
 
@@ -147,7 +147,8 @@ hr {
 
 .content-icons {
     display: grid;
-    justify-content: end;
+    justify-content: flex-end;
+    align-items: center;
 }
 
 .text-start {
