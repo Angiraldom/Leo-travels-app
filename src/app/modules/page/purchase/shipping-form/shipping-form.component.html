@@ -9,27 +9,27 @@
         <span class="display flex flex-column gap-2">
             <label htmlFor="region">Departamento</label>
             <p-dropdown formControlName="region" [options]="cities" placeholder="Departamento"
-                optionLabel="_id" [optionValue]="'_id'" (onChange)="setMunicipalities($event)" class="p-inputtext-sm input-name"></p-dropdown>
+                optionLabel="_id" [optionValue]="'_id'" (onChange)="setMunicipalities($event)" 
+                class="p-inputtext-sm input-name" [ngClass]="{'invalid': form.get('region')?.touched && !form.get('region')?.valid }"></p-dropdown>
         </span>
 
         <span class="display flex flex-column gap-2">
             <label htmlFor="city">Ciudad</label>
             <p-dropdown  [options]="municipalities" placeholder="Ciudad" [emptyMessage]="'Seleccione un departamento'"
-                optionLabel="nombreMunicipio" (onChange)="setCityValue($event)" class="p-inputtext-sm input-name"></p-dropdown>
+                optionLabel="nombreMunicipio" (onChange)="setCityValue($event)" class="p-inputtext-sm input-name"
+                [ngClass]="{'invalid': form.get('city')?.touched && !form.get('city')?.valid }"></p-dropdown>
         </span>
 
         <span class="flex flex-column gap-2">
             <label htmlFor="addressLine1">Dirección</label>
-            <input pInputText id="addressLine1" formControlName="addressLine1" placeholder="Ingrese la dirección" class="p-inputtext-sm input-name" />
+            <input pInputText id="addressLine1" formControlName="addressLine1" placeholder="Ingrese la dirección" 
+            class="p-inputtext-sm input-name" [ngClass]="{'invalid': form.get('addressLine1')?.touched && !form.get('addressLine1')?.valid }"/>
         </span>
 
         <span class="flex flex-column gap-2">
-            <input pInputText id="addressLine2" formControlName="addressLine2" placeholder="Apto/Oficina/Otro" class="p-inputtext-sm input-name" />
+            <input pInputText id="addressLine2" formControlName="addressLine2" placeholder="Apto/Oficina/Otro" class="p-inputtext-sm input-name" 
+            [ngClass]="{'invalid': form.get('addressLine2')?.touched && !form.get('addressLine2')?.valid }"/>
         </span>
 
-        <span class="flex flex-column gap-2">
-            <label htmlFor="phoneNumber">Numero telefónico</label>
-            <input pInputText id="phoneNumber" formControlName="phoneNumber" placeholder="Ingrese el numero telefónico" class="p-inputtext-sm input-name" />
-        </span>
     </form>
 </div>

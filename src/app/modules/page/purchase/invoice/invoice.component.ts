@@ -8,6 +8,7 @@ import { FinalPricePipe } from 'src/app/core/pipes/final-price.pipe';
 import { CalculateDiscountPipe } from 'src/app/core/pipes/calculate-discount.pipe';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { Subscription, distinctUntilChanged } from 'rxjs';
+import { setShippingPrice } from 'src/app/store/actions/cart.actions';
 
 @Component({
   selector: 'app-invoice',
@@ -34,5 +35,6 @@ export class InvoiceComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.$valueForm.unsubscribe();
+    this.store.dispatch(setShippingPrice({ shippingPrice: 0 }));
   }
 }

@@ -24,9 +24,8 @@ export class MesaggeService {
     });
   }
 
-  warningMessage(message: string, title?: string) {
+  warningMessage(message: string) {
     Swal.fire({
-      title: title,
       text: message ? this.translateService.instant(message) : null,
       icon: 'warning',
       showConfirmButton: false,

@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/core/services/auth.service';
 import { Router, RouterModule } from '@angular/router';
+import { MesaggeService } from 'src/app/core/services/message.service';
 
 @Component({
   selector: 'app-forgot-password',
@@ -15,6 +16,7 @@ export default class ForgotPasswordComponent {
   private fb = inject(FormBuilder);
   private authService = inject(AuthService);
   private router = inject(Router);
+  messageService = inject(MesaggeService);
 
   form: FormGroup = this.fb.group({
     email: ['', Validators.required],
@@ -27,12 +29,9 @@ export default class ForgotPasswordComponent {
 
     this.authService.postMethod('user/forgot-password', this.form.value).subscribe({
       next: () => {
-        console.log("Se envio un email a tu correo para hacer el cambio de tu contraseña.");
+        this.messageService.succesMessage('info.confirmEmailPassword');
         this.form.reset();
         this.router.navigateByUrl('login');
-      },
-      error: () => {
-        console.log('Ocurrio un error, vuelve a intentarlo.');
       },
     });
   }

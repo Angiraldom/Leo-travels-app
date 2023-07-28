@@ -1,5 +1,9 @@
 @import "/src/styles/variables";
 
+::ng-deep.invalid, .invalid ::ng-deep .p-dropdown {
+    border-color: #e24c4c;
+}
+
 .content-form {
     padding: 30px;
     border: 1px solid $border;

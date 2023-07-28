@@ -29,7 +29,7 @@ export class CourseLandingComponent
 
   validateCourseAndAddInCart() {
     if (this.validateCourseExistInCart()) {
-      this.mesaggeService.warningMessage('', 'Ya fue añadido al carrito.')
+      this.mesaggeService.warningMessage('Ya fue añadido al carrito.')
       return;
     }
     if (!this.course) {

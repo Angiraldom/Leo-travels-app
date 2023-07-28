@@ -17,5 +17,7 @@ export interface IWompiInterface {
     fullName: string;
     legalId: string;
     legalIdType: string;
+    phoneNumber: string;
+    phoneNumberPrefix: string;
   };
 }
