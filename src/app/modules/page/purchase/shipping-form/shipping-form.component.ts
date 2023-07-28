@@ -62,7 +62,16 @@ export class ShippingFormComponent implements OnInit, OnDestroy {
   }
 
   setMunicipalities(event: any) {
-    this.municipalities = this.cities.find((item) => item._id === event.value)?.municipalities!;
+    const municipalitiesList = this.cities.find((item) => item._id === event.value)?.municipalities!;
+    this.municipalities = municipalitiesList.sort((a, b) => {
+      if (a.nombreMunicipio < b.nombreMunicipio) {
+        return -1;
+      } else if (a.nombreMunicipio > b.nombreMunicipio) {
+        return 1;
+      } else {
+        return 0;
+      }
+    });
     this.form.get('city')?.reset();
     this.emitShippingPrice.emit(null);
   }

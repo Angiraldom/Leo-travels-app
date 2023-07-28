@@ -37,8 +37,8 @@
             <label htmlFor="phoneNumber">Número celular</label>
             <div class="content-phone">
                 <span class="display flex flex-column gap-2">
-                    <p-dropdown [options]="prefixes" placeholder="Prefijo" formControlName="phoneNumberPrefix"
-                        [emptyMessage]="'Seleccione un prefijo'" optionLabel="prefix" optionValue="prefix" class="p-inputtext-sm input-name"
+                    <p-dropdown [options]="prefixes" placeholder="Prefijo" formControlName="phoneNumberPrefix" [emptyFilterMessage]="'Dato no encontrado'"
+                        [emptyMessage]="'Seleccione un prefijo'" optionLabel="prefix" optionValue="prefix" class="p-inputtext-sm input-name" [resetFilterOnHide]="true"
                         [filter]="true" [ngClass]="{'invalid': form.get('phoneNumberPrefix')?.touched && !form.get('phoneNumberPrefix')?.valid }"></p-dropdown>
                 </span>
 

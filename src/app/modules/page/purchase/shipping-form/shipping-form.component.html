@@ -8,15 +8,15 @@
 
         <span class="display flex flex-column gap-2">
             <label htmlFor="region">Departamento</label>
-            <p-dropdown formControlName="region" [options]="cities" placeholder="Departamento"
-                optionLabel="_id" [optionValue]="'_id'" (onChange)="setMunicipalities($event)" 
+            <p-dropdown formControlName="region" [options]="cities" placeholder="Departamento" [emptyFilterMessage]="'Dato no encontrado'"
+                optionLabel="_id" [optionValue]="'_id'" (onChange)="setMunicipalities($event)" [filter]="true" [resetFilterOnHide]="true"
                 class="p-inputtext-sm input-name" [ngClass]="{'invalid': form.get('region')?.touched && !form.get('region')?.valid }"></p-dropdown>
         </span>
 
         <span class="display flex flex-column gap-2">
             <label htmlFor="city">Ciudad</label>
-            <p-dropdown  [options]="municipalities" placeholder="Ciudad" [emptyMessage]="'Seleccione un departamento'"
-                optionLabel="nombreMunicipio" (onChange)="setCityValue($event)" class="p-inputtext-sm input-name"
+            <p-dropdown  [options]="municipalities" placeholder="Ciudad" [emptyMessage]="'Seleccione un departamento'" [emptyFilterMessage]="'Dato no encontrado'"
+                optionLabel="nombreMunicipio" (onChange)="setCityValue($event)" class="p-inputtext-sm input-name" [filter]="true" [resetFilterOnHide]="true"
                 [ngClass]="{'invalid': form.get('city')?.touched && !form.get('city')?.valid }"></p-dropdown>
         </span>
 
