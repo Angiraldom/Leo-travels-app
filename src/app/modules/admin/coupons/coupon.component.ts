@@ -31,16 +31,16 @@ export class CouponComponent extends BaseClass implements OnInit, OnDestroy {
   }
 
   getAll() {
-    // this.baseService.getMethod('discount-coupons').subscribe({
-    //   next: (response: any) => {
-    //     this.dataSource = response.data;
-    //   },
-    // });
+    this.baseService.getMethod('discount-coupons').subscribe({
+      next: (response: any) => {
+        this.dataSource = response.data;
+      },
+    });
   }
 
   openModal(data?: ICoupon) {
     this.$dialog = this.dialog.open(this.createModal, {
-      hasBackdrop: false,
+      hasBackdrop: true,
       data,
       height: 'auto',
 

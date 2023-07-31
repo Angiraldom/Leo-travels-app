@@ -28,6 +28,8 @@ export class FormCouponComponent extends BaseClass implements OnInit {
   ngOnInit(): void {
     if (this.data) {
       this.form.patchValue(this.data);      
+      this.form.get('endDate')?.setValue(new Date(this.data.endDate));
+      this.form.get('startDate')?.setValue(new Date(this.data.startDate));
     }
     this.getProducts();
   }

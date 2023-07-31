@@ -21,17 +21,17 @@
 
         <ng-container matColumnDef="startDate">
             <th mat-header-cell *matHeaderCellDef> Fecha activación </th>
-            <td mat-cell *matCellDef="let element"> {{element.startDate}} </td>
+            <td mat-cell *matCellDef="let element"> {{element.startDate | date: 'MM/dd/Y H:m:ss'}} </td>
         </ng-container>
 
         <ng-container matColumnDef="endDate">
             <th mat-header-cell *matHeaderCellDef> Fecha vencimiento </th>
-            <td mat-cell *matCellDef="let element"> {{element.endDate}} </td>
+            <td mat-cell *matCellDef="let element"> {{element.endDate | date: 'MM/dd/Y H:m:ss'}} </td>
         </ng-container>
 
         <ng-container matColumnDef="updatedAt">
             <th mat-header-cell *matHeaderCellDef> Fecha actualización </th>
-            <td mat-cell *matCellDef="let element"> {{element.updatedAt}} </td>
+            <td mat-cell *matCellDef="let element"> {{element.updatedAt | date: 'MM/dd/Y H:m:ss'}} </td>
         </ng-container>
         
         <ng-container matColumnDef="actions">

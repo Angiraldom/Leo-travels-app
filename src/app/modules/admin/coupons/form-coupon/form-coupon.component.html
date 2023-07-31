@@ -16,7 +16,7 @@
         </div>
 
         <div class="grid-two-columns">
-            <p-multiSelect [options]="products" formControlName="products" defaultLabel="Seleccionar" optionLabel="name" display="chip"></p-multiSelect>
+            <p-multiSelect [options]="products" formControlName="products" defaultLabel="Seleccionar" optionValue="_id" optionLabel="name" display="chip"></p-multiSelect>
             <span class="p-float-label">
                 <p-inputNumber id="float-input" formControlName="discount"> </p-inputNumber>
                 <label for="float-input"> Descuento </label>
@@ -28,7 +28,7 @@
                 <p-calendar [readonlyInput]="true" [minDate]="minDate" [showIcon]="true" [showTime]="true"
                 [showSeconds]="true" formControlName="startDate"></p-calendar>
             </div>
-            <p-calendar [readonlyInput]="true" [minDate]="minDate" [showIcon]="true" [showTime]="true"
+            <p-calendar [readonlyInput]="true" [minDate]="form.get('startDate')?.value" [showIcon]="true" [showTime]="true"
                 [showSeconds]="true" formControlName="endDate"></p-calendar>
         </div>
     </div>
