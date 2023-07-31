@@ -32,7 +32,7 @@ const routes: Routes = [
           import('./user/users.module').then((m) => m.UsersModule),
       },
       {
-        path: 'cupones',
+        path: 'ofertas',
         loadChildren: () =>
           import('./coupons/coupons.module').then((m) => m.CouponsModule),
       },
