@@ -25,7 +25,7 @@
             <div class="full-width">
                 <ng-container *ngFor="let item of (store.select('cart') | async).products">
                     <div class="align-between" *ngIf="item.discount">
-                        <p>{{ item.discountDescription }}</p>
+                        <p>{{ item.coupon.descriptionName }}</p>
                         <p>{{ item.price | calculateDiscount:item.discount:item.amount | currency: "$":"symbol":"1.0-0" }}</p>
                     </div>
                 </ng-container>

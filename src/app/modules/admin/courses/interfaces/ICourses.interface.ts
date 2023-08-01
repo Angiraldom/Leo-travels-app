@@ -1,3 +1,4 @@
+import { ICoupon } from "../../coupons/interfaces/ICoupon.interface";
 import { IModule } from "./IModule.interface";
 
 export interface ICourse {
@@ -14,4 +15,8 @@ export interface ICourse {
   modules: IModule[];
 
   portada: string;
+
+  discount?: number;
+
+  coupon?: ICoupon;
 }
