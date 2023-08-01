@@ -60,3 +60,13 @@
     height: 40px;
     font-size: 20px;
 }
+
+.coupon-color_white_blue {
+    color: $white;
+    background-color: $primary;
+}
+
+.coupon-color_blue_white {
+    color: $primary;
+    background-color: $background-color;
+}
