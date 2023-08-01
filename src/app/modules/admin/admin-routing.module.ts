@@ -2,37 +2,46 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminComponent } from './admin.component';
 
-const routes: Routes = [{
-  path: '',
-  component: AdminComponent,
-  children: [
-    {
-      path: 'cursos',
-      loadChildren: () =>
-        import('./courses/admin-courses.module').then((m) => m.AdminCoursesModule),
-    },
-    {
-      path: 'productos',
-      loadChildren: () =>
-        import('./products/products.module').then((m) => m.ProductsModule),
-    },
-    {
-      path: 'transacciones', 
-      loadChildren: () =>
-        import('./transaction/transaction.module').then((m) => m.TransactionModule),
-    },
-    {
-      path: 'usuarios', 
-      loadChildren: () =>
-        import('./user/users.module').then((m) => m.UsersModule),
-    },
-  
-  ]
-    
-}];
+const routes: Routes = [
+  {
+    path: '',
+    component: AdminComponent,
+    children: [
+      {
+        path: 'cursos',
+        loadChildren: () =>
+          import('./courses/admin-courses.module').then(
+            (m) => m.AdminCoursesModule
+          ),
+      },
+      {
+        path: 'productos',
+        loadChildren: () =>
+          import('./products/products.module').then((m) => m.ProductsModule),
+      },
+      {
+        path: 'transacciones',
+        loadChildren: () =>
+          import('./transaction/transaction.module').then(
+            (m) => m.TransactionModule
+          ),
+      },
+      {
+        path: 'usuarios',
+        loadChildren: () =>
+          import('./user/users.module').then((m) => m.UsersModule),
+      },
+      {
+        path: 'ofertas',
+        loadChildren: () =>
+          import('./coupons/coupons.module').then((m) => m.CouponsModule),
+      },
+    ],
+  },
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AdminRoutingModule { }
+export class AdminRoutingModule {}

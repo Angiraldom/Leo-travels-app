@@ -14,6 +14,8 @@ import { AvatarModule } from 'primeng/avatar';
 import { ProgressBarModule } from 'primeng/progressbar';
 import { CarouselModule } from 'primeng/carousel';
 import { DropdownModule } from 'primeng/dropdown';
+import { CalendarModule } from 'primeng/calendar';
+import { MultiSelectModule } from 'primeng/multiselect';
 
 const modules = [
   AccordionModule,
@@ -28,7 +30,9 @@ const modules = [
   FileUploadModule,
   SidebarModule,
   CarouselModule,
-  DropdownModule
+  DropdownModule,
+  CalendarModule,
+  MultiSelectModule
 ];
 
 @NgModule({

@@ -3,9 +3,9 @@
     <div class="cupon-value">
         <span class="input-cupon input-name">
             <label htmlFor="name">¿Tienes un cupón de descuento?</label>
-            <input pInputText id="name"  placeholder="Código de cupón"
+            <input pInputText id="name" [formControl]="coupon" placeholder="Código de cupón"
                 class="p-inputtext-sm" />
         </span>
-        <app-generic-button [sizeButton]="'small'" [classButton]="'class_yellow'" [nameButton]="'Aplicar'"></app-generic-button>
+        <app-generic-button (emitClick)="findCoupon()" [disabledButton]="coupon.invalid" [sizeButton]="'small'" [classButton]="'class_yellow'" [nameButton]="'Aplicar'"></app-generic-button>
     </div>
 </div>

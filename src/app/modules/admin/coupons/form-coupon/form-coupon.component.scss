@@ -1,0 +1,65 @@
+@import '/src/styles/variables';
+@import '/src/styles/buttonFile';
+@import '/src/styles/materialModal';
+
+::ng-deep.p-button {
+    background: $primary;
+}
+
+form {
+    width: 90%;
+    margin: 30px auto;
+}
+
+.content-form {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-row-gap: 30px;
+}
+
+::ng-deep p-inputNumber, ::ng-deep .p-inputnumber, ::ng-deep .p-multiselect, ::ng-deep .p-calendar, .input-name {
+    width: 100%;
+}
+
+.content-three {
+    width: 335px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.content-images {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    max-height: 45px;
+
+    .p-fluid {
+        width: 75%;
+    }
+}
+
+::ng-deep.p-fluid .p-chips {
+    max-height: 45px
+}
+
+::ng-deep .cdk-overlay-pane {
+    min-width: 70%;
+}
+
+.grid-two-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 25px;
+}
+
+::ng-deep .p-calendar .p-datepicker {
+    z-index: 10000000000;
+    position: initial;
+    max-height: 300px;
+    overflow: auto;
+}
+
+::ng-deep .p-overlay-content {
+    position: fixed;
+}

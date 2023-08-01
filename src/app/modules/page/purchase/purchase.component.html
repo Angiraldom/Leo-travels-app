@@ -14,7 +14,7 @@
             </div>
             <div class="flex-column">
                 <app-invoice (emitTotalValue)="totalValue = $event"></app-invoice>
-                <!-- <app-discount-coupon></app-discount-coupon> -->
+                <app-discount-coupon></app-discount-coupon>
                 <app-payment-button class="button-wompi" (emitPruchase)="disabledButton()"></app-payment-button>
             </div>
         </div>

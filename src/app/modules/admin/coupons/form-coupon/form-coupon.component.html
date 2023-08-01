@@ -1,0 +1,38 @@
+<app-title-modal [titleModal]="data ? 'Actualizar cupon' : 'Crear cupon'"></app-title-modal>
+
+<form [formGroup]="form">
+
+    <div class="content-form">
+        <div class="grid-two-columns">
+            <span class="p-float-label">
+                <input pInputText id="username" formControlName="coupon" class="input-name" />
+                <label htmlFor="username">Cupon</label>
+            </span>
+
+            <span class="p-float-label">
+                <input pInputText id="username" formControlName="descriptionName" class="input-name" />
+                <label htmlFor="username">Descripción</label>
+            </span>
+        </div>
+
+        <div class="grid-two-columns">
+            <p-multiSelect [options]="products" formControlName="products" defaultLabel="Seleccionar" optionValue="_id" optionLabel="name" display="chip"></p-multiSelect>
+            <span class="p-float-label">
+                <p-inputNumber id="float-input" formControlName="discount"> </p-inputNumber>
+                <label for="float-input"> Descuento </label>
+            </span>
+        </div>
+
+        <div class="grid-two-columns">
+            <div class="card flex justify-content-center">
+                <p-calendar [readonlyInput]="true" [minDate]="minDate" [showIcon]="true" [showTime]="true"
+                [showSeconds]="true" formControlName="startDate"></p-calendar>
+            </div>
+            <p-calendar [readonlyInput]="true" [minDate]="form.get('startDate')?.value" [showIcon]="true" [showTime]="true"
+                [showSeconds]="true" formControlName="endDate"></p-calendar>
+        </div>
+    </div>
+</form>
+
+<app-buttons-modal [disabledButton]="form.invalid" (handleSaveButton)="validateAction()"
+    [loading]="loading"></app-buttons-modal>

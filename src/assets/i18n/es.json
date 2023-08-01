@@ -25,7 +25,8 @@
         "ErrorEmailNotFound": "El email proporcionado no existe",
         "ErrorServerUploadImages": "Ocurrio un problema al momento de cargar las imagenes, vuelve a intentarlo",
         "ErrorPasswordNotMatch": "La contraseña que ingresaste no es correcta",
-        "ErrorTokenExpired": "Su sesión expiro, vuelva a iniciar sesión por favor"
+        "ErrorTokenExpired": "Su sesión expiro, vuelva a iniciar sesión por favor",
+        "invalidCoupon": "Cupon invalido"
     },
     "succes": {
         "succesUpdate": "Actualizado correctamente",
@@ -35,7 +36,8 @@
         "userUpdated": "Usuario actualizado correctamente",
         "passwordChanged": "Contraseña modificada correctamente",
         "commentAgregated": "Gracias por dejar tu comentario",
-        "commentRemoved": "Comentario eliminado exitosamente"
+        "commentRemoved": "Comentario eliminado exitosamente",
+        "validCoupon": "Cupon valido"
     },
     "info": {
         "confirmRemove": "¿Esta seguro que desea eliminar?",

@@ -1,3 +1,4 @@
+import { ICoupon } from "../../coupons/interfaces/ICoupon.interface";
 import { IModule } from "../../courses/interfaces/IModule.interface";
 
 export interface IProduct {
@@ -12,6 +13,8 @@ export interface IProduct {
   weight?: number;
 
   discount?: number;
+
+  coupon?: ICoupon;
 
   status?: boolean;
 
