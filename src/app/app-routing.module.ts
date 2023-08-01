@@ -48,6 +48,12 @@ const routes: Routes = [
     title: 'Términos y condiciones',
   },
   {
+    path: 'tratamiento-datos',
+    loadComponent: () =>
+      import('./components/data-treatment/data-treatment.component'),
+    title: 'Tratamiento de datos',
+  },
+  {
     path: '',
     loadChildren: () =>
       import('./modules/page/page-routing.module').then((m) => m.PageRoutingModule),
