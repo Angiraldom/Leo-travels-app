@@ -67,7 +67,7 @@ const updateDiscountProducts = (state: ICart, products: IProduct[]) => {
     if (Object.hasOwn(state, 'coupon') || !products.some((item) => item.discount)) {
         return products;
     }
-    return products.map((item) => {
+    return structuredClone(products).map((item: any) => {
         delete item.discount;
         delete item.coupon;
         return item;
