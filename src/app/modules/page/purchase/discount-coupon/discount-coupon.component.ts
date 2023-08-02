@@ -39,4 +39,11 @@ export class DiscountCouponComponent implements OnDestroy {
   ngOnDestroy(): void {
     this.store.dispatch(actions.clearCoupon());
   }
+
+  upperCaseFormat() {
+    if (this.coupon.value?.trim()) {
+      const upperCase = this.coupon.value?.toUpperCase().trim();
+      this.coupon.setValue(upperCase);
+    }
+  }
 }

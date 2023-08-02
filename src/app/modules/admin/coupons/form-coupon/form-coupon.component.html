@@ -5,7 +5,7 @@
     <div class="content-form">
         <div class="grid-two-columns">
             <span class="p-float-label">
-                <input pInputText id="username" formControlName="coupon" class="input-name" />
+                <input pInputText id="username" formControlName="coupon" class="input-name" (keyup)="upperCaseFormat()" />
                 <label htmlFor="username">Cupon</label>
             </span>
 
