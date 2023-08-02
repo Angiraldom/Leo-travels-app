@@ -1,0 +1,28 @@
+<app-title-modal [titleModal]="'VER TRANSACCIÓN'"></app-title-modal>
+
+<div class="content-transaction">
+    <div class="columns-2">
+        <p> <span class="bold">No Orden de pago:</span> {{data.data?.transaction?.reference}} </p>
+        <p> <span class="bold">Fecha de pago:</span> {{data.data?.transaction?.created_at | date}} </p>
+        <p> <span class="bold">Valor:</span> {{data.data?.transaction?.amount_in_cents}} </p>
+        <p> <span class="bold">Productos:</span> 
+            <ng-container *ngFor="let item of data.products">
+                {{ item.name }}
+            </ng-container>
+         </p>
+    </div>
+    <div class="titles-transaction">
+        <p class="bold">Datos del cliente</p>
+        <p class="bold">Datos de envío</p>
+    </div>
+    <div class="columns-2">
+        <p> <span class="bold">Nombre:</span> {{data.data?.transaction?.customer_data?.full_name}} </p>
+        <p> <span class="bold" *ngIf="data.data?.transaction?.shipping_address">Departamento:</span> {{data.data?.transaction?.shipping_address?.region}} </p>
+        <p> <span class="bold">Documento:</span> {{data.data?.transaction?.customer_data?.legal_id}} </p>
+        <p> <span class="bold" *ngIf="data.data?.transaction?.shipping_address">Dirección:</span> {{data.data?.transaction?.shipping_address?.address_line_1}} </p>
+        <p> <span class="bold">Correo:</span> {{data.data?.transaction?.customer_email}} </p>
+        <p> <span class="bold" *ngIf="data.data?.transaction?.shipping_address">Ciudad:</span> {{data.data?.transaction?.shipping_address?.city}} </p>
+        <p> <span class="bold">Celular:</span> {{data.data?.transaction?.customer_data?.phone_number}} </p>
+        <p> <span class="bold" *ngIf="data.data?.transaction?.shipping_address">Más:</span> {{data.data?.transaction?.shipping_address?.address_line_2}} </p>
+    </div>
+</div>
