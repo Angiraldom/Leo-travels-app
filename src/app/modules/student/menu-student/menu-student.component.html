@@ -12,14 +12,16 @@
     <ng-template pTemplate="header"> Volver al sitio web: </ng-template>
     <ng-template pTemplate="content">
       <div class="second-menu">
-        <h2 routerLink="/cursos" routerLinkActive="router-active">
-          < Cursos</h2>
-            <h2 [routerLink]="['/kit-viajero']" [routerLinkActive]="'router-active'">
-              < Kit viajero</h2>
-              <h2 [routerLink]="['/quienes-somos']" [routerLinkActive]="'router-active'">
-                < ¿Quiénes somos?</h2>
-                    <h2 *ngIf="user" [routerLink]="user.role === 'Cliente' ? '/estudiante/my-courses': '/admin/usuarios'" routerLinkActive="router-active">
-                      < Mi cuenta</h2>
+        <p routerLink="/home" class="pointer bold" routerLinkActive="router-active">
+          < Inicio</p>
+        <p routerLink="/cursos" class="pointer bold" routerLinkActive="router-active">
+          < Cursos</p>
+            <p [routerLink]="['/kit-viajero']" class="pointer bold" [routerLinkActive]="'router-active'">
+              < Kit viajero</p>
+              <p [routerLink]="['/quienes-somos']" class="pointer bold" [routerLinkActive]="'router-active'">
+                < ¿Quiénes somos?</p>
+                    <p *ngIf="user" class="pointer bold" [routerLink]="user.role === 'Cliente' ? '/estudiante/my-courses': '/admin/usuarios'" routerLinkActive="router-active">
+                      < Mi cuenta</p>
       </div>
     </ng-template>
 </p-sidebar>

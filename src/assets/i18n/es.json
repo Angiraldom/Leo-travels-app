@@ -26,7 +26,7 @@
         "ErrorServerUploadImages": "Ocurrio un problema al momento de cargar las imagenes, vuelve a intentarlo",
         "ErrorPasswordNotMatch": "La contraseña que ingresaste no es correcta",
         "ErrorTokenExpired": "Su sesión expiro, vuelva a iniciar sesión por favor",
-        "invalidCoupon": "Cupon invalido"
+        "invalidCoupon": "Cupón inválido"
     },
     "succes": {
         "succesUpdate": "Actualizado correctamente",
@@ -37,7 +37,7 @@
         "passwordChanged": "Contraseña modificada correctamente",
         "commentAgregated": "Gracias por dejar tu comentario",
         "commentRemoved": "Comentario eliminado exitosamente",
-        "validCoupon": "Cupon valido"
+        "validCoupon": "Cupón valido"
     },
     "info": {
         "confirmRemove": "¿Esta seguro que desea eliminar?",

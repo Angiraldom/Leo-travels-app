@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { IClassButton } from './interface/IClassButton.interface';
+import { IClassButton, IMarkCouponClass } from './interface/IClassButton.interface';
 
 @Component({
   selector: 'app-generic-button',
@@ -15,6 +15,12 @@ export class GenericButtonComponent {
   @Input() nameButton = '';
   @Input() load = false;
   @Input() disabledButton = false;
+  @Input() textKit: string = '15KITVIAJERO';
+  @Input() textCourse: string = '20LANZAMIENTO';
+  @Input() showCouponTextKit: boolean = false;
+  @Input() showCouponTextCourse: boolean = false;
+  @Input() classMarkCoupon: IMarkCouponClass = 'coupon-color_blue_white';
+
   @Output() emitClick = new EventEmitter();
 
   handelClick() {
