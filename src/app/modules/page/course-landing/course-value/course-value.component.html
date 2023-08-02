@@ -17,5 +17,7 @@
         </h2>
     </div>
 
-    <app-generic-button (emitClick)="handleClick()" nameButton="COMPRAR CURSO" [classButton]="classButton"></app-generic-button>
+    <app-generic-button (emitClick)="handleClick()" [showCouponTextCourse]="true"
+     nameButton="COMPRAR CURSO" [classButton]="classButton"
+     [classMarkCoupon]="'coupon-color_white_blue'"></app-generic-button>
 </div>

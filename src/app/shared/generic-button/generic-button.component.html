@@ -2,5 +2,9 @@
     <div class="button">
         <a [ngClass]="[classButton, sizeButton]" (click)="handelClick()">{{nameButton}}</a>
     </div>
-    <p *ngIf="showCoupon" class="text-center" ><mark [ngClass]="classMarkCoupon">Cupón descuento: {{ textCourse ? '20LANZAMIENTO' : '10KITVIAJERO' }}</mark></p>
+    <p *ngIf="showCouponTextCourse || showCouponTextKit" class="text-center" >
+        <mark [ngClass]="classMarkCoupon">
+            Cupón descuento: {{ showCouponTextCourse ? '20LANZAMIENTO' : '10KITVIAJERO' }}
+        </mark>
+    </p>
 </div>

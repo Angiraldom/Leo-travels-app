@@ -15,9 +15,10 @@ export class GenericButtonComponent {
   @Input() nameButton = '';
   @Input() load = false;
   @Input() disabledButton = false;
-  @Input() textKit!: string;
+  @Input() textKit: string = '15KITVIAJERO';
   @Input() textCourse: string = '20LANZAMIENTO';
-  @Input() showCoupon: boolean = false;
+  @Input() showCouponTextKit: boolean = false;
+  @Input() showCouponTextCourse: boolean = false;
   @Input() classMarkCoupon: IMarkCouponClass = 'coupon-color_blue_white';
 
   @Output() emitClick = new EventEmitter();

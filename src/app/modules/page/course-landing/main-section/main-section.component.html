@@ -23,7 +23,9 @@
       </div>
 
       <div class="content-button button">
-        <app-generic-button [sizeButton]="'large'" (emitClick)="handleClick()" [nameButton]="'COMPRAR CURSO'"></app-generic-button>
+        <app-generic-button [sizeButton]="'large'" [showCouponTextCourse]="true" (emitClick)="handleClick()"
+         [nameButton]="'COMPRAR CURSO'"
+         [classMarkCoupon]="'coupon-color_white_blue'"></app-generic-button>
       </div>
     </div>
   </div>
