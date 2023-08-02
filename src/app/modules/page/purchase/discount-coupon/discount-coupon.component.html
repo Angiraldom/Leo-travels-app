@@ -4,7 +4,7 @@
         <span class="input-cupon input-name">
             <label htmlFor="name">¿Tienes un cupón de descuento?</label>
             <input pInputText id="name" [formControl]="coupon" placeholder="Código de cupón"
-                class="p-inputtext-sm" />
+                class="p-inputtext-sm" (keyup)="upperCaseFormat()" />
         </span>
         <app-generic-button (emitClick)="findCoupon()" [disabledButton]="coupon.invalid" [sizeButton]="'small'" [classButton]="'class_yellow'" [nameButton]="'Aplicar'"></app-generic-button>
     </div>

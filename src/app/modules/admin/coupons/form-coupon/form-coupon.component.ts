@@ -81,4 +81,11 @@ export class FormCouponComponent extends BaseClass implements OnInit {
       error: () => this.loading = false
     });
   }
+
+  upperCaseFormat() {
+    if (this.form.get('coupon')?.value.trim()) {
+      const upperCase = this.form.get('coupon')?.value.toUpperCase().trim();
+      this.form.get('coupon')?.setValue(upperCase);
+    }
+  }
 }
