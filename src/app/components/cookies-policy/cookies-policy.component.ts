@@ -5,7 +5,7 @@ import { FooterComponent } from 'src/app/shared/footer/footer.component';
 import { MenuComponent } from 'src/app/shared/menu/menu.component';
 
 @Component({
-  selector: 'app-cookies-policy',
+  selector: 'app-cookies-policy-t',
   standalone: true,
   imports: [CommonModule, RouterModule, FooterComponent, MenuComponent],
   templateUrl: './cookies-policy.component.html',
