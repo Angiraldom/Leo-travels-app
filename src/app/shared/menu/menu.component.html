@@ -94,7 +94,10 @@
     <hr />
     <div class="invoice-summary">
       <p>Envío</p>
-      <p>{{ (store.select('cart') | async).shippingPrice | currency: "$":"symbol":"1.0-0" }}</p>
+      <p *ngIf="(store.select('cart') | async).shippingPrice !== 0">
+        {{ (store.select('cart') | async).shippingPrice | currency: "$":"symbol":"1.0-0" }}
+      </p>
+      <p *ngIf="(store.select('cart') | async).shippingPrice === 0">Por definir</p>
     </div>
     <div class="invoice-summary">
       <p>Subtotal</p>
