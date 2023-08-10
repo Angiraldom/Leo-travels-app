@@ -34,7 +34,7 @@
     grid-column-start: 2;
 }
 
-video {
+iframe {
     grid-row-start: 1;
     grid-row-end: 12;
     grid-column-start: 1;
@@ -52,20 +52,20 @@ p {
         padding: 50px 0px;
     }
 
-    video {
+    iframe {
         width: 40%;
         align-self: center;
     }
 }
 
 @media only screen and (max-width: 748px) {
-    video {
+    iframe {
         width: 70%;
     }
 }
 
 @media only screen and (max-width: 425px) {
-    video {
+    iframe {
         width: 100%;
     }
 }

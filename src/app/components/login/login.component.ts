@@ -11,11 +11,12 @@ import { Store } from '@ngrx/store';
 import { AuthService } from '../../core/services/auth.service';
 import { getProfile } from 'src/app/store/actions/user.actions';
 import { AppState } from 'src/app/store/app.reducer';
+import { MenuComponent } from 'src/app/shared/menu/menu.component';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, RouterModule],
+  imports: [CommonModule, ReactiveFormsModule, RouterModule, MenuComponent],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
 })
