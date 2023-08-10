@@ -1,21 +1,24 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnDestroy, OnInit, inject } from '@angular/core';
 import { FormGroup, Validators } from '@angular/forms';
+import { Subscription, forkJoin } from 'rxjs';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { BaseClass } from 'src/app/core/base.class';
 import { ICoupon } from '../interfaces/ICoupon.interface';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { IProduct } from '../../products/interfaces/IProduct.interface';
+import { ICourse } from '../../courses/interfaces/ICourses.interface';
 
 @Component({
   selector: 'app-form-coupon',
   templateUrl: './form-coupon.component.html',
   styleUrls: ['./form-coupon.component.scss']
 })
-export class FormCouponComponent extends BaseClass implements OnInit {
+export class FormCouponComponent extends BaseClass implements OnInit, OnDestroy {
   data: ICoupon = inject(MAT_DIALOG_DATA);
   dialogRef = inject(MatDialogRef<this>);
   loading = false;
   minDate = new Date();
-  products: IProduct[] = [];
+  products: IProduct[] | ICourse[] = [];
+  $getValues!: Subscription;
   form: FormGroup = this.fb.group({
     coupon: ['', Validators.required],
     descriptionName: ['', Validators.required],
@@ -31,14 +34,26 @@ export class FormCouponComponent extends BaseClass implements OnInit {
       this.form.get('endDate')?.setValue(new Date(this.data.endDate));
       this.form.get('startDate')?.setValue(new Date(this.data.startDate));
     }
-    this.getProducts();
+    this.getValues();
   }
 
-  getProducts() {
-    this.baseService.getMethod('product').subscribe({
-      next: (response: any) => {
-        this.products = response.data;
-      },
+  ngOnDestroy(): void {
+    this.$getValues.unsubscribe();
+  }
+
+  /**
+   * Gets the products and courses for showing in list.
+   */
+  getValues() {
+    this.$getValues = forkJoin({
+      products: this.baseService.getMethod('product'),
+      course: this.baseService.getMethod('course/all-courses')
+    }).subscribe({
+      next: ({ products, course }) => {
+        const newProducts = structuredClone(products) as any;
+        const newCourse = structuredClone(course) as any;
+        this.products = [...newProducts.data, ...newCourse.data];  
+      }
     });
   }
 
