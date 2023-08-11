@@ -1,1 +1,14 @@
 <router-outlet></router-outlet>
+<div class="important-message-cookies" *ngIf="messageCookies">
+    <p>
+        Se ha ocultado contenido porque tiene las cookies bloqueadas. Permitir cookies de: Facebook.
+    </p>
+    <div>
+        <button mat-stroked-button color="primary" class="btn-configuration" (click)="openModal(true)">
+            Configurar
+        </button>
+        <button mat-raised-button color="primary" (click)="setCookieslocalStorage()">
+            Aceptar todas
+        </button>
+    </div>
+</div>

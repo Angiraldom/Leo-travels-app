@@ -1,0 +1,17 @@
+.important-message-cookies {
+    z-index: 999998;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #fff5cc;
+    text-align: center;
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px;
+}
+
+.btn-configuration{
+   background-color: white; margin-right: 12px;
+}

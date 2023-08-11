@@ -16,13 +16,10 @@ export class FormClassComponent extends BaseClass {
   loading = false;
   parent!: CreateCourseComponent;
 
-  urlRegex =
-    /^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/;
-
   form: FormGroup = this.fb.group({
     _id: [],
     name: ['', Validators.required],
-    url: ['', [Validators.pattern(this.urlRegex)]],
+    url: [''],
     description: [''],
     duration: [''],
   });
