@@ -1,17 +1,12 @@
 .content-buttons {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
+    gap: 12px;
+    padding: 0px 35px 25px;
 }
 
 .mat-spinner-color::ng-deep circle {
     stroke: white !important;
-}
-
-.content-buttons {
-    display: flex;
-    justify-content: flex-end;
-    gap: 12px;
-    padding: 0px 35px 25px;
 }
 
 .styleMargin {

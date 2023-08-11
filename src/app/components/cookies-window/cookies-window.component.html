@@ -1,0 +1,69 @@
+<div class="cookies">
+    <div class="flex">
+        <h2>Consentimiento de Cookies</h2>
+        <mat-icon (click)="showMessageCookies(true)">close</mat-icon>
+    </div>
+    <hr>
+    <ng-container *ngTemplateOutlet="isConfiguring ? configuring : caution"></ng-container>
+</div>
+
+<ng-template #configuring>
+    <div class="configuring-cookies">
+        <a (click)="isConfiguring = false">Volver atrás</a>
+        <div class="configuring-cookies-buttons">
+            <button mat-stroked-button color="primary" (click)="enabledAndDisabledCookies(false)">
+                Rechazar todas
+            </button>
+
+            <button mat-raised-button color="primary" (click)="enabledAndDisabledCookies(true)">
+                Aceptar todas
+            </button>
+        </div>
+        <div class="type-cookies">
+            <ng-container *ngFor="let item of listCookies">
+                <div class="cookie">
+                    <p-inputSwitch [(ngModel)]="item.accepted" [disabled]="item.disabled"></p-inputSwitch>
+                    <div>
+                        <p>{{ item.name }}</p>
+                        <p *ngIf="item.description" class="cookie-description">{{ item.description }}</p>
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+        <div class="content-buttons">
+
+            <button mat-stroked-button color="primary" (click)="showMessageCookies()">
+                Guardar configuración
+            </button>
+
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #caution>
+    <div class="cookies-caution">
+        <p>
+            Utilizamos cookies propias y de terceros para fines analíticos y para mostrarle publicidad personalizada en
+            base
+            a un perfil elaborado a partir de sus hábitos de navegación (por ejemplo, páginas visitadas).
+        </p>
+        <p>
+            Para más información consulte la política de cookies.
+        </p>
+        <p>
+            Puede aceptar todas las cookies pulsando el botón "Aceptar" o configurarlas o rechazar su uso pulsando el
+            botón
+            "Configurar".
+        </p>
+    </div>
+    <div class="content-buttons">
+
+        <button mat-stroked-button color="primary" (click)="isConfiguring = true">
+            Configurar
+        </button>
+
+        <button mat-raised-button color="primary" (click)="showMessageCookies()">
+            Aceptar
+        </button>
+    </div>
+</ng-template>
