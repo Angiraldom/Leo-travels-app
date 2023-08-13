@@ -5,11 +5,13 @@ import { Subscription } from 'rxjs';
 import { MaterialModule } from 'src/app/material/material.module';
 import { AppState } from 'src/app/store/app.reducer';
 import { IUser } from '../../admin/user/interface/IUser.interface';
+import { OverlayPanelModule } from 'primeng/overlaypanel';
+import { ButtonModule } from 'primeng/button';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [MaterialModule, CommonModule],
+  imports: [MaterialModule, CommonModule, OverlayPanelModule, ButtonModule],
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
 })
