@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { StudentRoutingModule } from './student-routing.module';
 import { StudentViewComponent } from './student-view.component';
@@ -46,7 +46,8 @@ import { LetterAvatarPipe } from 'src/app/core/pipes/letter-avatar.pipe';
     ReactiveFormsModule,
     TotalClassesPipe,
     ClassProgressPipe,
-    LetterAvatarPipe
+    LetterAvatarPipe,
+    FormsModule
   ],
 })
 export class StudentModule {}

@@ -61,6 +61,32 @@ textarea {
     align-items: center;
 }
 
+.response-comment {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: 0 0px 0.5em auto;
+    align-items: flex-end;
+    gap: 10px;
+}
+
+.answer {
+    width: 90%;
+    margin: 0 0px 0.5em auto;
+    border-radius: 8px;
+    background-color: $background-color;
+    padding: 15px;
+}
+
+.size-smaller {
+    font-size: x-small;
+}
+
+.response-button {
+    display: flex;
+    justify-content: flex-end;
+}
+
 @media screen and (max-width: 425px) {
     .comments {
         width: 91%;
