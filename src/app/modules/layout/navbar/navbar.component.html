@@ -1,40 +1,17 @@
 <mat-toolbar color="primary">
     <span>PLATAFORMA ADMIN</span>
     <div class="content-info">
-        <button mat-mini-fab aria-label="Example mini fab with a heart icon" (click)="op.toggle($event)">
-            <mat-icon matBadge="15" matBadgeSize="small" matBadgeColor="warn">message</mat-icon>
+        <button mat-mini-fab aria-label="Example mini fab with a heart icon"
+            (click)="op.toggle($event); seenNotifications()">
+            <mat-icon [matBadge]="totalNotifications" matBadgeSize="small" matBadgeColor="warn">message</mat-icon>
         </button>
         <h2 *ngIf="user"> {{ user.name }} </h2>
     </div>
 </mat-toolbar>
 
-<p-overlayPanel #op>
+<p-overlayPanel #op (onHide)="totalNotifications = 0">
     <ng-template pTemplate="content">
-        <div class="content-notifications">
-            <h4 class="bold margin-0 color-gray">Tus notificaciones</h4>
-
-            <div class="notifications">
-                <div class="notification">
-                    <p class="color-primary">
-                        LEO ha hecho un comentario
-                        en la Clase 3
-                    </p>
-                    <a class="color-secondary">> Responder</a>
-                </div>
-
-                <div class="notification">
-                    <p class="color-primary">
-                        LEO ha hecho un comentario
-                        en la Clase 3
-                    </p>
-                    <a class="color-secondary">> Responder</a>
-                </div>
-            </div>
-
-            <p class="size-smaller">
-                No tienes más
-                notificaciones nuevas
-            </p>
-        </div>
+        <app-notifications (emitGetNotifications)="getNotifications($event)" [totalRecords]="totalRecords"
+            [notificationsList]="notificationsList"></app-notifications>
     </ng-template>
 </p-overlayPanel>

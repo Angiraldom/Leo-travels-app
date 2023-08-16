@@ -1,5 +1,6 @@
 import { IClass } from '../../admin/courses/interfaces/IClass.interface';
 import { IUser } from '../../admin/user/interface/IUser.interface';
+import { IAnswer } from './IAnswers.interface';
 
 export interface IComment {
   comment: string;
@@ -9,7 +10,7 @@ export interface IComment {
   idModule: string;
   idCourse: string;
   _id: string;
-  answers: Array<IComment>;
+  answers: Array<IAnswer>;
   seenBy: Array<IUser>;
   showTextAreaAnswer: boolean;
   answer?: string;

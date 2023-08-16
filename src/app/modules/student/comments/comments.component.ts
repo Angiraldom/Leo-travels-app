@@ -100,7 +100,7 @@ export class CommentsComponent implements OnInit, OnDestroy {
   }
 
   saveAnswer(comment: IComment) {
-    this.baseSerive.postMethod(`comments/saveAnswer/${comment._id}`, { answer: comment.answer }).subscribe({
+    this.baseSerive.postMethod(`comments/saveAnswer/${comment._id}`, { answer: comment.answer, idCreatorComment: comment.user._id }).subscribe({
       next: () => {
         this.messageService.commentAlert('succes.commentAgregated')
         this.getComments();

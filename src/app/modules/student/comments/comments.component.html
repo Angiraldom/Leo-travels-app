@@ -39,7 +39,7 @@
                     </div>
                 </div>
                 <div class="answer" *ngFor="let itemAnswer of item.answers">
-                    <p class="font-bold color-black"> {{ itemAnswer?.user?.name }} {{ itemAnswer?.user?.lastName }} </p>
+                    <p class="font-bold color-black"> {{ itemAnswer?.creator?.name }} {{ itemAnswer?.creator?.lastName }} </p>
                     <p class="size-smaller"> {{ itemAnswer.createdAt | date }} </p>
                     <p class="color-black"> {{ itemAnswer?.answer }} </p>
                 </div>

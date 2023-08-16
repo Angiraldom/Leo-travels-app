@@ -1,0 +1,19 @@
+<div class="content-notifications">
+    <h4 class="bold margin-0 color-gray">Tus notificaciones</h4>
+
+    <div class="notifications" *ngFor="let item of notificationsList">
+        <div class="notification">
+            <p class="color-primary">
+                {{ item.creator.name }} ha hecho un comentario
+                en la Clase {{ item.comment.class.name }}
+            </p>
+            <a class="color-secondary cursor-pointer" (click)="goToComment(item)">> Responder</a>
+        </div>
+    </div>
+    <p class="underline cursor-pointer size-smaller" *ngIf="totalRecords > notificationsList.length"
+        (click)="getNotifications()"> Mostrar mas </p>
+    <!-- <p class="size-smaller">
+            No tienes más
+            notificaciones nuevas
+        </p> -->
+</div>

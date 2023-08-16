@@ -21,6 +21,7 @@ import { ClassProgressPipe } from 'src/app/core/pipes/class-progress.pipe';
 import { MenuStudentComponent } from './menu-student/menu-student.component';
 import { CommentsComponent } from './comments/comments.component';
 import { LetterAvatarPipe } from 'src/app/core/pipes/letter-avatar.pipe';
+import { NotificationsComponent } from 'src/app/shared/notifications/notifications.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { LetterAvatarPipe } from 'src/app/core/pipes/letter-avatar.pipe';
     TotalClassesPipe,
     ClassProgressPipe,
     LetterAvatarPipe,
-    FormsModule
+    FormsModule,
+    NotificationsComponent
   ],
 })
 export class StudentModule {}

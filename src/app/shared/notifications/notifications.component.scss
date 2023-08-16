@@ -1,0 +1,35 @@
+.content-notifications {
+    padding: 20px 20px 20px 35px;
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+    max-height: 500px;
+    overflow: auto;
+}
+
+.notifications {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.notification {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+    border-bottom: 1px solid black;
+}
+
+.margin-0 {
+    margin: 0px;
+}
+
+.size-smaller {
+    font-size: smaller;
+    max-width: 150px;
+}
+
+.underline:hover {
+    text-decoration-line: underline;
+}
