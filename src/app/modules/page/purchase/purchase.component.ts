@@ -42,7 +42,7 @@ export class PurchaseComponent implements OnInit, OnDestroy {
     amountInCents: 0,
     reference: '',
     publicKey: 'pub_test_YHZn4Q2jPbQ5hnohVI5MpMeUtmV1y896',
-    redirectUrl: 'http://localhost:4200/response-transaction',
+    redirectUrl: 'https://vilean.co/#/response-transaction',
   };
 
   ngOnInit(): void {
