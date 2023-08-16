@@ -16,6 +16,7 @@ import { CarouselModule } from 'primeng/carousel';
 import { DropdownModule } from 'primeng/dropdown';
 import { CalendarModule } from 'primeng/calendar';
 import { MultiSelectModule } from 'primeng/multiselect';
+import { OverlayPanelModule } from 'primeng/overlaypanel';
 
 const modules = [
   AccordionModule,
@@ -32,7 +33,8 @@ const modules = [
   CarouselModule,
   DropdownModule,
   CalendarModule,
-  MultiSelectModule
+  MultiSelectModule,
+  OverlayPanelModule
 ];
 
 @NgModule({

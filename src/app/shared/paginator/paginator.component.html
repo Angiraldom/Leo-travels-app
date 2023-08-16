@@ -1,0 +1,7 @@
+<mat-paginator
+  #paginator
+  (page)="paginatorUpdate($event)"
+  [length]="totalRecords"
+  [pageSizeOptions]="[25, 50, 75]"
+  showFirstLastButtons
+></mat-paginator>

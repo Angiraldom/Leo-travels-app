@@ -101,6 +101,9 @@ export class SidebarUserComponent implements OnInit, OnDestroy {
   }
 
   changeClass(indexClass: number, currentModule: number, changeModule: number, type: string): void {
+    if (!this.course) {
+      return;
+    }
     let module = this.course.modules[currentModule];
     
     let newclass = module.classes[indexClass];
