@@ -21,7 +21,7 @@
     "errors": {
         "ErrorServer": "Ocurrio un problema con el servidor, vuelve a intentarlo mas tarde.",
         "ErrorBadRequest": "Algunos datos fueron mal enviados",
-        "ErrorInvalidCredentials": "Email o contraseña invalidos",
+        "ErrorInvalidCredentials": "Email o contraseña inválidos",
         "ErrorEmailNotFound": "El email proporcionado no existe",
         "ErrorServerUploadImages": "Ocurrio un problema al momento de cargar las imagenes, vuelve a intentarlo",
         "ErrorPasswordNotMatch": "La contraseña que ingresaste no es correcta",
@@ -41,7 +41,7 @@
     },
     "info": {
         "confirmRemove": "¿Esta seguro que desea eliminar?",
-        "confirmEmailPassword": "Se envio un email a tu correo para hacer el cambio de tu contraseña",
+        "confirmEmailPassword": "Te enviamos un correo para hacer el cambio de tu contraseña",
         "completeForm": "Tiene campos sin diligenciar",
         "theEmailExists": "El email ingresado ya existe",
         "dataNotFound": "Dato no encontrado"
