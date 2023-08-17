@@ -44,6 +44,10 @@ h6 {
     color: $gray;
 }
 
+.color-black {
+    color: black;
+}
+
 .text-center {
     text-align: center;
 }
@@ -53,5 +57,9 @@ h6 {
 }
 
 mat-icon {
+    cursor: pointer;
+}
+
+.cursor-pointer {
     cursor: pointer;
 }

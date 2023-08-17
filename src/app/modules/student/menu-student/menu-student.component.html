@@ -1,8 +1,12 @@
 <mat-toolbar color="primary">
     <span class="icon-logo" [routerLink]="['/home']"></span>
     <div class="content-info">
+        <button mat-mini-fab aria-label="Example mini fab with a heart icon"
+            (click)="op.toggle($event); seenNotifications()">
+            <mat-icon [matBadge]="totalNotifications" matBadgeSize="small" matBadgeColor="warn">message</mat-icon>
+        </button>
         <h2 *ngIf="user"> {{ user.name }} </h2>
-        <div>
+        <div class="hamburger-menu">
             <mat-icon matBadgeSize="small" matBadgeColor="warn" (click)="toggleMenu()">menu</mat-icon>
         </div>
     </div>
@@ -25,3 +29,10 @@
       </div>
     </ng-template>
 </p-sidebar>
+
+<p-overlayPanel #op (onHide)="totalNotifications = 0">
+  <ng-template pTemplate="content">
+      <app-notifications (emitGetNotifications)="getNotifications($event)" [totalRecords]="totalRecords"
+          [notificationsList]="notificationsList"></app-notifications>
+  </ng-template>
+</p-overlayPanel>

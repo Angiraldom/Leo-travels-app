@@ -1,9 +1,17 @@
 <mat-toolbar color="primary">
     <span>PLATAFORMA ADMIN</span>
     <div class="content-info">
-        <button mat-mini-fab disabled aria-label="Example mini fab with a heart icon">
-            <mat-icon matBadge="15" matBadgeSize="small" matBadgeColor="warn">message</mat-icon>
+        <button mat-mini-fab aria-label="Example mini fab with a heart icon"
+            (click)="op.toggle($event); seenNotifications()">
+            <mat-icon [matBadge]="totalNotifications" matBadgeSize="small" matBadgeColor="warn">message</mat-icon>
         </button>
         <h2 *ngIf="user"> {{ user.name }} </h2>
     </div>
 </mat-toolbar>
+
+<p-overlayPanel #op (onHide)="totalNotifications = 0">
+    <ng-template pTemplate="content">
+        <app-notifications (emitGetNotifications)="getNotifications($event)" [totalRecords]="totalRecords"
+            [notificationsList]="notificationsList"></app-notifications>
+    </ng-template>
+</p-overlayPanel>

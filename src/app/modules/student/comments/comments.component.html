@@ -7,7 +7,8 @@
             Si tienes alguna duda, quieres un tip extra o compartir tus avances, déjanos aquí tu comentario
         </p>
 
-        <textarea rows="5" placeholder="Escribe aquí..." [formControl]="comment" pInputTextarea [autoResize]="true"></textarea>
+        <textarea rows="5" placeholder="Escribe aquí..." [formControl]="comment" pInputTextarea
+            [autoResize]="true"></textarea>
 
         <div class="button">
             <app-generic-button classButton="class_yellow" (emitClick)="sendComment()"
@@ -18,19 +19,49 @@
     <div class="comments" *ngIf="comments.length > 0">
 
         <ng-container *ngFor="let item of comments">
-            <div class="content-comment" *ngIf="item">
-                <p-avatar [label]="item.user.name! | letterAvatar" styleClass="mr-2" size="xlarge" shape="circle"></p-avatar>
-                <div class="min-width">
-                    <div class="flex">
-                        <p class="bold color-black"> {{ item.user.name }} </p>
-                        <mat-icon *ngIf="user._id === item.user._id" matTooltip="Eliminar" (click)="removeComment(item._id)">delete</mat-icon>
-                    </div>
-                    <p class="date">{{ item.createdAt | date }}</p>
+            <div>
+                <div class="content-comment" *ngIf="item">
+                    <p-avatar [label]="item.user.name! | letterAvatar" styleClass="mr-2" size="xlarge"
+                        shape="circle"></p-avatar>
+                    <div class="min-width">
 
-                    <p class="color-black">
-                        {{ item.comment }}
-                    </p>
-                    <hr>
+                        <div class="flex">
+                            <p class="bold color-black"> {{ item.user.name }} {{ item.user.lastName }}</p>
+                            <mat-icon *ngIf="user._id === item.user._id || user.role === 'Admin'" matTooltip="Eliminar"
+                                (click)="removeComment(item._id)">delete</mat-icon>
+                            <app-generic-button classButton="class_yellow" [sizeButton]="'small'" nameButton="Responder"
+                                (click)="item.showTextAreaAnswer = true"
+                                *ngIf="user.role === 'Admin' && item.answers.length === 0"></app-generic-button>
+                        </div>
+
+                        <p class="date">{{ item.createdAt | date }}</p>
+                        <p class="color-black">{{ item.comment }}</p>
+                        <hr>
+                    </div>
+                </div>
+                <div class="answer" *ngFor="let itemAnswer of item.answers">
+
+                    <div class="flex">
+                        <p class="font-bold color-black"> {{ itemAnswer?.creator?.name }} {{
+                            itemAnswer?.creator?.lastName }} </p>
+                        <mat-icon *ngIf="user._id === itemAnswer.creator._id || user.role === 'Admin'" matTooltip="Eliminar"
+                           (click)="deleteAnswer(item._id, itemAnswer._id)" >delete</mat-icon>
+                    </div>
+
+                    <p class="size-smaller"> {{ itemAnswer.createdAt | date }} </p>
+                    <p class="color-black"> {{ itemAnswer?.answer }} </p>
+                </div>
+
+                <div class="response-button" *ngIf="!item.showTextAreaAnswer && item.answers.length > 0">
+                    <app-generic-button classButton="class_yellow" [sizeButton]="'small'" nameButton="Responder"
+                        (click)="item.showTextAreaAnswer = true"></app-generic-button>
+                </div>
+
+                <div class="response-comment" *ngIf="item.showTextAreaAnswer">
+                    <textarea rows="4" placeholder="Escribe aquí..." [(ngModel)]="item.answer" pInputTextarea
+                        [autoResize]="true"></textarea>
+                    <app-generic-button classButton="class_yellow" [sizeButton]="'small'" nameButton="Guardar"
+                        (emitClick)="saveAnswer(item)"></app-generic-button>
                 </div>
             </div>
         </ng-container>

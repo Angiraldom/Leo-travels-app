@@ -1,6 +1,6 @@
 <div class="cookies">
     <div class="flex">
-        <h2>Consentimiento de Cookies</h2>
+        <h4>Consentimiento de Cookies</h4>
         <mat-icon (click)="showMessageCookies(true)">close</mat-icon>
     </div>
     <hr>
@@ -8,7 +8,7 @@
 </div>
 
 <ng-template #configuring>
-    <div class="configuring-cookies">
+    <div class="configuring-cookies font-size">
         <a (click)="isConfiguring = false">Volver atrás</a>
         <div class="configuring-cookies-buttons">
             <button mat-stroked-button color="primary" (click)="enabledAndDisabledCookies(false)">
@@ -41,7 +41,7 @@
 </ng-template>
 
 <ng-template #caution>
-    <div class="cookies-caution">
+    <div class="cookies-caution font-size">
         <p>
             Utilizamos cookies propias y de terceros para fines analíticos y para mostrarle publicidad personalizada en
             base
@@ -56,7 +56,7 @@
             "Configurar".
         </p>
     </div>
-    <div class="content-buttons">
+    <div class="content-buttons font-size">
 
         <button mat-stroked-button color="primary" (click)="isConfiguring = true">
             Configurar

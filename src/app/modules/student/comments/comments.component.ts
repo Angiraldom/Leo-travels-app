@@ -1,13 +1,15 @@
 import { Component, Input, OnDestroy, OnInit, inject } from '@angular/core';
-import { Subscription, delay } from 'rxjs';
+import { Subscription, delay, map } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { FormControl, Validators } from '@angular/forms';
+import { SweetAlertResult } from 'sweetalert2';
 
 import { BaseService } from 'src/app/core/services/base.service';
 import { IComment } from '../interface/IComments.inerface';
 import { AppState } from 'src/app/store/app.reducer';
 import { MesaggeService } from 'src/app/core/services/message.service';
 import { IUser } from '../../admin/user/interface/IUser.interface';
+import { IClass } from '../../admin/courses/interfaces/IClass.interface';
 
 @Component({
   selector: 'app-comments',
@@ -19,7 +21,9 @@ export class CommentsComponent implements OnInit, OnDestroy {
   private store = inject(Store<AppState>);
   private messageService = inject(MesaggeService);
   
-  @Input() idClass!: string;
+  @Input() class!: IClass;
+  @Input() idCourse!: string;
+  @Input() idModule!: string;
 
   $store!: Subscription;
   user!: IUser;
@@ -42,7 +46,6 @@ export class CommentsComponent implements OnInit, OnDestroy {
         this.user = user;
       }
     });
-    this.getComments();
   }
 
   ngOnDestroy(): void {
@@ -51,9 +54,19 @@ export class CommentsComponent implements OnInit, OnDestroy {
   }
 
   getComments() {
-    this.baseSerive.getMethod('comments/' + this.idClass).subscribe({
-      next: (res: any) => {
-        this.comments = res.data;
+    this.baseSerive.getMethod('comments/' + this.class._id).
+    pipe(
+      map((res: any) => {
+        return res.data.map((item: IComment) => {
+          item.showTextAreaAnswer = false;
+          item.answer = '';
+          return item;
+        })
+      })
+    )
+    .subscribe({
+      next: (res: IComment[]) => {
+        this.comments = res;
       }
     });
   }
@@ -63,8 +76,10 @@ export class CommentsComponent implements OnInit, OnDestroy {
       return;
     }
     const payload = {
-      idClass: this.idClass,
-      comment: this.comment.value
+      class: this.class,
+      comment: this.comment.value,
+      idModule: this.idModule,
+      idCourse: this.idCourse
     };
     
     this.baseSerive.postMethod('comments', payload).subscribe({
@@ -77,12 +92,37 @@ export class CommentsComponent implements OnInit, OnDestroy {
   }
 
   removeComment(idComment: string) {
-    this.baseSerive.deleteMethod('comments/' + idComment).subscribe({
+    this.messageService.confirmRevomeMessage('info.confirmRemove').then((response: SweetAlertResult) => {
+      if (response.isConfirmed) {
+        this.baseSerive.deleteMethod('comments/' + idComment).subscribe({
+          next: () => {
+            this.messageService.succesMessage('succes.commentRemoved');
+            this.getComments();
+          }
+        });
+      }
+    });
+  }
+
+  saveAnswer(comment: IComment) {
+    this.baseSerive.postMethod(`comments/saveAnswer/${comment._id}`, { answer: comment.answer, idCreatorComment: comment.user._id }).subscribe({
       next: () => {
-        this.messageService.commentAlert('succes.commentRemoved')
+        this.messageService.commentAlert('succes.commentAgregated')
         this.getComments();
       }
     });
   }
 
+  deleteAnswer(idComment: string, idAnswer: string) {
+    this.messageService.confirmRevomeMessage('info.confirmRemove').then((response: SweetAlertResult) => {
+      if (response.isConfirmed) { 
+        this.baseSerive.deleteMethod(`comments/deleteAnswer/${idComment}/${idAnswer}`).subscribe({
+          next: () => {
+            this.messageService.succesMessage('succes.commentRemoved');
+            this.getComments();
+          }
+        });
+      }
+    });
+  }
 }

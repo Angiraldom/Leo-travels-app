@@ -40,3 +40,8 @@ mat-toolbar {
         }
     }
 }
+
+// Notifications
+::ng-deep .p-overlaypanel {
+    max-width: 320px;
+}

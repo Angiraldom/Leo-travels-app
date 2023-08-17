@@ -1,9 +1,16 @@
-import { IUser } from "../../admin/user/interface/IUser.interface";
+import { IClass } from '../../admin/courses/interfaces/IClass.interface';
+import { IUser } from '../../admin/user/interface/IUser.interface';
+import { IAnswer } from './IAnswers.interface';
 
 export interface IComment {
-    comment: string;
-    user: IUser;
-    createdAt: Date;
-    idClass: string;
-    _id: string;
+  comment: string;
+  user: IUser;
+  createdAt: Date;
+  class: IClass;
+  idModule: string;
+  idCourse: string;
+  _id: string;
+  answers: Array<IAnswer>;
+  showTextAreaAnswer: boolean;
+  answer?: string;
 }
