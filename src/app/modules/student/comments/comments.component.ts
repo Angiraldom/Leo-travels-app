@@ -2,6 +2,7 @@ import { Component, Input, OnDestroy, OnInit, inject } from '@angular/core';
 import { Subscription, delay, map } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { FormControl, Validators } from '@angular/forms';
+import { SweetAlertResult } from 'sweetalert2';
 
 import { BaseService } from 'src/app/core/services/base.service';
 import { IComment } from '../interface/IComments.inerface';
@@ -91,10 +92,14 @@ export class CommentsComponent implements OnInit, OnDestroy {
   }
 
   removeComment(idComment: string) {
-    this.baseSerive.deleteMethod('comments/' + idComment).subscribe({
-      next: () => {
-        this.messageService.commentAlert('succes.commentRemoved')
-        this.getComments();
+    this.messageService.confirmRevomeMessage('info.confirmRemove').then((response: SweetAlertResult) => {
+      if (response.isConfirmed) {
+        this.baseSerive.deleteMethod('comments/' + idComment).subscribe({
+          next: () => {
+            this.messageService.succesMessage('succes.commentRemoved');
+            this.getComments();
+          }
+        });
       }
     });
   }
@@ -104,6 +109,19 @@ export class CommentsComponent implements OnInit, OnDestroy {
       next: () => {
         this.messageService.commentAlert('succes.commentAgregated')
         this.getComments();
+      }
+    });
+  }
+
+  deleteAnswer(idComment: string, idAnswer: string) {
+    this.messageService.confirmRevomeMessage('info.confirmRemove').then((response: SweetAlertResult) => {
+      if (response.isConfirmed) { 
+        this.baseSerive.deleteMethod(`comments/deleteAnswer/${idComment}/${idAnswer}`).subscribe({
+          next: () => {
+            this.messageService.succesMessage('succes.commentRemoved');
+            this.getComments();
+          }
+        });
       }
     });
   }

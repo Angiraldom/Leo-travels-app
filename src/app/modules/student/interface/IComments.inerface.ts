@@ -11,7 +11,6 @@ export interface IComment {
   idCourse: string;
   _id: string;
   answers: Array<IAnswer>;
-  seenBy: Array<IUser>;
   showTextAreaAnswer: boolean;
   answer?: string;
 }

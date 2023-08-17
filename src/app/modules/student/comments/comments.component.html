@@ -30,7 +30,8 @@
                             <mat-icon *ngIf="user._id === item.user._id || user.role === 'Admin'" matTooltip="Eliminar"
                                 (click)="removeComment(item._id)">delete</mat-icon>
                             <app-generic-button classButton="class_yellow" [sizeButton]="'small'" nameButton="Responder"
-                                (click)="item.showTextAreaAnswer = true" *ngIf="user.role === 'Admin' && item.answers.length === 0" ></app-generic-button>
+                                (click)="item.showTextAreaAnswer = true"
+                                *ngIf="user.role === 'Admin' && item.answers.length === 0"></app-generic-button>
                         </div>
 
                         <p class="date">{{ item.createdAt | date }}</p>
@@ -39,7 +40,14 @@
                     </div>
                 </div>
                 <div class="answer" *ngFor="let itemAnswer of item.answers">
-                    <p class="font-bold color-black"> {{ itemAnswer?.creator?.name }} {{ itemAnswer?.creator?.lastName }} </p>
+
+                    <div class="flex">
+                        <p class="font-bold color-black"> {{ itemAnswer?.creator?.name }} {{
+                            itemAnswer?.creator?.lastName }} </p>
+                        <mat-icon *ngIf="user._id === itemAnswer.creator._id || user.role === 'Admin'" matTooltip="Eliminar"
+                           (click)="deleteAnswer(item._id, itemAnswer._id)" >delete</mat-icon>
+                    </div>
+
                     <p class="size-smaller"> {{ itemAnswer.createdAt | date }} </p>
                     <p class="color-black"> {{ itemAnswer?.answer }} </p>
                 </div>
