@@ -5,9 +5,11 @@ import { MyCoursesComponent } from './my-courses/my-courses.component';
 import { CourseViewComponent } from './course-view/course-view.component';
 import { WatchClassComponent } from './watch-class/watch-class.component';
 import { StudentViewComponent } from './student-view.component';
+import { studientGuardFn } from 'src/app/core/guards/studient.guard';
 
 const routes: Routes = [
   {
+    canActivate: [studientGuardFn],
     path: 'clase/:idCourse/:idModule/:idClass',
     component: WatchClassComponent,
     title: 'Clase'
@@ -15,6 +17,7 @@ const routes: Routes = [
   {
     path: '',
     component: StudentViewComponent,
+    canActivate: [studientGuardFn],
     children: [
       {
         path: 'profile',
