@@ -1,0 +1,15 @@
+// Progressbar
+::ng-deep .p-progressbar .p-progressbar-value {
+    background-color: $primary;
+}
+
+::ng-deep .p-progressbar-determinate .p-progressbar-value {
+    position: unset !important;
+}
+
+::ng-deep .p-progressbar-determinate .p-progressbar-label {
+    position: absolute;
+    left: 49%;
+    color: $secondary;
+    font-weight: 700;
+}

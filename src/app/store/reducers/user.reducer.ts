@@ -8,7 +8,7 @@ const _profileReducer = createReducer(
   initialState,
 
   on(getProfile, (state, { user }) => {
-    return { ...state, ...user };
+    return { ...state, ...structuredClone(user) };
   }),
 
   on(clearProfile, () => {

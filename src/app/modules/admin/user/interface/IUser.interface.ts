@@ -1,3 +1,5 @@
+import { ICourse } from "../../courses/interfaces/ICourses.interface";
+
 export type typeRoles = 'Admin' | 'Cliente';
 
 export interface IUser {
@@ -13,4 +15,5 @@ export interface IUser {
   codePostal?: number;
   phone?: number;
   _id?: string;
+  courses?: ICourse[];
 }

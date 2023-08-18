@@ -33,10 +33,10 @@
                 <mat-icon>keyboard_arrow_left</mat-icon>
                 Clase anterior
             </a>
-            <!-- <a [ngClass]="{'comptleted': class.completed}" (click)="completedClass()">
+            <a [ngClass]="{'comptleted': isCompletedClass}" (click)="completedClass()">
                 <mat-icon>person</mat-icon>
                 Marcar completa
-            </a> -->
+            </a>
             <a (click)="nextClass()">
                 Clase siguiente
                 <mat-icon>keyboard_arrow_right</mat-icon>
