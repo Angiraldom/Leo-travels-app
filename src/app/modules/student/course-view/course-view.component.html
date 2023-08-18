@@ -12,7 +12,7 @@
 
         <div class="footer">
             <h3> Contenido del curso </h3>
-            <!-- <ng-container [ngTemplateOutlet]="progress"></ng-container> -->
+            <ng-container [ngTemplateOutlet]="progress" *ngIf="user.courses && user.courses.length > 0"></ng-container>
 
         </div>
     </div>
@@ -42,7 +42,9 @@
                 <ul class="sub-list" [hidden]="!isExpanded[indexModule]">
                     <li *ngFor="let class of module?.classes; let indexClass = index" class="sub-item">
                         <div class="item item-sub-header">
-                            <span class="item-title" (click)="changeRoute(module._id, class._id)">{{ class.name }}</span>
+                            <span class="item-title" (click)="changeRoute(module._id, class._id)">
+                                {{ class.name}}
+                            </span>
                             <span class="total-clases" *ngIf="class.duration">
                                 {{class.duration}}
                             </span>
@@ -59,8 +61,8 @@
 </div>
 
 <ng-template #progress>
-    <div class="content-progress">
+    <div class="content-progress" *ngIf="user.courses && user.courses.length > 0">
         <p>Progreso</p>
-        <p-progressBar [value]="course.modules | classProgress"></p-progressBar>
+        <p-progressBar [value]="user.courses[0].modules | classProgress"></p-progressBar>
     </div>
 </ng-template>

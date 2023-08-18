@@ -58,7 +58,7 @@ export default class ChangePasswordComponent implements OnInit, OnDestroy {
       return;
     }
     const { password } = this.form.getRawValue();
-    this.authService.postMethod('user/change-password', {password, token: this.token}).subscribe({
+    this.authService.postMethod('user/recovery-password', {password, token: this.token}).subscribe({
       next: () => {
         console.log('Cambio exitoso');
         this.form.reset();

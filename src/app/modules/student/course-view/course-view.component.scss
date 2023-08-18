@@ -1,4 +1,5 @@
 @import "/src/styles/variables";
+@import "/src/styles/progressbar";c
 
 .spinner {
     display: flex;
@@ -155,8 +156,4 @@ ul {
     .app-header-modules {
         display: block;
     }
-}
-
-::ng-deep .p-progressbar .p-progressbar-value {
-    background-color: $primary;
 }
