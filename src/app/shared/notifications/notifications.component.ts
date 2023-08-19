@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output, inject } from '@angular/core';
+import { Component, EventEmitter, Input, Output, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { INotifications } from 'src/app/modules/student/interface/INotifications.interface';
 import { Router, RouterModule } from '@angular/router';
@@ -10,18 +10,13 @@ import { Router, RouterModule } from '@angular/router';
   templateUrl: './notifications.component.html',
   styleUrls: ['./notifications.component.scss']
 })
-export class NotificationsComponent implements OnInit {
+export class NotificationsComponent {
   private router = inject(Router);
   
   @Input() notificationsList: Array<INotifications> = [];
   @Input() totalRecords = 0;
   @Input() offset = 0;
   @Output() emitGetNotifications = new EventEmitter();
-
-  ngOnInit(): void {
-    console.log('enotr');
-    
-  }
 
   goToComment(notification: INotifications) {
     this.router.navigate([

@@ -3,7 +3,10 @@
     <div class="content-info">
         <button mat-mini-fab aria-label="Example mini fab with a heart icon"
             (click)="op.toggle($event); seenNotifications()">
-            <mat-icon [matBadge]="totalNotifications" matBadgeSize="small" matBadgeColor="warn">message</mat-icon>
+            <mat-icon [matBadge]="totalNotifications" [matBadgeHidden]="totalNotifications === 0" matBadgeSize="small"
+                matBadgeColor="warn">
+                message
+            </mat-icon>
         </button>
         <h2 *ngIf="user"> {{ user.name }} </h2>
     </div>

@@ -2,9 +2,9 @@
     [description]="'Aquí puedes acceder a los cursos disponibles de Vilean'"></app-header-modules>
 
 <div class="content-cards">
-    <p-card [style]="{ width: '300px' }" *ngIf="course">
+    <p-card [style]="{ width: '388px' }" *ngIf="course">
         <ng-template pTemplate="header">
-            <img oncontextmenu='return false' onkeydown='return false' alt="Card" [src]="course.portada" />
+            <img oncontextmenu='return false' class="top-radius" onkeydown='return false' alt="Card" [src]="course.portada" />
         </ng-template>
         <h3>{{course.name}}</h3>
         <p *ngIf="user.courses && user.courses.length > 0">

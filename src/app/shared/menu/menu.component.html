@@ -22,7 +22,10 @@
       </ng-container>
 
       <mat-icon [matBadge]="(store.select('cart') | async).products | totalProducts" matBadgeSize="small"
-        matBadgeColor="warn" (click)="openCart()">shopping_cart</mat-icon>
+        matBadgeColor="warn" [matBadgeHidden]="((store.select('cart') | async).products | totalProducts) === 0"
+         (click)="openCart()">
+         shopping_cart
+      </mat-icon>
     </div>
   </div>
   <div class="container-mobile-menu">
@@ -30,6 +33,11 @@
       <mat-icon matBadgeSize="small" matBadgeColor="warn" (click)="toggleMenu()">menu</mat-icon>
       <nav class="mobile-menu" [class.open]="isMenuOpen">
       <ul>
+        <li>
+          <a class="item" routerLink="/home" routerLinkActive="router-active">
+            <span>Inicio</span>
+          </a>
+        </li>
         <li>
           <a class="item" routerLink="/cursos" routerLinkActive="router-active">
             <span>Cursos</span>
@@ -60,7 +68,10 @@
     </div>
     <span class="icon-logo" [routerLink]="['/home']"></span>
     <mat-icon [matBadge]="(store.select('cart') | async).products | totalProducts" matBadgeSize="small"
-      matBadgeColor="warn" (click)="openCart()">shopping_cart</mat-icon>
+      matBadgeColor="warn" (click)="openCart()"
+      [matBadgeHidden]="((store.select('cart') | async).products | totalProducts) === 0">
+      shopping_cart
+    </mat-icon>
   </div>
 </header>
 

@@ -1,38 +1,43 @@
 <mat-toolbar color="primary">
-    <span class="icon-logo" [routerLink]="['/home']"></span>
-    <div class="content-info">
-        <button mat-mini-fab aria-label="Example mini fab with a heart icon"
-            (click)="op.toggle($event); seenNotifications()">
-            <mat-icon [matBadge]="totalNotifications" matBadgeSize="small" matBadgeColor="warn">message</mat-icon>
-        </button>
-        <h2 *ngIf="user"> {{ user.name }} </h2>
-        <div class="hamburger-menu">
-            <mat-icon matBadgeSize="small" matBadgeColor="warn" (click)="toggleMenu()">menu</mat-icon>
-        </div>
+  <span class="icon-logo" [routerLink]="['/home']"></span>
+  <div class="content-info">
+    <button mat-mini-fab aria-label="Example mini fab with a heart icon"
+      (click)="op.toggle($event); seenNotifications()">
+      <mat-icon [matBadge]="totalNotifications" [matBadgeHidden]="totalNotifications === 0"
+        matBadgeColor="warn" matBadgeSize="small">
+        message
+      </mat-icon>
+    </button>
+    <h2 *ngIf="user" class="ellipsis"> {{ user.name }} </h2>
+    <div class="hamburger-menu">
+      <mat-icon matBadgeSize="small" matBadgeColor="warn" (click)="toggleMenu()">menu</mat-icon>
     </div>
+  </div>
 </mat-toolbar>
 
 <p-sidebar [(visible)]="isMenuOpen" position="right" class="mobile-menu-s">
-    <ng-template pTemplate="header"> Volver al sitio web: </ng-template>
-    <ng-template pTemplate="content">
-      <div class="second-menu">
-        <p routerLink="/home" class="pointer bold" routerLinkActive="router-active">
-          < Inicio</p>
-        <p routerLink="/cursos" class="pointer bold" routerLinkActive="router-active">
-          < Cursos</p>
-            <p [routerLink]="['/kit-viajero']" class="pointer bold" [routerLinkActive]="'router-active'">
-              < Kit viajero</p>
-              <p [routerLink]="['/quienes-somos']" class="pointer bold" [routerLinkActive]="'router-active'">
-                < ¿Quiénes somos?</p>
-                    <p *ngIf="user" class="pointer bold" [routerLink]="user.role === 'Cliente' ? '/estudiante/my-courses': '/admin/usuarios'" routerLinkActive="router-active">
-                      < Mi cuenta</p>
-      </div>
-    </ng-template>
+  <ng-template pTemplate="header"> Volver al sitio web: </ng-template>
+  <ng-template pTemplate="content">
+    <div class="second-menu">
+      <p routerLink="/home" class="pointer bold" routerLinkActive="router-active">
+        < Inicio</p>
+          <p routerLink="/cursos" class="pointer bold" routerLinkActive="router-active">
+            < Cursos</p>
+              <p [routerLink]="['/kit-viajero']" class="pointer bold" [routerLinkActive]="'router-active'">
+                < Kit viajero</p>
+                  <p [routerLink]="['/quienes-somos']" class="pointer bold" [routerLinkActive]="'router-active'">
+                    < ¿Quiénes somos?</p>
+                      <p *ngIf="user" class="pointer bold"
+                        [routerLink]="user.role === 'Cliente' ? '/estudiante/my-courses': '/admin/usuarios'"
+                        routerLinkActive="router-active">
+                        < Mi cuenta</p>
+    </div>
+  </ng-template>
 </p-sidebar>
 
 <p-overlayPanel #op (onHide)="totalNotifications = 0">
   <ng-template pTemplate="content">
-      <app-notifications (emitGetNotifications)="getNotifications($event)" [totalRecords]="totalRecords"
-          [notificationsList]="notificationsList"></app-notifications>
+    <app-notifications (emitGetNotifications)="getNotifications($event)" [totalRecords]="totalRecords"
+      [notificationsList]="notificationsList"></app-notifications>
   </ng-template>
 </p-overlayPanel>

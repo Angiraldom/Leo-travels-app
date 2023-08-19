@@ -1,6 +1,12 @@
 // Progressbar
+
+::ng-deep .p-progressbar {
+    background-color: white;
+    border: 1px solid gray;
+}
+
 ::ng-deep .p-progressbar .p-progressbar-value {
-    background-color: $primary;
+    background-color: #dee2e6;
 }
 
 ::ng-deep .p-progressbar-determinate .p-progressbar-value {
@@ -10,6 +16,6 @@
 ::ng-deep .p-progressbar-determinate .p-progressbar-label {
     position: absolute;
     left: 49%;
-    color: $secondary;
+    color: #464242;
     font-weight: 700;
 }

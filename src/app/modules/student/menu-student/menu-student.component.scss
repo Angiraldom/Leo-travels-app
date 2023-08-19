@@ -114,6 +114,16 @@ p-sidebar .second-menu {
     font-weight: 700;
 }
 
+@media screen and (max-width: 450px) {
+    
+    .ellipsis {
+        max-width: 90px;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+}
+
 // Notifications
 ::ng-deep .p-overlaypanel {
     max-width: 320px;

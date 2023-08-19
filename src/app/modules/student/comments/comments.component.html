@@ -60,7 +60,7 @@
                 <div class="response-comment" *ngIf="item.showTextAreaAnswer">
                     <textarea rows="4" placeholder="Escribe aquí..." [(ngModel)]="item.answer" pInputTextarea
                         [autoResize]="true"></textarea>
-                    <app-generic-button classButton="class_yellow" [sizeButton]="'small'" nameButton="Guardar"
+                    <app-generic-button classButton="class_yellow" [sizeButton]="'small'" nameButton="Enviar"
                         (emitClick)="saveAnswer(item)"></app-generic-button>
                 </div>
             </div>

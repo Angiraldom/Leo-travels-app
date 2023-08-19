@@ -22,6 +22,7 @@ import { MenuStudentComponent } from './menu-student/menu-student.component';
 import { CommentsComponent } from './comments/comments.component';
 import { LetterAvatarPipe } from 'src/app/core/pipes/letter-avatar.pipe';
 import { NotificationsComponent } from 'src/app/shared/notifications/notifications.component';
+import { CompletedClassPipe } from 'src/app/core/pipes/completed-class.pipe';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { NotificationsComponent } from 'src/app/shared/notifications/notificatio
     TotalClassesPipe,
     ClassProgressPipe,
     LetterAvatarPipe,
+    CompletedClassPipe,
     FormsModule,
     NotificationsComponent
   ],
