@@ -10,7 +10,7 @@ const _cartReducer = createReducer(initialState,
 
     on( actions.addProduct, (state, { reference, product }) => {
         const products = [...state.products, {...product}];
-        const newProducts = structuredClone(updateDiscountProducts(state, products));
+        const newProducts = structuredClone(products);
         return { ...state ,reference, products: [...newProducts] }
     }),
 
@@ -22,7 +22,7 @@ const _cartReducer = createReducer(initialState,
             }
             return { ...product };
         });
-        const newProducts = structuredClone(updateDiscountProducts(state, result));
+        const newProducts = structuredClone(result);
         
         return { ...state, products: [...newProducts] }
     }),

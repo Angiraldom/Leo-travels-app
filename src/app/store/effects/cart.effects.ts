@@ -54,4 +54,34 @@ export class EffectCart {
     },
     { dispatch: false }
   );
+
+  addFieldCuponProduct$ = createEffect(
+    () => {
+      return this.actions$.pipe(
+        ofType(cartActions.setCoupon),
+        withLatestFrom(this.store.pipe(select('cart'))),
+        mergeMap(([action, state]) => {
+          return this.baseService.patchMethod('payments/updateAllProducts', state).pipe(
+            catchError(() => of(console.log('No agrego el campo coupon y discount')))
+          );
+        })
+      );
+    },
+    { dispatch: false }
+  );
+
+  removeFieldCuponProduct$ = createEffect(
+    () => {
+      return this.actions$.pipe(
+        ofType(cartActions.clearCoupon),
+        withLatestFrom(this.store.pipe(select('cart'))),
+        mergeMap(([action, state]) => {
+          return this.baseService.patchMethod('payments/updateAllProducts', state).pipe(
+            catchError(() => of(console.log('No elimino campo coupon y discount')))
+          );
+        })
+      );
+    },
+    { dispatch: false }
+  );
 }
