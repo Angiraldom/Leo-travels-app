@@ -8,17 +8,10 @@ export const adminGuardFn: CanActivateFn = () => {
   const router = inject(Router);
   const store = inject(Store<AppState>);
 
-  const token = localStorage.getItem('token');
-
-  if (!token) {
-    router.navigate(['login']);
-    return false;
-  }
-
   return store.select('profile').pipe(
     take(1),
     map((user) => {
-      if (user.role === 'Admin') {
+      if (user?.role === 'Admin') {
         return true;
       } else {
         router.navigate(['login']);
