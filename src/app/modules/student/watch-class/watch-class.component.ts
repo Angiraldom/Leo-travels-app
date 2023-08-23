@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit, inject } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Store } from '@ngrx/store';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 import { BaseService } from 'src/app/core/services/base.service';
 import { IClass } from '../../admin/courses/interfaces/IClass.interface';
@@ -19,6 +20,7 @@ export class WatchClassComponent implements OnInit, OnDestroy {
   private route = inject(ActivatedRoute);
   private baseSerive = inject(BaseService);
   private store = inject(Store<AppState>);
+  private sanitizer = inject(DomSanitizer);
 
   $route!: Subscription;
   $profile!: Subscription;
@@ -32,6 +34,7 @@ export class WatchClassComponent implements OnInit, OnDestroy {
   showSpinner = false;
   isCompletedClass = false;
   user!: IUser;
+  video!: SafeHtml;
 
   ngOnInit(): void {
     this.$route = this.route.paramMap.subscribe((params: ParamMap) => {
@@ -59,6 +62,7 @@ export class WatchClassComponent implements OnInit, OnDestroy {
         this.showSpinner = false;
         if (Object.keys(res.data).length > 0) {
           this.class = res.data.class;
+          this.video = this.sanitizer.bypassSecurityTrustHtml(this.class.url ?? '');
           this.nameModule = res.data.nameModule;
           this.nameCourse = res.data.nameCourse;
           this.setValueCompletedClass();

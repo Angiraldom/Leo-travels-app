@@ -48,9 +48,7 @@
             <h3 class="title"> {{class.name}} </h3>
             <hr>
             <div [class.center-content]="!class.description" class="content-video">
-                <video oncontextmenu='return false' onkeydown='return false' width="300"
-                    src="{{class.url}}" controls
-                    controlsList="nodownload noremoteplayback"></video>
+                <div [innerHTML]="video"></div>
                 <p *ngIf="class.description && class.description !== ''" [innerHTML]="class.description"></p>
             </div>
         </div>
