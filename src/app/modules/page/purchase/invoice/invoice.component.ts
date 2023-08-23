@@ -24,6 +24,7 @@ export class InvoiceComponent implements OnInit, OnDestroy {
   @Output() emitTotalValue = new EventEmitter();
 
   ngOnInit(): void {
+    this.store.dispatch(setShippingPrice({ shippingPrice: 0 }));
     this.$valueForm = this.totalValue.valueChanges
     .pipe(
       distinctUntilChanged()
