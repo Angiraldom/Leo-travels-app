@@ -45,20 +45,61 @@ export class PurchaseComponent implements OnInit, OnDestroy {
     redirectUrl: 'https://vilean.co/#/response-transaction',
   };
 
+  window: any = window;
+  handler = this.window?.ePayco?.checkout?.configure({
+    key: 'efeb27be0943f1db92b378501dea7512',
+    test: true,
+  });
+
+  epayco() {
+    var data = {
+      //Parametros compra (obligatorio)
+      invoice: '12345678023',
+      currency: 'cop',
+      name: 'Plan de facturacion electronica',
+      description: 'Plan de facturacion electronica',
+      tax_base: '0',
+      tax: '0',
+      amount: 40000,
+      country: 'co',
+      lang: 'es',
+      external: 'false',
+      //Onpage="false" - Standard="true"
+      //Atributos opcionales
+      method: 'GET',
+      extra1: JSON.stringify({name:'test', value: 'test2'}),
+      extra2: 'ePayco',
+      extra3: '',
+      response: 'http://localhost:4200/#/pagar',
+      confirmation: 'https://leo-travels-api-production.up.railway.app/payments/notification-epayco',
+    };
+    console.log(this.handler);
+    
+    // this.handler.onCloseModal = this.onCloseEpaycoModal;
+    this.handler.open(data, () => {
+      console.log('entrooo');
+      
+    });
+  }
+
+  onCloseEpaycoModal(){
+		alert('Close ePayco Modal!!!!!!!')
+	}
+
   ngOnInit(): void {
     this.$store = this.store.select('cart').subscribe({
       next: ({ products, reference }) => {
         this.reference = reference;
         this.products = products;
         if (this.products.length === 0) {
-            this.router.navigate(['cursos']);
-            return;
+          this.router.navigate(['cursos']);
+          return;
         }
         this.validateShowform();
       },
     });
   }
-  
+
   ngOnDestroy(): void {
     this.$store.unsubscribe();
 
@@ -79,7 +120,8 @@ export class PurchaseComponent implements OnInit, OnDestroy {
     if (!this.showShippingAdress) {
       return;
     }
-    this.wompiObject.shippingAddress!.phoneNumber = this.wompiObject.customerData!.phoneNumber;
+    this.wompiObject.shippingAddress!.phoneNumber =
+      this.wompiObject.customerData!.phoneNumber;
   }
 
   setCustomerData(form: { data: any; statusForm: FormControlStatus }) {
@@ -99,7 +141,7 @@ export class PurchaseComponent implements OnInit, OnDestroy {
 
   openCheckout() {
     const checkout = new WidgetCheckout(this.wompiObject);
-    
+
     checkout.open((result: any) => {
       const status = result.transaction.status;
       if (status === 'APPROVED') {
@@ -113,7 +155,7 @@ export class PurchaseComponent implements OnInit, OnDestroy {
     this.showShippingAdress = this.products?.some((item) => !item.modules);
     if (this.showShippingAdress) {
       return;
-    } 
+    }
     delete this.wompiObject.shippingAddress;
   }
 
@@ -122,29 +164,39 @@ export class PurchaseComponent implements OnInit, OnDestroy {
       return;
     }
     if (this.products?.some((item) => item.modules)) {
-      this.baseService.postMethod('user/findByEmail', { email: $event.data.email }).subscribe({
-        next: (res: any) => {
-          if (Object.keys(res.data).length > 0) {
-            this.userExist = true;
-            this.messageService.warningMessage('info.theEmailExists');
-          } else {
-            this.userExist = false;
-          }
-        }
-      });
+      this.baseService
+        .postMethod('user/findByEmail', { email: $event.data.email })
+        .subscribe({
+          next: (res: any) => {
+            if (Object.keys(res.data).length > 0) {
+              this.userExist = true;
+              this.messageService.warningMessage('info.theEmailExists');
+            } else {
+              this.userExist = false;
+            }
+          },
+        });
     }
   }
-  
+
   disabledButton() {
     if (this.userExist) {
       this.messageService.warningMessage('info.theEmailExists');
       return;
     }
-    if (!this.userExist && !this.showShippingAdress && this.invalidCustomerForm === 'VALID') {
+    if (
+      !this.userExist &&
+      !this.showShippingAdress &&
+      this.invalidCustomerForm === 'VALID'
+    ) {
       this.purchase();
       return;
     }
-    if (!this.userExist && this.invalidFormAddress === 'VALID' && this.invalidCustomerForm === 'VALID') {
+    if (
+      !this.userExist &&
+      this.invalidFormAddress === 'VALID' &&
+      this.invalidCustomerForm === 'VALID'
+    ) {
       this.purchase();
       return;
     }
@@ -158,18 +210,26 @@ export class PurchaseComponent implements OnInit, OnDestroy {
     }
     this.validateShippingPrice(value);
   }
-  
+
   validateShippingPrice(value: ICities) {
-    const existTravelKitProduct = this.products.some((item) => item._id === this.idKitViajero);
-    
+    const existTravelKitProduct = this.products.some(
+      (item) => item._id === this.idKitViajero
+    );
+
     if (existTravelKitProduct) {
-      this.store.dispatch(setShippingPrice({ shippingPrice: value.shippingPrice.valor1 }));
+      this.store.dispatch(
+        setShippingPrice({ shippingPrice: value.shippingPrice.valor1 })
+      );
       return;
     }
 
-    const existAnotherProduct = this.products.some((item) => item._id !== this.idKitViajero && !item.modules);
+    const existAnotherProduct = this.products.some(
+      (item) => item._id !== this.idKitViajero && !item.modules
+    );
     if (existAnotherProduct) {
-      this.store.dispatch(setShippingPrice({ shippingPrice: value.shippingPrice.valor2 }));
+      this.store.dispatch(
+        setShippingPrice({ shippingPrice: value.shippingPrice.valor2 })
+      );
       return;
     }
     this.store.dispatch(setShippingPrice({ shippingPrice: 0 }));
