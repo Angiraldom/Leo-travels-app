@@ -12,7 +12,7 @@
         </p>
         <div class="footer">
             <p *ngIf="user.courses && user.courses.length > 0"> 
-                {{user.courses[0].modules | classProgress}} 
+                {{user.courses[0].modules | totalCompletedClasses }} 
                 /{{user.courses[0].modules | totalClasses }} 
                 Clases 
             </p>

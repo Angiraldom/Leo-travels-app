@@ -23,6 +23,7 @@ import { CommentsComponent } from './comments/comments.component';
 import { LetterAvatarPipe } from 'src/app/core/pipes/letter-avatar.pipe';
 import { NotificationsComponent } from 'src/app/shared/notifications/notifications.component';
 import { CompletedClassPipe } from 'src/app/core/pipes/completed-class.pipe';
+import { TotalCompletedClassesPipe } from 'src/app/core/pipes/total-completed-classes.pipe';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { CompletedClassPipe } from 'src/app/core/pipes/completed-class.pipe';
     ClassProgressPipe,
     LetterAvatarPipe,
     CompletedClassPipe,
+    TotalCompletedClassesPipe,
     FormsModule,
     NotificationsComponent
   ],
