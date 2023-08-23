@@ -42,9 +42,13 @@
                 <ul class="sub-list" [hidden]="!isExpanded[indexModule]">
                     <li *ngFor="let class of module?.classes; let indexClass = index" class="sub-item">
                         <div class="item item-sub-header">
-                            <span class="item-title" (click)="changeRoute(module._id, class._id)">
-                                {{ class.name}}
-                            </span>
+                            <div class="name-class-completed">
+                                <span class="circle" [class.background-secondary]="user.courses | completedClass: idCourse: module._id: class._id">
+                                </span>
+                                <span class="item-title" (click)="changeRoute(module._id, class._id)">
+                                    {{ class.name}}
+                                </span>
+                            </div>
                             <span class="total-clases" *ngIf="class.duration">
                                 {{class.duration}}
                             </span>

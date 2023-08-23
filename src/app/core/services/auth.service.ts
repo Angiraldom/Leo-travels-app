@@ -45,9 +45,14 @@ export class AuthService extends BaseService {
   }
 
   logout() {
-    localStorage.clear();
+    this.clearStorage();
     this.store.dispatch(clearCart());
     this.store.dispatch(clearProfile());
     this.router.navigate(['home']);
+  }
+
+  clearStorage() {
+    localStorage.removeItem('reference');
+    localStorage.removeItem('token');
   }
 }

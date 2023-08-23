@@ -10,6 +10,7 @@ import { CustomValidators } from 'src/app/core/utils/validators';
 import { AuthService } from 'src/app/core/services/auth.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { MesaggeService } from 'src/app/core/services/message.service';
 
 @Component({
   selector: 'app-change-password',
@@ -23,6 +24,7 @@ export default class ChangePasswordComponent implements OnInit, OnDestroy {
   private authService = inject(AuthService);
   private router = inject(Router);
   private activatedRoute = inject(ActivatedRoute);
+  private mesaggeService = inject(MesaggeService);
 
   $activatedRoute!: Subscription;
   token = '';
@@ -60,13 +62,10 @@ export default class ChangePasswordComponent implements OnInit, OnDestroy {
     const { password } = this.form.getRawValue();
     this.authService.postMethod('user/recovery-password', {password, token: this.token}).subscribe({
       next: () => {
-        console.log('Cambio exitoso');
+        this.mesaggeService.succesMessage('succes.passwordChanged');
         this.form.reset();
         this.router.navigateByUrl('login');
-      },
-      error: () => {
-        console.log('Hubo un error');
-      },
+      }
     });
   }
 }
