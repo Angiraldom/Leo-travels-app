@@ -10,6 +10,8 @@ import { CookieService } from './cookie.service';
 import { getProfile, clearProfile } from 'src/app/store/actions/user.actions';
 import { clearCart } from 'src/app/store/actions/cart.actions';
 import { MesaggeService } from './message.service';
+import { HttpEvent } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -26,7 +28,9 @@ export class AuthService extends BaseService {
 
   login(body: { email: string; password: string }) {
     return this.postMethod('auth/login', body).pipe(
-      tap((res: any) => this.cookieService.setValue('token', res.data.access_token))
+      tap((res: any) => {
+        this.saveTokens(res.data);
+      })
     );
   }
 
@@ -54,5 +58,24 @@ export class AuthService extends BaseService {
   clearStorage() {
     localStorage.removeItem('reference');
     localStorage.removeItem('token');
+    localStorage.removeItem('refresh_token');
+  }
+
+  refreshToken(): Observable<HttpEvent<any>> {
+    const refresh_token = localStorage.getItem('refresh_token');
+    return this.postMethod('auth/refresh_token', {refresh_token}).pipe(
+      tap((res: any) => {
+        this.saveTokens(res.data);
+      })
+    );
+  }
+
+  saveTokens(data: any) {
+    if (!data.access_token || !data.refresh_token) {
+      this.logout();
+      return;
+    }
+    this.cookieService.setValue('token', data.access_token);
+    this.cookieService.setValue('refresh_token', data.refresh_token);
   }
 }
