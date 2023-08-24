@@ -82,6 +82,7 @@ export class AppComponent implements OnInit, OnDestroy {
     this.messageCookies = false;
     this.$dialog = this.dialog.open(CookiesWindowComponent, {
       width: '600px',
+      disableClose: true,
       data: { 
          isConfiguring
       },

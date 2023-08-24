@@ -47,11 +47,17 @@ const _cartReducer = createReducer(initialState,
 
     on( actions.setCoupon, (state, { newCoupon }) => {
         const arrayProducts = structuredClone(state.products);
+
         const newProducts = arrayProducts.map((item: any) => {
-            item.discount = newCoupon.discount;
-            item.coupon = newCoupon;
+            const hasDiscountInCoupon = newCoupon.products.some((product) => product === item._id);
+
+            if (hasDiscountInCoupon) {
+                item.discount = newCoupon.discount;
+                item.coupon = newCoupon;
+            }
             return item;
         });
+
         return { ...state, coupon: {...newCoupon}, products: structuredClone(newProducts) };
     }),
 

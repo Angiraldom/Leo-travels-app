@@ -38,7 +38,7 @@ export default class LoginComponent {
     this.formatLowerCase();
     this.authService.login(this.form.value).subscribe({
       next: (res) => {
-        this.store.dispatch(getProfile({ user: res.data.user }))
+        this.store.dispatch(getProfile({ user: res.data.user }));
         const role = res.data.user.role;
         this.form.reset();
         if (role === 'Admin') {
