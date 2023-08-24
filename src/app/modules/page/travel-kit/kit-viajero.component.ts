@@ -34,7 +34,7 @@ export class KitViajeroComponent implements OnInit, OnDestroy {
     {
       severity: 'warn',
       summary:
-        'Los productos físicos solo están disponibles para envío en Colombia',
+        'Productos disponibles solo en Colombia, hasta agotar existencias',
     },
   ];
 
