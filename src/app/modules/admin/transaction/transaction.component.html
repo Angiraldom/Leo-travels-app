@@ -25,7 +25,8 @@
 
             <ng-container matColumnDef="total">
                 <th mat-header-cell *matHeaderCellDef> Total </th>
-                <td mat-cell *matCellDef="let element"> {{element.products | totalValue | currency: "$":"symbol":"1.0-0"}} </td>
+                <td mat-cell *matCellDef="let element">
+                    {{ element.data?.transaction?.amount_in_cents}}
             </ng-container>
 
             <ng-container matColumnDef="actions">
