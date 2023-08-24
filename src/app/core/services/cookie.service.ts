@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import jwt_decode, { JwtPayload } from 'jwt-decode';
 
 @Injectable({
   providedIn: 'root',
@@ -19,5 +20,24 @@ export class CookieService {
 
   removeValue(key: string) {
     localStorage.removeItem(key);
+  }
+
+  /**
+   * Validates if the token expired.
+   * @param nameToken Token to validate.
+   */
+  isValidToken(nameToken: string) {
+    const token = this.getValue(nameToken);
+    if (!token) {
+      return false;
+    }
+    const decodeToken = jwt_decode<JwtPayload>(token);
+    if (!decodeToken || !decodeToken.exp) {
+      return false;
+    }
+    const tokenDate = new Date(0);
+    tokenDate.setUTCSeconds(decodeToken.exp);
+    const today = new Date();
+    return tokenDate.getTime() > today.getTime();
   }
 }

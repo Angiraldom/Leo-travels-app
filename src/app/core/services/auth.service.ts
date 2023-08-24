@@ -26,7 +26,7 @@ export class AuthService extends BaseService {
 
   login(body: { email: string; password: string }) {
     return this.postMethod('auth/login', body).pipe(
-      tap((res: any) => this.cookieService.setValue('token', res.data.access_token))
+      tap((res: any) => this.saveTokens(res.data))
     );
   }
 
@@ -51,8 +51,25 @@ export class AuthService extends BaseService {
     this.router.navigate(['home']);
   }
 
+  /**
+   * Clears the localStorage when the logout function is call.
+   */
   clearStorage() {
     localStorage.removeItem('reference');
     localStorage.removeItem('token');
+    localStorage.removeItem('refresh_token');
+  }
+
+  /**
+   * Saves the tokens in localStorage.
+   * @param data Back-end response.
+   */
+  saveTokens(data: any) {
+    if (!data.access_token || !data.refresh_token) {
+      this.logout();
+      return;
+    }
+    this.cookieService.setValue('token', data.access_token);
+    this.cookieService.setValue('refresh_token', data.refresh_token);
   }
 }
