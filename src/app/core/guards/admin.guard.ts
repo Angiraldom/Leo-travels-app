@@ -1,12 +1,15 @@
 import { inject } from '@angular/core';
 import { CanActivateFn, Router } from '@angular/router';
-import { AppState } from 'src/app/store/app.reducer';
 import { Store } from '@ngrx/store';
 import { take, map } from 'rxjs/operators';
+
+import { AppState } from 'src/app/store/app.reducer';
+import { AuthService } from '../services/auth.service';
 
 export const adminGuardFn: CanActivateFn = () => {
   const router = inject(Router);
   const store = inject(Store<AppState>);
+  const authService = inject(AuthService);
 
   const token = localStorage.getItem('token');
 
@@ -21,6 +24,7 @@ export const adminGuardFn: CanActivateFn = () => {
       if (user.role === 'Admin') {
         return true;
       } else {
+        authService.logout();
         router.navigate(['login']);
         return false;
       }
