@@ -47,7 +47,7 @@ export class TravelKitService {
     const caracteresLength = caracteres.length;
     let id = '';
   
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 5; i++) {
       const indice = Math.floor(Math.random() * caracteresLength);
       id += caracteres.charAt(indice);
     }
