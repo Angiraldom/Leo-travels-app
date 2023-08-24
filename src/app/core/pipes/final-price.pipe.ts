@@ -13,17 +13,19 @@ export class FinalPricePipe implements PipeTransform {
 
   getTotalValue(products: any[]) {
     const total: number = products.reduce((value, item) => {
-      const price = item.price * item.amount;
       if (item.discount) {
-        return value = this.calculateDiscount(price, item.amount * item.discount) + value;
+        return value += this.calculateDiscount(item.price, item.discount, item.amount);
       }
-      return value = price + value;
+      const price = item.price * item.amount;
+      return value += price;
     }, 0)
     return total;
   }
 
-  calculateDiscount(precioOriginal: number, porcentajeDescuento: number): number {
+  calculateDiscount(precioOriginal: number, porcentajeDescuento: number, amount: number): number {
     let descuento = (precioOriginal * porcentajeDescuento) / 100;
-    return precioOriginal - descuento;
+    const totalDiscount = descuento * amount;
+    const totalPriceWithoutDiscount = precioOriginal * amount;
+    return totalPriceWithoutDiscount - totalDiscount;
   }
 }
