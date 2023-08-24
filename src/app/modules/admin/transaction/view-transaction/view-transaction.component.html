@@ -7,7 +7,7 @@
         <p> <span class="bold">Valor:</span> {{data.data?.transaction?.amount_in_cents}} </p>
         <p> <span class="bold">Productos:</span> 
             <ng-container *ngFor="let item of data.products">
-                {{ item.name }}
+               {{ item.amount }} {{ item.name }},
             </ng-container>
          </p>
     </div>
