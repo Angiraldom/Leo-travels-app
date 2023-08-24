@@ -53,20 +53,20 @@ p {
     }
 
     iframe {
-        width: 40%;
+        width: 55%;
         align-self: center;
     }
 }
 
 @media only screen and (max-width: 748px) {
     iframe {
-        width: 70%;
+        width: 100%;
     }
 }
 
 @media only screen and (max-width: 425px) {
     iframe {
         width: 100%;
-        height: 550px;
+        height: 415px;
     }
 }

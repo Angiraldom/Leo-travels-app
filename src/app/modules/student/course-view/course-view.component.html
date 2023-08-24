@@ -68,6 +68,11 @@
 <ng-template #progress>
     <div class="content-progress" *ngIf="user.courses && user.courses.length > 0">
         <p>Progreso</p>
-        <p-progressBar [value]="user.courses[0].modules | classProgress"></p-progressBar>
+        <span style="width: 70%;" class="progress-0" *ngIf="(user.courses[0].modules | classProgress) === 0; else progress">
+            <p>0%</p>
+        </span>
+        <ng-template #progress>
+            <p-progressBar [value]="user.courses[0].modules | classProgress"></p-progressBar>
+        </ng-template>
     </div>
 </ng-template>
