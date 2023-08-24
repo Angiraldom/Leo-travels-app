@@ -41,7 +41,8 @@ export class PurchaseComponent implements OnInit, OnDestroy {
     currency: 'COP',
     amountInCents: 0,
     reference: '',
-    publicKey: 'pub_test_YHZn4Q2jPbQ5hnohVI5MpMeUtmV1y896',
+    // publicKey: 'pub_test_YHZn4Q2jPbQ5hnohVI5MpMeUtmV1y896',
+    publicKey: 'pub_prod_ZCkW5J9awng6lO5EdFhYLgPmL7PSshch',
     redirectUrl: 'https://vilean.co/#/response-transaction',
   };
 
