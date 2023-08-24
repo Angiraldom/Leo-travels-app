@@ -43,7 +43,8 @@
                     <li *ngFor="let class of module?.classes; let indexClass = index" class="sub-item">
                         <div class="item item-sub-header">
                             <div class="name-class-completed">
-                                <span class="circle" [class.background-secondary]="user.courses | completedClass: idCourse: module._id: class._id">
+                                <span class="circle" [class.completed-class]="user.courses | completedClass: idCourse: module._id: class._id">
+                                    <mat-icon>done</mat-icon>
                                 </span>
                                 <span class="item-title" (click)="changeRoute(module._id, class._id)">
                                     {{ class.name}}

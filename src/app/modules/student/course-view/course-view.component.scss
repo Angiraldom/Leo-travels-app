@@ -1,5 +1,5 @@
 @import "/src/styles/variables";
-@import "/src/styles/progressbar";c
+@import "/src/styles/progressbar";
 
 .spinner {
     display: flex;
@@ -110,12 +110,12 @@ ul {
 }
 
 .sub-item {
-    padding: 5px 0px 0px 15px;
+    padding: 13px 0px 13px 15px;
     margin: 1px 0px;
     border-bottom: 1px solid $border;
 }
 
-.sub-list li:last-child{
+.sub-list li:last-child {
     border: none;
 }
 
@@ -142,16 +142,31 @@ ul {
 .name-class-completed {
     display: flex;
     gap: 12px;
+    align-items: center;
 
     .circle {
-        height: 20px;
-        width: 20px;
+        height: 21px;
+        width: 21px;
         border-radius: 50%;
+        position: relative;
+        background-color: #cbcbcb;
+
+        mat-icon {
+            display: none;
+            height: 18px;
+            width: 18px;
+            position: absolute;
+            top: -2px;
+        }
     }
 }
 
-.background-secondary {
-    background-color: $secondary;
+.completed-class {
+    background-color: $secondary !important;
+
+    mat-icon {
+        display: inline-block !important;
+    }
 }
 
 @media only screen and (min-width: 734px) {
