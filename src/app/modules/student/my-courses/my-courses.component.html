@@ -8,7 +8,14 @@
         </ng-template>
         <h3>{{course.name}}</h3>
         <p *ngIf="user.courses && user.courses.length > 0">
-            <p-progressBar [value]="user.courses[0].modules | classProgress" [color]="'primary'"></p-progressBar>
+            <span class="progress-0" *ngIf="(user.courses[0].modules | classProgress) === 0; else progress">
+                <p>0%</p>
+            </span>
+
+            <ng-template #progress>
+                <p-progressBar [value]="user.courses[0].modules | classProgress"></p-progressBar>
+            </ng-template>
+            
         </p>
         <div class="footer">
             <p *ngIf="user.courses && user.courses.length > 0"> 
