@@ -1,23 +1,19 @@
 <div [class]="'content ' + typeClass">
     <hr>
 
-    <p class="first-color">APROVECHA LA PROMO DE LANZAMIENTO</p>
+    <p class="second-color bold-600">El curso está valorado
+        por <mark>más de $600.000 COP</mark></p>
 
     <h2 class="first-color max-width">
-        20% DESCUENTO POR LANZAMIENTO
+        PERO PUEDES LLEVARLO POR SOLO
     </h2>
 
     <div class="first-color second-color">
-        <h2 class="no-bold">
+        <h2 class="bold-600">
             <span>$237.000 COP</span>
-        </h2>
-    
-        <h2>
-            $189.600 COP
         </h2>
     </div>
 
-    <app-generic-button (emitClick)="handleClick()" [showCouponTextCourse]="true"
-     nameButton="COMPRAR CURSO" [classButton]="classButton"
-     [classMarkCoupon]="'coupon-color_white_blue'"></app-generic-button>
+    <app-generic-button (emitClick)="handleClick()" [showCouponTextCourse]="false"
+     nameButton="COMPRAR CURSO" [classButton]="classButton"></app-generic-button>
 </div>

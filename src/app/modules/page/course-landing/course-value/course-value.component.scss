@@ -8,10 +8,20 @@
     .second-color {
         color: $white;
     }
+
+    mark {
+        background: none;
+        color: white;
+    }
 }
 
 .letter_blue {
     .first-color, .second-color {
+        color: $primary;
+    }
+
+    mark {
+        background-color: white;
         color: $primary;
     }
 }
@@ -25,18 +35,18 @@
     width: 90%;
     margin: 0 auto;
     text-align: center;
+
+    p {
+        max-width: 212px;
+    }
 }
 
-.no-bold {
-    font-weight: 100;
+.bold-600 {
+    font-weight: 600;
 }
 
 hr {
     width: 80%;
-}
-
-span {
-    text-decoration-line: line-through;
 }
 
 .max-width {
