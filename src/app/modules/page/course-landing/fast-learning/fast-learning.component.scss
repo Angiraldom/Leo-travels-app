@@ -1,0 +1,13 @@
+.fast-learning {
+    padding: 40px 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+
+    img {
+        width: 100%;
+        max-width: 400px;
+    }
+}

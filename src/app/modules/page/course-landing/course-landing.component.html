@@ -17,9 +17,11 @@
     </div>
 
     <app-buy-section class="app-buy" (onAddCourse)="validateCourseAndAddInCart()"></app-buy-section>
-    <div class="content-course-value background-secondary movil test">
-        <app-course-value (onAddCourse)="validateCourseAndAddInCart()"
-        [typeClass]="'letter_blue'" [classButton]="'class_blue'"></app-course-value>
+    <app-fast-learning></app-fast-learning>
+
+    <div class="background-secondary course-value-content">
+        <app-course-value (onAddCourse)="validateCourseAndAddInCart()" [showHr]="false"
+            [typeClass]="'letter_blue'" [classButton]="'class_blue'"></app-course-value>
     </div>
     <app-carousel-section class="app-carousel" id="coursel"></app-carousel-section>
 

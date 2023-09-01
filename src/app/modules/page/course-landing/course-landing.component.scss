@@ -39,6 +39,14 @@
   padding-bottom: 40px;
 }
 
+.course-value-content {
+  padding: 40px 30px;
+
+  app-course-value ::ng-deep.content {
+    width: 100%;
+  }
+}
+
 @media screen and (min-width: 936px) {
   .movil {
     display: none;

@@ -24,6 +24,7 @@ import { HeaderPromotionsComponent } from 'src/app/shared/header-promotions/head
 import { BenefitsSessionComponent } from './benefits-session/benefits-session.component';
 import { CourseValueComponent } from './course-value/course-value.component';
 import { OurPurposeComponent } from './our-purpose/our-purpose.component';
+import { FastLearningComponent } from './fast-learning/fast-learning.component';
 
 
 @NgModule({
@@ -43,7 +44,8 @@ import { OurPurposeComponent } from './our-purpose/our-purpose.component';
     KitPromotionComponent,
     BenefitsSessionComponent,
     CourseValueComponent,
-    OurPurposeComponent
+    OurPurposeComponent,
+    FastLearningComponent
   ],
   imports: [
     CommonModule,
