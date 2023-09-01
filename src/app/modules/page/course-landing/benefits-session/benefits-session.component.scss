@@ -1,13 +1,5 @@
 @import '/src/styles/variables';
 
-.color-secondary {
-  color: $secondary;
-}
-
-.color-white {
-  color: $white;
-}
-
 .content {
   width: 100%;
   background-color: $primary;
@@ -21,107 +13,64 @@
 }
 
 .content-section {
-  width: 100%;
 
-  .card {
-    width: 15% !important;
-    margin-top: 25px;
-  }
-
-  ::ng-deep.p-card-header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  ::ng-deep .p-card-body {
-    max-width: 260px;
-    margin: 0 auto;
-    padding: 0px;
-    text-align: center;
-  }
-
-  ::ng-deep .p-card {
-    max-width: 310px;
-    box-shadow: none;
-    border-radius: 10px;
-  }
-
-  ::ng-deep .p-card-title {
-    margin-top: 10px;
-    margin-bottom: 0px;
-    font-weight: normal;
-    font-size: 16px;
-    color: $primary;
-    font-family: 'Poppins', sans-serif;
-  }
-}
-
-@media only screen and (min-width: 750px) and (max-width: 1065px) {
-  .content-section {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    max-width: 750px;
-    margin: 0 auto;
-
-    ::ng-deep .p-card:first-child {
-      height: 199px;
-    }
-  }
-
-  ::ng-deep .p-card {
-    display: grid;
-    max-width: 310px;
-    min-height: 183px;
-  }
-
-}
-
-@media only screen and (min-width: 1066px) {
-  .content-section {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr 1fr;
     margin: 0 auto;
     column-gap: 40px;
-
-    p-card:first-child {
-      grid-column: 2/2;
+    
+    div:first-child {
+      grid-column: 2/3;
     }
-
-    ::ng-deep .p-card:first-child {
-      height: 199px;
-    }
-  }
-
-  ::ng-deep .p-card {
-    display: grid;
-    min-height: 170px;
-  }
-
 }
 
-@media only screen and (min-width: 1234px) {
-  ::ng-deep .p-card {
-    max-width: 305px !important;
-  }
+.mx-hght {
+  max-height: 199px;
+}
+
+.card-style {
+  width: 100%;
+  min-height: 199px;
+  border-radius: 10px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  min-width: 305px;
+}
+
+.card-information {
+  grid-column: 2/4;
+  margin: 0px auto 2em;
+}
+
+.small-font {
+  font-size: smaller;
+} 
+
+@media screen and (max-width: 741px) {
 
   .content-section {
-    ::ng-deep .p-card:first-child {
-      height: 199px;
+    grid-template-columns: 1fr;
+    grid-template-rows: 235px 235px auto;
+
+    div:first-child {
+      grid-column: 1/2;
+      grid-row: 1/2;
     }
   }
-}
 
-.container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 310px;
-  height: auto;
-}
+  .card-information {
+    grid-column: 1/2;
+    grid-row: 3/4;
+    padding: 20px;
+  }
 
-.responsive-img {
-  position: relative !important;
-  max-width: 100%;
-  max-height: 100%;
+  .card-style {
+    min-width: auto;
+    max-width: 547px;
+  }
 }
