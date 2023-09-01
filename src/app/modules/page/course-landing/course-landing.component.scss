@@ -14,17 +14,8 @@
   display: none;
 }
 
-.container-carousel {
-  display: flex;
-  flex-direction: column;
-}
-
 .content-course-value {
   padding: 0px 0px 60px;
-}
-
-.display-none {
-  display: none;
 }
 
 .background-primary {
@@ -48,10 +39,6 @@
 }
 
 @media screen and (min-width: 936px) {
-  .movil {
-    display: none;
-  }
-
   .desktop {
     display: block;
   }
@@ -68,14 +55,6 @@
 
   .app-info {
     width: 35%;
-  }
-
-  .container-carousel {
-    flex-direction: column-reverse;
-  }
-
-  .display-none {
-    display: block;
   }
 }
 

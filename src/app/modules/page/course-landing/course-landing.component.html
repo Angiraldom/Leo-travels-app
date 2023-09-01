@@ -6,15 +6,18 @@
     <section class="background-primary">
         <div class="container-info" id="video">
             <app-video class="app-video"></app-video>
-            <app-info-buy-section class="movil" (onAddCourse)="validateCourseAndAddInCart()"></app-info-buy-section>
             <app-info-fotos class="app-info" id="benefits"></app-info-fotos>
         </div>
     </section>
-    
-    <div class="content-course-value display-none background-primary">
+
+    <app-the-best-of-all></app-the-best-of-all>
+
+    <div class="content-course-value background-primary">
         <app-course-value (onAddCourse)="validateCourseAndAddInCart()" 
         [typeClass]="'letter_yellow_white'"></app-course-value>
     </div>
+
+    <app-bad-things></app-bad-things>
 
     <app-buy-section class="app-buy" (onAddCourse)="validateCourseAndAddInCart()"></app-buy-section>
     <app-fast-learning></app-fast-learning>
@@ -25,7 +28,6 @@
     </div>
     <app-carousel-section class="app-carousel" id="coursel"></app-carousel-section>
 
-    <div class="container-carousel"></div>
     <app-course-content-section id="content-course"></app-course-content-section>
     <app-cards></app-cards>
     <app-benefits-session></app-benefits-session>
