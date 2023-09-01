@@ -23,6 +23,7 @@ import { KitPromotionComponent } from './kit-promotion/kit-promotion.component';
 import { HeaderPromotionsComponent } from 'src/app/shared/header-promotions/header-promotions.component';
 import { BenefitsSessionComponent } from './benefits-session/benefits-session.component';
 import { CourseValueComponent } from './course-value/course-value.component';
+import { OurPurposeComponent } from './our-purpose/our-purpose.component';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import { CourseValueComponent } from './course-value/course-value.component';
     TravelKitComponent,
     KitPromotionComponent,
     BenefitsSessionComponent,
-    CourseValueComponent
+    CourseValueComponent,
+    OurPurposeComponent
   ],
   imports: [
     CommonModule,
