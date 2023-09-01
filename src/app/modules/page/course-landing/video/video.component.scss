@@ -22,7 +22,7 @@ h1 {
 }
 
 
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 936px) {
   .text-info {
     display: block;
   }
@@ -38,6 +38,14 @@ h1 {
     iframe {
       width: 415px;
       height: 553px;
+    }
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .container {
+    iframe {
+      height: 390px;
     }
   }
 }

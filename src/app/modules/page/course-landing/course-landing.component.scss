@@ -2,8 +2,12 @@
 
 .container-info {
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   flex-wrap: nowrap;
+  width: 90%;
+  margin: 0 auto;
+  justify-content: center;
+  gap: 35px;
 }
 
 .desktop {
@@ -35,7 +39,7 @@
   padding-bottom: 40px;
 }
 
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 936px) {
   .movil {
     display: none;
   }
@@ -45,18 +49,17 @@
   }
 
   .container-info {
-    flex-direction: row;
+    flex-direction: row-reverse;
     background-color: $primary;
     padding: 0 80px;
   }
 
   .app-video {
-    width: 50%;
-    margin-right: 30px;
+    width: 40%;
   }
 
   .app-info {
-    width: 40%;
+    width: 35%;
   }
 
   .container-carousel {
@@ -65,5 +68,17 @@
 
   .display-none {
     display: block;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .container-info {
+    gap: 20px;
+  }
+}
+
+@media screen and (max-width: 1341px) and (min-width: 936px) { 
+  .app-video {
+    width: 60%;
   }
 }

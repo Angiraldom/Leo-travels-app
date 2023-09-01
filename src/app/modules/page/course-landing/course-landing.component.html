@@ -3,11 +3,13 @@
     <app-main-section (onAddCourse)="validateCourseAndAddInCart()"></app-main-section>
     <app-steps-section></app-steps-section>
 
-    <div class="container-info" id="video">
-        <app-video class="app-video"></app-video>
-        <app-info-buy-section class="movil" (onAddCourse)="validateCourseAndAddInCart()"></app-info-buy-section>
-        <app-info-fotos class="app-info" id="benefits"></app-info-fotos>
-    </div>
+    <section class="background-primary">
+        <div class="container-info" id="video">
+            <app-video class="app-video"></app-video>
+            <app-info-buy-section class="movil" (onAddCourse)="validateCourseAndAddInCart()"></app-info-buy-section>
+            <app-info-fotos class="app-info" id="benefits"></app-info-fotos>
+        </div>
+    </section>
     
     <div class="content-course-value display-none background-primary">
         <app-course-value (onAddCourse)="validateCourseAndAddInCart()" 
