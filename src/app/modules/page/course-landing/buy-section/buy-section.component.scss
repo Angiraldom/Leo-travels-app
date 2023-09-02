@@ -4,7 +4,6 @@
   text-align: center;
   background-color: $secondary;
   position: relative;
-  padding-bottom: 40px;
 
   .icon-image {
     position: absolute;
@@ -16,86 +15,45 @@
       width: 100%;
     }
   }
-
-  .text {
-    padding: 30px 30px 20px 30px;
-
-    p {
-      text-align: center;
-      color: $primary;
-    }
-  }
-
-  .button {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-
-    p {
-      color: $primary;
-      margin-bottom: 20px !important;
-      text-align: center;
-    }
-  }
-}
-
-.margin {
-  margin-bottom: 25px;
-}
-
-.text-desktop {
-  display: none;
-  padding: 40px 30px 20px 30px;
-
-  p {
-    text-align: center;
-    color: $primary;
-  }
 }
 
 .desktop {
   display: none;
 }
 
-.color-blue {
+mark {
+  background: white;
   color: $primary;
+}
+
+.buy-content-paragraphs {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 65px 30px 40px 30px;
+  gap: 20px;
+}
+
+hr {
+  width: 83%;
+  border-color: $primary;
 }
 
 @media screen and (min-width: 800px) {
 
-  .text,
   .movil {
     display: none;
   }
 
-  .text-desktop,
   .desktop {
     display: block;
-  }
-
-  .padding-bottom {
-    padding-bottom: 30px;
   }
 }
 
 @media screen and (max-width: 800px) {
 
   .buy-content {
-
     padding-bottom: 0px;
-
-    .button {
-      display: none;
-    }
-  }
-
-  .padding-bottom {
-    padding-bottom: 0px;
-  }
-
-  .max-width {
-    margin: 0 auto;
-    max-width: 221px;
   }
 }

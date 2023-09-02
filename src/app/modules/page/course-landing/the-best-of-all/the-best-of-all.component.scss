@@ -1,0 +1,41 @@
+@import "/src/styles/variables";
+
+.best-of-all {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 30px;
+    gap: 20px;
+    background-color: $primary;
+    color: white;
+    margin: 0 auto;
+
+
+    hr {
+        width: 80%;
+        border-color: white;
+    }
+}
+
+ul {
+    padding-left: 15px;
+    list-style: none;
+    margin-bottom: 0px;
+
+    li {
+        margin-bottom: 12px;
+    }
+}
+
+li::before {
+    content: "\2022";
+    color: $secondary;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+}
+
+.max-wth {
+    max-width: 350px;
+}

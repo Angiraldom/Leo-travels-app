@@ -3,25 +3,31 @@
     <app-main-section (onAddCourse)="validateCourseAndAddInCart()"></app-main-section>
     <app-steps-section></app-steps-section>
 
-    <div class="container-info" id="video">
-        <app-video class="app-video"></app-video>
-        <app-info-buy-section class="movil" (onAddCourse)="validateCourseAndAddInCart()"></app-info-buy-section>
-        <app-info-fotos class="app-info" id="benefits"></app-info-fotos>
-    </div>
-    
-    <div class="content-course-value display-none background-primary">
+    <section class="background-primary">
+        <div class="container-info" id="video">
+            <app-video class="app-video"></app-video>
+            <app-info-fotos class="app-info" id="benefits"></app-info-fotos>
+        </div>
+    </section>
+
+    <app-the-best-of-all></app-the-best-of-all>
+
+    <div class="content-course-value background-primary">
         <app-course-value (onAddCourse)="validateCourseAndAddInCart()" 
         [typeClass]="'letter_yellow_white'"></app-course-value>
     </div>
 
+    <app-bad-things></app-bad-things>
+
     <app-buy-section class="app-buy" (onAddCourse)="validateCourseAndAddInCart()"></app-buy-section>
-    <div class="content-course-value background-secondary movil test">
-        <app-course-value (onAddCourse)="validateCourseAndAddInCart()"
-        [typeClass]="'letter_blue'" [classButton]="'class_blue'"></app-course-value>
+    <app-fast-learning></app-fast-learning>
+
+    <div class="background-secondary course-value-content">
+        <app-course-value (onAddCourse)="validateCourseAndAddInCart()" [showHr]="false"
+            [typeClass]="'letter_blue'" [classButton]="'class_blue'"></app-course-value>
     </div>
     <app-carousel-section class="app-carousel" id="coursel"></app-carousel-section>
 
-    <div class="container-carousel"></div>
     <app-course-content-section id="content-course"></app-course-content-section>
     <app-cards></app-cards>
     <app-benefits-session></app-benefits-session>
@@ -29,6 +35,7 @@
         <app-course-value (onAddCourse)="validateCourseAndAddInCart()"
         [typeClass]="'letter_yellow_white'"></app-course-value>
     </div>
+    <app-our-purpose></app-our-purpose>
     <app-travel-kit id="travel-kit"></app-travel-kit>
     <app-footer></app-footer>
 </ng-container>

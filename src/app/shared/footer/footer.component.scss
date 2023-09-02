@@ -25,13 +25,6 @@ a:active {
     text-align: center;
 }
 
-.name-social-media {
-    color: $secondary;
-    text-align: center;
-    text-transform: uppercase;
-    font-weight: 700;
-}
-
 p {
     text-align: center;
     font-weight: 400;
@@ -48,48 +41,6 @@ p {
     margin: 0 auto;
 }
 
-.social-bottom {
-    position: relative;
-    width: 100%;
-    z-index: 12;
-    height: 25px;
-    margin-bottom: 15px;
-}
-
-.list-social li {
-    padding: 0;
-    list-style: none;
-    text-align: center;
-    width: 25px;
-    display: inline-block;
-    cursor: pointer;
-}
-
-.list-social li.icon-soc span {
-    font-size: 12px;
-    line-height: 25px;
-    width: 25px;
-    opacity: 1;
-    margin: 0;
-    padding: 0;
-}
-
-.footer-bottom {
-    padding: 30px 0px 50px;
-    background: $primary;
-}
-
-.footer-bottom p {
-    letter-spacing: 1px;
-    font-size: 20px;
-    line-height: 18px;
-}
-
-.container {
-    max-width: 305px;
-    margin: 0 auto;
-}
-
 .margin {
     margin-top: 10px;
     margin-bottom: 10px;
@@ -97,10 +48,6 @@ p {
 
 .content-logo {
     padding-bottom: 35px;
-}
-
-.padding-title {
-    padding-bottom: 20px;
 }
 
 .msj {

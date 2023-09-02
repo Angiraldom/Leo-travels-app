@@ -1,0 +1,15 @@
+@import "/src/styles/variables";
+
+.our-purpose {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: $background-color;
+    padding: 40px 30px;
+    gap: 20px;
+}
+
+.mx-wth{
+    max-width: 600px;
+}

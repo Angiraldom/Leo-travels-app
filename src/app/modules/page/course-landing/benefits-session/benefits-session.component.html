@@ -1,30 +1,36 @@
 <div class="content">
     <div>
         <h2 class="color-secondary">Además:</h2>
-        <p class="color-white">Al comprar el curso, tendrás acceso a:</p>
+        <p class="color-white">Al comprar el curso, tendrás:</p>
     </div>
 
     <div class="content-section">
-        <p-card
-            [header]="'Atención personalizada, podrás hacer preguntas, pedir tips extra o compartir tus avances en cada clase.'"
-            [style]="{'margin': '0 auto 2em auto'}">
-            <ng-template pTemplate="header">
-                <div class="container">
-                    <img [alt]="'image1'"
-                        [ngSrc]="'https://vilean.s3.us-east-2.amazonaws.com/IMAGENES+SITIO+WEB/IC-20.png'" fill
-                        class="responsive-img card">
-                </div>
-            </ng-template>
-        </p-card>
-        <p-card [header]="'Todas las actualizaciones futuras sin ningún costo extra.'"
-            [style]="{'margin': '0 auto 2em auto'}">
-            <ng-template pTemplate="header">
-                <div class="container">
-                    <img [alt]="'image2'"
-                        [ngSrc]="'https://vilean.s3.us-east-2.amazonaws.com/IMAGENES+SITIO+WEB/IC-21.png'" fill
-                        class="responsive-img card">
-                </div>
-            </ng-template>
-        </p-card>
+
+        <div class="card-style mx-hght">
+            <img alt="'image1'" width="46.5px"
+            src="https://vilean.s3.us-east-2.amazonaws.com/IMAGENES+SITIO+WEB/IC-20.png">
+            <p class="color-primary" style="max-width: 274px;">
+                <span class="color-primary font-bold">Atención personalizada,</span> podrás hacer preguntas, pedir tips extra o compartir tus avances en cada clase.  
+            </p>
+        </div>
+
+        <div class="card-style mx-hght">
+            <img alt="'image2'" width="46.5px"
+            src="https://vilean.s3.us-east-2.amazonaws.com/IMAGENES+SITIO+WEB/IC-21.png">
+            <p class="color-primary" style="max-width: 274px; margin-bottom: 25px;">
+                <span class="color-primary font-bold">Acceso vitalicio,</span> podrás ver todas las actualizaciones futuras sin ningún costo extra.  
+            </p>
+        </div>
+
+        <div class="card-information card-style">
+            <img width="46.5px" src="../../../../../assets/images/Icono_garantia.svg" alt="garantia">
+            <p class="color-primary" style="max-width: 500px;">
+                <span class="color-primary font-bold">Garantía de satisfacción,</span> tienes 14 días para hacer el curso
+                y si no logras mejorar tus fotos, te devolvemos tu dinero.
+            </p>
+            <p class="small-font color-primary">
+                Eso sí, tienes que haber completado el curso y demostrar que has aplicado lo aprendido
+            </p>
+        </div>
     </div>
 </div>

@@ -1,78 +1,38 @@
 @import "/src/styles/variables";
 
-h3 {
-  color: $primary;
-  text-align: center;
-  margin-bottom: 20px;
-  font-weight: bold;
-}
-
-p {
-  color: gray;
+.container-info {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+    max-width: 325px;
+    align-items: center;
+    margin: 0 auto;
+    gap: 15px;
 }
 
 ul {
   padding-left: 15px;
   list-style: none;
+  margin-bottom: 0px;
+
+  li {
+    margin-bottom: 12px;
+  }
 }
 
 li::before {
   content: "\2022";
-  color: $primary;
+  color: $secondary;
   display: inline-block;
   width: 1em;
   margin-left: -1em;
 }
 
-li {
-    color: grey;
-}
-
-.container-info {
-    display: flex;
-    justify-content: center;
-    padding: 30px 31px 20px 50px;
-}
-
-.info {
-  padding-bottom: 20px;
-}
-
-h2 {
-  margin-bottom: 20px;
-}
-
-.margin {
+.padding {
   padding: 20px 0px 15px 0px;
 }
 
-.mb-0 {
-  margin-bottom: 0;
-}
-
-
-@media screen and (min-width: 800px) {
-  .app-button {
-    display: block;
-  }
-
-  .container-info {
-    padding: 0;
-    padding-right: 50px;
-    justify-content: flex-start;
-
-  }
-
-  p, li, li::before {
-    color: $white;
-  }
-
-  h3 {
-    color: $secondary;
-    text-align: start;
-  }
-
-  ul {
-    margin-bottom: 30px;
-  }
+.max-wth {
+  max-width: 290px;
 }
