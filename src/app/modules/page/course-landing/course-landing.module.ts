@@ -9,7 +9,6 @@ import { GenericButtonComponent } from 'src/app/shared/generic-button/generic-bu
 import { StepsSectionComponent } from './steps-section/steps-section.component';
 import { VideoComponent } from './video/video.component';
 import { TextInfoBuyComponent } from './text-info-buy/text-info-buy.component';
-import { InfoBuySectionComponent } from './info-buy-section/info-buy-section.component';
 import { InfoFotosComponent } from './info-fotos/info-fotos.component';
 import { BuySectionComponent } from './buy-section/buy-section.component';
 import { CarouselSectionComponent } from './carousel-section/carousel-section.component';
@@ -23,6 +22,10 @@ import { KitPromotionComponent } from './kit-promotion/kit-promotion.component';
 import { HeaderPromotionsComponent } from 'src/app/shared/header-promotions/header-promotions.component';
 import { BenefitsSessionComponent } from './benefits-session/benefits-session.component';
 import { CourseValueComponent } from './course-value/course-value.component';
+import { OurPurposeComponent } from './our-purpose/our-purpose.component';
+import { FastLearningComponent } from './fast-learning/fast-learning.component';
+import { BadThingsComponent } from './bad-things/bad-things.component';
+import { TheBestOfAllComponent } from './the-best-of-all/the-best-of-all.component';
 
 
 @NgModule({
@@ -32,7 +35,6 @@ import { CourseValueComponent } from './course-value/course-value.component';
     StepsSectionComponent,
     VideoComponent,
     TextInfoBuyComponent,
-    InfoBuySectionComponent,
     InfoFotosComponent,
     BuySectionComponent,
     CarouselSectionComponent,
@@ -41,7 +43,11 @@ import { CourseValueComponent } from './course-value/course-value.component';
     TravelKitComponent,
     KitPromotionComponent,
     BenefitsSessionComponent,
-    CourseValueComponent
+    CourseValueComponent,
+    OurPurposeComponent,
+    FastLearningComponent,
+    BadThingsComponent,
+    TheBestOfAllComponent
   ],
   imports: [
     CommonModule,

@@ -1,0 +1,49 @@
+@import "/src/styles/variables";
+
+.lists {
+    padding: 40px 30px;
+    text-align: center;
+
+}
+
+ul {
+    margin: 0px;
+    list-style: none;
+
+    li {
+        margin-bottom: 12px;
+    }
+}
+
+li::before {
+    content: "\2022";
+    color: $primary;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+}
+
+.lists-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: start;
+    max-width: 755px;
+    margin: 25px auto 0px;
+    gap: 80px;
+}
+
+.second-list {
+    align-self: flex-start;
+}
+
+@media screen and (max-width: 500px) {
+    .lists-content {
+        flex-direction: column;
+        gap: 15px;
+
+        ul {
+            padding-left: 15px;
+        }
+    }
+}

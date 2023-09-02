@@ -7,6 +7,7 @@ import { IClassButton } from 'src/app/shared/generic-button/interface/IClassButt
   styleUrls: ['./course-value.component.scss']
 })
 export class CourseValueComponent {
+  @Input() showHr = true;
   @Input() typeClass: 'letter_blue' | 'letter_yellow_white' = 'letter_yellow_white';
   @Input() classButton: IClassButton = 'class_yellow';
   @Output() onAddCourse = new EventEmitter();

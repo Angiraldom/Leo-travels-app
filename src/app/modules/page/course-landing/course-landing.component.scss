@@ -2,25 +2,20 @@
 
 .container-info {
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   flex-wrap: nowrap;
+  width: 90%;
+  margin: 0 auto;
+  justify-content: center;
+  gap: 35px;
 }
 
 .desktop {
   display: none;
 }
 
-.container-carousel {
-  display: flex;
-  flex-direction: column;
-}
-
 .content-course-value {
   padding: 0px 0px 60px;
-}
-
-.display-none {
-  display: none;
 }
 
 .background-primary {
@@ -35,35 +30,42 @@
   padding-bottom: 40px;
 }
 
-@media screen and (min-width: 800px) {
-  .movil {
-    display: none;
-  }
+.course-value-content {
+  padding: 40px 30px;
 
+  app-course-value ::ng-deep.content {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 936px) {
   .desktop {
     display: block;
   }
 
   .container-info {
-    flex-direction: row;
+    flex-direction: row-reverse;
     background-color: $primary;
     padding: 0 80px;
   }
 
   .app-video {
-    width: 50%;
-    margin-right: 30px;
-  }
-
-  .app-info {
     width: 40%;
   }
 
-  .container-carousel {
-    flex-direction: column-reverse;
+  .app-info {
+    width: 35%;
   }
+}
 
-  .display-none {
-    display: block;
+@media screen and (max-width: 420px) {
+  .container-info {
+    gap: 20px;
+  }
+}
+
+@media screen and (max-width: 1341px) and (min-width: 936px) { 
+  .app-video {
+    width: 60%;
   }
 }
