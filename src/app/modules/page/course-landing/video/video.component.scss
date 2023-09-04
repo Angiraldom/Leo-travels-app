@@ -1,51 +1,7 @@
-@import '/src/styles/variables';
-
-.text-info {
-  display: none;
-}
-
-h1 {
-  color: $primary;
-}
-
-.container {
-  width: 100%;
-  overflow-x: hidden;
-  background-color: $primary;
+@media screen and (max-width: 935px) {
 
   iframe {
     width: 100%;
-    margin: 0;
-    padding: 0;
-    height: 500px;
-  }
-}
-
-
-@media screen and (min-width: 936px) {
-  .text-info {
-    display: block;
-  }
-
-  .container {
-    margin-bottom: 0;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    align-items: flex-end;
-    padding: 0;
-
-    iframe {
-      width: 415px;
-      height: 553px;
-    }
-  }
-}
-
-@media screen and (max-width: 420px) {
-  .container {
-    iframe {
-      height: 390px;
-    }
+    max-height: 519px;
   }
 }
