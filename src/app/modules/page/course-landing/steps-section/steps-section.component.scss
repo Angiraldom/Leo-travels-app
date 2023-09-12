@@ -15,6 +15,11 @@
   background-size: 50% auto;
 }
 
+.step-icon-hand {
+  background: url('../../../../../assets/icons/paso3.png') center center no-repeat;
+  background-size: 50% auto;
+}
+
 .section {
   background-color: $primary;
   color: #fff;
@@ -34,7 +39,7 @@
   display: flex;
   align-items: center;
   margin: 4px 0px;
-  width: 80%;
+  width: 81%;
   max-width: 291px;
 }
 

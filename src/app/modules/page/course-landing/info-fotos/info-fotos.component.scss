@@ -1,14 +1,14 @@
 @import "/src/styles/variables";
 
 .container-info {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    height: 100%;
-    max-width: 325px;
-    align-items: center;
-    margin: 0 auto;
-    gap: 15px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+  max-width: 380px;
+  align-items: flex-start;
+  margin: 0 auto;
+  gap: 15px;
 }
 
 ul {
@@ -35,4 +35,10 @@ li::before {
 
 .max-wth {
   max-width: 290px;
+}
+
+@media screen and (max-width: 420px) {
+  .container-info {
+    width: 90%;
+  }
 }

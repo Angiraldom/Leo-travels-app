@@ -54,13 +54,14 @@
   }
 
   .app-info {
-    width: 35%;
+    width: 40%;
   }
 }
 
 @media screen and (max-width: 420px) {
   .container-info {
-    gap: 20px;
+    gap: 40px;
+    width: 100%;
   }
 }
 
