@@ -1,5 +1,14 @@
 @import "/src/styles/variables";
 
+.login {
+  background-color: $background-color;
+
+  p {
+    margin-top: 15px !important;
+    width: 342px;
+  }
+}
+
 .separador {
   border-color: $gray;
 }
@@ -24,7 +33,7 @@
   display: flex;
   flex-direction: column;
   margin-top: 60px;
-  color:$primary; 
+  color: $primary;
 }
 
 .separador {
@@ -44,40 +53,51 @@
 }
 
 @media screen and (min-width:601px) {
-  .first-container{
-    display: flex;
-    flex-direction: row;
-  .first-content {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color:$primary;
-    width:70%;
-    flex-direction:column;
-    .icon-logo-vilean {
-      margin-bottom: 30px;
-      display: block;
-      width: 80px;
-      height: 80px;
-      background-image: url('../../../../assets/images/Icono_vilean.svg');
-      background-repeat: no-repeat;
-      background-size: contain;
+
+  .login {
+    p {
+      width: 555px !important;
     }
   }
-  .second-content {
-    width: 100%;
-    height: 100vh;
-    background: url("../../../../assets/images/home.jpg") no-repeat center center;
-    background-size: cover;
-  }
+
+  .first-container {
+    display: flex;
+    flex-direction: row;
+
+    .first-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: $primary;
+      width: 70%;
+      flex-direction: column;
+
+      .icon-logo-vilean {
+        margin-bottom: 30px;
+        display: block;
+        width: 80px;
+        height: 80px;
+        background-image: url('../../../../assets/images/Icono_vilean.svg');
+        background-repeat: no-repeat;
+        background-size: contain;
+      }
+    }
+
+    .second-content {
+      width: 100%;
+      height: 100vh;
+      background: url("../../../../assets/images/home.jpg") no-repeat center center;
+      background-size: cover;
+    }
   }
 
-  .second-container{
-    padding:60px;
-    display:flex;
+  .second-container {
+    padding: 60px;
+    display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+
     .icon-logo {
       display: block;
       width: 30px;
@@ -89,42 +109,44 @@
   }
 
   .container-ver-mas {
-    .ver-mas-1{
+    .ver-mas-1 {
       background-color: $white;
-      padding:40px;
-      color:$white;
+      padding: 40px;
+      color: $white;
       display: flex;
-        
-      .separador{
+
+      .separador {
         background-color: $gray;
       }
     }
 
-    .ver-mas-2{
+    .ver-mas-2 {
       background-color: $secondary;
-      padding:40px;
+      padding: 40px;
       display: flex;
-        
-      .separador{
+
+      .separador {
         background-color: $primary;
       }
     }
+
     .photography-course {
       width: 50%;
       height: 300px;
       background-color: $white;
       border-radius: 20px;
     }
+
     .container-paragraph {
-      display:flex;
-      flex-direction:column;
+      display: flex;
+      flex-direction: column;
       align-items: center;
       text-align: center;
       margin: 40px;
 
-        .sub-title{ 
-          margin:30px;
-        }
+      .sub-title {
+        margin: 30px;
+      }
     }
   }
 
@@ -134,29 +156,29 @@
     background-image: url("../../../../assets/images/quienes_somos_desktop.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    color:$white;
-    display:flex;
+    color: $white;
+    display: flex;
     flex-direction: column;
     text-align: center;
     align-items: center;
 
-      .title{
-        margin-top:60px;
-      }
-      
-      .boton-leer-mas{
-        display:flex;
-        flex-direction: column;
-        margin-top: auto;
-        margin-bottom: 40px;
-      }
+    .title {
+      margin-top: 60px;
+    }
+
+    .boton-leer-mas {
+      display: flex;
+      flex-direction: column;
+      margin-top: auto;
+      margin-bottom: 40px;
+    }
   }
 
   .container-redes-sociales {
-    padding:60px 0;
-    display:flex;
+    padding: 60px 0;
+    display: flex;
     flex-direction: column;
-    color:$primary;
+    color: $primary;
     align-items: center;
 
     .separador {
@@ -169,7 +191,7 @@
     .sub-title {
       text-align: center;
       width: 300px;
-      margin-bottom: 60px;
+      margin-bottom: 45px;
     }
 
     .canal-youtube-margin {
@@ -208,6 +230,7 @@
     flex-direction: column;
     padding: 30px 0;
   }
+
   .container-ver-mas {
     .ver-mas-1 {
       background-color: $white;
@@ -217,12 +240,13 @@
       align-items: center;
       display: flex;
       flex-direction: column;
-  
-        .separador{
-          background-color: $gray;
-        }
-  
+
+      .separador {
+        background-color: $gray;
+      }
+
     }
+
     .ver-mas-2 {
       color: $primary;
       background-color: $secondary;
@@ -231,11 +255,12 @@
       align-items: center;
       display: flex;
       flex-direction: column;
-  
+
       .separador {
         background-color: $gray;
       }
     }
+
     .photography-course {
       width: 90%;
       margin: 50px 20px;
@@ -243,7 +268,7 @@
       background-color: $white;
       border-radius: 20px;
     }
-  
+
     .title {
       font-weight: 700;
       font-size: 25px;
@@ -251,13 +276,13 @@
       align-items: center;
       flex-direction: column;
     }
-  
+
     .separador {
       width: 90%;
       height: 1px;
       margin: 10px;
     }
-  
+
     .sub-title {
       text-align: center;
       margin: 0 25px 40px;
@@ -274,40 +299,43 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-      
-      .title{
-        margin:50px 0 20px;
-      }
-      .sub-title {
-        text-align: center;
-        margin: 0 50px;
-      }
-  
-      .boton-leer-mas{
-        display:flex;
-        flex-direction: column;
-        margin-top: auto;
-        margin-bottom: 40px;
-      }
+
+    .title {
+      margin: 50px 0 20px;
+    }
+
+    .sub-title {
+      text-align: center;
+      margin: 0 50px;
+    }
+
+    .boton-leer-mas {
+      display: flex;
+      flex-direction: column;
+      margin-top: auto;
+      margin-bottom: 40px;
+    }
   }
-  
+
   .container-redes-sociales {
-    display:flex;
+    display: flex;
     flex-direction: column;
-    color:$primary;
+    color: $primary;
     align-items: center;
-    padding:40px;
+    padding: 40px;
+
     .sub-title {
       text-align: center;
       margin-bottom: 15px;
     }
+
     .separador {
       width: 90%;
       height: 1px;
       background-color: $gray;
       margin: 40px;
     }
-  
+
   }
 
   .icon-logo {
@@ -318,7 +346,5 @@
     background-repeat: no-repeat;
     background-size: contain;
   }
-  
+
 }
-
-

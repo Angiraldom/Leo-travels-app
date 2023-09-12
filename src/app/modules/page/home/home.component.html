@@ -58,6 +58,21 @@
         [nameButton]="'Leer más >>'" (emitClick)="changeRoute('quienes-somos')"></app-generic-button></div>
 
   </div>
+
+  <div class="container-redes-sociales login">
+    <h3 class="color-primary">
+      Iniciar sesión
+    </h3>
+
+    <p class="sub-title">
+      Si ya compraste nuestro curso, puedes
+      acceder al contenido desde aquí:
+    </p>
+
+    <app-generic-button [sizeButton]="'large'" [classButton]="'class_blue'" [nameButton]="'Comenzar >>'"
+    (emitClick)="changeRoute('login')"></app-generic-button>
+  </div>
+
   <div class="container-redes-sociales">
     <p class="sub-title">
       Si quieres inspirarte y antojarte a viajar,
