@@ -3,7 +3,7 @@
 .lists {
     padding: 40px 30px;
     text-align: center;
-
+    background-color: $background-color;
 }
 
 ul {
@@ -50,6 +50,10 @@ li::before {
         display: grid;
         grid-template-columns: 1fr 1fr;
         column-gap: 60px;
+
+        .problem-2 {
+            grid-row: 2;
+        }
     }
 
     p {

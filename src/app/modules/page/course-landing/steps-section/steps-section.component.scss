@@ -5,18 +5,18 @@
   background-size: 50% auto;
 }
 
+.step-icon-metric {
+  background: url('../../../../../assets/icons/paso2.svg') center center no-repeat;
+  background-size: 50% auto;
+}
+
+.step-icon-hand {
+  background: url('../../../../../assets/icons/paso3.svg') center center no-repeat;
+  background-size: 50% auto;
+}
+
 .step-icon-heart {
-  background: url('../../../../../assets/icons/paso2.png') center center no-repeat;
-  background-size: 50% auto;
-}
-
-.step-icon-hand {
-  background: url('../../../../../assets/icons/paso3.png') center center no-repeat;
-  background-size: 50% auto;
-}
-
-.step-icon-hand {
-  background: url('../../../../../assets/icons/paso3.png') center center no-repeat;
+  background: url('../../../../../assets/icons/paso4.svg') center center no-repeat;
   background-size: 50% auto;
 }
 
@@ -66,10 +66,16 @@ hr {
 
 @media only screen and (min-width: 768px) {
   .section-steps {
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+
+    .step-2 {
+      grid-row: 2;
+    }
   }
 
-  .section-steps .step:first-child p, .section-steps .step:nth-child(2) p{
-    max-width: 140px;
+  .step {
+    max-width: 435px;
   }
 }
