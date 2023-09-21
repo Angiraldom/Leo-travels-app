@@ -8,6 +8,7 @@ import { BaseService } from 'src/app/core/services/base.service';
 import { MesaggeService } from 'src/app/core/services/message.service';
 import { AppState } from 'src/app/store/app.reducer';
 import * as actions from 'src/app/store/actions/cart.actions';
+import { ConversionesService } from 'src/app/core/services/conversiones.service';
 
 @Component({
   selector: 'app-discount-coupon',
@@ -18,6 +19,7 @@ import * as actions from 'src/app/store/actions/cart.actions';
 })
 export class DiscountCouponComponent implements OnInit ,OnDestroy {
   private baseService = inject(BaseService);
+  protected conversionesService = inject(ConversionesService);
   private messageService = inject(MesaggeService);
   store = inject(Store<AppState>);
 

@@ -23,7 +23,7 @@
     <app-generic-button [sizeButton]="'large'" [classButton]="'class_yellow'"
         [nameButton]="'Añadir al carrito'" (emitClick)="addCourse()" ></app-generic-button>
     <app-generic-button [sizeButton]="'large'" [classButton]="'class_white_color_blue'"
-        [nameButton]="'No añadir'" (emitClick)="changeRoute()"></app-generic-button>
+        [nameButton]="'No añadir'" (emitClick)="changeRoute(); conversionesService.initiateCheckoutEvent()"></app-generic-button>
 </div>
 <div class="footer">
     © 2023 GRUPO LEAN S.A.S.

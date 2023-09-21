@@ -5,6 +5,7 @@ import { AppState } from 'src/app/store/app.reducer';
 import * as cartActions from 'src/app/store/actions/cart.actions';
 import { ICourse } from 'src/app/modules/admin/courses/interfaces/ICourses.interface';
 import { MesaggeService } from 'src/app/core/services/message.service';
+import { ConversionesService } from 'src/app/core/services/conversiones.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +13,7 @@ import { MesaggeService } from 'src/app/core/services/message.service';
 export class TravelKitService {
   private store = inject(Store<AppState>);
   private mesaggeService = inject(MesaggeService);
+  private conversionesService = inject(ConversionesService);
 
   addProduct(product: IProduct | ICourse, reference: string, productsInCart: any[]) {
     const existProduct = productsInCart.find((item) => item._id === product._id)
@@ -25,7 +27,8 @@ export class TravelKitService {
       }
       this.store.dispatch(cartActions.addProduct({ reference, product }));
     }
-    this.mesaggeService.succesMessage('Producto añadido al carrito')
+    this.conversionesService.addToCartEvent();
+    this.mesaggeService.succesMessage('Producto añadido al carrito');
   }
 
   /**

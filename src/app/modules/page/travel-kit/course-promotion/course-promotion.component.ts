@@ -1,5 +1,6 @@
 import { AfterViewInit, Component, ElementRef, EventEmitter, Output, ViewChild, inject } from '@angular/core';
 import { Router } from '@angular/router';
+import { ConversionesService } from 'src/app/core/services/conversiones.service';
 
 @Component({
   selector: 'app-course-promotion',
@@ -8,6 +9,8 @@ import { Router } from '@angular/router';
 })
 export class CoursePromotionComponent implements AfterViewInit {
   private router = inject(Router);
+  protected conversionesService = inject(ConversionesService);
+  
   @ViewChild('mainContent') mainContent!: ElementRef<HTMLElement>;
   @Output() onAddCourse = new EventEmitter();
 
