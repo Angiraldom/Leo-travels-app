@@ -27,7 +27,7 @@
           Te enseñamos a tomar mejores fotos solo con tu celular, de forma
           práctica, sencilla y en menos de una hora...
         </p>
-        <app-generic-button (emitClick)="changeRoute('cursos')" [sizeButton]="'large'" [classButton]="'class_blue_color_yellow'"
+        <app-generic-button (emitClick)="changeRoute('cursos'); conversionesService.viewContentEvent()" [sizeButton]="'large'" [classButton]="'class_blue_color_yellow'"
           [nameButton]="'Ver más >>'"></app-generic-button>
       </div>
     </div>
@@ -45,7 +45,7 @@
           Estas son las herramientas que necesitas para tomar fotos admirables en
           tus viajes sin depender de nadie...
         </p>
-        <app-generic-button (emitClick)="changeRoute('kit-viajero')" [sizeButton]="'large'" [classButton]="'class_blue'"
+        <app-generic-button (emitClick)="changeRoute('kit-viajero'); conversionesService.viewContentEvent()" [sizeButton]="'large'" [classButton]="'class_blue'"
           [nameButton]="'Ver más >>'"></app-generic-button>
       </div>
     </div>
@@ -55,7 +55,7 @@
     <p class="sub-title">Aquí te contamos un poco sobre
       nosotros y cómo nació VILEAN...</p>
     <div class="boton-leer-mas"> <app-generic-button [sizeButton]="'large'" [classButton]="'class_white_color_blue'"
-        [nameButton]="'Leer más >>'" (emitClick)="changeRoute('quienes-somos')"></app-generic-button></div>
+        [nameButton]="'Leer más >>'" (emitClick)="changeRoute('quienes-somos'); conversionesService.viewContentEvent()"></app-generic-button></div>
 
   </div>
 
@@ -89,7 +89,8 @@
       sueños, suscríbete:
     </p>
     <app-generic-button [sizeButton]="'large'" [classButton]="'class_white_color_blue'" [nameButton]="'Canal YouTube'"
-      (emitClick)="changeExternalRoute('https://www.youtube.com/@leoramostorres?sub_confirmation=1')"></app-generic-button>
+      (emitClick)="changeExternalRoute('https://www.youtube.com/@leoramostorres?sub_confirmation=1'); 
+      conversionesService.suscriptionEvent()"></app-generic-button>
   </div>
 
 

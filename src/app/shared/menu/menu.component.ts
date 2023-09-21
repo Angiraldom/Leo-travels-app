@@ -18,6 +18,7 @@ import { FinalPricePipe } from 'src/app/core/pipes/final-price.pipe';
 import { IUser } from 'src/app/modules/admin/user/interface/IUser.interface';
 import { ICourse } from 'src/app/modules/admin/courses/interfaces/ICourses.interface';
 import { IProduct } from 'src/app/modules/admin/products/interfaces/IProduct.interface';
+import { ConversionesService } from 'src/app/core/services/conversiones.service';
 
 @Component({
   selector: 'app-menu',
@@ -40,6 +41,7 @@ import { IProduct } from 'src/app/modules/admin/products/interfaces/IProduct.int
   styleUrls: ['./menu.component.scss'],
 })
 export class MenuComponent implements OnInit, OnDestroy {
+  protected conversionesService = inject(ConversionesService);
   store = inject(Store<AppState>);
   router = inject(Router);
   @Input() displayMenu = true;

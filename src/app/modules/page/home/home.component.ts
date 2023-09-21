@@ -1,5 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
+import { ConversionesService } from 'src/app/core/services/conversiones.service';
 
 @Component({
   selector: 'app-home',
@@ -8,6 +9,8 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent {
   private router = inject(Router);
+  protected conversionesService = inject(ConversionesService);
+
   changeRoute(url: string) {
     this.router.navigate([url]);
   }

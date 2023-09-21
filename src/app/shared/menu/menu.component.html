@@ -4,13 +4,13 @@
     <div class="menu">
 
       <ng-container *ngIf="displayMenu">
-        <a class="item" [routerLink]="'/cursos'" routerLinkActive="router-active">
+        <a class="item" (click)="conversionesService.viewContentEvent()" [routerLink]="'/cursos'" routerLinkActive="router-active">
           <span>Cursos</span>
         </a>
-        <a class="item" [routerLink]="['/kit-viajero']" [routerLinkActive]="'router-active'">
+        <a class="item" (click)="conversionesService.viewContentEvent()" [routerLink]="['/kit-viajero']" [routerLinkActive]="'router-active'">
           <span>Kit viajero</span>
         </a>
-        <a class="item" [routerLink]="['/quienes-somos']" [routerLinkActive]="'router-active'">
+        <a class="item" (click)="conversionesService.viewContentEvent()" [routerLink]="['/quienes-somos']" [routerLinkActive]="'router-active'">
           <span>¿Quiénes somos?</span>
         </a>
         <a *ngIf="!user" class="item" [routerLink]="'/login'" routerLinkActive="router-active">
@@ -39,17 +39,17 @@
           </a>
         </li>
         <li>
-          <a class="item" routerLink="/cursos" routerLinkActive="router-active">
+          <a class="item" (click)="conversionesService.viewContentEvent()" routerLink="/cursos" routerLinkActive="router-active">
             <span>Cursos</span>
           </a>
         </li>
         <li>
-          <a class="item" [routerLink]="['/kit-viajero']" [routerLinkActive]="'router-active'">
+          <a class="item" (click)="conversionesService.viewContentEvent()" [routerLink]="['/kit-viajero']" [routerLinkActive]="'router-active'">
             <span>Kit viajero</span>
           </a>
         </li>
         <li>
-          <a class="item" [routerLink]="['/quienes-somos']" [routerLinkActive]="'router-active'">
+          <a class="item" (click)="conversionesService.viewContentEvent()" [routerLink]="['/quienes-somos']" [routerLinkActive]="'router-active'">
             <span>¿Quiénes somos?</span>
           </a>
         </li>
