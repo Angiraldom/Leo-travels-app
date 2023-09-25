@@ -1,0 +1,35 @@
+@import "/src/styles/variables";
+
+.main-content {
+    padding: 40px 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    div {
+        max-width: 400px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 15px;
+
+        h3 {
+            max-width: 300px;
+        }
+    }
+}
+
+ul {
+    padding-left: 15px;
+    list-style: none;
+    margin: 0px;
+}
+
+li::before {
+    content: "\2022";
+    color: $secondary;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+}
