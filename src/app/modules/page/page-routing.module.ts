@@ -28,6 +28,11 @@ const routes: Routes = [
     import('./who-are-we/who-are-we.module').then((m) => m.WhoAreWeModule)
   },
   {
+    path: 'clase-gratis',
+    loadComponent: () =>
+      import('./free-class/free-class.component'),
+  },
+  {
     path: '',
     redirectTo: 'home',
     pathMatch: 'full',
