@@ -7,7 +7,6 @@ import { CourseLandingComponent } from './course-landing.component';
 import { MainSectionComponent } from './main-section/main-section.component';
 import { GenericButtonComponent } from 'src/app/shared/generic-button/generic-button.component';
 import { StepsSectionComponent } from './steps-section/steps-section.component';
-import { VideoComponent } from './video/video.component';
 import { TextInfoBuyComponent } from './text-info-buy/text-info-buy.component';
 import { InfoFotosComponent } from './info-fotos/info-fotos.component';
 import { BuySectionComponent } from './buy-section/buy-section.component';
@@ -26,6 +25,8 @@ import { OurPurposeComponent } from './our-purpose/our-purpose.component';
 import { FastLearningComponent } from './fast-learning/fast-learning.component';
 import { BadThingsComponent } from './bad-things/bad-things.component';
 import { TheBestOfAllComponent } from './the-best-of-all/the-best-of-all.component';
+import { CompleteCourseComponent } from './complete-course/complete-course.component';
+import { SameMistakesComponent } from './same-mistakes/same-mistakes.component';
 
 
 @NgModule({
@@ -33,7 +34,6 @@ import { TheBestOfAllComponent } from './the-best-of-all/the-best-of-all.compone
     CourseLandingComponent,
     MainSectionComponent,
     StepsSectionComponent,
-    VideoComponent,
     TextInfoBuyComponent,
     InfoFotosComponent,
     BuySectionComponent,
@@ -47,7 +47,9 @@ import { TheBestOfAllComponent } from './the-best-of-all/the-best-of-all.compone
     OurPurposeComponent,
     FastLearningComponent,
     BadThingsComponent,
-    TheBestOfAllComponent
+    TheBestOfAllComponent,
+    CompleteCourseComponent,
+    SameMistakesComponent
   ],
   imports: [
     CommonModule,

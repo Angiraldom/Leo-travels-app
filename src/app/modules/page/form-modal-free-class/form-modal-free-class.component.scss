@@ -1,0 +1,96 @@
+@import "/src/styles/variables";
+
+.container {
+    padding: 40px;
+
+    .header {
+        display: flex;
+        justify-content: flex-end;
+
+        span {
+            cursor: pointer;
+        }
+    }
+
+    .texto {
+        margin-bottom: 30px;
+    }
+}
+
+.form-col {
+    width: 100%;
+    margin-bottom: 25px;
+
+    .form-input {
+        width: 100%;
+        border: none;
+        border-bottom: 1px solid $gray;
+        color: $gray;
+        font-size: 14.5px;
+        padding-bottom: 10px;
+        font-family: "Poppins", sans-serif;
+        outline: none;
+    }
+
+    .form-input:active {
+        border-bottom: 1px solid $gray;
+    }
+
+    .error {
+        color: red;
+        font-size: 11px;
+        background-color: #fff;
+    }
+
+    .input-error {
+        border-color: red;
+    }
+
+    .input-error::placeholder {
+        color: red;
+    }
+}
+
+.check {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 2px;
+
+    a {
+        text-decoration: none;
+        cursor: pointer;
+
+        &:hover {
+            color: $primary;
+            font-weight: 500;
+        }
+
+        p {
+            font-size: 12px;
+        }
+    }
+}
+
+.check-autoriza {
+    width: 13px;
+    height: 13px;
+    border-radius: 0px;
+    display: inline-block;
+}
+
+.celular {
+    display: flex;
+    padding-bottom: 5px;
+    gap: 10px;
+
+    .indicativo {
+        width: 30% !important;
+    }
+
+    .phone {
+        width: calc(70% - 10px);
+        display: flex;
+        flex-direction: column;
+    }
+}

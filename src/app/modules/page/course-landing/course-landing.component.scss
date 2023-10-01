@@ -18,10 +18,6 @@
   padding: 0px 0px 60px;
 }
 
-.background-primary {
-    background: $primary;
-}
-
 .background-secondary {
   background: $secondary;
 }
@@ -48,25 +44,11 @@
     background-color: $primary;
     padding: 0 80px;
   }
-
-  .app-video {
-    width: 40%;
-  }
-
-  .app-info {
-    width: 40%;
-  }
 }
 
 @media screen and (max-width: 420px) {
   .container-info {
     gap: 40px;
     width: 100%;
-  }
-}
-
-@media screen and (max-width: 1341px) and (min-width: 936px) { 
-  .app-video {
-    width: 60%;
   }
 }

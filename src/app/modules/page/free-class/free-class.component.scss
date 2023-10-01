@@ -1,0 +1,175 @@
+@import "/src/styles/variables";
+
+.content-title {
+    background: url(https://vilean.s3.us-east-2.amazonaws.com/Clase+gratis/FV.webp) no-repeat center center;
+    background-size: cover;
+    width: 100%;
+    height: calc(100vh - 60px);
+}
+
+.content-paragraph {
+    height: 100%;
+}
+
+.slider-text {
+    padding-top: 24px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.content-button {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: 52%;
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+    p {
+        color: white;
+        margin-bottom: 20px !important;
+        text-align: center;
+    }
+}
+
+h2 {
+    max-width: 286px;
+    line-height: 30px;
+}
+
+.mark {
+    color: $secondary;
+    background-color: transparent;
+}
+
+.free-class {
+    color: $white;
+}
+
+.desktop {
+    display: none;
+}
+
+.mobile {
+    max-width: 276px;
+    margin: 0 auto;
+}
+
+
+.buy-content {
+    text-align: center;
+    background-color: $secondary;
+    position: relative;
+
+    .icon-image {
+        position: absolute;
+        width: 50px;
+        top: -25px;
+        left: calc(50% - 25px);
+
+        img {
+            width: 100%;
+        }
+    }
+}
+
+.buy-content-paragraphs {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 55px 28px 40px 28px;
+    gap: 20px;
+}
+
+.center-columns-flex {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.standard-paggind {
+    padding: 40px 30px;
+}
+
+.background-gray {
+    background-color: $background-color;
+}
+
+hr {
+    border-bottom: white;
+    width: 80%;
+}
+
+.mx-w-515 {
+    max-width: 515px;
+}
+
+@media only screen and (min-width: 768px) {
+
+    .desktop {
+        display: block;
+    }
+
+    .mobile {
+        display: none;
+    }
+
+    h2 {
+        margin: 5px 0px;
+    }
+
+    .mark {
+        color: $primary;
+        background-color: $secondary;
+    }
+
+    .free-class {
+        color: $primary;
+    }
+
+    .slider-text {
+        padding-top: 100px;
+    }
+
+    .button p {
+        color: #6d6e71;
+    }
+
+    .content-image {
+        background: url(https://vilean.s3.us-east-2.amazonaws.com/Clase+gratis/FH.webp) no-repeat center center;
+        background-size: cover;
+        width: 50%;
+        height: auto;
+        margin: 0 auto;
+        margin-right: 0px;
+    }
+
+    .content-title {
+        display: flex;
+        background-image: none;
+        background-color: #bdbdbd52;
+    }
+
+    .content-paragraph {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+        margin-left: 0px;
+        margin-top: -60px;
+    }
+
+    .content-button {
+        top: 8%;
+    }
+}

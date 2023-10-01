@@ -1,0 +1,110 @@
+<app-header-promotions></app-header-promotions>
+
+<div class="content-title">
+  <div class="content-image">
+  </div>
+
+  <div class="content-paragraph">
+
+    <div class="slider-text">
+      <p class="font-bold free-class">Clase gratuita:</p>
+      <h2 class="color-primary">
+        <mark class="mark"> 5 ERRORES </mark>
+        COMUNES AL TOMAR FOTOS EN
+        TUS VIAJES
+      </h2>
+      <p class="color-secondary mobile background-primary">
+        y cómo corregirlos fácilmente
+      </p>
+      <p class="color-primary desktop">
+        y cómo corregirlos fácilmente
+      </p>
+    </div>
+
+    <div class="content-button button">
+      <app-generic-button [sizeButton]="'large'" [showCouponTextCourse]="false" [nameButton]="'VER CLASE GRATIS'"
+        [classButton]="'class_yellow'" (emitClick)="openModal()"></app-generic-button>
+    </div>
+  </div>
+</div>
+
+<div class="center-columns-flex standard-paggind background-primary">
+  <h3 class="color-white text-center mx-w-515">
+    El 85% de las personas
+    cometen estos errores
+    sin darse cuenta...
+  </h3>
+
+  <p class="color-white mx-w-515">
+    Y pierden la oportunidad de traerse
+    un gran recuerdo de su viaje al no
+    ser conscientes de los errores.
+  </p>
+
+  <p class="color-secondary">
+    Pero con unos ajustes simples, tus
+    fotos pueden transformarse.
+  </p>
+
+  <p class="color-white mx-w-515">
+    Aún si no eres un experto en
+    fotografía ni tienes un celular de alta
+    gama, puedes mejorar tus
+    habilidades fotográficas al aprender
+    a identificar y corregir cada error.
+  </p>
+
+  <hr >
+
+  <p class="color-white text-center" style="max-width: 420px;">
+    ¡Aprende a capturar fotos que
+    destaquen en tus redes sociales!
+  </p>
+</div>
+
+<div class="buy-content">
+  <div class="icon-image">
+    <img src="assets/images/icono.png"  alt="Logo Cel cam" />
+  </div>
+
+  <div class="buy-content-paragraphs">
+
+    <p class="color-primary mx-w-515">
+      Regístrate para ver nuestra clase
+      gratuita de <span class="font-bold">5 ERRORES COMUNES AL
+      TOMAR FOTOS EN TUS VIAJES</span>
+    </p>
+
+    <app-generic-button [sizeButton]="'large'" [classButton]="'class_blue'"
+      [nameButton]="'VER CLASE GRATIS'" (emitClick)="openModal()"></app-generic-button>
+  </div>
+
+</div>
+
+<div class="standard-paggind center-columns-flex background-gray">
+  <p class="color-primary mx-w-515">
+    Esta clase pertenece a Vilean, que
+    tiene <span class="font-bold">como propósito </span> inspirarte a
+    SOÑAR, VIAJAR Y CRECER.
+  </p>
+
+  <p class="color-primary mx-w-515">
+    Aprovecha esta oportunidad de
+    aprender los <span class="font-bold">5 ERRORES COMUNES AL
+    TOMAR FOTOS EN TUS VIAJES</span> y
+    comienza a mejorar tus fotos...
+  </p>
+</div>
+
+<div class="center-columns-flex standard-paggind">
+  <p class="color-primary">
+    Si quieres inspirarte y antojarte a viajar,
+
+    síguenos en Instagram:
+  </p>
+  <app-generic-button [sizeButton]="'large'" [classButton]="'class_white_color_blue'"
+    [nameButton]="'@vilean__'" 
+    (emitClick)="changeExternalRoute('https://www.instagram.com/vilean__/')"></app-generic-button>
+</div>
+
+<app-footer></app-footer>

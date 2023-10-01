@@ -5,20 +5,21 @@
   justify-content: center;
   flex-direction: column;
   height: 100%;
-  max-width: 380px;
+  max-width: 450px;
   align-items: flex-start;
   margin: 0 auto;
   gap: 15px;
+  padding-bottom: 40px;
+
+  h3 {
+    margin: 0px;
+  }
 }
 
 ul {
   padding-left: 15px;
   list-style: none;
-  margin-bottom: 0px;
-
-  li {
-    margin-bottom: 12px;
-  }
+  margin: 0px;
 }
 
 li::before {
