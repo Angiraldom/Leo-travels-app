@@ -32,6 +32,11 @@ const routes: Routes = [
           import('./user/users.module').then((m) => m.UsersModule),
       },
       {
+        path: 'registro',
+        loadChildren: () =>
+          import('./potential-clients/potential-client.module').then((m) => m.PotentialClientModule),
+      },
+      {
         path: 'ofertas',
         loadChildren: () =>
           import('./coupons/coupons.module').then((m) => m.CouponsModule),

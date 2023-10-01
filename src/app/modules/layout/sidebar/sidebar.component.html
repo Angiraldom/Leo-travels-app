@@ -2,6 +2,10 @@
   <mat-sidenav opened mode="side" class="sidebar-container">
     <mat-nav-list>
       <ng-container *ngIf="user.role === 'Admin'">
+        <a class="item" routerLink="/admin/registro"routerLinkActive="router-active">
+          <mat-icon>person</mat-icon>
+          <span>Registro</span>
+        </a>
         <a class="item" routerLink="/admin/usuarios"routerLinkActive="router-active">
           <mat-icon>person</mat-icon>
           <span>Usuarios</span>
