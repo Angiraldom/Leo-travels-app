@@ -1,0 +1,72 @@
+<div class="container">
+    <div class="header">
+        <span class="material-icons" [mat-dialog-close]="true"> close </span>
+    </div>
+
+    <div class="texto text-center color-primary">
+        <p>Regístrate para ver la clase gratuita</p>
+        <h3>5 ERRORES COMUNES AL TOMAR FOTOS EN TUS VIAJES</h3>
+    </div>
+
+    <div class="content">
+        <form [formGroup]="formSuscribe">
+            <div class="form-col">
+                <input class="form-input" formControlName="nombre" type="text" placeholder="Nombre"
+                    [ngClass]="{ 'input-error': validateInput('nombre') }" />
+                <span class="error" *ngIf="
+              formSuscribe.controls['nombre'].invalid &&
+              formSuscribe.controls['nombre'].touched
+            ">
+                    Debe llenar el nombre
+                </span>
+            </div>
+
+            <div class="form-col">
+                <div class="celular">
+                    <input class="form-input indicativo" formControlName="indicativo" type="text" placeholder="Ind."
+                        [ngClass]="{ 'input-error': validateInput('celular') }" />
+
+                    <input class="form-input phone" formControlName="celular" type="text" placeholder="Celular"
+                        [ngClass]="{ 'input-error': validateInput('celular') }" />
+                </div>
+                <span class="error"
+                    *ngIf="formSuscribe.get('celular')?.errors?.['required'] && formSuscribe.get('celular')?.touched">
+                    Debe llenar el celular
+                </span>
+                <span class="error" *ngIf="formSuscribe.get('celular')?.errors?.['minlength']">
+                    Debe tener mínimo 10 números
+                </span>
+                <span class="error" *ngIf="formSuscribe.get('celular')?.errors?.['maxlength']">
+                    Debe tener máximo 10 números
+                </span>
+            </div>
+
+            <div class="form-col">
+                <input class="form-input" email="true" formControlName="correo" type="email" placeholder="Correo"
+                    [ngClass]="{ 'input-error': validateInput('correo') }" />
+                <span class="error" *ngIf="
+              formSuscribe.controls['correo'].hasError('required') &&
+              formSuscribe.controls['correo'].touched
+            ">
+                    Debe llenar el correo
+                </span>
+
+                <span class="error" *ngIf="formSuscribe.controls['correo'].hasError('email')">
+                    El correo no es valido
+                </span>
+            </div>
+
+            <div class="form-col check">
+                <input type="checkbox" class="check-autoriza" formControlName="autoriza" />
+                <a>
+                    <p>Autorizo el tratamiento de datos personales</p>
+                </a>
+            </div>
+        </form>
+
+        <app-generic-button [sizeButton]="'large'" [showCouponTextCourse]="false" [nameButton]="'REGISTRARME'"
+        [classButton]="'class_blue_color_yellow'" [disabledButton]="formSuscribe.invalid"
+        (emitClick)="sendEmail()" [load]="true"></app-generic-button>
+
+    </div>
+</div>
