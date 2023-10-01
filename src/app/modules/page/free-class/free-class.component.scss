@@ -1,7 +1,7 @@
 @import "/src/styles/variables";
 
 .content-title {
-    background: url('../../../../assets/images/FV.webp') no-repeat center center;
+    background: url(https://vilean.s3.us-east-2.amazonaws.com/Clase+gratis/FV.webp) no-repeat center center;
     background-size: cover;
     width: 100%;
     height: calc(100vh - 60px);
@@ -60,6 +60,58 @@ h2 {
     margin: 0 auto;
 }
 
+
+.buy-content {
+    text-align: center;
+    background-color: $secondary;
+    position: relative;
+
+    .icon-image {
+        position: absolute;
+        width: 50px;
+        top: -25px;
+        left: calc(50% - 25px);
+
+        img {
+            width: 100%;
+        }
+    }
+}
+
+.buy-content-paragraphs {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 55px 28px 40px 28px;
+    gap: 20px;
+}
+
+.center-columns-flex {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.standard-paggind {
+    padding: 40px 30px;
+}
+
+.background-gray {
+    background-color: $background-color;
+}
+
+hr {
+    border-bottom: white;
+    width: 80%;
+}
+
+.mx-w-515 {
+    max-width: 515px;
+}
+
 @media only screen and (min-width: 768px) {
 
     .desktop {
@@ -92,7 +144,7 @@ h2 {
     }
 
     .content-image {
-        background: url('../../../../assets/images/FH.webp') no-repeat center center;
+        background: url(https://vilean.s3.us-east-2.amazonaws.com/Clase+gratis/FH.webp) no-repeat center center;
         background-size: cover;
         width: 50%;
         height: auto;
