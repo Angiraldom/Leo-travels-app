@@ -5,6 +5,7 @@
   justify-content: center;
   flex-direction: column;
   height: 100%;
+  width: 90%;
   max-width: 450px;
   align-items: flex-start;
   margin: 0 auto;
@@ -36,10 +37,4 @@ li::before {
 
 .max-wth {
   max-width: 290px;
-}
-
-@media screen and (max-width: 420px) {
-  .container-info {
-    width: 90%;
-  }
 }

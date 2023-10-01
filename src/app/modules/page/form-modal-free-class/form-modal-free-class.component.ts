@@ -14,7 +14,8 @@ import { GenericButtonComponent } from 'src/app/shared/generic-button/generic-bu
 })
 export class FormModalFreeClassComponent extends BaseClass implements OnInit {
   load = false;
-
+  showPolitcs = false;
+  
   formSuscribe!: FormGroup;
 
   ngOnInit(): void {
@@ -23,18 +24,9 @@ export class FormModalFreeClassComponent extends BaseClass implements OnInit {
 
   buildForm() {
     this.formSuscribe = this.fb.group({
-      nombre: ['', Validators.required],
-      celular: [
-        '',
-        [
-          Validators.required,
-          Validators.minLength(10),
-          Validators.maxLength(10),
-        ],
-      ],
-      indicativo: ['57', Validators.required],
-      correo: ['', [Validators.required, Validators.email]],
-      autoriza: [false, Validators.required],
+      name: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      dataTreatment: [false, Validators.required],
     });
   }
 
@@ -49,25 +41,11 @@ export class FormModalFreeClassComponent extends BaseClass implements OnInit {
     return false;
   }
 
-  validateCelIndicativo() {
-    if (
-      (this.formSuscribe.controls['celular'].invalid &&
-        this.formSuscribe.controls['celular'].touched) ||
-      (this.formSuscribe.controls['indicativo'].invalid &&
-        this.formSuscribe.controls['indicativo'].touched)
-    ) {
-      return true;
-    }
-
-    return false;
-  }
-
   sendEmail() {
     this.load = true;
     const data = this.formSuscribe.getRawValue();
-    delete data.autoriza;
 
-    this.baseService.postMethod('user/clase-gratis', data).subscribe((res) => {
+    this.baseService.postMethod('client/clase-gratis', data).subscribe((res) => {
       if (res) {
         this.messageService.succesMessage('Envio exitoso.');
         this.load = false;
