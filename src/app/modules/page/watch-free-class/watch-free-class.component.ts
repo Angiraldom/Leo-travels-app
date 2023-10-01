@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { GenericButtonComponent } from 'src/app/shared/generic-button/generic-button.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-watch-free-class',
@@ -10,5 +11,9 @@ import { GenericButtonComponent } from 'src/app/shared/generic-button/generic-bu
   styleUrls: ['./watch-free-class.component.scss']
 })
 export default class WatchFreeClassComponent {
+  private router = inject(Router);
 
+  changeRoute() {
+    this.router.navigate(['cursos']);
+  }
 }

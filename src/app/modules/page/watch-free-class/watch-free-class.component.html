@@ -1,14 +1,13 @@
 <header>
-    <div>
-        <span></span>
-        <p class="color-white">Clase gratuita</p>
+    <div class="free-class-video">
+        <span class="icon-logo-video"></span>
+        <p class="color-white font-bold">Clase gratuita</p>
     </div>
     <span class="icon-logo"></span>
 </header>
 
 <div class="content-title">
-    <div class="content-image">
-    </div>
+    
     <div class="content-paragraph">
         <div class="slider-text">
             <p class="font-bold color-primary">Clase gratuita:</p>
@@ -22,6 +21,7 @@
             </p>
         </div>
     </div>
+    <iframe  src="https://player.vimeo.com/video/869918330?title=0&amp;byline=0&amp;portrait=0&amp;speed=0&amp;badge=0&amp;autopause=0&amp;airplay=0&amp;audio_tracks=0&amp;chapters=0&amp;chromecast=0&amp;closed_captions=0&amp;transcript=0&amp;player_id=0&amp;app_id=58479" width="415" height="553" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" title="0A4A57B9-92D4-483B-B648-53F5A9F9C32A"></iframe>
 </div>
 
 <div class="background-primary content-text">
@@ -51,7 +51,8 @@
 
     <div class="warning">
         <app-generic-button [sizeButton]="'large'" [showCouponTextCourse]="false" [nameButton]="'INFO DEL CURSO'"
-            [classButton]="'class_yellow'"></app-generic-button>
+            [classButton]="'class_yellow'"
+            (emitClick)="changeRoute()"></app-generic-button>
 
         <p class="warning-p color-secondary mx-wdth font-x-small">
             Recuerda que tienes 14 días para hacer el curso y si no logras mejorar tus fotos, te devolvemos todo tu

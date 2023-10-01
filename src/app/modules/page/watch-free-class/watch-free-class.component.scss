@@ -11,6 +11,22 @@ header {
     background: $primary;
 }
 
+.icon-logo-video {
+    display: block;
+    width: 25px;
+    height: 25px;
+    background-image: url('../../../../assets/icons/Icono-video.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.free-class-video {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
 .icon-logo {
     display: block;
     width: 115px;
@@ -20,16 +36,8 @@ header {
     background-size: cover;
 }
 
-
-.content-title {
-    background: url('../../../../assets/images/FV.webp') no-repeat center center;
-    background-size: cover;
-    width: 100%;
-    height: calc(100vh - 60px);
-}
-
 .content-paragraph {
-    height: 100%;
+    height: auto;
 }
 
 .slider-text {
@@ -98,7 +106,7 @@ h2 {
 @media only screen and (min-width: 768px) {
 
     .content-paragraph {
-        width: 50%;
+        width: 70%;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -108,26 +116,60 @@ h2 {
         margin-top: -60px;
     }
 
-    .slider-text {
-        padding-top: 100px;
-    }
-
-    .content-image {
-        background: url('../../../../assets/images/FH.webp') no-repeat center center;
-        background-size: cover;
-        width: 50%;
-        height: auto;
-        margin: 0 auto;
-        margin-right: 0px;
-    }
-
     .content-title {
         display: flex;
+        flex-direction: row-reverse;
         background-image: none;
         background-color: #bdbdbd52;
     }
 
     .warning-p {
         max-width: 100%;
+    }
+
+    iframe {
+        width: 60%;
+    }
+
+    .mobile {
+        display: none;
+    }
+
+    .desktop {
+        display: block;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+
+    iframe {
+        width: 100%;
+    }
+
+    .content-title {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: calc(100vh - 60px);
+    }
+
+    .content-paragraph {
+        background-color: $background-color;
+
+        .slider-text {
+            padding: 24px;
+
+            .font-bold {
+                display: none;
+            }
+        }
+    }
+
+    .mobile {
+        display: block;
+    }
+
+    .desktop {
+        display: none;
     }
 }
