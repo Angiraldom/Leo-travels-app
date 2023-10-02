@@ -10,6 +10,10 @@ export class ConversionesService extends BaseService {
     super();
   }
 
+  customEvent(eventName: string) {
+    this.postMethod(`conversiones/standard`, { eventName }).subscribe();
+  }
+
   standardEvent(eventName: ITypeEvents) {
     this.postMethod(`conversiones/standard`, { eventName }).subscribe();
   }
@@ -40,5 +44,9 @@ export class ConversionesService extends BaseService {
 
   addPaymentInfoEvent() {
     this.standardEvent('AddPaymentInfo');
+  }
+
+  startTrial() {
+    this.standardEvent('StartTrial');
   }
 }

@@ -53,4 +53,8 @@ export class FormModalFreeClassComponent extends BaseClass implements OnInit {
       }
     });
   }
+
+  sendEvent() {
+    this.conversionesService.customEvent('Solicitud enviada');
+  }
 }
