@@ -1,7 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import Swal, { SweetAlertIcon } from 'sweetalert2';
+import Swal, { SweetAlertIcon, SweetAlertOptions } from 'sweetalert2';
 
 @Injectable({
   providedIn: 'root',
@@ -15,13 +15,19 @@ export class MesaggeService {
   }
 
   succesMessage(message: string, title?: string) {
-    Swal.fire({
+    const object: SweetAlertOptions = {
+      title,
       text: message ? this.translateService.instant(message) : null,
       icon: 'success',
       showConfirmButton: false,
       timer: 3000,
       iconColor: '#222e5e',
-    });
+    };
+
+    if (!title) {
+      delete object.title;
+    }
+    Swal.fire(object);
   }
 
   warningMessage(message: string) {
