@@ -23,7 +23,7 @@
 
     <div class="content-button button">
       <app-generic-button [sizeButton]="'large'" [showCouponTextCourse]="false" [nameButton]="'VER CLASE GRATIS'"
-        [classButton]="'class_yellow'" (emitClick)="openModal()"></app-generic-button>
+        [classButton]="'class_yellow'" (emitClick)="openModal(); sendEvent();"></app-generic-button>
     </div>
   </div>
 </div>
@@ -76,7 +76,7 @@
     </p>
 
     <app-generic-button [sizeButton]="'large'" [classButton]="'class_blue'"
-      [nameButton]="'VER CLASE GRATIS'" (emitClick)="openModal()"></app-generic-button>
+      [nameButton]="'VER CLASE GRATIS'" (emitClick)="openModal(); sendEvent();"></app-generic-button>
   </div>
 
 </div>

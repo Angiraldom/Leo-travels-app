@@ -52,7 +52,7 @@
             </div>
 
             <div class="button" *ngIf="!load">
-                <button class="btn" (click)="sendEmail()"
+                <button class="btn" (click)="sendEmail(); sendEvent();"
                     [disabled]="formSuscribe.invalid || !formSuscribe.get('dataTreatment')?.value">
                     REGISTRARME
                 </button>

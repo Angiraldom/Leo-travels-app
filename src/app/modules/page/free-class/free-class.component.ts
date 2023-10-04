@@ -26,4 +26,8 @@ export default class FreeClassComponent extends BaseClass {
   openModal() {
     this.dialog.open(FormModalFreeClassComponent);
   }
+
+  sendEvent() {
+    this.conversionesService.startTrial();
+  }
 }

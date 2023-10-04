@@ -26,7 +26,8 @@
         "ErrorServerUploadImages": "Ocurrio un problema al momento de cargar las imagenes, vuelve a intentarlo",
         "ErrorPasswordNotMatch": "La contraseña que ingresaste no es correcta",
         "ErrorTokenExpired": "Su sesión expiro, vuelva a iniciar sesión por favor",
-        "invalidCoupon": "Cupón inválido"
+        "invalidCoupon": "Cupón inválido",
+        "ErrorEmailExist": "El email ya fue enviado."
     },
     "succes": {
         "succesUpdate": "Actualizado correctamente",

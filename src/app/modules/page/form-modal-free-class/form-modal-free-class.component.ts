@@ -8,14 +8,19 @@ import { GenericButtonComponent } from 'src/app/shared/generic-button/generic-bu
 @Component({
   selector: 'app-form-modal-free-class',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, MaterialModule, GenericButtonComponent],
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    MaterialModule,
+    GenericButtonComponent,
+  ],
   templateUrl: './form-modal-free-class.component.html',
-  styleUrls: ['./form-modal-free-class.component.scss']
+  styleUrls: ['./form-modal-free-class.component.scss'],
 })
 export class FormModalFreeClassComponent extends BaseClass implements OnInit {
   load = false;
   showPolitcs = false;
-  
+
   formSuscribe!: FormGroup;
 
   ngOnInit(): void {
@@ -45,12 +50,24 @@ export class FormModalFreeClassComponent extends BaseClass implements OnInit {
     this.load = true;
     const data = this.formSuscribe.getRawValue();
 
-    this.baseService.postMethod('client/clase-gratis', data).subscribe((res) => {
-      if (res) {
-        this.messageService.succesMessage('Envio exitoso.');
+    this.baseService.postMethod('client/clase-gratis', data).subscribe({
+      next: () => {
+        this.messageService.succesMessage(
+          `
+        Recuerda revisar tu bandeja de SPAM.
+        Si no lo recibes, regístrate con otro correo o escríbenos al WhatsApp.`,
+          'Envío exitoso'
+        );
         this.load = false;
         this.dialog.closeAll();
+      },
+      error: () => {
+        this.load = false;
       }
     });
+  }
+
+  sendEvent() {
+    this.conversionesService.customEvent('Solicitud enviada');
   }
 }
