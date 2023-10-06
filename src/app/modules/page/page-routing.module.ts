@@ -33,7 +33,7 @@ const routes: Routes = [
       import('./free-class/free-class.component'),
   },
   {
-    path: 'ver-clase-gratis',
+    path: 'ver-clase-gratis-z',
     loadComponent: () =>
       import('./watch-free-class/watch-free-class.component'),
   },
