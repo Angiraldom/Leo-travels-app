@@ -54,13 +54,13 @@ export class PurchaseComponent implements OnInit, OnDestroy {
   epayco() {
     var data = {
       //Parametros compra (obligatorio)
-      invoice: '12345678023',
-      currency: 'cop',
+      invoice: '12345678027',
+      currency: 'usd',
       name: 'Plan de facturacion electronica',
       description: 'Plan de facturacion electronica',
       tax_base: '0',
       tax: '0',
-      amount: 40000,
+      amount: 40,
       country: 'co',
       lang: 'es',
       external: 'false',
