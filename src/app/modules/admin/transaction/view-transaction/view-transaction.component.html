@@ -2,9 +2,9 @@
 
 <div class="content-transaction">
     <div class="columns-2">
-        <p> <span class="bold">No Orden de pago:</span> {{data.data?.transaction?.reference}} </p>
-        <p> <span class="bold">Fecha de pago:</span> {{data.data?.transaction?.created_at | date}} </p>
-        <p> <span class="bold">Valor:</span> {{data.data?.transaction?.amount_in_cents}} </p>
+        <p> <span class="bold">No Orden de pago:</span> {{data.reference}} </p>
+        <p> <span class="bold">Fecha de pago:</span> {{data.fecha| date}} </p>
+        <p> <span class="bold">Valor:</span> {{data.total}} </p>
         <p> <span class="bold">Productos:</span> 
             <ng-container *ngFor="let item of data.products">
                {{ item.amount }} {{ item.name }},
@@ -16,13 +16,53 @@
         <p class="bold">Datos de envío</p>
     </div>
     <div class="columns-2">
-        <p> <span class="bold">Nombre:</span> {{data.data?.transaction?.customer_data?.full_name}} </p>
-        <p> <span class="bold" *ngIf="data.data?.transaction?.shipping_address">Departamento:</span> {{data.data?.transaction?.shipping_address?.region}} </p>
-        <p> <span class="bold">Documento:</span> {{data.data?.transaction?.customer_data?.legal_id}} </p>
-        <p> <span class="bold" *ngIf="data.data?.transaction?.shipping_address">Dirección:</span> {{data.data?.transaction?.shipping_address?.address_line_1}} </p>
-        <p> <span class="bold">Correo:</span> {{data.data?.transaction?.customer_email}} </p>
-        <p> <span class="bold" *ngIf="data.data?.transaction?.shipping_address">Ciudad:</span> {{data.data?.transaction?.shipping_address?.city}} </p>
-        <p> <span class="bold">Celular:</span> {{data.data?.transaction?.customer_data?.phone_number}} </p>
-        <p> <span class="bold" *ngIf="data.data?.transaction?.shipping_address">Más:</span> {{data.data?.transaction?.shipping_address?.address_line_2}} </p>
+        <p> 
+            <span class="bold">
+                Nombre:
+            </span> 
+            {{data.user.name}} 
+        </p>
+        <p> 
+            <span class="bold" *ngIf="data.shippingAdress">
+                Departamento:
+            </span> 
+            {{data.shippingAdress?.department}} 
+        </p>
+        <p> 
+            <span class="bold">
+                Documento:
+            </span> 
+            {{data.user.numberDocument}} 
+        </p>
+        <p> 
+            <span class="bold" *ngIf="data.shippingAdress">
+                Dirección:
+            </span> 
+            {{data.shippingAdress?.adress}} 
+        </p>
+        <p> 
+            <span class="bold">
+                Correo:
+            </span> 
+            {{data.user.email}}
+        </p>
+        <p> 
+            <span class="bold" *ngIf="data.shippingAdress">
+                Ciudad:
+            </span> 
+            {{data.shippingAdress?.city}} 
+        </p>
+        <p> 
+            <span class="bold">
+                Celular:
+            </span> 
+            {{data.user.phone}} 
+        </p>
+        <p> 
+            <span class="bold" *ngIf="data.shippingAdress">
+                Más:
+            </span> 
+            {{data.shippingAdress?.adressEspecification}} 
+        </p>
     </div>
 </div>

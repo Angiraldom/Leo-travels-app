@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BaseClass } from 'src/app/core/base.class';
-import { ITransaction } from './interfaces/ITransaction.interface';
 import { ViewTransactionComponent } from './view-transaction/view-transaction.component';
+import { ITransaction } from './interfaces/IPayment.interface';
 
 @Component({
   selector: 'app-transaction',
@@ -13,7 +13,6 @@ export class TransactionComponent extends BaseClass implements OnInit {
   transaction: ITransaction[] = [];
 
   displayedColumns: string[] = ['n°order', 'reference', 'date', 'total', 'actions'];
-  dataSource: any;
 
   ngOnInit(): void {
     this.getAllProducts();
@@ -23,7 +22,6 @@ export class TransactionComponent extends BaseClass implements OnInit {
     this.baseService.getMethod('payments/getPayments').subscribe({
       next: (response: any) => {
         this.transaction = response.data;
-        this.dataSource = response.data;
       },
     });
   }

@@ -1,6 +1,6 @@
 import { IProduct } from "../../products/interfaces/IProduct.interface";
 
-export interface ITransaction {
+export interface IWompi {
     data?: Data;
     event?: string;
     sent_at?: Date;
