@@ -40,10 +40,7 @@ export interface IEpayco {
     x_customer_address: string;
     x_customer_ip: string;
     x_test_request: boolean;
-    x_extra1: {
-        name: string;
-        value: string;
-    };
+    x_extra1: string;
     x_extra2: string;
     x_extra3: null;
     x_extra4: null;
