@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
-import { ITransaction } from '../interfaces/ITransaction.interface';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { ITransaction } from '../interfaces/IPayment.interface';
 
 @Component({
   selector: 'app-view-transaction',

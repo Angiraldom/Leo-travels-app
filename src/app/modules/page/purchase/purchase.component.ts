@@ -5,15 +5,13 @@ import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
 import { BaseService } from 'src/app/core/services/base.service';
 import { AppState } from 'src/app/store/app.reducer';
-import { IWompiInterface } from './interface/IWompiWidget.interface';
-import { clearCart, setShippingPrice } from 'src/app/store/actions/cart.actions';
+import { setShippingPrice } from 'src/app/store/actions/cart.actions';
 import { IProduct } from '../../admin/products/interfaces/IProduct.interface';
 import { ICourse } from '../../admin/courses/interfaces/ICourses.interface';
 import { MesaggeService } from 'src/app/core/services/message.service';
 import { ICities } from './interface/ICities.interface';
 import { KIT_VIAJERO_ID } from 'src/app/shared/constants';
-
-declare let WidgetCheckout: any;
+import { IEpaycoTransaction } from './interface/IEpaycoTransaction.interface';
 
 @Component({
   selector: 'app-purchase',
@@ -28,7 +26,6 @@ export class PurchaseComponent implements OnInit, OnDestroy {
   $store!: Subscription;
 
   totalValue = 0;
-  succesfulTransaction: boolean = false;
   showShippingAdress: boolean = false;
   userExist: boolean = false;
   products: IProduct[] | ICourse[] = [];
@@ -36,15 +33,28 @@ export class PurchaseComponent implements OnInit, OnDestroy {
   invalidCustomerForm: FormControlStatus = 'INVALID';
   invalidFormAddress: FormControlStatus = 'INVALID';
   protected readonly idKitViajero = KIT_VIAJERO_ID;
+  private responseUrl = 'http://localhost:4200/#/response-transaction';
 
-  wompiObject: IWompiInterface = {
-    currency: 'COP',
-    amountInCents: 0,
-    reference: '',
-    // publicKey: 'pub_test_YHZn4Q2jPbQ5hnohVI5MpMeUtmV1y896',
-    publicKey: 'pub_prod_ZCkW5J9awng6lO5EdFhYLgPmL7PSshch',
-    redirectUrl: 'https://vilean.co/#/response-transaction',
+  epaycoObject: IEpaycoTransaction = {
+    invoice: '',
+    currency: 'usd',
+    name: 'Plan de facturacion electronica',
+    description: 'Plan de facturacion electronica',
+    amount: 0,
+    country: 'co',
+    lang: 'es',
+    external: 'false',
+    response: '',
+    confirmation:
+      'https://leo-travels-api-production.up.railway.app/payments/notification-epayco',
+    methodsDisable: []
   };
+
+  window: any = window;
+  handler = this.window?.ePayco?.checkout?.configure({
+    key: 'efeb27be0943f1db92b378501dea7512',
+    test: true,
+  });
 
   ngOnInit(): void {
     this.$store = this.store.select('cart').subscribe({
@@ -52,70 +62,37 @@ export class PurchaseComponent implements OnInit, OnDestroy {
         this.reference = reference;
         this.products = products;
         if (this.products.length === 0) {
-            this.router.navigate(['cursos']);
-            return;
+          this.router.navigate(['cursos']);
+          return;
         }
-        this.validateShowform();
+        this.validateShowAdressform();
       },
     });
   }
-  
+
   ngOnDestroy(): void {
     this.$store.unsubscribe();
-
-    if (this.succesfulTransaction) {
-      this.store.dispatch(clearCart());
-      localStorage.removeItem('reference');
-    }
   }
 
-  purchase() {
-    this.addShippingPhoneNumber();
-    this.wompiObject.reference = this.reference;
-    this.wompiObject.amountInCents = Number(this.totalValue + '00');
-    this.openCheckout();
-  }
-
-  addShippingPhoneNumber() {
-    if (!this.showShippingAdress) {
-      return;
-    }
-    this.wompiObject.shippingAddress!.phoneNumber = this.wompiObject.customerData!.phoneNumber;
+  purchaseEpayco() {
+    this.epaycoObject.invoice = this.reference;
+    this.epaycoObject.amount = Number(this.totalValue);
+    this.handler.open(this.epaycoObject, () => {});
   }
 
   setCustomerData(form: { data: any; statusForm: FormControlStatus }) {
-    form.data['fullName'] = form.data.name + ' ' + form.data.lastName;
-    delete form.data.name;
-    delete form.data.lastName;
     this.invalidCustomerForm = form.statusForm;
-    this.wompiObject.customerData = form.data;
+    this.epaycoObject.extra1 = JSON.stringify(form.data);
   }
 
-  setshippingAddressData(form: { data: any; statusForm: FormControlStatus }) {
-    delete form.data.country;
+  setShippingAddressData(form: { data: any; statusForm: FormControlStatus }) {
     this.invalidFormAddress = form.statusForm;
-    this.wompiObject.shippingAddress = form.data;
-    this.wompiObject.shippingAddress!.country = 'CO';
+    this.epaycoObject.extra2 = JSON.stringify(form.data);
   }
 
-  openCheckout() {
-    const checkout = new WidgetCheckout(this.wompiObject);
-    
-    checkout.open((result: any) => {
-      const status = result.transaction.status;
-      if (status === 'APPROVED') {
-        this.succesfulTransaction = true;
-        localStorage.removeItem('reference');
-      }
-    });
-  }
-
-  validateShowform() {
+  validateShowAdressform() {
     this.showShippingAdress = this.products?.some((item) => !item.modules);
-    if (this.showShippingAdress) {
-      return;
-    } 
-    delete this.wompiObject.shippingAddress;
+    this.epaycoObject.response = this.responseUrl + `/${this.showShippingAdress}`;
   }
 
   validateUser($event: any) {
@@ -123,30 +100,40 @@ export class PurchaseComponent implements OnInit, OnDestroy {
       return;
     }
     if (this.products?.some((item) => item.modules)) {
-      this.baseService.postMethod('user/findByEmail', { email: $event.data.email }).subscribe({
-        next: (res: any) => {
-          if (Object.keys(res.data).length > 0) {
-            this.userExist = true;
-            this.messageService.warningMessage('info.theEmailExists');
-          } else {
-            this.userExist = false;
-          }
-        }
-      });
+      this.baseService
+        .postMethod('user/findByEmail', { email: $event.data.email })
+        .subscribe({
+          next: (res: any) => {
+            if (Object.keys(res.data).length > 0) {
+              this.userExist = true;
+              this.messageService.warningMessage('info.theEmailExists');
+            } else {
+              this.userExist = false;
+            }
+          },
+        });
     }
   }
-  
+
   disabledButton() {
     if (this.userExist) {
       this.messageService.warningMessage('info.theEmailExists');
       return;
     }
-    if (!this.userExist && !this.showShippingAdress && this.invalidCustomerForm === 'VALID') {
-      this.purchase();
+    if (
+      !this.userExist &&
+      !this.showShippingAdress &&
+      this.invalidCustomerForm === 'VALID'
+    ) {
+      this.purchaseEpayco();
       return;
     }
-    if (!this.userExist && this.invalidFormAddress === 'VALID' && this.invalidCustomerForm === 'VALID') {
-      this.purchase();
+    if (
+      !this.userExist &&
+      this.invalidFormAddress === 'VALID' &&
+      this.invalidCustomerForm === 'VALID'
+    ) {
+      this.purchaseEpayco();
       return;
     }
     this.messageService.warningMessage('info.completeForm');
@@ -159,18 +146,26 @@ export class PurchaseComponent implements OnInit, OnDestroy {
     }
     this.validateShippingPrice(value);
   }
-  
+
   validateShippingPrice(value: ICities) {
-    const existTravelKitProduct = this.products.some((item) => item._id === this.idKitViajero);
-    
+    const existTravelKitProduct = this.products.some(
+      (item) => item._id === this.idKitViajero
+    );
+
     if (existTravelKitProduct) {
-      this.store.dispatch(setShippingPrice({ shippingPrice: value.shippingPrice.valor1 }));
+      this.store.dispatch(
+        setShippingPrice({ shippingPrice: value.shippingPrice.valor1 })
+      );
       return;
     }
 
-    const existAnotherProduct = this.products.some((item) => item._id !== this.idKitViajero && !item.modules);
+    const existAnotherProduct = this.products.some(
+      (item) => item._id !== this.idKitViajero && !item.modules
+    );
     if (existAnotherProduct) {
-      this.store.dispatch(setShippingPrice({ shippingPrice: value.shippingPrice.valor2 }));
+      this.store.dispatch(
+        setShippingPrice({ shippingPrice: value.shippingPrice.valor2 })
+      );
       return;
     }
     this.store.dispatch(setShippingPrice({ shippingPrice: 0 }));

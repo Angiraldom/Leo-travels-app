@@ -1,0 +1,11 @@
+<!-- AGREGAR LOADER -->
+<ng-container *ngIf="!transactionError">
+
+    <app-gratitude-kit *ngIf="!showGratitudCourse"></app-gratitude-kit>
+    <app-gratitude-course *ngIf="showGratitudCourse"></app-gratitude-course>
+
+</ng-container>
+
+<ng-container *ngIf="transactionError">
+    <app-error-transaction></app-error-transaction>
+</ng-container>
