@@ -3,6 +3,11 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
+    path: 'response-transaction/:buy-course',
+    loadComponent: () =>
+      import('./response-transaction/response-transaction.component'),
+  },
+  {
     path: 'cursos',
     loadChildren: () =>
       import('./course-landing/course-landing.module').then((m) => m.CourseLandingModule),
