@@ -33,7 +33,7 @@ export class PurchaseComponent implements OnInit, OnDestroy {
   invalidCustomerForm: FormControlStatus = 'INVALID';
   invalidFormAddress: FormControlStatus = 'INVALID';
   protected readonly idKitViajero = KIT_VIAJERO_ID;
-  private responseUrl = 'http://localhost:4200/#/response-transaction';
+  private responseUrl = 'https://vilean.co/#/response-transaction';
 
   epaycoObject: IEpaycoTransaction = {
     invoice: '',
@@ -92,7 +92,7 @@ export class PurchaseComponent implements OnInit, OnDestroy {
 
   validateShowAdressform() {
     this.showShippingAdress = this.products?.some((item) => !item.modules);
-    this.epaycoObject.response = this.responseUrl + `/${this.showShippingAdress}`;
+    this.epaycoObject.response = this.responseUrl + `/${!this.showShippingAdress}`;
   }
 
   validateUser($event: any) {
