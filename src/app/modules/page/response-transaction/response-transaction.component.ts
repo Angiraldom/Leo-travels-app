@@ -10,6 +10,8 @@ import { BaseService } from 'src/app/core/services/base.service';
 import { ErrorTransactionComponent } from './components/error-transaction/error-transaction.component';
 import { AppState } from 'src/app/store/app.reducer';
 import { clearCart } from 'src/app/store/actions/cart.actions';
+import { HeaderPromotionsComponent } from 'src/app/shared/header-promotions/header-promotions.component';
+import { FooterComponent } from 'src/app/shared/footer/footer.component';
 
 @Component({
   selector: 'app-response-transaction',
@@ -20,6 +22,8 @@ import { clearCart } from 'src/app/store/actions/cart.actions';
     GratitudeCourseComponent,
     GratitudeKitComponent,
     ErrorTransactionComponent,
+    HeaderPromotionsComponent,
+    FooterComponent
   ],
   templateUrl: './response-transaction.component.html',
   styleUrls: ['./response-transaction.component.scss'],
@@ -34,6 +38,7 @@ export default class ResponseTransactionComponent implements OnInit {
   refPayco!: string;
   transactionError = false;
   showGratitudCourse = true;
+  loading = true;
 
   ngOnInit(): void {
     this.activatedRoute.queryParams.subscribe((params) => {
@@ -62,12 +67,15 @@ export default class ResponseTransactionComponent implements OnInit {
   }
 
   getStatusTransaction() {
+    this.loading = true;
     this.baseService
       .http.get(
         `https://secure.epayco.co/validation/v1/reference/${this.refPayco}`
       )
       .subscribe({
         next: (res: any) => {
+          console.log(res);
+          this.loading = false;
           
           if (!res.success) {
             this.router.navigate(['home']);
@@ -82,6 +90,9 @@ export default class ResponseTransactionComponent implements OnInit {
             this.transactionError = true;
           }
         },
+        error: () => {
+          this.loading = false;
+        }
       });
   }
 
