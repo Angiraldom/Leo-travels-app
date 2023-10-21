@@ -11,13 +11,13 @@
             <div class="text-end list-products">
                 <p class="justify-self-start">{{ item.amount }}</p>
                 <p class="justify-self-start text-start cut-text" [matTooltip]="item.name">{{ item.name }}</p>
-                <p>{{ item.amount * item.price | currency }}</p>
+                <p>US {{ item.amount * item.price | currency }}</p>
             </div>
         </ng-container>
         <hr style="width: 100%;">
         <div class="text-end align-between">
             <p class="font-bold">Subtotal</p>
-            <p class="font-bold">{{ (store.select('cart') | async).products | totalValue | currency }}</p>
+            <p class="font-bold">US {{ (store.select('cart') | async).products | totalValue | currency }}</p>
         </div>
 
         <div class="text-end discounts">
@@ -26,20 +26,20 @@
                 <ng-container *ngFor="let item of (store.select('cart') | async).products">
                     <div class="align-between" *ngIf="item.discount">
                         <p>{{ item.coupon.descriptionName }}</p>
-                        <p>{{ item.price | calculateDiscount:item.discount:item.amount | currency }}</p>
+                        <p>US {{ item.price | calculateDiscount:item.discount:item.amount | currency }}</p>
                     </div>
                 </ng-container>
             </div>
         </div>
         <div class="text-end align-between">
             <p class="font-bold">Envío</p>
-            <p>{{ (store.select('cart') | async).shippingPrice | currency }}</p>
+            <p>US {{ (store.select('cart') | async).shippingPrice | currency }}</p>
         </div>
 
         <div class="text-end align-between">
             <p class="font-bold">Total</p>
             {{ totalValue.setValue((store.select('cart') | async).products | finalPrice: (store.select('cart') | async).shippingPrice) }}
-            <p class="font-bold">{{ totalValue.value | currency }}</p>
+            <p class="font-bold">US {{ totalValue.value | currency }}</p>
         </div>
     </div>
 </div>
