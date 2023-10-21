@@ -6,8 +6,6 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './error-transaction.component.html',
-  styleUrls: ['./error-transaction.component.scss']
+  styleUrls: ['./error-transaction.component.scss'],
 })
-export class ErrorTransactionComponent {
-
-}
+export class ErrorTransactionComponent {}
