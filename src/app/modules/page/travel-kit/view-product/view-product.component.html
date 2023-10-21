@@ -21,7 +21,7 @@
         <span>{{viewProduct.name}}</span>
       </h2>
       <p>
-        <span>{{ viewProduct.price | currency }}</span>
+        <span>US {{ viewProduct.price | currency }}</span>
       </p>
       <p [innerHTML]="viewProduct.description">
       </p>
@@ -47,7 +47,7 @@
               {{ product.name | uppercase }}
             </p>
             <p class="color-primary text-center">
-              {{ product.price | currency }}
+              US {{ product.price | currency }}
             </p>
           </div>
           <div class="viewProduct">
