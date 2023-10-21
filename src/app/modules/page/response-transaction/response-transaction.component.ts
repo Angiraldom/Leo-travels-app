@@ -74,26 +74,24 @@ export default class ResponseTransactionComponent implements OnInit {
       )
       .subscribe({
         next: (res: any) => {
-          console.log(res);
-          this.loading = false;
           
-          if (!res.success) {
-            this.router.navigate(['home']);
-            return;
-          }
-
-          if (res.data.x_response === 'Aceptada' || res.data.x_response === 'Pendiente') {
-            this.clearData();
-          }
-
-          if (res.data.x_response === 'Fallida') {
-            this.transactionError = true;
-          }
+          this.loading = false;
+          this.handleResponse(res);
         },
         error: () => {
           this.loading = false;
         }
       });
+  }
+
+  handleResponse(res: any) {
+    if (!res.success) {
+      this.router.navigate(['home']);
+    } else if (res.data.x_response === 'Aceptada' || res.data.x_response === 'Pendiente') {
+      this.clearData();
+    } else {
+      this.transactionError = true;
+    }
   }
 
   clearData() {
