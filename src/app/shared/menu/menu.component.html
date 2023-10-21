@@ -95,7 +95,7 @@
             <mat-icon (click)="deleteProduct(item)" [color]="'primary'">delete_outline</mat-icon>
           </div>
           <p>Cantidad: {{ item.amount }}</p>
-          <p class="value">US {{ item.price | currency }}</p>
+          <p class="value">US{{ item.price | currency }}</p>
         </div>
       </div>
     </ng-container>
@@ -106,18 +106,18 @@
     <div class="invoice-summary">
       <p>Envío</p>
       <p *ngIf="(store.select('cart') | async).shippingPrice !== 0">
-        US {{ (store.select('cart') | async).shippingPrice | currency }}
+        US{{ (store.select('cart') | async).shippingPrice | currency }}
       </p>
       <p *ngIf="(store.select('cart') | async).shippingPrice === 0">Por definir</p>
     </div>
     <div class="invoice-summary">
       <p>Subtotal</p>
-      <p>US {{ (store.select("cart") | async).products | totalValue | currency }}</p>
+      <p>US{{ (store.select("cart") | async).products | totalValue | currency }}</p>
     </div>
     <div class="invoice-summary bold">
       <p>Total</p>
       <p>
-        US {{ (store.select('cart') | async).products | finalPrice: (store.select('cart') | async).shippingPrice | currency
+        US{{ (store.select('cart') | async).products | finalPrice: (store.select('cart') | async).shippingPrice | currency
         }}
       </p>
     </div>
