@@ -1,0 +1,47 @@
+@import "/src/styles/variables";
+
+.really-do-it {
+  padding: 20px 30px 40px 30px;
+  display: flex;
+  justify-content: center;
+  background-color: $secondary;
+  text-align: left;
+  color: $primary;
+}
+
+.section {
+  max-width: 777px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  margin: 10px 0px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+p {
+  margin-bottom: 20px;
+}
+
+li {
+  margin-bottom: 20px;
+}
+
+.buy-button {
+  color: $secondary;
+  font-weight: bold;
+  max-width: 400px;
+  min-width: 230px;
+  text-align: center;
+  border-radius: 50px;
+  background-color: $primary;
+  margin: 20px 0px
+}
+
+.img-oferta {
+  max-width: 200px;
+}

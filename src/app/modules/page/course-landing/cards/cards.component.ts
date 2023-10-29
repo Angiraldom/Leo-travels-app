@@ -62,5 +62,10 @@ export class CardsComponent {
       alt: 'IC-10',
       title: 'Cierre del curso',
     },
+    {
+      image: 'https://vilean.s3.us-east-2.amazonaws.com/PAG+CURSO/icono-actualizaciones.png ',
+      alt: 'IC-11',
+      title: 'Actualizaciones',
+    },
   ];
 }

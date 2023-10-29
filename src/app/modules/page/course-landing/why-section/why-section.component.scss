@@ -1,0 +1,80 @@
+@import "/src/styles/variables";
+
+.why-section {
+  padding: 20px 30px 40px 30px;
+  text-align: center;
+  background-color: $primary;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+
+
+  .icon-image {
+    position: relative;
+    width: 50px;
+    top: -45px;
+  //  left: calc(50% - 25px);
+
+    img {
+      width: 100%;
+    }
+  }
+}
+
+.section {
+  max-width: 777px;
+  justify-content: center;
+  flex-direction: column;
+  align-items: flex-start;
+  color: #fff;
+  position: relative;
+  text-align: left;
+
+
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+p {
+  margin-bottom: 20px;
+}
+
+li {
+  margin-bottom: 20px;
+}
+
+.list {
+  list-style-type: none; /* Elimina el estilo predeterminado del marcador de lista */
+  padding: 0;
+}
+
+.buy-content {
+  text-align: center;
+  background-color: $secondary;
+  position: relative;
+
+}
+
+.desktop {
+  display: none;
+}
+
+hr {
+  width: 100%;
+  margin: 30px 0px;
+}
+
+@media screen and (min-width: 100px) {
+
+  .movil {
+    display: none;
+  }
+
+  .desktop {
+    display: block;
+  }
+}

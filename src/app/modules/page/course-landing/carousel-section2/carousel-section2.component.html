@@ -1,0 +1,34 @@
+<div class="carousel-section">
+
+  <section class="section">
+
+    <div class="carousel-div">
+      <h1 class="color-primary">Al visitar un lugar hermoso, lo
+          mínimo que puedes hacer es
+          <mark>tomar una foto que transmita
+          la belleza real</mark> de lo que ves...</h1>
+      <p>Además de disfrutar y vivir la experiencia
+        en el lugar que estés, llevarte una foto
+        inolvidable es lo mínimo que debes
+        hacer.</p>
+      <p>No hay excusas. Tienes un celular y
+        tienes la posibilidad de aprender a
+        capturar fotos asombrosas con él, fotos
+        como estas:</p>
+    </div>
+
+    <div class="carousel-div">
+    <swiper [config]="config">
+      <ng-template swiperSlide *ngFor="let item of nameImages; let index = index">
+        <div class="container-image-coursel2">
+          <img class="responsive-img2" fill [ngSrc]="item" [alt]="'Imagen' + index" />
+        </div>
+      </ng-template>
+    </swiper>
+    <p class="carousel-text" style="max-width: 700px;">
+      Fotos tomadas por nosotros
+      con el celular.
+    </p>
+    </div>
+  </section>
+</div>

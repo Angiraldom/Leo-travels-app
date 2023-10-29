@@ -1,7 +1,7 @@
 @import '/src/styles/variables';
 
 section {
-  background-color: #bdbdbd52;
+  background-color: $primary;
 }
 
 .content-cards {
@@ -69,7 +69,7 @@ section {
 
   ::ng-deep .p-card {
     display: grid;
-    min-height: 170px;
+    min-height: 85%;
   }
 }
 

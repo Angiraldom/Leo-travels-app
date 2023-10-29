@@ -1,0 +1,27 @@
+@import "/src/styles/variables";
+
+.amazing-fotos {
+  padding: 20px 30px 40px 30px;
+  display: flex;
+  justify-content: center;
+  background-color: $primary;
+  text-align: left;
+  color: $white;
+}
+
+.section {
+  max-width: 777px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+p {
+  margin-bottom: 20px;
+}
+
+li {
+  margin-bottom: 20px;
+}
