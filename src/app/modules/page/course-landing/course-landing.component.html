@@ -1,45 +1,35 @@
 <ng-container *ngIf="!showPromotion">
-    <app-menu></app-menu>
-    <app-main-section (onAddCourse)="validateCourseAndAddInCart()"></app-main-section>
-    <app-steps-section></app-steps-section>
+  <app-menu></app-menu>
+  <app-main-section (onAddCourse)="validateCourseAndAddInCart()"></app-main-section>
+  <app-its-for-you-checks></app-its-for-you-checks>
+  <app-like-fotos></app-like-fotos>
+  <app-why-section></app-why-section>
+  <app-carousel-section2 class="app-carousel" id="coursel2"></app-carousel-section2>
+  <app-amazing-fotos></app-amazing-fotos>
+  <app-secrets-section></app-secrets-section>
+  <app-really-do-it></app-really-do-it>
+  <app-price-section (onAddCourse)="validateCourseAndAddInCart()"></app-price-section>
+  <app-asequible-section></app-asequible-section>
+  <app-learnings-section></app-learnings-section>
+  <app-benefits-session></app-benefits-session>
+  <app-access-section></app-access-section>
+  <app-complete-course></app-complete-course>
+  <app-fast-learning2></app-fast-learning2>
+  <app-act-now></app-act-now>
+  <app-price-section (onAddCourse)="validateCourseAndAddInCart()"></app-price-section>
+  <app-spoiler-alert></app-spoiler-alert>
+  <app-course-content-section id="content-course2"></app-course-content-section>
+  <app-cards></app-cards>
 
-    <app-info-fotos class="app-info"></app-info-fotos>
-    <app-bad-things></app-bad-things>
 
-    <app-buy-section class="app-buy" (onAddCourse)="validateCourseAndAddInCart()"></app-buy-section>
-    
-    <app-the-best-of-all></app-the-best-of-all>
+  <app-faq></app-faq>
+  <app-price-section (onAddCourse)="validateCourseAndAddInCart()"></app-price-section>
+  <app-our-purpose></app-our-purpose>
+  <app-footer></app-footer>
 
-    <div class="content-course-value background-primary">
-        <app-course-value (onAddCourse)="validateCourseAndAddInCart()" 
-        [typeClass]="'letter_yellow_white'"></app-course-value>
-    </div>  
 
-    <app-carousel-section class="app-carousel" id="coursel"></app-carousel-section>
-    
-    <app-complete-course></app-complete-course>
-
-    <app-fast-learning></app-fast-learning>
-    
-    <app-same-mistakes></app-same-mistakes>
-
-    <div class="background-secondary course-value-content">
-        <app-course-value (onAddCourse)="validateCourseAndAddInCart()" [showHr]="false"
-            [typeClass]="'letter_blue'" [classButton]="'class_blue'"></app-course-value>
-    </div>
-
-    <app-course-content-section id="content-course"></app-course-content-section>
-    <app-cards></app-cards>
-    <app-benefits-session></app-benefits-session>
-    <div class="content-course-value background-primary">
-        <app-course-value (onAddCourse)="validateCourseAndAddInCart()"
-        [typeClass]="'letter_yellow_white'"></app-course-value>
-    </div>
-    <app-our-purpose></app-our-purpose>
-    <app-travel-kit id="travel-kit"></app-travel-kit>
-    <app-footer></app-footer>
 </ng-container>
 
 <ng-container *ngIf="showPromotion">
-    <app-kit-promotion (onAddTravelKit)="addKit()"></app-kit-promotion>
+  <app-kit-promotion (onAddTravelKit)="addKit()"></app-kit-promotion>
 </ng-container>

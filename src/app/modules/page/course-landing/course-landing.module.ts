@@ -27,6 +27,21 @@ import { BadThingsComponent } from './bad-things/bad-things.component';
 import { TheBestOfAllComponent } from './the-best-of-all/the-best-of-all.component';
 import { CompleteCourseComponent } from './complete-course/complete-course.component';
 import { SameMistakesComponent } from './same-mistakes/same-mistakes.component';
+import { ItsForYouChecksComponent } from './its-for-you-checks/its-for-you-checks.component';
+import { LikeFotosComponent } from './like-fotos/like-fotos.component';
+import { WhySectionComponent } from './why-section/why-section.component';
+import {CarouselSection2Component} from "./carousel-section2/carousel-section2.component";
+import { AmazingFotosComponent } from './amazing-fotos/amazing-fotos.component';
+import { SecretsSectionComponent } from './secrets-section/secrets-section.component';
+import { ReallyDoItComponent } from './really-do-it/really-do-it.component';
+import { AsequibleSectionComponent } from './asequible-section/asequible-section.component';
+import { LearningsSectionComponent } from './learnings-section/learnings-section.component';
+import { AccessSectionComponent } from './access-section/access-section.component';
+import { FastLearning2Component } from './fast-learning2/fast-learning2.component';
+import { ActNowComponent } from './act-now/act-now.component';
+import { SpoilerAlertComponent } from './spoiler-alert/spoiler-alert.component';
+import { FaqComponent } from './faq/faq.component';
+import { PriceSectionComponent } from './price-section/price-section.component';
 
 
 @NgModule({
@@ -38,6 +53,7 @@ import { SameMistakesComponent } from './same-mistakes/same-mistakes.component';
     InfoFotosComponent,
     BuySectionComponent,
     CarouselSectionComponent,
+    CarouselSection2Component,
     CourseContentSectionComponent,
     CardsComponent,
     TravelKitComponent,
@@ -49,7 +65,21 @@ import { SameMistakesComponent } from './same-mistakes/same-mistakes.component';
     BadThingsComponent,
     TheBestOfAllComponent,
     CompleteCourseComponent,
-    SameMistakesComponent
+    SameMistakesComponent,
+    ItsForYouChecksComponent,
+    LikeFotosComponent,
+    WhySectionComponent,
+    AmazingFotosComponent,
+    SecretsSectionComponent,
+    ReallyDoItComponent,
+    AsequibleSectionComponent,
+    LearningsSectionComponent,
+    AccessSectionComponent,
+    FastLearning2Component,
+    ActNowComponent,
+    SpoilerAlertComponent,
+    FaqComponent,
+    PriceSectionComponent
   ],
   imports: [
     CommonModule,

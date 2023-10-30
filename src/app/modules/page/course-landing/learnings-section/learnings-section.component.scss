@@ -1,0 +1,124 @@
+@import "/src/styles/variables";
+
+.learnings-section {
+  padding: 20px 30px 40px 30px;
+  display: flex;
+  justify-content: center;
+  background-color: $background-color;
+  text-align: left;
+  //color: $primary;
+}
+
+.section {
+  max-width: 777px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+p {
+  margin-bottom: 20px;
+}
+
+li {
+  margin-bottom: 20px;
+}
+
+mark {
+  background: $secondary;
+  color: $primary;
+}
+
+.grid-two-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 25px;
+}
+
+.check-list {
+  list-style-type: none; /* Elimina el estilo predeterminado del marcador de lista */
+  padding: 0px;
+}
+
+.check-list li {
+  margin-top: 15px;
+  position: relative;
+  padding-left: 25px; /* Espacio a la izquierda para el cuadrado */
+}
+
+.check-list li:before {
+  content: ''; /* Caracter Unicode para el símbolo de checkmark */
+  position: absolute;
+  left: 0;
+  top: 5px;
+  width: 15px;
+  height: 15px;
+  border: 2px solid $primary;
+  box-sizing: border-box; /* Incluye el borde en el tamaño total del cuadrado */
+  background-color: $secondary;
+}
+
+.check-list li:after {
+  content: '\2713'; /* Caracter Unicode para el símbolo de checkmark */
+  color: $primary; /* Color del símbolo de checkmark cuando está marcado */
+  font-size: 20px; /* Tamaño de fuente del símbolo de checkmark */
+  position: absolute;
+  left: 3px;
+  top: -7px;
+}
+
+
+.square-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.square-list li {
+  margin-bottom: 10px;
+  position: relative;
+  padding-left: 40px; /* Espacio a la izquierda para el cuadrado y el símbolo de checkmark */
+}
+
+.square-list li:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  border: 2px solid #007bff; /* Color del borde del cuadrado cuando está marcado */
+  box-sizing: border-box; /* Incluye el borde en el tamaño total del cuadrado */
+}
+
+.square-list li.checked:before {
+  background-color: #007bff; /* Color de fondo del cuadrado cuando está marcado */
+}
+
+.square-list li:after {
+  content: '\2713'; /* Caracter Unicode para el símbolo de checkmark */
+  color: #007bff; /* Color del símbolo de checkmark cuando está marcado */
+  font-size: 16px; /* Tamaño de fuente del símbolo de checkmark */
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+
+@media screen and (max-width: 582px) {
+  .grid-two-columns {
+    display: flex;
+    flex-direction: column;
+
+    ul {
+      margin: 0px;
+
+      li {
+        margin-bottom: 10px;
+      }
+    }
+  }
+}

@@ -1,0 +1,67 @@
+@import "/src/styles/variables";
+
+.like-fotos {
+  padding: 40px 30px;
+  text-align: center;
+  background-color: $background-color;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+
+
+  .section {
+    display: grid;
+    justify-content: center;
+    max-width: 777px;
+    text-align: left;
+    margin-bottom: 10px;
+
+    h2 {
+      color: $primary;
+    }
+
+    p {
+      padding: 25px 10px 0px 0px;
+    }
+
+    .grid-two-columns {
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+      margin-bottom: 20px;
+
+      div {
+        padding: 0px 35px 0px 0px;
+        max-width: 55%;
+
+
+        img {
+          max-width: 100%;
+          padding: 15px 10px 0px 10px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 582px) {
+  .like-fotos .section .grid-two-columns {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    div {
+      max-width: 100%;
+      p{
+        margin-bottom: 10px;
+      }
+    }
+
+  }
+}
+
+mark {
+  background: $secondary;
+  color: $primary;
+}

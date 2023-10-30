@@ -1,0 +1,36 @@
+@import "/src/styles/variables";
+
+.access-section {
+  padding: 0px 30px 20px 30px;
+  display: flex;
+  justify-content: center;
+  background-color: $primary;
+  text-align: center;
+  color: $white;
+}
+
+.section {
+  max-width: 777px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+p {
+  margin-bottom: 20px;
+}
+
+li {
+  margin-bottom: 20px;
+}
+
+hr {
+  width: 100%;
+  margin: 30px 0px;
+}
+
+img {
+  max-width: 150px;
+}

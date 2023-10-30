@@ -1,0 +1,59 @@
+@import "/src/styles/variables";
+
+.fast-learning2 {
+  padding: 20px 30px 40px 30px;
+  display: flex;
+  justify-content: center;
+  background-color: $white;
+  text-align: left;
+  color: $primary;
+}
+
+.section {
+  max-width: 777px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+p {
+  margin-bottom: 20px;
+}
+
+li {
+  margin-bottom: 20px;
+}
+
+mark {
+  background: $secondary;
+  color: $primary;
+}
+
+img {
+  max-width: 100%;
+}
+
+.grid-two-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 25px;
+  margin-top: 20px;
+}
+
+
+@media screen and (max-width: 582px) {
+  .grid-two-columns {
+    display: flex;
+    flex-direction: column;
+
+    ul {
+      margin: 0px;
+
+      li {
+        margin-bottom: 10px;
+      }
+    }
+  }
+}

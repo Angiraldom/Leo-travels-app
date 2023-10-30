@@ -1,0 +1,46 @@
+@import "/src/styles/variables";
+
+.its-for-you {
+  display: flex;
+  justify-content: center;
+  padding: 5%;
+  background-color: $primary;
+
+  section {
+    display: grid;
+    justify-content: center;
+    max-width: 777px;
+    color: #fff;
+  }
+
+  .square-list {
+    list-style-type: none; /* Elimina el estilo predeterminado del marcador de lista */
+    padding: 0px;
+  }
+
+  .square-list li {
+    margin-top: 15px;
+    position: relative;
+    padding-left: 25px; /* Espacio a la izquierda para el cuadrado */
+  }
+
+  .square-list li:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 5px;
+    //transform: translateY(-50%);
+    width: 15px;
+    height: 15px;
+    border: 2px solid #fff; /* Borde blanco */
+    box-sizing: border-box; /* Incluye el borde en el tamaño total del cuadrado */
+  }
+
+  .color-secondary {
+    color: $secondary;
+  }
+}
+
+.no-space{
+  margin: 0px;
+}

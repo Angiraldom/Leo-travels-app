@@ -1,0 +1,74 @@
+@import "/src/styles/variables";
+
+.faq {
+  padding: 40px 30px 40px 30px;
+  display: flex;
+  justify-content: center;
+  background-color: $background-color;
+  text-align: left;
+  color: $primary;
+}
+
+.section {
+  max-width: 777px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+p {
+  margin-bottom: 20px;
+}
+
+li {
+  margin-bottom: 20px;
+}
+
+mark {
+  background: $secondary;
+  color: $primary;
+}
+
+.p-accordion-header {
+  background-color: $primary;
+}
+
+::ng-deep .p-accordion .p-accordion-header:not(.p-disabled).p-highlight:hover .p-accordion-header-link {
+  background-color: $primary;
+  color: $white;
+}
+
+::ng-deep .p-accordion .p-accordion-header:not(.p-disabled).p-highlight .p-accordion-header-link {
+  background-color: $primary;
+  color: $white;
+}
+
+::ng-deep .p-accordion .p-accordion-header .p-accordion-header-link {
+  background-color: $white;
+  color: $primary;
+  font-weight: bold;
+}
+
+.grid-two-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 25px;
+  margin-top: 20px
+}
+
+::ng-deep .p-accordion .p-accordion-content {
+  border: none;
+  color: $primary;
+  background-color: $white;
+}
+
+
+@media screen and (max-width: 582px) {
+  .grid-two-columns {
+    display: flex;
+    flex-direction: column;
+
+  }
+}
