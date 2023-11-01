@@ -5,7 +5,7 @@
     <div class="carousel-div">
       <h1 class="color-primary">Al visitar un lugar hermoso, lo
           mínimo que puedes hacer es
-          <mark>tomar una foto que transmita
+          <mark class="color-primary">tomar una foto que transmita
           la belleza real</mark> de lo que ves...</h1>
       <p>Además de disfrutar y vivir la experiencia
         en el lugar que estés, llevarte una foto
@@ -21,11 +21,11 @@
     <swiper [config]="config">
       <ng-template swiperSlide *ngFor="let item of nameImages; let index = index">
         <div class="container-image-coursel2">
-          <img class="responsive-img2" fill [ngSrc]="item" [alt]="'Imagen' + index" />
+          <img class="respon-img2" fill [ngSrc]="item" [alt]="'Imagen' + index" />
         </div>
       </ng-template>
     </swiper>
-    <p class="carousel-text" style="max-width: 700px;">
+    <p class="carousel-text" style="max-width: 700px; text-align: center">
       Fotos tomadas por nosotros
       con el celular.
     </p>
