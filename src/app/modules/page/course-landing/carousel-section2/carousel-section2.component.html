@@ -1,6 +1,6 @@
-<div class="carousel-section">
+<div class="carousel-sec">
 
-  <section class="section">
+  <section class="sect">
 
     <div class="carousel-div">
       <h1 class="color-primary">Al visitar un lugar hermoso, lo
@@ -20,12 +20,12 @@
     <div class="carousel-div">
     <swiper [config]="config">
       <ng-template swiperSlide *ngFor="let item of nameImages; let index = index">
-        <div class="container-image-coursel2">
+        <div class="cont-img-cour2">
           <img class="respon-img2" fill [ngSrc]="item" [alt]="'Imagen' + index" />
         </div>
       </ng-template>
     </swiper>
-    <p class="carousel-text" style="max-width: 700px; text-align: center">
+    <p class="caro-txt" style="max-width: 700px; text-align: center">
       Fotos tomadas por nosotros
       con el celular.
     </p>
