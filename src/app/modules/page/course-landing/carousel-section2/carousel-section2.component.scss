@@ -45,6 +45,10 @@
 
       .carousel-div {
         max-width: 100%;
+
+        h1, p {
+          margin-bottom: 20px
+        }
       }
     }
   }
@@ -71,4 +75,8 @@
 
 mark {
   background: $secondary;
+}
+
+.font-small {
+  font-size: small;
 }

@@ -4,6 +4,14 @@ section {
   background-color: $primary;
 }
 
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 310px;
+  height: auto;
+}
+
 .content-cards {
   padding: 30px 40px 1px;
 
@@ -30,7 +38,7 @@ section {
   }
 
   ::ng-deep .p-card {
-    max-width: 310px;
+    //max-width: 310px;
     box-shadow: none;
     border-radius: 10px;
   }
@@ -44,6 +52,7 @@ section {
   }
 }
 
+
 @media only screen and (min-width: 300px) and (max-width: 800px) {
   .content-cards {
     display: grid;
@@ -55,8 +64,8 @@ section {
 
   ::ng-deep .p-card {
     display: grid;
-    max-width: 45%;
-    min-height: 183px;
+    max-width: 90%;
+    min-height: 160px;
   }
 }
 
@@ -84,13 +93,6 @@ section {
   }
 }
 
-.container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  max-width: 310px;
-  height: auto;
-}
 
 .responsive-img {
   position: relative !important;

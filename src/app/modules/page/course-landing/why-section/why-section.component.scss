@@ -1,7 +1,7 @@
 @import "/src/styles/variables";
 
 .why-section {
-  padding: 20px 30px 40px 30px;
+  padding: 00px 30px 40px 30px;
   text-align: center;
   background-color: $primary;
   display: flex;
@@ -13,7 +13,7 @@
   .icon-image {
     position: relative;
     width: 50px;
-    top: -45px;
+    top: -25px;
   //  left: calc(50% - 25px);
 
     img {
