@@ -44,22 +44,23 @@ section {
   }
 }
 
-@media only screen and (min-width: 750px) and (max-width: 1065px) {
+@media only screen and (min-width: 300px) and (max-width: 800px) {
   .content-cards {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    max-width: 750px;
+    max-width: 90%;
     margin: 0 auto;
+    padding: 0px;
   }
 
   ::ng-deep .p-card {
     display: grid;
-    max-width: 310px;
+    max-width: 45%;
     min-height: 183px;
   }
 }
 
-@media only screen and (min-width: 1066px) {
+@media only screen and (min-width: 801px) {
   .content-cards {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -87,7 +88,7 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 310px;
+  max-width: 310px;
   height: auto;
 }
 

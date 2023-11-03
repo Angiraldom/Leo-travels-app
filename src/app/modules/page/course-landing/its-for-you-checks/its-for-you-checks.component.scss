@@ -6,7 +6,7 @@
   padding: 5%;
   background-color: $primary;
 
-  section {
+  .section {
     display: grid;
     justify-content: center;
     max-width: 777px;
@@ -16,6 +16,7 @@
   .square-list {
     list-style-type: none; /* Elimina el estilo predeterminado del marcador de lista */
     padding: 0px;
+    cursor:pointer;
   }
 
   .square-list li {
@@ -41,6 +42,10 @@
   }
 }
 
-.no-space{
-  margin: 0px;
+.font-small {
+  font-size: small;
+}
+
+.seleccionado {
+  //background-color: yellow; /* Cambia el color de fondo cuando el elemento está seleccionado */
 }
