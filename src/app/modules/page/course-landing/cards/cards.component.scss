@@ -16,8 +16,8 @@ section {
   padding: 30px 40px 1px;
 
   .card {
-    width: 15% !important;
-    margin-top: 25px;
+    width: 40% !important;
+    margin-top: 15px;
   }
 
   ::ng-deep.p-card-header {
@@ -31,6 +31,11 @@ section {
     margin: 0 auto;
     padding: 0px;
     text-align: center;
+
+    .p-card-content {
+      max-height: 10%;
+      display: contents;
+    }
   }
 
   ::ng-deep p-card:nth-last-child(2) .p-card-body {

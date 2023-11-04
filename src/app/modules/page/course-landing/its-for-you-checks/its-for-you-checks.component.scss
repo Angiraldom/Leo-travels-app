@@ -3,7 +3,7 @@
 .its-for-you {
   display: flex;
   justify-content: center;
-  padding: 5%;
+  padding: 40px 30px 40px 30px;
   background-color: $primary;
 
   .section {
@@ -16,7 +16,7 @@
   .square-list {
     list-style-type: none; /* Elimina el estilo predeterminado del marcador de lista */
     padding: 0px;
-    cursor:pointer;
+    cursor: pointer;
   }
 
   .square-list li {
@@ -44,8 +44,4 @@
 
 .font-small {
   font-size: small;
-}
-
-.seleccionado {
-  //background-color: yellow; /* Cambia el color de fondo cuando el elemento está seleccionado */
 }

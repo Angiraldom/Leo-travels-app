@@ -59,7 +59,7 @@ li {
 }
 
 .desktop {
-  display: none;
+  display: block;
 }
 
 hr {
@@ -71,12 +71,5 @@ hr {
 
   h1 {
     text-align: center;
-  }
-  .movil {
-    display: none;
-  }
-
-  .desktop {
-    display: block;
   }
 }

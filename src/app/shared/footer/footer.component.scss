@@ -20,7 +20,7 @@ a:active {
     padding-bottom: 20px;
 }
 
-.footer {
+.footer-component {
     color: #f0f0f0;
     text-align: center;
 }
@@ -108,7 +108,7 @@ hr {
 }
 
 @media screen and (min-width: 728px) {
-    
+
     .politics {
         display: flex;
         justify-content: center;
