@@ -3,15 +3,13 @@
     <h1 class="color-white text-center"><b>¿Cómo saber si este curso es para tí?</b></h1>
     <p class="color-secondary text-center font-small">Si marcas alguna de las siguientes opciones:</p>
 
+
     <ul class="square-list">
-      <li class="color-white">Anhelas capturar fotos más atractivas que mejoren tu imagen personal y te
-      permitan destacar e impactar en redes sociales.</li>
-      <li class="color-white">Buscas estar actualizado y no quedarte obsoleto en el mundo de la
-      fotografía.</li>
-      <li class="color-white">Disfrutas tomar muchas fotos y no te conformas con cualquier toma sino que
-      quieres capturar imágenes realmente asombrosas.</li>
-      <li class="color-white">Solo usas la cámara de tu celular con la configuración automática y
-      desaprovechas todas las funciones que hay en tu dispositivo</li>
+      <li *ngFor="let check of checks; let i = index"
+          (click)="switch(i)"
+          [ngClass]="{'seleccionado': elementoSeleccionados.includes(i, 0)}">
+        {{ check }}
+      </li>
     </ul>
   </section>
 </div>

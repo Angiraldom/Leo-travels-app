@@ -33,8 +33,17 @@
     //transform: translateY(-50%);
     width: 15px;
     height: 15px;
-    border: 2px solid #fff; /* Borde blanco */
+    border: 2px solid $white; /* Borde blanco */
     box-sizing: border-box; /* Incluye el borde en el tamaño total del cuadrado */
+  }
+
+  .square-list .seleccionado:after {
+    content: "\2713";
+    color: $secondary;
+    font-size: 20px;
+    position: absolute;
+    left: 3px;
+    top: -7px;
   }
 
   .color-secondary {
@@ -45,3 +54,5 @@
 .font-small {
   font-size: small;
 }
+
+
