@@ -1,13 +1,35 @@
 @import '/src/styles/variables';
+@import "primeicons/primeicons.css";
+
+.content-header-modules {
+    padding: 30px;
+    background: $background-color;
+    display: flex;
+    flex-direction: column;
+}
 
 .title {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 30px;
-    background: $background-color;
 }
 
 .content-component {
     padding: 30px;
+}
+
+.search {
+    display: flex;
+    margin-top: 12px;
+    gap: 12px;
+}
+
+@media screen and (max-width: 500px) {
+    .search {
+        flex-direction: column-reverse;
+
+        ::ng-deep.p-dropdown, ::ng-deep.p-inputtext {
+            width: 100%;
+        }
+    }
 }
