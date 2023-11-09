@@ -17,3 +17,39 @@
     height: calc(100vh - 64px);
     overflow: auto;
 }
+
+@media screen and (max-width: 500px) {
+    .container {
+        display: flex;
+        height: 100vh;
+        flex-direction: column;
+    }
+
+    .sidebar {
+        flex-basis: unset;
+        height: 50px;
+    }
+
+    .content {
+        flex-basis: unset;
+        height: calc(100vh - 106px);
+    }
+
+    .sidebar-admin ::ng-deep mat-nav-list {
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-between;
+        padding: 0px;
+        gap: 5px;
+
+        .item {
+            padding: 9px;
+            background-color: #f2f2f2;
+
+        }
+    }
+
+    .sidebar-admin ::ng-deep mat-sidenav {
+        background-color: white;
+    }
+}
