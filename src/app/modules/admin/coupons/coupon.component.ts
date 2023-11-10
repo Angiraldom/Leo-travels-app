@@ -16,7 +16,7 @@ export class CouponComponent extends BaseClass implements OnInit, OnDestroy {
 
   $dialog!: Subscription;
 
-  displayedColumns: string[] = ['coupon', 'description', 'discount', 'startDate', 'endDate', 'updatedAt', 'actions'];
+  displayedColumns: string[] = ['coupon', 'discount', 'startDate', 'endDate', 'actions'];
   dataSource: ICoupon[] = [];
 
   ngOnInit(): void {

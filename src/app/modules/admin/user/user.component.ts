@@ -10,7 +10,7 @@ import { BaseClass } from 'src/app/core/base.class';
 export class UserComponent extends BaseClass implements OnInit {
   user: IUser [] = [];
 
-  displayedColumns: string[] = ['document', 'full_name', 'email'];
+  displayedColumns: string[] = ['date', 'full_name', 'document', 'email', 'phone'];
   dataSource: any;
 
   ngOnInit(): void {

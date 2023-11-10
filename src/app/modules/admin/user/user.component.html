@@ -1,26 +1,37 @@
 <app-header-modules [title]="'Usuarios'"
-    [description]="'Aquí podrás revisar a detalle la información de los usuarios'"></app-header-modules>
+    [description]="'Aquí podrás revisar la información de tus estudiantes'"></app-header-modules>
 
 <div class="content-component">
 
     <div class="table-transactions">
         <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
-            <ng-container matColumnDef="document">
-                <th mat-header-cell *matHeaderCellDef> Documento </th>
-                <td mat-cell *matCellDef="let element" [matTooltipPosition]="'left'"
-                    [matTooltip]="element.numberDocument"> {{element.numberDocument}} </td>
+            <ng-container matColumnDef="date">
+                <th mat-header-cell *matHeaderCellDef> Fecha </th>
+                <td mat-cell *matCellDef="let element">
+                    {{element.createdAt}} 
+                </td>
             </ng-container>
 
             <ng-container matColumnDef="full_name">
                 <th mat-header-cell *matHeaderCellDef> Nombre completo </th>
-                <td mat-cell *matCellDef="let element" [matTooltipPosition]="'left'" [matTooltip]="element.name">
+                <td mat-cell *matCellDef="let element">
                     {{element.name}} {{element.lastName?? ''}} </td>
+            </ng-container>
+            
+            <ng-container matColumnDef="document">
+                <th mat-header-cell *matHeaderCellDef> Documento </th>
+                <td mat-cell *matCellDef="let element"> {{element.numberDocument}} </td>
             </ng-container>
 
             <ng-container matColumnDef="email">
                 <th mat-header-cell *matHeaderCellDef> Correo </th>
                 <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="phone">
+                <th mat-header-cell *matHeaderCellDef> Celular </th>
+                <td mat-cell *matCellDef="let element"> {{element.phone?? ''}} </td>
             </ng-container>
 
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

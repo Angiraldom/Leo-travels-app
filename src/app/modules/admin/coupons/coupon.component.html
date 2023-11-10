@@ -12,30 +12,19 @@
                     {{element.coupon}} </td>
             </ng-container>
 
-            <ng-container matColumnDef="description">
-                <th mat-header-cell *matHeaderCellDef> Descripción </th>
-                <td mat-cell *matCellDef="let element" [matTooltipPosition]="'left'"
-                    [matTooltip]="element.descriptionName"> {{element.descriptionName}} </td>
-            </ng-container>
-
             <ng-container matColumnDef="discount">
-                <th mat-header-cell *matHeaderCellDef> discount </th>
+                <th mat-header-cell *matHeaderCellDef> Descuento </th>
                 <td mat-cell *matCellDef="let element"> {{element.discount}} </td>
             </ng-container>
 
             <ng-container matColumnDef="startDate">
-                <th mat-header-cell *matHeaderCellDef> Fecha activación </th>
+                <th mat-header-cell *matHeaderCellDef> Fecha inicio </th>
                 <td mat-cell *matCellDef="let element"> {{element.startDate | date: 'MM/dd/Y H:m:ss'}} </td>
             </ng-container>
 
             <ng-container matColumnDef="endDate">
-                <th mat-header-cell *matHeaderCellDef> Fecha vencimiento </th>
+                <th mat-header-cell *matHeaderCellDef> Fecha fin </th>
                 <td mat-cell *matCellDef="let element"> {{element.endDate | date: 'MM/dd/Y H:m:ss'}} </td>
-            </ng-container>
-
-            <ng-container matColumnDef="updatedAt">
-                <th mat-header-cell *matHeaderCellDef> Fecha actualización </th>
-                <td mat-cell *matCellDef="let element"> {{element.updatedAt | date: 'MM/dd/Y H:m:ss'}} </td>
             </ng-container>
 
             <ng-container matColumnDef="actions">
