@@ -69,7 +69,8 @@ export class CreateCourseComponent extends BaseClass implements OnInit, OnDestro
   openModal(modal: ComponentType<any>, data?: IParametersObject) {
     const refModal = this.dialog.open(modal, {
       data,
-      width: '900px'
+      width: '900px',
+      height: '100vh'
     });
     refModal.componentInstance.parent = this;
     this.$refModal = refModal.afterClosed().subscribe({

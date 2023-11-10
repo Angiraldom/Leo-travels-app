@@ -76,3 +76,37 @@ textarea,
 ::ng-deep .cdk-overlay-pane {
     min-width: 70%;
 }
+
+@media screen and (max-width: 500px) {
+
+    form {
+        overflow: auto;
+        height: 65vh;
+    }
+
+    p-editor {
+        width: 100%;
+    }
+
+    .content-form {
+        span {
+            max-width: max-content;
+        }
+
+        .course-content-image {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+    }
+
+    .content-images {
+        flex-direction: column;
+        gap: 15px;
+
+        .p-fluid {
+            width: 100%;
+        }
+    }
+
+}
