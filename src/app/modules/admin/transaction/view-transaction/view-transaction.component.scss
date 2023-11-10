@@ -1,6 +1,6 @@
 .content-transaction {
     width: 90%;
-    margin: 50px auto;
+    margin: 35px auto;
 }
 
 .bold {
@@ -12,8 +12,15 @@
     border-top: 1px solid gray;
     border-bottom: 1px solid gray;
     margin: 20px 0px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+}
+
+.data-transaction {
+    display: flex; 
+    width: 100%;
+
+    .content-data {
+        width: 50%;
+    }
 }
 
 .columns-2 {
@@ -25,4 +32,24 @@
 .center {
     place-self: center;
     align-self: flex-start;
+}
+
+@media screen and (max-width:500px) {
+
+    .columns-2 {
+        grid-template-columns: 1fr;
+    }
+
+    .data-transaction {
+        flex-direction: column;
+
+        .content-data {
+            width: 100%;
+        }
+    }
+
+    .content-transaction {
+        height: 65vh;
+        overflow: auto;
+    }
 }
