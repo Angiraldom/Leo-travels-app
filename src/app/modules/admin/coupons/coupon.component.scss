@@ -16,6 +16,11 @@ table {
     width: 100%;
 }
 
+.table-transactions {
+    max-height:400px;
+    overflow: auto;
+}
+
 td {
     max-width: 100px;
     white-space: nowrap;

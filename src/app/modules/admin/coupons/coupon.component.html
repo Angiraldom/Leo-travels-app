@@ -2,48 +2,53 @@
     [description]="'Aquí podrás crear, revisar, y editar todos tus cupones'"></app-header-modules>
 
 <div class="content-component">
-    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
-        <ng-container matColumnDef="coupon">
-            <th mat-header-cell *matHeaderCellDef> Cupon </th>
-            <td mat-cell *matCellDef="let element" [matTooltipPosition]="'left'" [matTooltip]="element.coupon"> {{element.coupon}} </td>
-        </ng-container>
-    
-        <ng-container matColumnDef="description">
-            <th mat-header-cell *matHeaderCellDef> Descripción </th>
-            <td mat-cell *matCellDef="let element" [matTooltipPosition]="'left'" [matTooltip]="element.descriptionName"> {{element.descriptionName}} </td>
-        </ng-container>
-    
-        <ng-container matColumnDef="discount">
-            <th mat-header-cell *matHeaderCellDef> discount </th>
-            <td mat-cell *matCellDef="let element"> {{element.discount}} </td>
-        </ng-container>
+    <div class="table-transactions">
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
-        <ng-container matColumnDef="startDate">
-            <th mat-header-cell *matHeaderCellDef> Fecha activación </th>
-            <td mat-cell *matCellDef="let element"> {{element.startDate | date: 'MM/dd/Y H:m:ss'}} </td>
-        </ng-container>
+            <ng-container matColumnDef="coupon">
+                <th mat-header-cell *matHeaderCellDef> Cupon </th>
+                <td mat-cell *matCellDef="let element" [matTooltipPosition]="'left'" [matTooltip]="element.coupon">
+                    {{element.coupon}} </td>
+            </ng-container>
 
-        <ng-container matColumnDef="endDate">
-            <th mat-header-cell *matHeaderCellDef> Fecha vencimiento </th>
-            <td mat-cell *matCellDef="let element"> {{element.endDate | date: 'MM/dd/Y H:m:ss'}} </td>
-        </ng-container>
+            <ng-container matColumnDef="description">
+                <th mat-header-cell *matHeaderCellDef> Descripción </th>
+                <td mat-cell *matCellDef="let element" [matTooltipPosition]="'left'"
+                    [matTooltip]="element.descriptionName"> {{element.descriptionName}} </td>
+            </ng-container>
 
-        <ng-container matColumnDef="updatedAt">
-            <th mat-header-cell *matHeaderCellDef> Fecha actualización </th>
-            <td mat-cell *matCellDef="let element"> {{element.updatedAt | date: 'MM/dd/Y H:m:ss'}} </td>
-        </ng-container>
-        
-        <ng-container matColumnDef="actions">
-            <th mat-header-cell *matHeaderCellDef> Acciones </th>
-            <td mat-cell *matCellDef="let element">
-    
-                <mat-icon (click)="openModal(element)">edit</mat-icon>
-                <mat-icon (click)="confirmRemove(element)"> delete </mat-icon>
-            </td>
-        </ng-container>
-    
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    </table>
+            <ng-container matColumnDef="discount">
+                <th mat-header-cell *matHeaderCellDef> discount </th>
+                <td mat-cell *matCellDef="let element"> {{element.discount}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="startDate">
+                <th mat-header-cell *matHeaderCellDef> Fecha activación </th>
+                <td mat-cell *matCellDef="let element"> {{element.startDate | date: 'MM/dd/Y H:m:ss'}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="endDate">
+                <th mat-header-cell *matHeaderCellDef> Fecha vencimiento </th>
+                <td mat-cell *matCellDef="let element"> {{element.endDate | date: 'MM/dd/Y H:m:ss'}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="updatedAt">
+                <th mat-header-cell *matHeaderCellDef> Fecha actualización </th>
+                <td mat-cell *matCellDef="let element"> {{element.updatedAt | date: 'MM/dd/Y H:m:ss'}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="actions">
+                <th mat-header-cell *matHeaderCellDef> Acciones </th>
+                <td mat-cell *matCellDef="let element">
+
+                    <mat-icon (click)="openModal(element)">edit</mat-icon>
+                    <mat-icon (click)="confirmRemove(element)"> delete </mat-icon>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    </div>
 </div>
