@@ -63,3 +63,16 @@ form {
 ::ng-deep .p-overlay-content {
     position: fixed;
 }
+
+@media screen and (max-width: 500px) {
+    form {
+        overflow: auto;
+        height: 65vh;
+    }
+    
+    .grid-two-columns {
+        grid-template-columns: 1fr;
+        row-gap: 30px;
+        max-width: max-content;
+    }
+}
