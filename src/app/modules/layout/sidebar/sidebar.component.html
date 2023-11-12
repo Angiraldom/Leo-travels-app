@@ -22,19 +22,15 @@
           <mat-icon>attach_money</mat-icon>
           <span>Transacciones</span>
         </a>
+        <a class="item" routerLink="/admin/analiticas" routerLinkActive="router-active">
+          <mat-icon>bar_chart</mat-icon>
+          <span>Analíticas</span>
+        </a>
         <a class="item" routerLink="/admin/ofertas" routerLinkActive="router-active">
           <mat-icon>stars</mat-icon>
           <span>Ofertas</span>
         </a>
       </ng-container>
-      <!-- <a class="item" routerLink="/about">
-        <mat-icon>bar_chart</mat-icon>
-        <span>Analíticas</span>
-      </a>
-      <a class="item" routerLink="/contact">
-        <mat-icon>stars</mat-icon>
-        <span>Ofertas</span>
-      </a> -->
       <ng-container *ngIf="user.role === 'Cliente'">
         <a class="item" routerLink="my-courses" routerLinkActive="router-active">
           <mat-icon>school</mat-icon>
