@@ -9,13 +9,14 @@
             Crear
         </button>
     </div>
-    <div class="search" *ngIf="fields.length !== 0 && fields">
+    <form class="search" *ngIf="fields.length !== 0 && fields" [formGroup]="formFilter">
         <span class="p-input-icon-left">
             <i class="pi pi-search"></i>
-            <input type="text" pInputText placeholder="Buscar" class="p-inputtext-sm" />
+            <input type="text" pInputText formControlName="valueFilter" placeholder="Buscar" class="p-inputtext-sm" />
         </span>
     
-        <p-dropdown class="p-inputtext-sm" [options]="fields" optionLabel="name" [showClear]="true"
+        <p-dropdown class="p-inputtext-sm" [options]="fields" [showClear]="false"
+        optionLabel="fieldName" optionValue="field" formControlName="fieldFilter"
         placeholder="Filtrar por"></p-dropdown>
-    </div>
+    </form>
 </div>

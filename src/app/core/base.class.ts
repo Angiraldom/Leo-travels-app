@@ -14,4 +14,5 @@ export class BaseClass {
   protected fb = inject(FormBuilder);
   protected dialog = inject(MatDialog);
   protected conversionesService = inject(ConversionesService);
+  protected filters = {};
 }

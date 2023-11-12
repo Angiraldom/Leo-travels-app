@@ -13,16 +13,32 @@ export class UserComponent extends BaseClass implements OnInit {
   displayedColumns: string[] = ['date', 'full_name', 'document', 'email', 'phone'];
   dataSource: any;
 
+  fieldsFilters = [{
+    field: 'name',
+    fieldName: 'Nombre'
+  },
+  {
+    field: 'document',
+    fieldName: 'Documento'
+  }];
+
   ngOnInit(): void {
     this.getAllUsers();
   }
 
   getAllUsers() {
-    this.baseService.getMethod('user/all').subscribe({
+    this.baseService.validateFilter('user/all', this.filters).subscribe({
       next: (response: any) => {
         this.user = response.data;
         this.dataSource = response.data;
       },
     });
+  }
+
+  validateFilter(filter: {}) {
+    if (JSON.stringify(filter) !== JSON.stringify(this.filters)) {
+      this.filters = filter;
+      this.getAllUsers();
+    }
   }
 }
