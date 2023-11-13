@@ -13,17 +13,23 @@ export class UserComponent extends BaseClass implements OnInit {
   displayedColumns: string[] = ['date', 'full_name', 'document', 'email', 'phone'];
   dataSource: any;
 
-  fieldsFilters = [{
-    field: 'name',
-    fieldName: 'Nombre'
-  },
-  {
-    field: 'document',
-    fieldName: 'Documento'
-  }];
-
   ngOnInit(): void {
     this.getAllUsers();
+    this.fieldsFilters = [{
+      field: 'name',
+      fieldName: 'Nombre'
+    },
+    {
+      field: 'document',
+      fieldName: 'Documento'
+    },{
+      field: 'email',
+      fieldName: 'Correo'
+    },
+    {
+      field: 'phone',
+      fieldName: 'Celular'
+    }];
   }
 
   getAllUsers() {

@@ -15,4 +15,8 @@ export class BaseClass {
   protected dialog = inject(MatDialog);
   protected conversionesService = inject(ConversionesService);
   protected filters = {};
+  protected fieldsFilters: {
+    field: string;
+    fieldName: string;
+  }[] = [];
 }

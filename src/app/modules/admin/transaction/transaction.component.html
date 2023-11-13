@@ -1,4 +1,4 @@
-<app-header-modules [title]="'Transacciones'"
+<app-header-modules [title]="'Transacciones'" [fields]="fieldsFilters" (handleFilter)="validateFilter($event);"
     [description]="'Aquí podrás revisar a detalle todas las transacciones'"></app-header-modules>
 
 <div class="content-component">
