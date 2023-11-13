@@ -3,7 +3,7 @@
         "form": {
             "name": "Producto",
             "description": "Descripción",
-            "price": "Precio",
+            "price": "Total",
             "discount": "Descuento",
             "weight": "Peso",
             "broad": "Ancho",
