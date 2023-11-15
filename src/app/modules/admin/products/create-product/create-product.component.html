@@ -42,7 +42,7 @@
             </div>
 
             <div class="card p-fluid">
-                <p-chips formControlName="imageProperties" field="key" (onRemove)="removeImage($event)" ></p-chips>
+                <p-chips formControlName="imageProperties" field="key" [showClear]="false" (onRemove)="removeImage($event)" ></p-chips>
             </div>
         </div>
 
