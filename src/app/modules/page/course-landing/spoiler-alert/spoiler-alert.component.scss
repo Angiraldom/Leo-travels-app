@@ -1,7 +1,7 @@
 @import "/src/styles/variables";
 
 .spoiler-alert {
-  padding: 20px 30px 0px 30px;
+  padding: 40px 30px 1px 30px;
   display: flex;
   justify-content: center;
   background-color: $primary;
@@ -35,6 +35,6 @@ li {
 
 img {
   max-width: 50px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 

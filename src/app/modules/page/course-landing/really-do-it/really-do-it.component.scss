@@ -1,7 +1,7 @@
 @import "/src/styles/variables";
 
 .really-do-it {
-  padding: 20px 30px 0px 30px;
+  padding: 40px 30px 0px 30px;
   display: flex;
   justify-content: center;
   background-color: $secondary;
@@ -13,7 +13,7 @@
   max-width: 777px;
 }
 
-h1, h2 {
+h1 {
   text-align: center;
   margin-bottom: 20px;
 }
@@ -30,6 +30,11 @@ li {
   display: grid;
   grid-template-columns: 1fr 1fr;
   column-gap: 25px;
+
+  ul {
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
 }
 
 mark {
@@ -37,17 +42,31 @@ mark {
   color: $primary;
 }
 
+hr {
+  display: none;
+}
+
+
 @media screen and (max-width: 582px) {
+  hr {
+    display: block;
+    width: 100%;
+    margin: 30px 0px 0px;
+    border: $primary solid 1px;
+  }
   .grid-two-columns {
     display: flex;
     flex-direction: column;
 
     ul {
-      margin: 0px;
+      margin: 0px 0px 0px -20px;
 
       li {
         margin-bottom: 10px;
       }
     }
+  }
+  h1 {
+    text-align: left;
   }
 }

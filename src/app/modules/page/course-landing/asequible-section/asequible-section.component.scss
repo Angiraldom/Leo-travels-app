@@ -1,7 +1,7 @@
 @import "/src/styles/variables";
 
 .asequible-section {
-  padding: 20px 30px 40px 30px;
+  padding: 40px 30px 40px 30px;
   display: flex;
   justify-content: center;
   background-color: $white;
@@ -25,4 +25,12 @@ p {
 mark {
   background: $secondary;
   color: $primary;
+}
+
+
+@media screen and (max-width: 582px) {
+  h1 {
+    text-align: left;
+    margin-bottom: 20px;
+  }
 }

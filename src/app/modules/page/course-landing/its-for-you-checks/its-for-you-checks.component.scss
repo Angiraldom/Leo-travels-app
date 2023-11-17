@@ -3,10 +3,10 @@
 .its-for-you {
   display: flex;
   justify-content: center;
-  padding: 5%;
+  padding: 40px 30px 40px 30px;
   background-color: $primary;
 
-  section {
+  .section {
     display: grid;
     justify-content: center;
     max-width: 777px;
@@ -16,6 +16,7 @@
   .square-list {
     list-style-type: none; /* Elimina el estilo predeterminado del marcador de lista */
     padding: 0px;
+    cursor: pointer;
   }
 
   .square-list li {
@@ -32,8 +33,17 @@
     //transform: translateY(-50%);
     width: 15px;
     height: 15px;
-    border: 2px solid #fff; /* Borde blanco */
+    border: 2px solid $white; /* Borde blanco */
     box-sizing: border-box; /* Incluye el borde en el tamaño total del cuadrado */
+  }
+
+  .square-list .seleccionado:after {
+    content: "\2713";
+    color: $secondary;
+    font-size: 20px;
+    position: absolute;
+    left: 3px;
+    top: -7px;
   }
 
   .color-secondary {
@@ -41,6 +51,8 @@
   }
 }
 
-.no-space{
-  margin: 0px;
+.font-small {
+  font-size: small;
 }
+
+

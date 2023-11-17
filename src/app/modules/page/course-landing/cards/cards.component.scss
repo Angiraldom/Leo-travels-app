@@ -4,12 +4,20 @@ section {
   background-color: $primary;
 }
 
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 310px;
+  height: auto;
+}
+
 .content-cards {
   padding: 30px 40px 1px;
 
   .card {
-    width: 15% !important;
-    margin-top: 25px;
+    width: 40% !important;
+    margin-top: 15px;
   }
 
   ::ng-deep.p-card-header {
@@ -23,6 +31,11 @@ section {
     margin: 0 auto;
     padding: 0px;
     text-align: center;
+
+    .p-card-content {
+      max-height: 10%;
+      display: contents;
+    }
   }
 
   ::ng-deep p-card:nth-last-child(2) .p-card-body {
@@ -30,7 +43,7 @@ section {
   }
 
   ::ng-deep .p-card {
-    max-width: 310px;
+    //max-width: 310px;
     box-shadow: none;
     border-radius: 10px;
   }
@@ -44,22 +57,24 @@ section {
   }
 }
 
-@media only screen and (min-width: 750px) and (max-width: 1065px) {
+
+@media only screen and (min-width: 300px) and (max-width: 800px) {
   .content-cards {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    max-width: 750px;
+    max-width: 90%;
     margin: 0 auto;
+    padding: 0px;
   }
 
   ::ng-deep .p-card {
     display: grid;
-    max-width: 310px;
-    min-height: 183px;
+    max-width: 90%;
+    min-height: 160px;
   }
 }
 
-@media only screen and (min-width: 1066px) {
+@media only screen and (min-width: 801px) {
   .content-cards {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -83,13 +98,6 @@ section {
   }
 }
 
-.container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 310px;
-  height: auto;
-}
 
 .responsive-img {
   position: relative !important;
