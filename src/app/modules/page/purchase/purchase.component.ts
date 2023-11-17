@@ -53,7 +53,8 @@ export class PurchaseComponent implements OnInit, OnDestroy {
   window: any = window;
   handler = this.window?.ePayco?.checkout?.configure({
     key: 'efeb27be0943f1db92b378501dea7512',
-    test: true,
+    // key: '63eb7194d798375a916d062878bfc4f7',
+    test: false,
   });
 
   ngOnInit(): void {
