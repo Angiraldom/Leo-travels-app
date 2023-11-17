@@ -1,0 +1,43 @@
+@import '/src/styles/variables';
+@import '/src/styles/table';
+
+.analytics-title {
+    width: 100%;
+    padding: 8px 8px;
+    background-color: $background-color;
+    text-align: center;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+
+    p {
+        max-width: min-content;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+}
+
+.table {
+    overflow: auto;
+    width: 100%;
+
+    .content-analytics:first-child {
+        width: 100%;
+        border-bottom: solid 1px rgba(0, 0, 0, 0.12);
+    }
+
+    .content-analytics {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(160px, 1fr));
+        justify-items: center;
+        padding: 10px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .table .content-analytics:first-child {
+        width: max-content;
+    }
+}

@@ -1,0 +1,23 @@
+<app-header-modules [title]="'Analíticas'"
+    [description]="'Aquí puedes revisar y analizar el progreso de tus estudiantes'"></app-header-modules>
+
+<div class="content-component">
+    <div class="analytics-title">
+        <p class="font-bold">
+            Fotografía para viajes con tu celular
+        </p>
+    </div>
+
+    <div class="table">
+        <div class="content-analytics">
+            <p>Estudiantes</p>
+            <p>Curso iniciado</p>
+            <p>Curso completado</p>
+        </div>
+        <div class="content-analytics">
+            <p>{{ totalUsers }}</p>
+            <p>{{courseStarted}} ({{ (courseStarted / totalUsers) * 100 }}%)</p>
+            <p>{{courseCompleted}} ({{ (courseCompleted/ totalUsers) * 100 }}%)</p>
+        </div>
+    </div>
+</div>
