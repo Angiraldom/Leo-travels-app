@@ -42,7 +42,7 @@ export default class LoginComponent {
         const role = res.data.user.role;
         this.form.reset();
         if (role === 'Admin') {
-          this.router.navigateByUrl('admin');
+          this.router.navigateByUrl('admin/usuarios');
         } else {
           this.router.navigateByUrl('estudiante/my-courses');
         }

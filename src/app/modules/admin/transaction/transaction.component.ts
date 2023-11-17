@@ -12,7 +12,7 @@ export class TransactionComponent extends BaseClass implements OnInit {
   modal = ViewTransactionComponent;
   transaction: ITransaction[] = [];
 
-  displayedColumns: string[] = ['n°order', 'reference', 'date', 'total', 'actions'];
+  displayedColumns: string[] = ['n°order', 'date', 'total', 'client', 'actions'];
 
   ngOnInit(): void {
     this.getAllProducts();
