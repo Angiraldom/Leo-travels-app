@@ -12,7 +12,7 @@
             "priceWithoutTaxes": "Valor",
             "taxes": "IVA",
             "moduls": {
-                "name": "Modulo",
+                "name": "Módulo",
                 "clase": "Clase",
                 "url": "Url"
             }
