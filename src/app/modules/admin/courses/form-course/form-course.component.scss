@@ -41,3 +41,20 @@ textarea,
 .input-name {
     width: 100%;
 }
+
+@media screen and (max-width: 500px) {
+    .content-form .course-content-image {
+        display: flex;
+        flex-direction: column-reverse;
+        max-width: 235px;
+        gap: 30px;
+
+        .button-file {
+            flex-direction: column;
+        }
+
+        ::ng-deep .p-inputnumber-input {
+            max-width: 235px;
+        }
+    }
+}

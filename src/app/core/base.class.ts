@@ -14,4 +14,9 @@ export class BaseClass {
   protected fb = inject(FormBuilder);
   protected dialog = inject(MatDialog);
   protected conversionesService = inject(ConversionesService);
+  protected filters = {};
+  protected fieldsFilters: {
+    field: string;
+    fieldName: string;
+  }[] = [];
 }

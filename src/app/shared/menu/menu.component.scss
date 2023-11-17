@@ -10,3 +10,24 @@
 p-sidebar ::ng-deep .p-sidebar-right {
     height: 80%;
 }
+
+.menu-p-sidebar ::ng-deep .p-sidebar {
+    background-color: $primary;
+    height: 17rem;
+
+    ::ng-deep .p-sidebar .p-sidebar-content {
+        padding-bottom: 0px;
+    }
+
+    ::ng-deep .p-sidebar-header {
+        padding-bottom: 0px;
+    }
+    
+    ::ng-deep .p-sidebar-icon {
+        color: white;
+    }
+
+    ::ng-deep .p-sidebar-footer {
+        display: none;
+    }
+}

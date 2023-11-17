@@ -4,11 +4,12 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { AuthService } from 'src/app/core/services/auth.service';
 import { Router, RouterModule } from '@angular/router';
 import { MesaggeService } from 'src/app/core/services/message.service';
+import { MenuComponent } from 'src/app/shared/menu/menu.component';
 
 @Component({
   selector: 'app-forgot-password',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, RouterModule],
+  imports: [CommonModule, ReactiveFormsModule, RouterModule, MenuComponent],
   templateUrl: './forgot-password.component.html',
   styleUrls: ['./forgot-password.component.scss']
 })

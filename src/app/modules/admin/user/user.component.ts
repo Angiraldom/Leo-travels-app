@@ -15,14 +15,36 @@ export class UserComponent extends BaseClass implements OnInit {
 
   ngOnInit(): void {
     this.getAllUsers();
+    this.fieldsFilters = [{
+      field: 'name',
+      fieldName: 'Nombre'
+    },
+    {
+      field: 'document',
+      fieldName: 'Documento'
+    },{
+      field: 'email',
+      fieldName: 'Correo'
+    },
+    {
+      field: 'phone',
+      fieldName: 'Celular'
+    }];
   }
 
   getAllUsers() {
-    this.baseService.getMethod('user/all').subscribe({
+    this.baseService.validateFilter('user/all', this.filters).subscribe({
       next: (response: any) => {
         this.user = response.data;
         this.dataSource = response.data;
       },
     });
+  }
+
+  validateFilter(filter: {}) {
+    if (JSON.stringify(filter) !== JSON.stringify(this.filters)) {
+      this.filters = filter;
+      this.getAllUsers();
+    }
   }
 }

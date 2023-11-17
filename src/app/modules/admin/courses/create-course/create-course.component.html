@@ -2,7 +2,7 @@
     <div class="title-content align-items-center">
         <h3 class="sub-title">{{ item.name }}</h3>
         <div class="align-items-center">
-            <mat-icon (click)="openModal(modal.module, { idCourse: item._id })" [matTooltip]="'Crear modulo'" *ngIf="form.get('name')?.value">
+            <mat-icon (click)="openModal(modal.module, { idCourse: item._id })" [matTooltip]="'Crear módulo'" *ngIf="form.get('name')?.value">
                 add
             </mat-icon>
             <mat-icon (click)="openModal(modal.course, { body: course})" [matTooltip]="'Editar curso'" *ngIf="form.get('name')?.value">
@@ -34,11 +34,11 @@
                         (click)="openModal(modal.class, { indexModule, idCourse: item._id, idModule: module._id })">
                         add
                     </mat-icon>
-                    <mat-icon [matTooltip]="'Editar modulo'"
+                    <mat-icon [matTooltip]="'Editar módulo'"
                         (click)="openModal(modal.module, { body: module, indexModule, idCourse: item._id })">
                         edit
                     </mat-icon>
-                    <mat-icon [matTooltip]="'Eliminar modulo'"
+                    <mat-icon [matTooltip]="'Eliminar módulo'"
                         (click)="confirmRemoveModule(item._id, module._id, indexModule)">
                         delete
                     </mat-icon>

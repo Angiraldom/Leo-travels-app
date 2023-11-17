@@ -23,3 +23,11 @@ textarea, .input-name {
     grid-template-columns: 78% 20%;
     column-gap: 17px;
 }
+
+@media screen and (max-width: 500px) {
+    .content-name-duration {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+    }
+}

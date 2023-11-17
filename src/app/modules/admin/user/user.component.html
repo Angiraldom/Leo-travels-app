@@ -1,4 +1,4 @@
-<app-header-modules [title]="'Usuarios'"
+<app-header-modules [title]="'Usuarios'" [fields]="fieldsFilters" (handleFilter)="validateFilter($event);"
     [description]="'Aquí podrás revisar la información de tus estudiantes'"></app-header-modules>
 
 <div class="content-component">
