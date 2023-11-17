@@ -12,6 +12,13 @@ export class BaseService {
 
   http = inject(HttpClient);
 
+  validateFilter(nameMethod: string, filter?: {}, limit?: number, offset?: number) {
+    if (filter && Object.keys(filter).length > 0) {
+      return this.postMethod(nameMethod, filter);
+    }
+    return this.getMethod(nameMethod, limit, offset);
+  }
+
   getMethod(nameMethod: string, limit?: number, offset?: number) {
     let params = new HttpParams();
     if (limit !== undefined && offset !== undefined) {

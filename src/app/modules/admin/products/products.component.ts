@@ -19,7 +19,7 @@ export class ProductsComponent extends BaseClass implements OnInit, OnDestroy {
   $dialog!: Subscription;
   readonly idKitViajero = KIT_VIAJERO_ID;
 
-  displayedColumns: string[] = ['name', 'description', 'price', 'actions'];
+  displayedColumns: string[] = ['name', 'price', 'actions'];
   dataSource: any;
 
   ngOnInit(): void {

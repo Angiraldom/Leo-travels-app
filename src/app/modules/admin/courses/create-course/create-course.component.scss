@@ -13,7 +13,7 @@ mat-icon {
 .title-content {
 
     gap: 15px;
-    width: 30%;
+    width: 100%;
 
     .sub-title {
         margin: 0;
@@ -78,3 +78,9 @@ mat-icon {
 .item-sub-header {
     background-color: white;
 }
+
+    /* overflow-wrap: anywhere; */
+    // text-overflow: ellipsis;
+    // text-wrap: nowrap;
+    // max-width: 57px;
+    // overflow: hidden;

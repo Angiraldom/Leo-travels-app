@@ -176,7 +176,7 @@ ul {
         margin: 25px auto 0px;
 
         div {
-            width: 60%;
+            width: 21%;
         }
     }
 
@@ -186,5 +186,15 @@ ul {
 
     .app-header-modules {
         display: block;
+    }
+}
+
+@media only screen and (min-width: 1273px) {
+    .content-image {
+        display: block;
+        width: 21%;
+        position: absolute;
+        left: 73%;
+        top: 90px;
     }
 }

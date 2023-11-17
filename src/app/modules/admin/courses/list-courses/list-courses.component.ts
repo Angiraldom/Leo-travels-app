@@ -13,7 +13,7 @@ import { BaseClass } from 'src/app/core/base.class';
 export class ListCoursesComponent extends BaseClass implements OnInit {;
   private store = inject(Store<AppState>);
 
-  displayedColumns: string[] = ['name', 'description', 'price', 'actions'];
+  displayedColumns: string[] = ['name', 'price', 'actions'];
   dataSource: ICourse[] = [];
 
   ngOnInit(): void {

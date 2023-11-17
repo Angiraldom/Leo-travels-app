@@ -26,10 +26,10 @@
         <div class="grid-two-columns">
             <div class="card flex justify-content-center">
                 <p-calendar [readonlyInput]="true" [minDate]="minDate" [showIcon]="true" [showTime]="true"
-                [showSeconds]="true" formControlName="startDate"></p-calendar>
+                [showSeconds]="true" formControlName="startDate" [appendTo]="'body'"></p-calendar>
             </div>
             <p-calendar [readonlyInput]="true" [minDate]="form.get('startDate')?.value" [showIcon]="true" [showTime]="true"
-                [showSeconds]="true" formControlName="endDate"></p-calendar>
+                [showSeconds]="true" formControlName="endDate" [appendTo]="'body'"></p-calendar>
         </div>
     </div>
 </form>

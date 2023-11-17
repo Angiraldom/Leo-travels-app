@@ -4,67 +4,39 @@
     <div class="menu">
 
       <ng-container *ngIf="displayMenu">
-        <a class="item" (click)="conversionesService.viewContentEvent()" [routerLink]="'/cursos'" routerLinkActive="router-active">
+        <a class="item" (click)="conversionesService.viewContentEvent()" [routerLink]="'/cursos'"
+          routerLinkActive="router-active">
           <span>Cursos</span>
         </a>
-        <a class="item" (click)="conversionesService.viewContentEvent()" [routerLink]="['/kit-viajero']" [routerLinkActive]="'router-active'">
+        <a class="item" (click)="conversionesService.viewContentEvent()" [routerLink]="['/kit-viajero']"
+          [routerLinkActive]="'router-active'">
           <span>Kit viajero</span>
         </a>
-        <a class="item" (click)="conversionesService.viewContentEvent()" [routerLink]="['/quienes-somos']" [routerLinkActive]="'router-active'">
+        <a class="item" (click)="conversionesService.viewContentEvent()" [routerLink]="['/quienes-somos']"
+          [routerLinkActive]="'router-active'">
           <span>¿Quiénes somos?</span>
         </a>
         <a *ngIf="!user" class="item" [routerLink]="'/login'" routerLinkActive="router-active">
           <span>Iniciar sesión</span>
         </a>
-        <a *ngIf="user" class="item" [routerLink]="user.role === 'Cliente' ? '/estudiante/my-courses': '/admin/usuarios'" routerLinkActive="router-active">
+        <a *ngIf="user" class="item"
+          [routerLink]="user.role === 'Cliente' ? '/estudiante/my-courses': '/admin/usuarios'"
+          routerLinkActive="router-active">
           <span>Mi cuenta</span>
         </a>
       </ng-container>
 
       <mat-icon [matBadge]="(store.select('cart') | async).products | totalProducts" matBadgeSize="small"
         matBadgeColor="warn" [matBadgeHidden]="((store.select('cart') | async).products | totalProducts) === 0"
-         (click)="openCart()">
-         shopping_cart
+        (click)="openCart()">
+        shopping_cart
       </mat-icon>
     </div>
   </div>
+
   <div class="container-mobile-menu">
     <div *ngIf="displayMenu">
       <mat-icon matBadgeSize="small" matBadgeColor="warn" (click)="toggleMenu()">menu</mat-icon>
-      <nav class="mobile-menu" [class.open]="isMenuOpen">
-      <ul>
-        <li>
-          <a class="item" routerLink="/home" routerLinkActive="router-active">
-            <span>Inicio</span>
-          </a>
-        </li>
-        <li>
-          <a class="item" (click)="conversionesService.viewContentEvent()" routerLink="/cursos" routerLinkActive="router-active">
-            <span>Cursos</span>
-          </a>
-        </li>
-        <li>
-          <a class="item" (click)="conversionesService.viewContentEvent()" [routerLink]="['/kit-viajero']" [routerLinkActive]="'router-active'">
-            <span>Kit viajero</span>
-          </a>
-        </li>
-        <li>
-          <a class="item" (click)="conversionesService.viewContentEvent()" [routerLink]="['/quienes-somos']" [routerLinkActive]="'router-active'">
-            <span>¿Quiénes somos?</span>
-          </a>
-        </li>
-        <li *ngIf="!user">
-          <a class="item" [routerLink]="'/login'" routerLinkActive="router-active">
-            <span>Iniciar sesión</span>
-          </a>
-        </li>
-        <li *ngIf="user">
-          <a class="item" [routerLink]="user.role === 'Cliente' ? '/estudiante/my-courses': '/admin/usuarios'" routerLinkActive="router-active">
-            <span>Mi cuenta</span>
-          </a>
-        </li>
-      </ul>
-    </nav>
     </div>
     <span class="icon-logo" [routerLink]="['/home']"></span>
     <mat-icon [matBadge]="(store.select('cart') | async).products | totalProducts" matBadgeSize="small"
@@ -126,5 +98,49 @@
       <app-generic-button [nameButton]="'IR A PAGAR'" [sizeButton]="'large'" classButton="class_blue"
         (emitClick)="changeRoute()"></app-generic-button>
     </div>
+  </ng-template>
+</p-sidebar>
+
+
+<p-sidebar [(visible)]="isMenuOpen" position="top" class="menu-p-sidebar">
+  <ng-template pTemplate="content" >
+    <nav class="mobile-menu open">
+      <ul>
+        <li>
+          <a class="item" routerLink="/home" routerLinkActive="router-active">
+            <span>Inicio</span>
+          </a>
+        </li>
+        <li>
+          <a class="item" (click)="conversionesService.viewContentEvent()" routerLink="/cursos"
+            routerLinkActive="router-active">
+            <span>Cursos</span>
+          </a>
+        </li>
+        <li>
+          <a class="item" (click)="conversionesService.viewContentEvent()" [routerLink]="['/kit-viajero']"
+            [routerLinkActive]="'router-active'">
+            <span>Kit viajero</span>
+          </a>
+        </li>
+        <li>
+          <a class="item" (click)="conversionesService.viewContentEvent()" [routerLink]="['/quienes-somos']"
+            [routerLinkActive]="'router-active'">
+            <span>¿Quiénes somos?</span>
+          </a>
+        </li>
+        <li *ngIf="!user">
+          <a class="item" [routerLink]="'/login'" routerLinkActive="router-active">
+            <span>Iniciar sesión</span>
+          </a>
+        </li>
+        <li *ngIf="user">
+          <a class="item" [routerLink]="user.role === 'Cliente' ? '/estudiante/my-courses': '/admin/usuarios'"
+            routerLinkActive="router-active">
+            <span>Mi cuenta</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
   </ng-template>
 </p-sidebar>

@@ -11,58 +11,71 @@
             </ng-container>
          </p>
     </div>
-    <div class="titles-transaction">
-        <p class="bold">Datos del cliente</p>
-        <p class="bold">Datos de envío</p>
-    </div>
-    <div class="columns-2">
-        <p> 
-            <span class="bold">
-                Nombre:
-            </span> 
-            {{data.user.name}} 
-        </p>
-        <p> 
-            <span class="bold" *ngIf="data.shippingAdress">
-                Departamento:
-            </span> 
-            {{data.shippingAdress?.department}} 
-        </p>
-        <p> 
-            <span class="bold">
-                Documento:
-            </span> 
-            {{data.user.numberDocument}} 
-        </p>
-        <p> 
-            <span class="bold" *ngIf="data.shippingAdress">
-                Dirección:
-            </span> 
-            {{data.shippingAdress?.adress}} 
-        </p>
-        <p> 
-            <span class="bold">
-                Correo:
-            </span> 
-            {{data.user.email}}
-        </p>
-        <p> 
-            <span class="bold" *ngIf="data.shippingAdress">
-                Ciudad:
-            </span> 
-            {{data.shippingAdress?.city}} 
-        </p>
-        <p> 
-            <span class="bold">
-                Celular:
-            </span> 
-            {{data.user.phone}} 
-        </p>
-        <p> 
-            <span class="bold" *ngIf="data.shippingAdress">
-                Más:
-            </span> 
-            {{data.shippingAdress?.adressEspecification}} 
-        </p>
+
+
+    <div class="data-transaction">
+        <div class="content-data">
+            <div class="titles-transaction">
+                <p class="bold">Datos del cliente</p>
+            </div>
+            <div>
+                <p> 
+                    <span class="bold">
+                        Nombre:
+                    </span> 
+                    {{data.user.name}} 
+                </p>
+                <p> 
+                    <span class="bold">
+                        Documento:
+                    </span> 
+                    {{data.user.numberDocument}} 
+                </p>
+                <p> 
+                    <span class="bold">
+                        Correo:
+                    </span> 
+                    {{data.user.email}}
+                </p>
+                <p> 
+                    <span class="bold">
+                        Celular:
+                    </span> 
+                    {{data.user.phone}} 
+                </p>
+            </div>
+        </div>
+        <div class="content-data">
+            <div class="titles-transaction">
+                <p class="bold">Datos de envío</p>
+            </div>
+            <div>
+
+                <p> 
+                    <span class="bold" *ngIf="data.shippingAdress">
+                        Departamento:
+                    </span> 
+                    {{data.shippingAdress?.department}} 
+                </p>
+                <p> 
+                    <span class="bold" *ngIf="data.shippingAdress">
+                        Ciudad:
+                    </span> 
+                    {{data.shippingAdress?.city}} 
+                </p>
+                <p> 
+                    <span class="bold" *ngIf="data.shippingAdress">
+                        Dirección:
+                    </span> 
+                    {{data.shippingAdress?.adress}} 
+                </p>
+                <p> 
+                    <span class="bold" *ngIf="data.shippingAdress">
+                        Más:
+                    </span> 
+                    {{data.shippingAdress?.adressEspecification}} 
+                </p>
+            </div>
+        </div>
     </div>
 </div>

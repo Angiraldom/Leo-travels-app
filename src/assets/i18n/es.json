@@ -3,7 +3,7 @@
         "form": {
             "name": "Producto",
             "description": "Descripción",
-            "price": "Precio",
+            "price": "Total",
             "discount": "Descuento",
             "weight": "Peso",
             "broad": "Ancho",
@@ -12,7 +12,7 @@
             "priceWithoutTaxes": "Valor",
             "taxes": "IVA",
             "moduls": {
-                "name": "Modulo",
+                "name": "Módulo",
                 "clase": "Clase",
                 "url": "Url"
             }

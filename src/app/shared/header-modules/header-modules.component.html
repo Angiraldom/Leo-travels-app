@@ -1,10 +1,22 @@
-<div class="title">
-    <div>
-        <h2>{{title}}</h2>
-        <p [innerHTML]="description"></p>
+<div class="content-header-modules">
+    <div class="title">
+        <div>
+            <h2>{{title}}</h2>
+            <p class="description" [innerHTML]="description"></p>
+        </div>
+    
+        <button mat-raised-button color="primary" *ngIf="!removeButton" (click)="onHandleClick()">
+            Crear
+        </button>
     </div>
-
-    <button mat-raised-button color="primary" *ngIf="!removeButton" (click)="onHandleClick()">
-        Crear
-    </button>
+    <form class="search" *ngIf="fields.length !== 0 && fields" [formGroup]="formFilter">
+        <span class="p-input-icon-left">
+            <i class="pi pi-search"></i>
+            <input type="text" pInputText formControlName="valueFilter" placeholder="Buscar" class="p-inputtext-sm" />
+        </span>
+    
+        <p-dropdown class="p-inputtext-sm" [options]="fields" [showClear]="false"
+        optionLabel="fieldName" optionValue="field" formControlName="fieldFilter"
+        placeholder="Filtrar por"></p-dropdown>
+    </form>
 </div>
