@@ -48,7 +48,7 @@ export class AuthService extends BaseService {
     this.clearStorage();
     this.store.dispatch(clearCart());
     this.store.dispatch(clearProfile());
-    this.router.navigate(['home']);
+    this.router.navigate(['']);
   }
 
   clearStorage() {

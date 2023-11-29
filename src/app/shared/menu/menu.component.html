@@ -1,6 +1,6 @@
 <header>
   <div class="container-desktop-menu">
-    <span class="icon-logo" [routerLink]="['/home']"></span>
+    <span class="icon-logo" [routerLink]="['']"></span>
     <div class="menu">
 
       <ng-container *ngIf="displayMenu">
@@ -38,7 +38,7 @@
     <div *ngIf="displayMenu">
       <mat-icon matBadgeSize="small" matBadgeColor="warn" (click)="toggleMenu()">menu</mat-icon>
     </div>
-    <span class="icon-logo" [routerLink]="['/home']"></span>
+    <span class="icon-logo" [routerLink]="['']"></span>
     <mat-icon [matBadge]="(store.select('cart') | async).products | totalProducts" matBadgeSize="small"
       matBadgeColor="warn" (click)="openCart()"
       [matBadgeHidden]="((store.select('cart') | async).products | totalProducts) === 0">
@@ -107,7 +107,7 @@
     <nav class="mobile-menu open">
       <ul>
         <li>
-          <a class="item" routerLink="/home" routerLinkActive="router-active">
+          <a class="item" routerLink="" routerLinkActive="router-active">
             <span>Inicio</span>
           </a>
         </li>

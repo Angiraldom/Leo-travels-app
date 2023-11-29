@@ -24,6 +24,6 @@ export class GratitudeKitComponent {
   }
   
   changeRoute() {
-    this.router.navigate(['home']);
+    this.router.navigate(['']);
   }
 }
