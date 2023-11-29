@@ -16,6 +16,7 @@ import { appReducers } from './store/app.reducer';
 import { effectsArray } from './store/effects';
 import { ErrorInterceptor } from './core/interceptors/error.interceptor';
 import { TokenInterceptor } from './core/interceptors/token.interceptor';
+import {LocationStrategy, PathLocationStrategy} from "@angular/common";
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -53,6 +54,10 @@ export function createTranslateLoader(http: HttpClient) {
     provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptor,
     multi: true
+  },
+  {
+    provide: LocationStrategy,
+    useClass: PathLocationStrategy
   }],
   bootstrap: [AppComponent],
 })
