@@ -16,7 +16,7 @@
           [routerLinkActive]="'router-active'">
           <span>¿Quiénes somos?</span>
         </a>
-        <a *ngIf="!user" class="item" [routerLink]="'/login'" routerLinkActive="router-active">
+        <a *ngIf="!user" class="item" [routerLink]="'/iniciar-sesion'" routerLinkActive="router-active">
           <span>Iniciar sesión</span>
         </a>
         <a *ngIf="user" class="item"
@@ -130,7 +130,7 @@
           </a>
         </li>
         <li *ngIf="!user">
-          <a class="item" [routerLink]="'/login'" routerLinkActive="router-active">
+          <a class="item" [routerLink]="'/iniciar-sesion'" routerLinkActive="router-active">
             <span>Iniciar sesión</span>
           </a>
         </li>

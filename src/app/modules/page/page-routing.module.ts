@@ -52,6 +52,16 @@ const routes: Routes = [
     loadComponent: () =>
       import('./watch-free-class-z/watch-free-class-z.component'),
   },
+  {
+    path: 'login',
+    redirectTo: 'iniciar-sesion',
+    pathMatch: 'full',
+  },
+  {
+    path: '**',
+    redirectTo: '',
+    pathMatch: 'full',
+  },
 ];
 
 @NgModule({

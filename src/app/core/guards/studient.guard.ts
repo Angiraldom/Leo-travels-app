@@ -6,7 +6,7 @@ export const studientGuardFn: CanActivateFn = () => {
   const token = localStorage.getItem('token');
 
   if (!token) {
-    router.navigate(['login']);
+    router.navigate(['iniciar-sesion']);
     return false;
   }
   return true;

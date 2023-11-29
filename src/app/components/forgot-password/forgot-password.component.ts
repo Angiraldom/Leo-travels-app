@@ -32,7 +32,7 @@ export default class ForgotPasswordComponent {
       next: () => {
         this.messageService.succesMessage('info.confirmEmailPassword');
         this.form.reset();
-        this.router.navigateByUrl('login');
+        this.router.navigateByUrl('iniciar-sesion');
       },
     });
   }
