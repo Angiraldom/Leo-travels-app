@@ -57,11 +57,6 @@ const routes: Routes = [
     redirectTo: 'iniciar-sesion',
     pathMatch: 'full',
   },
-  {
-    path: '**',
-    redirectTo: '',
-    pathMatch: 'full',
-  },
 ];
 
 @NgModule({
