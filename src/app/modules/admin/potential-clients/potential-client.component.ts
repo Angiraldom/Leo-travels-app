@@ -9,7 +9,7 @@ import { BaseClass } from 'src/app/core/base.class';
 export class PotentialClientComponent extends BaseClass implements OnInit {
   user: [] = [];
 
-  displayedColumns: string[] = ['name', 'email', 'createdAt'];
+  displayedColumns: string[] = ['createdAt', 'name', 'email' ];
   dataSource: any;
 
   ngOnInit(): void {
