@@ -11,7 +11,7 @@ export const adminGuardFn: CanActivateFn = () => {
   const token = localStorage.getItem('token');
 
   if (!token) {
-    router.navigate(['login']);
+    router.navigate(['iniciar-sesion']);
     return false;
   }
 
@@ -21,7 +21,7 @@ export const adminGuardFn: CanActivateFn = () => {
       if (user.role === 'Admin') {
         return true;
       } else {
-        router.navigate(['login']);
+        router.navigate(['iniciar-sesion']);
         return false;
       }
     })

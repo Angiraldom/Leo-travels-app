@@ -62,7 +62,7 @@ export default class ResponseTransactionComponent implements OnInit {
       this.showGratitudCourse = buyCourseResponse[buyCourse];
       this.getStatusTransaction();
     } else {
-      this.router.navigate(['home']);
+      this.router.navigate(['']);
     }
   }
 
@@ -86,7 +86,7 @@ export default class ResponseTransactionComponent implements OnInit {
 
   handleResponse(res: any) {
     if (!res.success) {
-      this.router.navigate(['home']);
+      this.router.navigate(['']);
     } else if (res.data.x_response === 'Aceptada' || res.data.x_response === 'Pendiente') {
       this.clearData();
     } else {

@@ -6,10 +6,10 @@ import { studientGuardFn } from './core/guards/studient.guard';
 
 const routes: Routes = [
   {
-    path: 'login',
+    path: 'iniciar-sesion',
     canActivate: [redirectLoginGuardFn],
     loadComponent: () => import('./components/login/login.component'),
-    title: 'Login',
+    title: 'Iniciar sesión',
   },
   {
     path: 'forgot-password',
@@ -69,6 +69,11 @@ const routes: Routes = [
     canActivate: [studientGuardFn],
     loadChildren: () =>
       import('./modules/student/student.module').then((m) => m.StudentModule),
+  },
+  {
+    path: 'login',
+    redirectTo: 'iniciar-sesion',
+    pathMatch: 'full',
   },
   {
     path: '**',

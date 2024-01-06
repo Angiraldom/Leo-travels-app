@@ -44,7 +44,7 @@ export default class ChangePasswordComponent implements OnInit, OnDestroy {
     this.$activatedRoute = this.activatedRoute.queryParamMap.subscribe((params) => {
       const token = params.get('token');
       if (!token) {
-        this.router.navigateByUrl('login');
+        this.router.navigateByUrl('iniciar-sesion');
       } else {
         this.token = token;
       }
@@ -64,7 +64,7 @@ export default class ChangePasswordComponent implements OnInit, OnDestroy {
       next: () => {
         this.mesaggeService.succesMessage('succes.passwordChanged');
         this.form.reset();
-        this.router.navigateByUrl('login');
+        this.router.navigateByUrl('iniciar-sesion');
       }
     });
   }

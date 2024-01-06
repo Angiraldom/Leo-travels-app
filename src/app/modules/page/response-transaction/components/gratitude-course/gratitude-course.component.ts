@@ -27,6 +27,6 @@ export class GratitudeCourseComponent {
   }
 
   changeRoute() {
-    this.router.navigate(['home']);
+    this.router.navigate(['']);
   }
 }

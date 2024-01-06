@@ -23,9 +23,14 @@ const routes: Routes = [
       import('./purchase/purchase.module').then((m) => m.PurchaseModule),
   },
   {
-    path:'home',
+    path:'inicio',
     loadChildren:() =>
     import('./home/home.module').then((m)=> m.HomeModule)
+  },
+  {
+    path:'',
+    loadChildren:() =>
+      import('./home/home.module').then((m)=> m.HomeModule)
   },
   {
     path:'quienes-somos',
@@ -48,8 +53,8 @@ const routes: Routes = [
       import('./watch-free-class-z/watch-free-class-z.component'),
   },
   {
-    path: '',
-    redirectTo: 'home',
+    path: 'login',
+    redirectTo: 'iniciar-sesion',
     pathMatch: 'full',
   },
 ];

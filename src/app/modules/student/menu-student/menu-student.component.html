@@ -1,5 +1,5 @@
 <mat-toolbar color="primary">
-  <span class="icon-logo" [routerLink]="['/home']"></span>
+  <span class="icon-logo" [routerLink]="['']"></span>
   <div class="content-info">
     <button mat-mini-fab aria-label="Example mini fab with a heart icon"
       (click)="op.toggle($event); seenNotifications()">
@@ -19,7 +19,7 @@
   <ng-template pTemplate="header"> Volver al sitio web: </ng-template>
   <ng-template pTemplate="content">
     <div class="second-menu">
-      <p routerLink="/home" class="pointer bold" routerLinkActive="router-active">
+      <p routerLink="" class="pointer bold" routerLinkActive="router-active">
         < Inicio</p>
           <p routerLink="/cursos" class="pointer bold" routerLinkActive="router-active">
             < Cursos</p>
